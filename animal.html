@@ -1,0 +1,148 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildAtlas | Animals Encyclopedia</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial, Helvetica, sans-serif}
+body{background:#ffffff;color:#222;line-height:1.6}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 8%;border-bottom:1px solid #eee}
+.logo{font-size:26px;font-weight:700;color:#1b5e20}
+nav a{margin:0 15px;text-decoration:none;color:#333;font-weight:500}
+nav a:hover{color:#1b5e20}
+
+.hero{padding:70px 8%;text-align:center;background:#f4f7f4}
+.hero h1{font-size:42px;margin-bottom:15px}
+.hero p{color:#555;font-size:18px}
+
+.section{padding:60px 8%}
+.section h2{margin-bottom:25px;font-size:30px}
+
+.search-bar{margin-bottom:40px;text-align:center}
+.search-bar input{width:320px;padding:12px;border:1px solid #ccc;border-radius:6px}
+
+.animal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+
+.animal-card{border:1px solid #eee;border-radius:12px;overflow:hidden;background:white;transition:0.25s}
+.animal-card:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(0,0,0,0.08)}
+
+.animal-card img{width:100%;height:160px;object-fit:cover}
+
+.animal-card-content{padding:16px}
+
+.animal-card-content h3{margin-bottom:6px;font-size:18px}
+
+.animal-card-content span{color:#777;font-size:13px;font-style:italic}
+
+.fact-box{margin-top:10px;font-size:13px;color:#555}
+
+footer{padding:40px 8%;border-top:1px solid #eee;margin-top:60px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">WildAtlas</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="#">Mountains</a>
+<a href="#">Habitats</a>
+<a href="#">Blog</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Animals of the World</h1>
+<p>Explore wildlife species, their scientific names, habitats, and fascinating facts.</p>
+</section>
+
+<section class="section">
+
+<div class="search-bar">
+<input type="text" placeholder="Search animals...">
+</div>
+
+<h2>Mammals</h2>
+<div class="animal-grid">
+
+<div class="animal-card">
+<img src="https://images.unsplash.com/photo-1552410260-0fd9b577afa6">
+<div class="animal-card-content">
+<h3>Snow Leopard</h3>
+<span>Panthera uncia</span>
+<div class="fact-box">Habitat: Mountain ranges of Central Asia</div>
+</div>
+</div>
+
+<div class="animal-card">
+<img src="https://images.unsplash.com/photo-1508817628294-5a453fa0b8a6">
+<div class="animal-card-content">
+<h3>Red Panda</h3>
+<span>Ailurus fulgens</span>
+<div class="fact-box">Habitat: Himalayan forests</div>
+</div>
+</div>
+
+<div class="animal-card">
+<img src="https://images.unsplash.com/photo-1508675801627-066ac4346a8f">
+<div class="animal-card-content">
+<h3>Polar Bear</h3>
+<span>Ursus maritimus</span>
+<div class="fact-box">Habitat: Arctic sea ice</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+<h2>Birds</h2>
+<div class="animal-grid">
+
+<div class="animal-card">
+<img src="https://images.unsplash.com/photo-1501706362039-c6e80948b3c4">
+<div class="animal-card-content">
+<h3>Bald Eagle</h3>
+<span>Haliaeetus leucocephalus</span>
+<div class="fact-box">Habitat: North America</div>
+</div>
+</div>
+
+<div class="animal-card">
+<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9">
+<div class="animal-card-content">
+<h3>Owl</h3>
+<span>Strigiformes</span>
+<div class="fact-box">Habitat: Forests worldwide</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>Reptiles</h2>
+<div class="animal-grid">
+
+<div class="animal-card">
+<img src="https://images.unsplash.com/photo-1599493356238-8f3d6a3c0c17">
+<div class="animal-card-content">
+<h3>Komodo Dragon</h3>
+<span>Varanus komodoensis</span>
+<div class="fact-box">Habitat: Indonesian islands</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 WildAtlas — Wildlife Encyclopedia</p>
+</footer>
+
+</body>
+</html>
