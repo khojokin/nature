@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WildAtlas Admin</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial, Helvetica, sans-serif}
+body{background:#f8faf8;color:#222;padding:40px 8%}
+
+.container{
+max-width:900px;
+margin:auto;
+background:#fff;
+padding:30px;
+border-radius:16px;
+box-shadow:0 8px 24px rgba(0,0,0,0.06)
+}
+
+h1{
+margin-bottom:10px;
+color:#1b5e20
+}
+
+p{
+color:#666;
+margin-bottom:25px
+}
+
+label{
+display:block;
+margin:18px 0 8px;
+font-weight:600
+}
+
+input, textarea{
+width:100%;
+padding:14px;
+border:1px solid #ddd;
+border-radius:10px;
+outline:none;
+font-size:15px
+}
+
+textarea{
+min-height:120px;
+resize:vertical
+}
+
+.actions{
+margin-top:25px;
+display:flex;
+gap:12px;
+flex-wrap:wrap
+}
+
+button{
+padding:13px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:600
+}
+
+.save-btn{
+background:#1b5e20;
+color:#fff
+}
+
+.clear-btn{
+background:#eee;
+color:#222
+}
+
+.note{
+margin-top:18px;
+font-size:14px;
+color:#777
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>WildAtlas Admin</h1>
+<p>Paste your documentary here and publish it to the homepage.</p>
+
+<label for="date">Date</label>
+<input type="text" id="date" placeholder="March 15, 2026">
+
+<label for="title">Title</label>
+<input type="text" id="title" placeholder="The Snow Leopard: Ghost of the Mountains">
+
+<label for="img1">Image 1 URL</label>
+<input type="text" id="img1" placeholder="https://...">
+
+<label for="text1">Paragraph 1</label>
+<textarea id="text1" placeholder="Write first paragraph..."></textarea>
+
+<label for="img2">Image 2 URL</label>
+<input type="text" id="img2" placeholder="https://...">
+
+<label for="text2">Paragraph 2</label>
+<textarea id="text2" placeholder="Write second paragraph..."></textarea>
+
+<label for="img3">Image 3 URL</label>
+<input type="text" id="img3" placeholder="https://...">
+
+<label for="text3">Paragraph 3</label>
+<textarea id="text3" placeholder="Write third paragraph..."></textarea>
+
+<div class="actions">
+<button class="save-btn" onclick="saveDocumentary()">Publish Documentary</button>
+<button class="clear-btn" onclick="clearDocumentary()">Clear Saved Documentary</button>
+</div>
+
+<div class="note">
+This version saves to your browser using localStorage.
+</div>
+</div>
+
+<script>
+function saveDocumentary() {
+  const documentary = {
+    date: document.getElementById("date").value,
+    title: document.getElementById("title").value,
+    img1: document.getElementById("img1").value,
+    text1: document.getElementById("text1").value,
+    img2: document.getElementById("img2").value,
+    text2: document.getElementById("text2").value,
+    img3: document.getElementById("img3").value,
+    text3: document.getElementById("text3").value
+  };
+
+  localStorage.setItem("wildatlasDocumentary", JSON.stringify(documentary));
+  alert("Documentary published successfully.");
+}
+
+function clearDocumentary() {
+  localStorage.removeItem("wildatlasDocumentary");
+  alert("Saved documentary removed.");
+}
+</script>
+
+</body>
+</html>
