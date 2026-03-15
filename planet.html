@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WildAtlas | Planets</title>
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#ffffff;
+      color:#222;
+      line-height:1.6;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      border-bottom:1px solid #eee;
+      background:#fff;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:26px;
+      font-weight:700;
+      color:#1b5e20;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#333;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#1b5e20;
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .search-box input{
+      padding:10px 14px;
+      border:1px solid #ccc;
+      border-radius:25px;
+      outline:none;
+      width:180px;
+    }
+
+    .btn{
+      padding:10px 18px;
+      border:none;
+      border-radius:25px;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-login{
+      background:#f1f1f1;
+      color:#222;
+    }
+
+    .btn-signup{
+      background:#1b5e20;
+      color:#fff;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .hero{
+      background:linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      color:#fff;
+      text-align:center;
+      padding:110px 8%;
+    }
+
+    .hero h1{
+      font-size:50px;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      max-width:760px;
+      margin:auto;
+      font-size:18px;
+      color:#f2f2f2;
+    }
+
+    .section{
+      padding:70px 8%;
+    }
+
+    .section h2{
+      font-size:34px;
+      text-align:center;
+      color:#1b5e20;
+      margin-bottom:14px;
+    }
+
+    .section-intro{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 45px;
+      color:#666;
+    }
+
+    .feature-banner{
+      background:linear-gradient(135deg, #edf7ed, #dff1df);
+      border:1px solid #cfe5cf;
+      border-radius:18px;
+      padding:30px;
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .feature-banner h3{
+      color:#1b5e20;
+      font-size:28px;
+      margin-bottom:10px;
+    }
+
+    .feature-banner p{
+      color:#444;
+      max-width:800px;
+      margin:0 auto;
+    }
+
+    .planet-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:25px;
+    }
+
+    .planet-card{
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .planet-card:hover{
+      transform:translateY(-6px);
+    }
+
+    .planet-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .planet-content{
+      padding:22px;
+    }
+
+    .tag{
+      display:inline-block;
+      background:#e8f5e9;
+      color:#1b5e20;
+      padding:6px 12px;
+      border-radius:20px;
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:12px;
+    }
+
+    .planet-content h3{
+      font-size:22px;
+      margin-bottom:10px;
+    }
+
+    .planet-content p{
+      color:#666;
+      margin-bottom:16px;
+    }
+
+    .read-more{
+      text-decoration:none;
+      color:#1b5e20;
+      font-weight:700;
+    }
+
+    .info-section{
+      background:#f4f7f4;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:25px;
+    }
+
+    .info-box{
+      background:#fff;
+      padding:25px;
+      border-radius:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.05);
+      text-align:center;
+    }
+
+    .info-box h3{
+      color:#1b5e20;
+      margin-bottom:10px;
+      font-size:22px;
+    }
+
+    .info-box p{
+      color:#666;
+    }
+
+    .explore-strip{
+      background:linear-gradient(135deg, #f6fbf6, #ebf5eb);
+      border-radius:20px;
+      padding:35px;
+      text-align:center;
+    }
+
+    .explore-strip h3{
+      color:#1b5e20;
+      font-size:30px;
+      margin-bottom:10px;
+    }
+
+    .explore-strip p{
+      color:#555;
+      max-width:720px;
+      margin:0 auto 18px;
+    }
+
+    .explore-strip a{
+      display:inline-block;
+      padding:12px 22px;
+      background:#1b5e20;
+      color:#fff;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:600;
+    }
+
+    .newsletter{
+      background:#f4f7f4;
+      text-align:center;
+      padding:70px 8%;
+    }
+
+    .newsletter h2{
+      font-size:34px;
+      color:#1b5e20;
+      margin-bottom:12px;
+    }
+
+    .newsletter p{
+      color:#555;
+      max-width:650px;
+      margin:0 auto 24px;
+    }
+
+    .newsletter form{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .newsletter input{
+      padding:14px 16px;
+      width:320px;
+      max-width:100%;
+      border:1px solid #ccc;
+      border-radius:30px;
+      outline:none;
+    }
+
+    .newsletter button{
+      padding:14px 24px;
+      border:none;
+      border-radius:30px;
+      background:#1b5e20;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    footer{
+      background:#111;
+      color:#ddd;
+      padding:60px 8% 25px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:30px;
+      margin-bottom:35px;
+    }
+
+    .footer-col h3{
+      color:#fff;
+      margin-bottom:15px;
+      font-size:20px;
+    }
+
+    .footer-col p{
+      color:#bbb;
+    }
+
+    .footer-col a{
+      display:block;
+      color:#bbb;
+      text-decoration:none;
+      margin-bottom:10px;
+      transition:0.3s;
+    }
+
+    .footer-col a:hover{
+      color:#fff;
+    }
+
+    .footer-bottom{
+      border-top:1px solid #2a2a2a;
+      padding-top:20px;
+      text-align:center;
+      color:#999;
+      font-size:14px;
+    }
+
+    @media (max-width:768px){
+      header{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav{
+        justify-content:center;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .search-box input{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">WildAtlas</div>
+
+    <nav>
+      <a href="nature.html">Home</a>
+      <a href="#">Animals</a>
+      <a href="#">Mountains</a>
+      <a href="#">Planets</a>
+      <a href="#">Nature Articles</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="search-box">
+        <input type="text" placeholder="Search planets..." />
+      </div>
+      <button class="btn btn-login">Log In</button>
+      <button class="btn btn-signup">Sign Up</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Explore the Wonders of Planets</h1>
+    <p>
+      Journey beyond Earth and discover the beauty, mystery, and science behind the planets that make up our solar system and beyond.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="feature-banner">
+      <h3>The Planetary World</h3>
+      <p>
+        From rocky inner worlds to giant gas planets, every planet has its own unique story, atmosphere, surface, and secrets waiting to be explored.
+      </p>
+    </div>
+
+    <h2>Featured Planets</h2>
+    <p class="section-intro">
+      Learn about fascinating worlds, their environments, and what makes each one different in the grand structure of space.
+    </p>
+
+    <div class="planet-grid">
+      <div class="planet-card">
+        <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=1000&q=80" alt="Mercury">
+        <div class="planet-content">
+          <span class="tag">Rocky Planet</span>
+          <h3>Mercury</h3>
+          <p>
+            Mercury is the closest planet to the Sun, known for its cratered surface, extreme temperatures, and fast orbit.
+          </p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+
+      <div class="planet-card">
+        <img src="https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?auto=format&fit=crop&w=1000&q=80" alt="Venus">
+        <div class="planet-content">
+          <span class="tag">Hottest Planet</span>
+          <h3>Venus</h3>
+          <p>
+            Venus is wrapped in thick clouds and has a scorching atmosphere, making it the hottest planet in the solar system.
+          </p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+
+      <div class="planet-card">
+        <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1000&q=80" alt="Earth">
+        <div class="planet-content">
+          <span class="tag">Home World</span>
+          <h3>Earth</h3>
+          <p>
+            Earth is the only known planet to support life, with oceans, forests, mountains, weather systems, and rich biodiversity.
+          </p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+
+      <div class="planet-card">
+        <img src="https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?auto=format&fit=crop&w=1000&q=80" alt="Mars">
+        <div class="planet-content">
+          <span class="tag">Red Planet</span>
+          <h3>Mars</h3>
+          <p>
+            Mars is famous for its reddish surface, giant volcanoes, dusty storms, and the possibility that water once flowed there.
+          </p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+
+      <div class="planet-card">
+        <img src="https://images.unsplash.com/photo-1614314107768-6018061b5b72?auto=format&fit=crop&w=1000&q=80" alt="Jupiter">
+        <div class="planet-content">
+          <span class="tag">Gas Giant</span>
+          <h3>Jupiter</h3>
+          <p>
+            Jupiter is the largest planet, known for its powerful storms, many moons, and the iconic Great Red Spot.
+          </p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+
+      <div class="planet-card">
+        <img src="https://images.unsplash.com/photo-1614732484003-ef9881555dc3?auto=format&fit=crop&w=1000&q=80" alt="Saturn">
+        <div class="planet-content">
+          <span class="tag">Ringed Planet</span>
+          <h3>Saturn</h3>
+          <p>
+            Saturn is admired for its beautiful ring system and massive size, making it one of the most visually striking planets.
+          </p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section info-section">
+    <h2>Planet Facts</h2>
+    <p class="section-intro">
+      Space is full of incredible planetary features, from intense storms to frozen rings and massive magnetic fields.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h3>Rocky Worlds</h3>
+        <p>
+          Mercury, Venus, Earth, and Mars are rocky planets with solid surfaces and diverse geological features.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h3>Gas Giants</h3>
+        <p>
+          Jupiter and Saturn are made mostly of gas and are much larger than the rocky inner planets.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h3>Ice Giants</h3>
+        <p>
+          Uranus and Neptune are colder outer planets with icy compositions, strong winds, and deep blue colors.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h3>Moons & Rings</h3>
+        <p>
+          Several planets have moons, rings, and fascinating systems that add even more beauty to planetary science.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="explore-strip">
+      <h3>Discover More Cosmic Worlds</h3>
+      <p>
+        Keep exploring planets, moons, stars, and the mysteries of deep space through the WildAtlas universe section.
+      </p>
+      <a href="#">Explore Space Articles</a>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Get New Space Stories</h2>
+    <p>
+      Subscribe for updates on planets, space discoveries, astronomy features, and breathtaking cosmic stories.
+    </p>
+    <form>
+      <input type="email" placeholder="Enter your email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>WildAtlas</h3>
+        <p>
+          Explore nature, wildlife, mountains, and now the beauty of planets and the wider universe.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <a href="#">Animals</a>
+        <a href="#">Mountains</a>
+        <a href="#">Planets</a>
+        <a href="#">Nature Articles</a>
+        <a href="#">Oceans</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Community</h3>
+        <a href="#">Sign Up</a>
+        <a href="#">Log In</a>
+        <a href="#">Newsletter</a>
+        <a href="#">Featured Stories</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Help Center</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 WildAtlas. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

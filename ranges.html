@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildAtlas | Mountain Ranges</title>
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial, Helvetica, sans-serif
+}
+
+body{
+background:#ffffff;
+color:#222;
+line-height:1.7
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 8%;
+border-bottom:1px solid #eee;
+background:white;
+position:sticky;
+top:0;
+z-index:1000
+}
+
+.logo{
+font-size:26px;
+font-weight:700;
+color:#1b5e20
+}
+
+nav a{
+margin:0 15px;
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s
+}
+
+nav a:hover,
+nav a.active{
+color:#1b5e20
+}
+
+/* HERO */
+
+.hero{
+padding:90px 8%;
+text-align:center;
+background:#f4f7f4
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:15px
+}
+
+.hero p{
+color:#555;
+font-size:18px;
+max-width:720px;
+margin:auto
+}
+
+/* SECTION */
+
+.section{
+padding:70px 8%;
+max-width:1200px;
+margin:auto
+}
+
+.section h2{
+margin-bottom:30px;
+font-size:30px
+}
+
+/* SEARCH */
+
+.search-bar{
+margin-bottom:45px;
+text-align:center
+}
+
+.search-bar input{
+width:360px;
+padding:13px;
+border:1px solid #ddd;
+border-radius:8px;
+outline:none;
+transition:0.3s
+}
+
+.search-bar input:focus{
+border-color:#1b5e20
+}
+
+/* FEATURE */
+
+.feature-box{
+max-width:900px;
+margin:auto
+}
+
+.feature-box p{
+margin-bottom:18px;
+color:#444
+}
+
+/* RANGE CARDS */
+
+.range-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px
+}
+
+.range-card{
+border:1px solid #eee;
+border-radius:14px;
+overflow:hidden;
+background:white;
+transition:0.3s;
+box-shadow:0 4px 12px rgba(0,0,0,0.03)
+}
+
+.range-card:hover{
+transform:translateY(-8px);
+box-shadow:0 12px 24px rgba(0,0,0,0.08)
+}
+
+.range-card img{
+width:100%;
+height:190px;
+object-fit:cover
+}
+
+.range-card-content{
+padding:20px
+}
+
+.range-card-content h3{
+font-size:20px;
+margin-bottom:8px
+}
+
+.range-card-content span{
+display:block;
+font-size:13px;
+color:#777;
+font-style:italic;
+margin-bottom:10px
+}
+
+.fact-box{
+font-size:14px;
+color:#555
+}
+
+/* INFO STRIP */
+
+.info-strip{
+margin-top:60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px
+}
+
+.info-item{
+background:#f4f7f4;
+padding:24px;
+border-radius:14px
+}
+
+.info-item h4{
+font-size:18px;
+margin-bottom:10px;
+color:#1b5e20
+}
+
+.info-item p{
+font-size:14px;
+color:#555
+}
+
+/* FOOTER */
+
+footer{
+background:#f4f7f4;
+margin-top:80px;
+padding:60px 8%
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:40px
+}
+
+.footer-logo{
+font-size:22px;
+font-weight:bold;
+color:#1b5e20;
+margin-bottom:10px
+}
+
+.footer-column h4{
+margin-bottom:15px
+}
+
+.footer-column a{
+display:block;
+text-decoration:none;
+color:#555;
+margin-bottom:10px;
+transition:0.25s
+}
+
+.footer-column a:hover{
+color:#1b5e20;
+padding-left:4px
+}
+
+.footer-bottom{
+margin-top:40px;
+border-top:1px solid #ddd;
+padding-top:20px;
+text-align:center;
+color:#777;
+font-size:14px
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">WildAtlas</div>
+
+<nav>
+<a href="ranges.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="mountain.html">Mountains</a>
+<a href="ranges.html" class="active">Ranges</a>
+<a href="blog.html">Blog</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Mountain Ranges of the World</h1>
+<p>Explore the great mountain systems that shape continents, influence climate, and inspire adventure across the globe.</p>
+</section>
+
+<section class="section">
+
+<div class="search-bar">
+<input type="text" placeholder="Search mountain ranges...">
+</div>
+
+<h2>Featured Range</h2>
+
+<div class="feature-box">
+
+<div style="color:#1b5e20;font-weight:bold;margin-bottom:15px">
+March 15, 2026
+</div>
+
+<h3 style="font-size:32px;margin-bottom:20px">
+The Himalayas — Home of the Highest Peaks
+</h3>
+
+<p>
+The Himalayas are the highest mountain range in the world, stretching across several countries including Nepal, India, Bhutan, China, and Pakistan.
+<img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80" style="width:250px;height:250px;object-fit:cover;border-radius:10px;float:right;margin:10px 0 10px 20px;">
+This vast range contains many of Earth’s tallest mountains, including Mount Everest, and plays a major role in shaping weather patterns across Asia.
+</p>
+
+<p>
+Formed by the collision of tectonic plates, the Himalayas continue to rise slowly over time. Their glaciers feed important river systems that provide water to millions of people.
+</p>
+
+<p>
+<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80" style="width:250px;height:250px;object-fit:cover;border-radius:10px;float:left;margin:10px 20px 10px 0;">
+Beyond their physical scale, the Himalayas are also rich in culture, spirituality, and biodiversity. Remote valleys, alpine forests, and snow-covered summits make them one of the most extraordinary natural regions in the world.
+</p>
+
+<div style="clear:both"></div>
+</div>
+
+</section>
+
+<section class="section">
+<h2>Major Mountain Ranges</h2>
+
+<div class="range-grid">
+
+<div class="range-card">
+<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80">
+<div class="range-card-content">
+<h3>Himalayas</h3>
+<span>Asia</span>
+<div class="fact-box">Home to Mount Everest and many of the highest peaks on Earth.</div>
+</div>
+</div>
+
+<div class="range-card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80">
+<div class="range-card-content">
+<h3>Andes</h3>
+<span>South America</span>
+<div class="fact-box">The longest continental mountain range in the world, stretching along the western edge of South America.</div>
+</div>
+</div>
+
+<div class="range-card">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80">
+<div class="range-card-content">
+<h3>Rocky Mountains</h3>
+<span>North America</span>
+<div class="fact-box">A vast mountain system known for dramatic peaks, forests, and national parks.</div>
+</div>
+</div>
+
+<div class="range-card">
+<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80">
+<div class="range-card-content">
+<h3>Alps</h3>
+<span>Europe</span>
+<div class="fact-box">Famous for snowy summits, alpine villages, and outdoor adventure across central Europe.</div>
+</div>
+</div>
+
+<div class="range-card">
+<img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80">
+<div class="range-card-content">
+<h3>Atlas Mountains</h3>
+<span>North Africa</span>
+<div class="fact-box">A rugged range that stretches across Morocco, Algeria, and Tunisia.</div>
+</div>
+</div>
+
+<div class="range-card">
+<img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80">
+<div class="range-card-content">
+<h3>Southern Alps</h3>
+<span>New Zealand</span>
+<div class="fact-box">A striking range known for glaciers, dramatic landscapes, and sharp peaks.</div>
+</div>
+</div>
+
+</div>
+
+<div class="info-strip">
+
+<div class="info-item">
+<h4>How Ranges Form</h4>
+<p>Most mountain ranges form when tectonic plates collide, fold, uplift, or trigger volcanic activity over millions of years.</p>
+</div>
+
+<div class="info-item">
+<h4>Why They Matter</h4>
+<p>Mountain ranges influence rainfall, store freshwater in glaciers, and support unique plants, animals, and human communities.</p>
+</div>
+
+<div class="info-item">
+<h4>Global Importance</h4>
+<p>From climate regulation to tourism and biodiversity, mountain systems play a major role in life across the planet.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<div class="footer-logo">WildAtlas</div>
+<p>Discover mountains, landscapes, and natural wonders from around the world.</p>
+</div>
+
+<div class="footer-column">
+<h4>Explore</h4>
+<a href="mountain.html">Mountains</a>
+<a href="ranges.html">Ranges</a>
+<a href="#">Geology</a>
+<a href="blog.html">Blog</a>
+</div>
+
+<div class="footer-column">
+<h4>Resources</h4>
+<a href="#">Mountain Encyclopedia</a>
+<a href="#">Climbing Guides</a>
+<a href="#">Photo Gallery</a>
+<a href="#">Educational Articles</a>
+</div>
+
+<div class="footer-column">
+<h4>Company</h4>
+<a href="#">About Us</a>
+<a href="#">Contact</a>
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Use</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 WildAtlas — Mountain Ranges
+</div>
+
+</footer>
+
+</body>
+</html>

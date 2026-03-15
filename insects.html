@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WildAtlas | Insects</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#ffffff;
+      color:#222;
+      line-height:1.6;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 8%;
+      border-bottom:1px solid #e8e8e8;
+      background:#fff;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#1b5e20;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#333;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav a:hover,
+    nav a.active{
+      color:#1b5e20;
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .search-box input{
+      padding:10px 14px;
+      border:1px solid #ccc;
+      border-radius:25px;
+      outline:none;
+      width:180px;
+    }
+
+    .btn{
+      padding:10px 18px;
+      border:none;
+      border-radius:25px;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-login{
+      background:#f1f1f1;
+      color:#222;
+    }
+
+    .btn-signup{
+      background:#1b5e20;
+      color:#fff;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .hero{
+      background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+      url('https://images.unsplash.com/photo-1498936178812-4b2e558d2937?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      color:white;
+      text-align:center;
+      padding:110px 8%;
+    }
+
+    .hero h1{
+      font-size:52px;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      font-size:18px;
+      max-width:760px;
+      margin:auto;
+      color:#f3f3f3;
+    }
+
+    .top-ad{
+      background:linear-gradient(135deg, #edf7ed, #dff1df);
+      border:1px solid #cfe5cf;
+      border-radius:18px;
+      padding:30px;
+      text-align:center;
+      margin:50px 8% 0;
+    }
+
+    .top-ad h3{
+      color:#1b5e20;
+      margin-bottom:10px;
+      font-size:28px;
+    }
+
+    .top-ad p{
+      color:#444;
+      margin-bottom:15px;
+    }
+
+    .top-ad a{
+      display:inline-block;
+      padding:12px 22px;
+      background:#1b5e20;
+      color:#fff;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:600;
+    }
+
+    .section{
+      padding:70px 8%;
+    }
+
+    .section-title{
+      font-size:34px;
+      margin-bottom:15px;
+      color:#1b5e20;
+      text-align:center;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      color:#666;
+      max-width:760px;
+      margin:0 auto 45px;
+    }
+
+    .insects-layout{
+      display:grid;
+      grid-template-columns:2.2fr 1fr;
+      gap:35px;
+      align-items:start;
+    }
+
+    .insects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .card-content{
+      padding:22px;
+    }
+
+    .tag{
+      display:inline-block;
+      background:#e8f5e9;
+      color:#1b5e20;
+      padding:6px 12px;
+      border-radius:20px;
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:12px;
+    }
+
+    .card h3{
+      font-size:22px;
+      margin-bottom:10px;
+    }
+
+    .card p{
+      color:#666;
+      margin-bottom:16px;
+    }
+
+    .read-more{
+      text-decoration:none;
+      color:#1b5e20;
+      font-weight:700;
+    }
+
+    .sidebar{
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+    }
+
+    .ad-box{
+      background:#f8faf8;
+      border:1px solid #e2ebe2;
+      border-radius:18px;
+      padding:24px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    .ad-box h4{
+      color:#1b5e20;
+      margin-bottom:10px;
+      font-size:22px;
+    }
+
+    .ad-box p{
+      color:#555;
+      margin-bottom:14px;
+    }
+
+    .ad-box a{
+      display:inline-block;
+      text-decoration:none;
+      background:#1b5e20;
+      color:#fff;
+      padding:10px 18px;
+      border-radius:25px;
+      font-weight:600;
+    }
+
+    .mini-ad{
+      background:#fff7e6;
+      border:1px solid #f0deb0;
+      border-radius:18px;
+      padding:22px;
+    }
+
+    .mini-ad h4{
+      color:#8a5a00;
+      margin-bottom:10px;
+    }
+
+    .mini-ad p{
+      color:#5f4a1b;
+      margin-bottom:14px;
+    }
+
+    .mini-ad a{
+      display:inline-block;
+      text-decoration:none;
+      background:#8a5a00;
+      color:#fff;
+      padding:10px 18px;
+      border-radius:25px;
+      font-weight:600;
+    }
+
+    .facts{
+      background:#f4f7f4;
+    }
+
+    .facts-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:25px;
+    }
+
+    .fact-box{
+      background:#fff;
+      padding:28px;
+      border-radius:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+      text-align:center;
+    }
+
+    .fact-box h3{
+      font-size:30px;
+      color:#1b5e20;
+      margin-bottom:8px;
+    }
+
+    .fact-box p{
+      color:#666;
+    }
+
+    .newsletter{
+      background:#f4f7f4;
+      text-align:center;
+      padding:70px 8%;
+    }
+
+    .newsletter h2{
+      font-size:34px;
+      color:#1b5e20;
+      margin-bottom:12px;
+    }
+
+    .newsletter p{
+      color:#555;
+      max-width:650px;
+      margin:0 auto 24px;
+    }
+
+    .newsletter form{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .newsletter input{
+      padding:14px 16px;
+      width:320px;
+      max-width:100%;
+      border:1px solid #ccc;
+      border-radius:30px;
+      outline:none;
+    }
+
+    .newsletter button{
+      padding:14px 24px;
+      border:none;
+      border-radius:30px;
+      background:#1b5e20;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    footer{
+      background:#111;
+      color:#ddd;
+      padding:60px 8% 25px;
+      margin-top:0;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:30px;
+      margin-bottom:35px;
+    }
+
+    .footer-col h3{
+      color:#fff;
+      margin-bottom:15px;
+      font-size:20px;
+    }
+
+    .footer-col p{
+      color:#bbb;
+    }
+
+    .footer-col a{
+      display:block;
+      color:#bbb;
+      text-decoration:none;
+      margin-bottom:10px;
+      transition:0.3s;
+    }
+
+    .footer-col a:hover{
+      color:#fff;
+    }
+
+    .footer-bottom{
+      border-top:1px solid #2a2a2a;
+      padding-top:20px;
+      text-align:center;
+      color:#999;
+      font-size:14px;
+    }
+
+    @media (max-width: 992px){
+      .insects-layout{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 768px){
+      header{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav{
+        justify-content:center;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .search-box input{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">WildAtlas</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Animals</a>
+      <a href="#" class="active">Insects</a>
+      <a href="#">Mountains</a>
+      <a href="#">Forests</a>
+      <a href="#">Nature Articles</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="search-box">
+        <input type="text" placeholder="Search insects..." />
+      </div>
+      <button class="btn btn-login">Log In</button>
+      <button class="btn btn-signup">Sign Up</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Discover the World of Insects</h1>
+    <p>
+      Explore tiny creatures with huge importance — from colorful butterflies and busy bees to beetles, dragonflies, and ants that keep ecosystems alive.
+    </p>
+  </section>
+
+  <section class="top-ad">
+    <h3>Advertise With WildAtlas</h3>
+    <p>
+      Promote eco-products, gardening tools, educational insect kits, wildlife books, and nature documentaries on this page.
+    </p>
+    <a href="#">Place Your Ad</a>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Featured Insect Stories</h2>
+    <p class="section-subtitle">
+      Learn about fascinating insect species, their roles in nature, and why they matter more than most people think.
+    </p>
+
+    <div class="insects-layout">
+      <div class="insects-grid">
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=1000&q=80" alt="Butterfly">
+          <div class="card-content">
+            <span class="tag">Butterflies</span>
+            <h3>The Beauty and Life Cycle of Butterflies</h3>
+            <p>Discover how butterflies transform through metamorphosis and become some of nature’s most delicate pollinators.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1000&q=80" alt="Bee">
+          <div class="card-content">
+            <span class="tag">Bees</span>
+            <h3>Why Bees Are Essential to Life</h3>
+            <p>Bees help pollinate crops and wild plants, making them one of the most important insects on Earth.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=80" alt="Dragonfly">
+          <div class="card-content">
+            <span class="tag">Dragonflies</span>
+            <h3>Masters of Speed and Precision</h3>
+            <p>Dragonflies are ancient hunters with incredible flying skills, sharp vision, and impressive survival instincts.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1466721591366-2d5fba72006d?auto=format&fit=crop&w=1000&q=80" alt="Ladybug">
+          <div class="card-content">
+            <span class="tag">Ladybugs</span>
+            <h3>Tiny Protectors in the Garden</h3>
+            <p>Ladybugs are small but powerful allies that help control pests and support healthy plant life.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1000&q=80" alt="Ants">
+          <div class="card-content">
+            <span class="tag">Ants</span>
+            <h3>The Organized World of Ant Colonies</h3>
+            <p>From teamwork to underground cities, ants show how intelligence and cooperation can thrive in tiny bodies.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1000&q=80" alt="Beetle">
+          <div class="card-content">
+            <span class="tag">Beetles</span>
+            <h3>Beetles: Nature’s Hidden Survivors</h3>
+            <p>Beetles are among the most diverse animals on the planet, thriving in forests, fields, deserts, and wetlands.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="sidebar">
+        <div class="ad-box">
+          <h4>Sponsored Ad Space</h4>
+          <p>
+            This is a perfect space for bug hotels, school science kits, wildlife gear, eco-brands, or nature learning tools.
+          </p>
+          <a href="#">Advertise Here</a>
+        </div>
+
+        <div class="mini-ad">
+          <h4>Insect Documentary Promotion</h4>
+          <p>
+            Feature your insect documentary, nature series, educational campaign, or wildlife YouTube channel here.
+          </p>
+          <a href="#">Promote Now</a>
+        </div>
+
+        <div class="ad-box">
+          <h4>Affiliate Product Ad</h4>
+          <p>
+            Add books, magnifying tools, cameras, gardening supplies, and insect guides here for affiliate earnings.
+          </p>
+          <a href="#">View Offer</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="top-ad" style="margin:0;">
+      <h3>Featured Partner Collaboration</h3>
+      <p>
+        A wide premium section for conservation groups, garden brands, insect awareness campaigns, or educational sponsors.
+      </p>
+      <a href="#">Become a Sponsor</a>
+    </div>
+  </section>
+
+  <section class="section facts">
+    <h2 class="section-title">Amazing Insect Facts</h2>
+    <p class="section-subtitle">
+      Insects may be small, but they shape ecosystems, food chains, and plant life across the planet.
+    </p>
+
+    <div class="facts-grid">
+      <div class="fact-box">
+        <h3>1M+</h3>
+        <p>Known insect species worldwide</p>
+      </div>
+
+      <div class="fact-box">
+        <h3>75%</h3>
+        <p>Of flowering plants rely on pollinators</p>
+      </div>
+
+      <div class="fact-box">
+        <h3>6</h3>
+        <p>Legs on every true insect</p>
+      </div>
+
+      <div class="fact-box">
+        <h3>24/7</h3>
+        <p>Insects are active in almost every habitat</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Stay Updated With Insect Stories</h2>
+    <p>
+      Join our newsletter for new insect discoveries, wildlife features, and inspiring stories from the natural world.
+    </p>
+    <form>
+      <input type="email" placeholder="Enter your email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>WildAtlas</h3>
+        <p>
+          Bringing the beauty of nature closer through stories, research, visuals, and wild exploration.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <a href="#">Home</a>
+        <a href="#">Animals</a>
+        <a href="#">Insects</a>
+        <a href="#">Mountains</a>
+        <a href="#">Forests</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Advertise</h3>
+        <a href="#">Sponsored Posts</a>
+        <a href="#">Banner Ads</a>
+        <a href="#">Brand Collaboration</a>
+        <a href="#">Affiliate Partnerships</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Help Center</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 WildAtlas. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

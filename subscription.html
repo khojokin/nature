@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WildAtlas | Subscription</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#ffffff;
+      color:#222;
+      line-height:1.6;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 8%;
+      border-bottom:1px solid #e8e8e8;
+      background:#fff;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#1b5e20;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#333;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav a:hover,
+    nav a.active{
+      color:#1b5e20;
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .search-box input{
+      padding:10px 14px;
+      border:1px solid #ccc;
+      border-radius:25px;
+      outline:none;
+      width:180px;
+    }
+
+    .btn{
+      padding:10px 18px;
+      border:none;
+      border-radius:25px;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-login{
+      background:#f1f1f1;
+      color:#222;
+    }
+
+    .btn-signup{
+      background:#1b5e20;
+      color:#fff;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .hero{
+      background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+      url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      color:white;
+      text-align:center;
+      padding:110px 8%;
+    }
+
+    .hero h1{
+      font-size:52px;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      font-size:18px;
+      max-width:760px;
+      margin:auto;
+      color:#f3f3f3;
+    }
+
+    .top-ad{
+      background:linear-gradient(135deg, #edf7ed, #dff1df);
+      border:1px solid #cfe5cf;
+      border-radius:18px;
+      padding:30px;
+      text-align:center;
+      margin:50px 8% 0;
+    }
+
+    .top-ad h3{
+      color:#1b5e20;
+      margin-bottom:10px;
+      font-size:28px;
+    }
+
+    .top-ad p{
+      color:#444;
+      margin-bottom:15px;
+    }
+
+    .top-ad a{
+      display:inline-block;
+      padding:12px 22px;
+      background:#1b5e20;
+      color:#fff;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:600;
+    }
+
+    .section{
+      padding:70px 8%;
+    }
+
+    .section-title{
+      font-size:34px;
+      margin-bottom:15px;
+      color:#1b5e20;
+      text-align:center;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      color:#666;
+      max-width:760px;
+      margin:0 auto 45px;
+    }
+
+    .plans{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:25px;
+      margin-bottom:55px;
+    }
+
+    .plan-card{
+      background:#fff;
+      border-radius:20px;
+      padding:30px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      border:1px solid #e8e8e8;
+      transition:0.3s;
+      position:relative;
+    }
+
+    .plan-card:hover{
+      transform:translateY(-6px);
+    }
+
+    .plan-badge{
+      position:absolute;
+      top:18px;
+      right:18px;
+      background:#1b5e20;
+      color:#fff;
+      font-size:12px;
+      font-weight:700;
+      padding:6px 10px;
+      border-radius:20px;
+    }
+
+    .plan-card h3{
+      font-size:26px;
+      color:#1b5e20;
+      margin-bottom:10px;
+    }
+
+    .price{
+      font-size:38px;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+
+    .price span{
+      font-size:16px;
+      color:#666;
+      font-weight:500;
+    }
+
+    .plan-card p{
+      color:#666;
+      margin-bottom:18px;
+    }
+
+    .plan-card ul{
+      list-style:none;
+      margin-bottom:22px;
+    }
+
+    .plan-card ul li{
+      margin-bottom:10px;
+      color:#444;
+    }
+
+    .select-plan{
+      display:inline-block;
+      width:100%;
+      text-align:center;
+      padding:12px 18px;
+      background:#1b5e20;
+      color:#fff;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:600;
+    }
+
+    .subscription-layout{
+      display:grid;
+      grid-template-columns:1.3fr 0.8fr;
+      gap:35px;
+      align-items:start;
+    }
+
+    .payment-form,
+    .summary-box{
+      background:#fff;
+      border-radius:20px;
+      padding:32px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .payment-form h2,
+    .summary-box h2{
+      color:#1b5e20;
+      margin-bottom:10px;
+      font-size:28px;
+    }
+
+    .payment-form p,
+    .summary-box p{
+      color:#666;
+      margin-bottom:22px;
+    }
+
+    form{
+      display:grid;
+      gap:18px;
+    }
+
+    .form-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .input-group{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .input-group label{
+      margin-bottom:8px;
+      font-weight:600;
+      color:#333;
+    }
+
+    .input-group input,
+    .input-group select{
+      padding:14px 16px;
+      border:1px solid #d8d8d8;
+      border-radius:14px;
+      outline:none;
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus{
+      border-color:#1b5e20;
+      box-shadow:0 0 0 3px rgba(27,94,32,0.08);
+    }
+
+    .pay-btn{
+      padding:15px 24px;
+      border:none;
+      border-radius:30px;
+      background:#1b5e20;
+      color:#fff;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.3s;
+      font-size:16px;
+    }
+
+    .pay-btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .secure-note{
+      background:#f4f7f4;
+      border:1px solid #dde7dd;
+      border-radius:14px;
+      padding:16px;
+      color:#555;
+      font-size:14px;
+    }
+
+    .summary-item{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:14px;
+      color:#444;
+    }
+
+    .summary-item.total{
+      font-weight:700;
+      color:#111;
+      font-size:18px;
+      border-top:1px solid #e5e5e5;
+      padding-top:16px;
+      margin-top:10px;
+    }
+
+    .summary-features{
+      margin-top:24px;
+      padding-top:20px;
+      border-top:1px solid #e5e5e5;
+    }
+
+    .summary-features h3{
+      color:#1b5e20;
+      margin-bottom:12px;
+      font-size:20px;
+    }
+
+    .summary-features ul{
+      list-style:none;
+    }
+
+    .summary-features li{
+      margin-bottom:10px;
+      color:#555;
+    }
+
+    .middle-banner{
+      margin-top:0;
+    }
+
+    .newsletter{
+      background:#f4f7f4;
+      text-align:center;
+      padding:70px 8%;
+    }
+
+    .newsletter h2{
+      font-size:34px;
+      color:#1b5e20;
+      margin-bottom:12px;
+    }
+
+    .newsletter p{
+      color:#555;
+      max-width:650px;
+      margin:0 auto 24px;
+    }
+
+    .newsletter form{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .newsletter input{
+      padding:14px 16px;
+      width:320px;
+      max-width:100%;
+      border:1px solid #ccc;
+      border-radius:30px;
+      outline:none;
+    }
+
+    .newsletter button{
+      padding:14px 24px;
+      border:none;
+      border-radius:30px;
+      background:#1b5e20;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    footer{
+      background:#111;
+      color:#ddd;
+      padding:60px 8% 25px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:30px;
+      margin-bottom:35px;
+    }
+
+    .footer-col h3{
+      color:#fff;
+      margin-bottom:15px;
+      font-size:20px;
+    }
+
+    .footer-col p{
+      color:#bbb;
+    }
+
+    .footer-col a{
+      display:block;
+      color:#bbb;
+      text-decoration:none;
+      margin-bottom:10px;
+      transition:0.3s;
+    }
+
+    .footer-col a:hover{
+      color:#fff;
+    }
+
+    .footer-bottom{
+      border-top:1px solid #2a2a2a;
+      padding-top:20px;
+      text-align:center;
+      color:#999;
+      font-size:14px;
+    }
+
+    @media (max-width: 992px){
+      .subscription-layout{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 768px){
+      header{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav{
+        justify-content:center;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .form-row{
+        grid-template-columns:1fr;
+      }
+
+      .search-box input{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">WildAtlas</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Animals</a>
+      <a href="#">Insects</a>
+      <a href="#">Mountains</a>
+      <a href="#">Forests</a>
+      <a href="#">Nature Articles</a>
+      <a href="#">Contact</a>
+     </nav>
+
+    <div class="nav-actions">
+      <div class="search-box">
+        <input type="text" placeholder="Search here..." />
+      </div>
+      <button class="btn btn-login">Log In</button>
+      <button class="btn btn-signup">Sign Up</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Subscribe to WildAtlas</h1>
+    <p>
+      Unlock premium wildlife stories, exclusive nature features, member newsletters, and special content from across the wild world.
+    </p>
+  </section>
+
+  <section class="top-ad">
+    <h3>Go Premium With WildAtlas</h3>
+    <p>
+      Support the platform and enjoy exclusive access to premium articles, featured documentaries, and subscriber-only benefits.
+    </p>
+    <a href="#">See Benefits</a>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Choose Your Plan</h2>
+    <p class="section-subtitle">
+      Pick a subscription plan that fits how you want to explore nature, wildlife, and premium content.
+    </p>
+
+    <div class="plans">
+      <div class="plan-card">
+        <h3>Starter</h3>
+        <div class="price">£4.99 <span>/ month</span></div>
+        <p>Great for casual readers who want access to selected premium stories.</p>
+        <ul>
+          <li>✓ Premium weekly article access</li>
+          <li>✓ Subscriber newsletter</li>
+          <li>✓ Member-only updates</li>
+          <li>✓ Early access to selected features</li>
+        </ul>
+        <a href="#" class="select-plan">Choose Starter</a>
+      </div>
+
+      <div class="plan-card">
+        <span class="plan-badge">Popular</span>
+        <h3>Explorer</h3>
+        <div class="price">£9.99 <span>/ month</span></div>
+        <p>Perfect for readers who want deeper access to WildAtlas premium content.</p>
+        <ul>
+          <li>✓ Full premium article access</li>
+          <li>✓ Exclusive wildlife reports</li>
+          <li>✓ Monthly digital magazine</li>
+          <li>✓ Early access to documentaries</li>
+        </ul>
+        <a href="#" class="select-plan">Choose Explorer</a>
+      </div>
+
+      <div class="plan-card">
+        <h3>Annual</h3>
+        <div class="price">£89.99 <span>/ year</span></div>
+        <p>Best value for full access all year with added membership perks.</p>
+        <ul>
+          <li>✓ Everything in Explorer</li>
+          <li>✓ Save more yearly</li>
+          <li>✓ Premium member badge</li>
+          <li>✓ Priority support</li>
+        </ul>
+        <a href="#" class="select-plan">Choose Annual</a>
+      </div>
+    </div>
+
+    <div class="subscription-layout">
+      <div class="payment-form">
+        <h2>Payment Details</h2>
+        <p>Fill in your details below to start your WildAtlas subscription.</p>
+
+        <form>
+          <div class="form-row">
+            <div class="input-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" placeholder="Enter your first name" />
+            </div>
+
+            <div class="input-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" placeholder="Enter your last name" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="Enter your email address" />
+            </div>
+
+            <div class="input-group">
+              <label for="plan">Select Plan</label>
+              <select id="plan">
+                <option>Explorer - £9.99/month</option>
+                <option>Starter - £4.99/month</option>
+                <option>Annual - £89.99/year</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="cardName">Name on Card</label>
+            <input type="text" id="cardName" placeholder="Enter name on card" />
+          </div>
+
+          <div class="input-group">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" />
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="expiry">Expiry Date</label>
+              <input type="text" id="expiry" placeholder="MM/YY" />
+            </div>
+
+            <div class="input-group">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" placeholder="123" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="country">Country</label>
+              <input type="text" id="country" placeholder="Enter your country" />
+            </div>
+
+            <div class="input-group">
+              <label for="postcode">Postcode</label>
+              <input type="text" id="postcode" placeholder="Enter postcode" />
+            </div>
+          </div>
+
+          <button type="submit" class="pay-btn">Subscribe & Pay</button>
+
+          <div class="secure-note">
+            This is a subscription page design. To accept real payments safely, connect this form to a secure payment provider like Stripe or PayPal.
+          </div>
+        </form>
+      </div>
+
+      <aside class="summary-box">
+        <h2>Order Summary</h2>
+        <p>Review your plan before completing payment.</p>
+
+        <div class="summary-item">
+          <span>Plan</span>
+          <span>Explorer</span>
+        </div>
+
+        <div class="summary-item">
+          <span>Billing</span>
+          <span>Monthly</span>
+        </div>
+
+        <div class="summary-item">
+          <span>Subtotal</span>
+          <span>£9.99</span>
+        </div>
+
+        <div class="summary-item">
+          <span>Processing</span>
+          <span>£0.00</span>
+        </div>
+
+        <div class="summary-item total">
+          <span>Total</span>
+          <span>£9.99</span>
+        </div>
+
+        <div class="summary-features">
+          <h3>Included Benefits</h3>
+          <ul>
+            <li>✓ Unlimited premium stories</li>
+            <li>✓ Exclusive wildlife reports</li>
+            <li>✓ Monthly digital magazine</li>
+            <li>✓ Early documentary access</li>
+            <li>✓ Subscriber-only newsletters</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="top-ad middle-banner">
+      <h3>Premium Sponsor Highlight</h3>
+      <p>
+        This wide banner can also be used to promote premium partners, conservation campaigns, or featured member offers.
+      </p>
+      <a href="#">Become a Partner</a>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Stay Connected With WildAtlas</h2>
+    <p>
+      Join our newsletter for wildlife discoveries, premium updates, and inspiring stories from nature.
+    </p>
+    <form>
+      <input type="email" placeholder="Enter your email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>WildAtlas</h3>
+        <p>
+          Bringing the beauty of nature closer through stories, research, visuals, and wild exploration.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <a href="#">Home</a>
+        <a href="#">Animals</a>
+        <a href="#">Insects</a>
+        <a href="#">Mountains</a>
+        <a href="#">Forests</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Membership</h3>
+        <a href="#">Subscription</a>
+        <a href="#">Premium Access</a>
+        <a href="#">Member Benefits</a>
+        <a href="#">Gift Membership</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Help Center</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 WildAtlas. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,9 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WildAtlas | Animals</title>
+<title>WildAtlas | Help Center</title>
 
 <style>
 *{
@@ -101,7 +101,7 @@ transform:translateY(-2px);
 
 .hero{
 background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-url('https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
 color:white;
 text-align:center;
 padding:110px 8%;
@@ -114,7 +114,7 @@ margin-bottom:15px;
 
 .hero p{
 font-size:18px;
-max-width:760px;
+max-width:700px;
 margin:auto;
 color:#f3f3f3;
 }
@@ -133,7 +133,7 @@ margin:50px 8% 0;
 .top-ad h3{
 color:#1b5e20;
 margin-bottom:10px;
-font-size:28px;
+font-size:26px;
 }
 
 .top-ad p{
@@ -171,93 +171,62 @@ max-width:760px;
 margin:0 auto 45px;
 }
 
-/* GRID */
+/* HELP GRID */
 
-.animals-grid{
+.help-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
-/* CARD */
-
-.card{
+.help-card{
 background:#fff;
 border-radius:18px;
-overflow:hidden;
+padding:28px;
 box-shadow:0 8px 24px rgba(0,0,0,0.08);
 transition:0.3s;
 }
 
-.card:hover{
+.help-card:hover{
 transform:translateY(-6px);
 }
 
-.card img{
-width:100%;
-height:220px;
-object-fit:cover;
-display:block;
-}
-
-.card-content{
-padding:22px;
-}
-
-.tag{
-display:inline-block;
-background:#e8f5e9;
+.help-card h3{
 color:#1b5e20;
-padding:6px 12px;
-border-radius:20px;
-font-size:13px;
-font-weight:600;
-margin-bottom:12px;
-}
-
-.card h3{
-font-size:22px;
 margin-bottom:10px;
+font-size:22px;
 }
 
-.card p{
+.help-card p{
 color:#666;
-margin-bottom:16px;
 }
 
-.read-more{
-text-decoration:none;
-color:#1b5e20;
-font-weight:700;
-}
+/* FAQ */
 
-/* FACTS */
-
-.facts{
+.faq{
 background:#f4f7f4;
 }
 
-.facts-grid{
+.faq-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
-.fact-box{
+.faq-box{
 background:#fff;
-padding:28px;
 border-radius:18px;
+padding:25px;
 box-shadow:0 6px 18px rgba(0,0,0,0.06);
-text-align:center;
 }
 
-.fact-box h3{
-font-size:30px;
+.faq-box h3{
 color:#1b5e20;
 margin-bottom:8px;
+font-size:20px;
 }
 
-.fact-box p{
+.faq-box p{
 color:#666;
 }
 
@@ -378,151 +347,113 @@ width:100%;
 
 <nav>
 <a href="#">Home</a>
-<a href="#" class="active">Animals</a>
+<a href="#">Animals</a>
 <a href="#">Insects</a>
 <a href="#">Mountains</a>
 <a href="#">Forests</a>
 <a href="#">Nature Articles</a>
 <a href="#">Contact</a>
+<a href="#" class="active">Help Center</a>
 </nav>
 
 <div class="nav-actions">
-
 <div class="search-box">
-<input type="text" placeholder="Search animals...">
+<input type="text" placeholder="Search help...">
 </div>
 
 <button class="btn btn-login">Log In</button>
 <button class="btn btn-signup">Sign Up</button>
-
 </div>
 
 </header>
 
 <section class="hero">
-
-<h1>Animals of the Wild</h1>
-
+<h1>WildAtlas Help Center</h1>
 <p>
-Explore incredible animals from around the world — from powerful predators and gentle giants to mysterious creatures of forests, oceans, and mountains.
+Find answers, guides, and support for using the WildAtlas website, reading nature articles, or partnering with us.
 </p>
-
 </section>
 
 <section class="top-ad">
-
-<h3>Advertise Wildlife Brands</h3>
-
+<h3>Promote Your Nature Brand</h3>
 <p>
-Promote wildlife documentaries, eco-tourism, nature gear, and conservation projects to WildAtlas readers.
+Advertise wildlife gear, outdoor products, eco-brands, and documentaries across WildAtlas.
 </p>
-
 <a href="#">Advertise Here</a>
-
 </section>
 
 <section class="section">
 
-<h2 class="section-title">Featured Animal Stories</h2>
+<h2 class="section-title">How Can We Help?</h2>
 
 <p class="section-subtitle">
-Discover fascinating facts, behaviors, and habitats of animals across the planet.
+Browse common help topics below to quickly find answers to your questions.
 </p>
 
-<div class="animals-grid">
+<div class="help-grid">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1000&q=80">
-<div class="card-content">
-<span class="tag">Lions</span>
-<h3>The King of the Savannah</h3>
-<p>Learn how lions survive and rule across Africa’s grasslands.</p>
-<a class="read-more" href="#">Read More →</a>
-</div>
+<div class="help-card">
+<h3>Account Support</h3>
+<p>Learn how to create an account, log in, manage your profile, and update your email or password.</p>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=1000&q=80">
-<div class="card-content">
-<span class="tag">Elephants</span>
-<h3>Giants of the Wild</h3>
-<p>Elephants are intelligent, emotional animals with complex social lives.</p>
-<a class="read-more" href="#">Read More →</a>
-</div>
+<div class="help-card">
+<h3>Reading Articles</h3>
+<p>Discover how to navigate articles, categories, and explore wildlife stories across the WildAtlas platform.</p>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1501706362039-c6e80948c7c2?auto=format&fit=crop&w=1000&q=80">
-<div class="card-content">
-<span class="tag">Wolves</span>
-<h3>The Power of the Pack</h3>
-<p>Wolves survive through teamwork, intelligence, and strong family bonds.</p>
-<a class="read-more" href="#">Read More →</a>
-</div>
+<div class="help-card">
+<h3>Advertising</h3>
+<p>Get information about sponsored posts, banner ads, and brand collaborations on WildAtlas.</p>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1000&q=80">
-<div class="card-content">
-<span class="tag">Penguins</span>
-<h3>Life in the Frozen South</h3>
-<p>Penguins thrive in some of the coldest places on Earth.</p>
-<a class="read-more" href="#">Read More →</a>
-</div>
+<div class="help-card">
+<h3>Partnerships</h3>
+<p>Find out how organizations, creators, and conservation projects can partner with WildAtlas.</p>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?auto=format&fit=crop&w=1000&q=80">
-<div class="card-content">
-<span class="tag">Tigers</span>
-<h3>Silent Hunters of the Jungle</h3>
-<p>Tigers are powerful solitary predators with incredible stealth.</p>
-<a class="read-more" href="#">Read More →</a>
-</div>
+<div class="help-card">
+<h3>Technical Issues</h3>
+<p>Solutions for page loading problems, login errors, or website functionality issues.</p>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1000&q=80">
-<div class="card-content">
-<span class="tag">Giraffes</span>
-<h3>Towering Gentle Giants</h3>
-<p>Giraffes are the tallest animals on Earth with unique adaptations.</p>
-<a class="read-more" href="#">Read More →</a>
-</div>
+<div class="help-card">
+<h3>Content Submissions</h3>
+<p>Learn how to submit wildlife stories, nature photography, or educational content ideas.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="section facts">
+<section class="section faq">
 
-<h2 class="section-title">Amazing Animal Facts</h2>
+<h2 class="section-title">Frequently Asked Questions</h2>
 
 <p class="section-subtitle">
-Animals shape ecosystems across the planet and play critical roles in biodiversity.
+Quick answers to the questions visitors ask the most.
 </p>
 
-<div class="facts-grid">
+<div class="faq-grid">
 
-<div class="fact-box">
-<h3>8.7M</h3>
-<p>Estimated animal species on Earth</p>
+<div class="faq-box">
+<h3>Is WildAtlas free to use?</h3>
+<p>Yes. Visitors can explore articles and wildlife stories freely on the website.</p>
 </div>
 
-<div class="fact-box">
-<h3>70%</h3>
-<p>Of Earth’s animals live in oceans</p>
+<div class="faq-box">
+<h3>How can I advertise?</h3>
+<p>You can contact us through the Contact page or the advertising sections across the site.</p>
 </div>
 
-<div class="fact-box">
-<h3>1,000+</h3>
-<p>New species discovered every year</p>
+<div class="faq-box">
+<h3>Can I contribute articles?</h3>
+<p>Yes. WildAtlas welcomes nature writers, photographers, and researchers.</p>
 </div>
 
-<div class="fact-box">
-<h3>Millions</h3>
-<p>Of animals migrate annually</p>
+<div class="faq-box">
+<h3>How do I report an issue?</h3>
+<p>Use the Contact page and choose “Technical Support” to report bugs or website issues.</p>
 </div>
 
 </div>
@@ -531,10 +462,10 @@ Animals shape ecosystems across the planet and play critical roles in biodiversi
 
 <section class="newsletter">
 
-<h2>Stay Updated With Wildlife Stories</h2>
+<h2>Still Need Help?</h2>
 
 <p>
-Subscribe for animal discoveries, nature news, and featured wildlife stories.
+Contact our support team or subscribe to updates about WildAtlas features and articles.
 </p>
 
 <form>
@@ -550,7 +481,7 @@ Subscribe for animal discoveries, nature news, and featured wildlife stories.
 
 <div class="footer-col">
 <h3>WildAtlas</h3>
-<p>Discover wildlife, landscapes, and natural wonders across the world.</p>
+<p>Discover wildlife, landscapes, and the beauty of nature through stories and exploration.</p>
 </div>
 
 <div class="footer-col">

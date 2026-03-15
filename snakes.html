@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildAtlas | Snakes</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#ffffff;
+color:#222;
+line-height:1.6;
+}
+
+/* NAVBAR */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+border-bottom:1px solid #e8e8e8;
+background:#fff;
+position:sticky;
+top:0;
+z-index:1000;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#1b5e20;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#1b5e20;
+}
+
+.nav-actions{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.search-box input{
+padding:10px 14px;
+border:1px solid #ccc;
+border-radius:25px;
+outline:none;
+width:180px;
+}
+
+.btn{
+padding:10px 18px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn-login{
+background:#f1f1f1;
+}
+
+.btn-signup{
+background:#1b5e20;
+color:#fff;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+url('https://images.unsplash.com/photo-1592765773726-7d9fbb9f3c0d?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+color:white;
+text-align:center;
+padding:120px 8%;
+}
+
+.hero h1{
+font-size:56px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+max-width:750px;
+margin:auto;
+color:#f3f3f3;
+}
+
+/* AD SECTIONS */
+
+.top-ad{
+background:linear-gradient(135deg,#edf7ed,#dff1df);
+border:1px solid #cfe5cf;
+border-radius:18px;
+padding:30px;
+text-align:center;
+margin:50px 8% 0;
+}
+
+.top-ad h3{
+color:#1b5e20;
+margin-bottom:10px;
+font-size:28px;
+}
+
+.top-ad p{
+color:#444;
+margin-bottom:15px;
+}
+
+.top-ad a{
+display:inline-block;
+padding:12px 22px;
+background:#1b5e20;
+color:#fff;
+text-decoration:none;
+border-radius:30px;
+font-weight:600;
+}
+
+.section{
+padding:70px 8%;
+}
+
+.section-title{
+font-size:34px;
+margin-bottom:15px;
+color:#1b5e20;
+text-align:center;
+}
+
+.section-subtitle{
+text-align:center;
+color:#666;
+max-width:760px;
+margin:0 auto 45px;
+}
+
+/* MAIN CONTENT WITH SIDEBAR */
+
+.snake-layout{
+display:grid;
+grid-template-columns:2.2fr 1fr;
+gap:35px;
+align-items:start;
+}
+
+.snake-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.sidebar{
+display:flex;
+flex-direction:column;
+gap:22px;
+}
+
+.ad-box{
+background:#f8faf8;
+border:1px solid #e2ebe2;
+border-radius:18px;
+padding:24px;
+box-shadow:0 6px 18px rgba(0,0,0,0.05);
+}
+
+.ad-box h4{
+color:#1b5e20;
+margin-bottom:10px;
+font-size:22px;
+}
+
+.ad-box p{
+color:#555;
+margin-bottom:14px;
+}
+
+.ad-box a{
+display:inline-block;
+text-decoration:none;
+background:#1b5e20;
+color:#fff;
+padding:10px 18px;
+border-radius:25px;
+font-weight:600;
+}
+
+.mini-ad{
+background:#fff7e6;
+border:1px solid #f0deb0;
+border-radius:18px;
+padding:22px;
+}
+
+.mini-ad h4{
+color:#8a5a00;
+margin-bottom:10px;
+}
+
+.mini-ad p{
+color:#5f4a1b;
+margin-bottom:14px;
+}
+
+.mini-ad a{
+display:inline-block;
+text-decoration:none;
+background:#8a5a00;
+color:#fff;
+padding:10px 18px;
+border-radius:25px;
+font-weight:600;
+}
+
+/* CARDS */
+
+.card{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+
+.card-content{
+padding:22px;
+}
+
+.tag{
+display:inline-block;
+background:#e8f5e9;
+color:#1b5e20;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+margin-bottom:12px;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+margin-bottom:14px;
+}
+
+.read-more{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* FEATURED ANIMALS */
+
+.featured-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.featured-box{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.featured-box:hover{
+transform:translateY(-6px);
+}
+
+.featured-box img{
+width:100%;
+height:210px;
+object-fit:cover;
+display:block;
+}
+
+.featured-content{
+padding:20px;
+}
+
+.featured-content h3{
+color:#1b5e20;
+margin-bottom:10px;
+font-size:22px;
+}
+
+.featured-content p{
+color:#666;
+}
+
+/* FACTS */
+
+.facts{
+background:#f4f7f4;
+}
+
+.facts-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.fact-box{
+background:#fff;
+padding:28px;
+border-radius:18px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+text-align:center;
+}
+
+.fact-box h3{
+font-size:32px;
+color:#1b5e20;
+margin-bottom:8px;
+}
+
+.fact-box p{
+color:#666;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+background:#f4f7f4;
+text-align:center;
+padding:70px 8%;
+}
+
+.newsletter h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.newsletter p{
+color:#555;
+max-width:650px;
+margin:0 auto 24px;
+}
+
+.newsletter form{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.newsletter input{
+padding:14px 16px;
+width:320px;
+max-width:100%;
+border:1px solid #ccc;
+border-radius:30px;
+outline:none;
+}
+
+.newsletter button{
+padding:14px 24px;
+border:none;
+border-radius:30px;
+background:#1b5e20;
+color:#fff;
+font-weight:600;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:#ddd;
+padding:60px 8% 25px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-bottom:35px;
+}
+
+.footer-col h3{
+color:#fff;
+margin-bottom:15px;
+}
+
+.footer-col a{
+display:block;
+color:#bbb;
+text-decoration:none;
+margin-bottom:10px;
+}
+
+.footer-col a:hover{
+color:#fff;
+}
+
+.footer-bottom{
+border-top:1px solid #2a2a2a;
+padding-top:20px;
+text-align:center;
+color:#999;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media (max-width:992px){
+.snake-layout{
+grid-template-columns:1fr;
+}
+}
+
+@media (max-width:768px){
+header{
+flex-direction:column;
+}
+
+nav{
+justify-content:center;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.search-box input{
+width:100%;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">WildAtlas</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Animals</a>
+<a href="#">Insects</a>
+<a href="#">Mountains</a>
+<a href="#">Forests</a>
+<a href="#">Nature Articles</a>
+<a href="#">Contact</a>
+</nav>
+
+<div class="nav-actions">
+<div class="search-box">
+<input type="text" placeholder="Search...">
+</div>
+
+<button class="btn btn-login">Log In</button>
+<button class="btn btn-signup">Sign Up</button>
+</div>
+
+</header>
+
+<section class="hero">
+<h1>Snakes of the Wild</h1>
+<p>
+Snakes are among the most fascinating reptiles on Earth, known for their unique movement, powerful hunting abilities, and incredible adaptations across forests, deserts, wetlands, and grasslands.
+</p>
+</section>
+
+<section class="top-ad">
+<h3>Advertise Wildlife Brands</h3>
+<p>
+Promote reptile documentaries, outdoor gear, nature education products, wildlife books, and eco-tourism campaigns on WildAtlas.
+</p>
+<a href="#">Place Your Ad</a>
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Snake Species</h2>
+<p class="section-subtitle">
+Explore some of the most fascinating snakes found around the world, from venomous predators to powerful constrictors.
+</p>
+
+<div class="snake-layout">
+
+<div class="snake-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1588617420118-0f7c4e9e4b6a?auto=format&fit=crop&w=1000&q=80" alt="King Cobra">
+<div class="card-content">
+<span class="tag">Cobra</span>
+<h3>The King Cobra</h3>
+<p>The king cobra is the longest venomous snake in the world and is known for its intelligence and iconic hood.</p>
+<a href="#" class="read-more">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1561736778-92e52a7769ef?auto=format&fit=crop&w=1000&q=80" alt="Python">
+<div class="card-content">
+<span class="tag">Python</span>
+<h3>The Python</h3>
+<p>Pythons are powerful constrictor snakes that can grow extremely large and swallow prey whole.</p>
+<a href="#" class="read-more">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1616763355548-1b606fa4e70c?auto=format&fit=crop&w=1000&q=80" alt="Viper">
+<div class="card-content">
+<span class="tag">Viper</span>
+<h3>The Viper</h3>
+<p>Vipers are venomous snakes famous for their long fangs, camouflage, and quick striking ability.</p>
+<a href="#" class="read-more">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=1000&q=80" alt="Boa">
+<div class="card-content">
+<span class="tag">Boa</span>
+<h3>The Boa Constrictor</h3>
+<p>Boa constrictors are muscular snakes that overpower prey using strength instead of venom.</p>
+<a href="#" class="read-more">Read More →</a>
+</div>
+</div>
+
+</div>
+
+<aside class="sidebar">
+<div class="ad-box">
+<h4>Sponsored Reptile Ad</h4>
+<p>
+This area is perfect for wildlife equipment, reptile books, educational kits, conservation campaigns, or outdoor brands.
+</p>
+<a href="#">Advertise Here</a>
+</div>
+
+<div class="mini-ad">
+<h4>Documentary Promotion</h4>
+<p>
+Showcase your snake documentary, reptile YouTube series, or conservation awareness campaign in this section.
+</p>
+<a href="#">Promote Now</a>
+</div>
+
+<div class="ad-box">
+<h4>Affiliate Product Ad</h4>
+<p>
+Add wildlife guides, binoculars, field journals, cameras, or nature books here and earn affiliate income.
+</p>
+<a href="#">View Offer</a>
+</div>
+</aside>
+
+</div>
+
+</section>
+
+<section class="section" style="padding-top:0;">
+<div class="top-ad" style="margin:0;">
+<h3>Featured Brand Collaboration</h3>
+<p>
+A premium horizontal advert section for sponsors, eco-brands, reptile education programs, or nature travel campaigns.
+</p>
+<a href="#">Become a Sponsor</a>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Featured Animals</h2>
+<p class="section-subtitle">
+You can use this section to keep visitors exploring other wildlife pages after reading about snakes.
+</p>
+
+<div class="featured-grid">
+
+<div class="featured-box">
+<img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1000&q=80" alt="Lion">
+<div class="featured-content">
+<h3>Lions</h3>
+<p>Discover the power and social life of one of Africa’s most iconic predators.</p>
+</div>
+</div>
+
+<div class="featured-box">
+<img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=1000&q=80" alt="Elephant">
+<div class="featured-content">
+<h3>Elephants</h3>
+<p>Explore the world of intelligent giants known for memory, emotion, and strong family bonds.</p>
+</div>
+</div>
+
+<div class="featured-box">
+<img src="https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=1000&q=80" alt="Butterfly">
+<div class="featured-content">
+<h3>Butterflies</h3>
+<p>See how delicate winged insects transform through one of nature’s most stunning life cycles.</p>
+</div>
+</div>
+
+<div class="featured-box">
+<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80" alt="Mountain Wildlife">
+<div class="featured-content">
+<h3>Mountain Wildlife</h3>
+<p>Learn how animals survive in cold peaks, steep cliffs, and some of the harshest habitats on Earth.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section facts">
+
+<h2 class="section-title">Snake Facts</h2>
+<p class="section-subtitle">
+Snakes are incredible animals that play important roles in ecosystems by controlling prey populations and maintaining balance.
+</p>
+
+<div class="facts-grid">
+
+<div class="fact-box">
+<h3>3,900+</h3>
+<p>Snake species exist worldwide</p>
+</div>
+
+<div class="fact-box">
+<h3>200+</h3>
+<p>Venomous species</p>
+</div>
+
+<div class="fact-box">
+<h3>0</h3>
+<p>Legs — snakes move using muscles and scales</p>
+</div>
+
+<div class="fact-box">
+<h3>Every Continent</h3>
+<p>Except Antarctica</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="newsletter">
+<h2>Discover More Wildlife</h2>
+<p>
+Subscribe for wildlife discoveries, nature stories, and new species features from across WildAtlas.
+</p>
+
+<form>
+<input type="email" placeholder="Enter your email address">
+<button type="submit">Subscribe</button>
+</form>
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-col">
+<h3>WildAtlas</h3>
+<p>Discover wildlife, landscapes, and natural wonders from around the world.</p>
+</div>
+
+<div class="footer-col">
+<h3>Explore</h3>
+<a href="#">Home</a>
+<a href="#">Animals</a>
+<a href="#">Insects</a>
+<a href="#">Mountains</a>
+<a href="#">Forests</a>
+</div>
+
+<div class="footer-col">
+<h3>Support</h3>
+<a href="#">Contact</a>
+<a href="#">Privacy Policy</a>
+<a href="#">Help Center</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 WildAtlas. All rights reserved.
+</div>
+
+</footer>
+
+</body>
+</html>

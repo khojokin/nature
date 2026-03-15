@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildAtlas | Mountains Encyclopedia</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial, Helvetica, sans-serif
+}
+
+body{
+background:#ffffff;
+color:#222;
+line-height:1.7
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 8%;
+border-bottom:1px solid #eee;
+background:white;
+position:sticky;
+top:0;
+z-index:1000
+}
+
+.logo{
+font-size:26px;
+font-weight:700;
+color:#1b5e20
+}
+
+nav a{
+margin:0 15px;
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s
+}
+
+nav a:hover{
+color:#1b5e20
+}
+
+/* HERO */
+
+.hero{
+padding:90px 8%;
+text-align:center;
+background:#f4f7f4
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:15px
+}
+
+.hero p{
+color:#555;
+font-size:18px;
+max-width:700px;
+margin:auto
+}
+
+/* SECTIONS */
+
+.section{
+padding:70px 8%;
+max-width:1200px;
+margin:auto
+}
+
+.section h2{
+margin-bottom:30px;
+font-size:30px
+}
+
+/* SEARCH */
+
+.search-bar{
+margin-bottom:45px;
+text-align:center
+}
+
+.search-bar input{
+width:360px;
+padding:13px;
+border:1px solid #ddd;
+border-radius:8px;
+outline:none;
+transition:0.3s
+}
+
+.search-bar input:focus{
+border-color:#1b5e20
+}
+
+/* FEATURE */
+
+.documentary{
+max-width:900px;
+margin:auto
+}
+
+.documentary p{
+margin-bottom:18px
+}
+
+/* MOUNTAIN CARDS */
+
+.mountain-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px
+}
+
+.mountain-card{
+border:1px solid #eee;
+border-radius:12px;
+overflow:hidden;
+background:white;
+transition:0.25s;
+cursor:pointer
+}
+
+.mountain-card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 24px rgba(0,0,0,0.08)
+}
+
+.mountain-card img{
+width:100%;
+height:170px;
+object-fit:cover
+}
+
+.mountain-card-content{
+padding:18px
+}
+
+.mountain-card-content h3{
+margin-bottom:6px;
+font-size:18px
+}
+
+.mountain-card-content span{
+color:#777;
+font-size:13px;
+font-style:italic
+}
+
+.fact-box{
+margin-top:10px;
+font-size:13px;
+color:#555
+}
+
+/* FOOTER */
+
+footer{
+background:#f4f7f4;
+margin-top:80px;
+padding:60px 8%
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:40px
+}
+
+.footer-logo{
+font-size:22px;
+font-weight:bold;
+color:#1b5e20;
+margin-bottom:10px
+}
+
+.footer-column h4{
+margin-bottom:15px
+}
+
+.footer-column a{
+display:block;
+text-decoration:none;
+color:#555;
+margin-bottom:10px;
+transition:0.25s
+}
+
+.footer-column a:hover{
+color:#1b5e20;
+padding-left:4px
+}
+
+.footer-bottom{
+margin-top:40px;
+border-top:1px solid #ddd;
+padding-top:20px;
+text-align:center;
+color:#777;
+font-size:14px
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">WildAtlas</div>
+
+<nav>
+<a href="nature.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="mountain.html">Mountains</a>
+<a href="ranges.html">Ranges</a>
+<a href="blog.html">Blog</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Mountains of the World</h1>
+<p>Explore majestic peaks, mountain ranges, elevation facts, and the natural wonders shaped by Earth's geology.</p>
+</section>
+
+<section class="section">
+
+<div class="search-bar">
+<input type="text" placeholder="Search mountains...">
+</div>
+
+<h2>Mountain Feature of the Day</h2>
+
+<div class="documentary">
+
+<div style="color:#1b5e20;font-weight:bold;margin-bottom:15px">
+March 15, 2026
+</div>
+
+<h3 style="font-size:32px;margin-bottom:20px">
+Mount Everest — The Roof of the World
+</h3>
+
+<p>
+Mount Everest is the highest mountain on Earth above sea level, rising dramatically in the Himalayas on the border between Nepal and China.
+<img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80" style="width:240px;height:240px;object-fit:cover;border-radius:8px;float:right;margin:10px 0 10px 20px;">
+Its snow-covered summit has fascinated explorers, climbers, and scientists for generations. Towering above surrounding peaks, Everest symbolizes endurance, ambition, and the raw power of nature.
+</p>
+
+<p>
+The mountain is part of the Himalayan range, which formed when the Indian tectonic plate collided with the Eurasian plate millions of years ago. This ongoing geological movement still pushes the mountains higher over time.
+</p>
+
+<p>
+<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" style="width:240px;height:240px;object-fit:cover;border-radius:8px;float:left;margin:10px 20px 10px 0;">
+Despite its beauty, Everest presents extreme conditions including freezing temperatures, powerful winds, and thin air at high altitude. Only well-prepared climbers with careful support can attempt the ascent safely.
+</p>
+
+<p>
+Mountains like Everest are not just landmarks; they influence weather, provide water to millions of people through glacier systems, and support unique ecosystems adapted to high elevations.
+</p>
+
+<p>
+<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80" style="width:240px;height:240px;object-fit:cover;border-radius:8px;float:right;margin:10px 0 10px 20px;">
+Across cultures, great mountains have long been seen as sacred, mysterious, and inspiring places. Everest remains one of the world's most iconic natural wonders.
+</p>
+
+<div style="clear:both"></div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Famous Mountains</h2>
+
+<div class="mountain-grid">
+
+<div class="mountain-card">
+<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80">
+<div class="mountain-card-content">
+<h3>Mount Everest</h3>
+<span>Himalayas</span>
+<div class="fact-box">Elevation: 8,848.86 m — Highest mountain above sea level</div>
+</div>
+</div>
+
+<div class="mountain-card">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80">
+<div class="mountain-card-content">
+<h3>Mount Kilimanjaro</h3>
+<span>Tanzania</span>
+<div class="fact-box">Elevation: 5,895 m — Africa’s highest peak</div>
+</div>
+</div>
+
+<div class="mountain-card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80">
+<div class="mountain-card-content">
+<h3>Mount Fuji</h3>
+<span>Japan</span>
+<div class="fact-box">Elevation: 3,776 m — Japan’s iconic volcanic mountain</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<div class="footer-logo">WildAtlas</div>
+<p>Discover mountains, landscapes, and natural wonders from around the world.</p>
+</div>
+
+<div class="footer-column">
+<h4>Explore</h4>
+<a href="mountain.html">Mountains</a>
+<a href="ranges.html">Ranges</a>
+<a href="geology.html">Geology</a>
+<a href="blog.html">Blog</a>
+</div>
+
+<div class="footer-column">
+<h4>Resources</h4>
+<a href="#">Mountain Encyclopedia</a>
+<a href="#">Climbing Guides</a>
+<a href="#">Photo Gallery</a>
+<a href="#">Educational Articles</a>
+</div>
+
+<div class="footer-column">
+<h4>Company</h4>
+<a href="#">About Us</a>
+<a href="#">Contact</a>
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Use</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 WildAtlas — Mountains Encyclopedia
+</div>
+
+</footer>
+
+</body>
+</html>

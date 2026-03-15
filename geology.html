@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildAtlas | Mountain Geology</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial, Helvetica, sans-serif
+}
+
+body{
+background:#ffffff;
+color:#222;
+line-height:1.7
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 8%;
+border-bottom:1px solid #eee;
+background:white;
+position:sticky;
+top:0;
+z-index:1000
+}
+
+.logo{
+font-size:26px;
+font-weight:700;
+color:#1b5e20
+}
+
+nav a{
+margin:0 15px;
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s
+}
+
+nav a:hover,
+nav a.active{
+color:#1b5e20
+}
+
+/* HERO */
+
+.hero{
+padding:90px 8%;
+text-align:center;
+background:#f4f7f4
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:15px
+}
+
+.hero p{
+color:#555;
+font-size:18px;
+max-width:720px;
+margin:auto
+}
+
+/* SECTION */
+
+.section{
+padding:70px 8%;
+max-width:1200px;
+margin:auto
+}
+
+.section h2{
+margin-bottom:30px;
+font-size:30px
+}
+
+/* GEOLOGY CARDS */
+
+.geo-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px
+}
+
+.geo-card{
+border:1px solid #eee;
+border-radius:14px;
+overflow:hidden;
+background:white;
+transition:0.3s;
+box-shadow:0 4px 12px rgba(0,0,0,0.03)
+}
+
+.geo-card:hover{
+transform:translateY(-8px);
+box-shadow:0 12px 24px rgba(0,0,0,0.08)
+}
+
+.geo-card img{
+width:100%;
+height:190px;
+object-fit:cover
+}
+
+.geo-card-content{
+padding:20px
+}
+
+.geo-card-content h3{
+font-size:20px;
+margin-bottom:10px
+}
+
+.geo-card-content p{
+font-size:14px;
+color:#555
+}
+
+/* FEATURE ARTICLE */
+
+.feature{
+max-width:900px;
+margin:auto
+}
+
+.feature p{
+margin-bottom:18px
+}
+
+/* INFO STRIP */
+
+.info-strip{
+margin-top:60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px
+}
+
+.info-box{
+background:#f4f7f4;
+padding:24px;
+border-radius:14px
+}
+
+.info-box h4{
+color:#1b5e20;
+margin-bottom:10px
+}
+
+.info-box p{
+font-size:14px;
+color:#555
+}
+
+/* FOOTER */
+
+footer{
+background:#f4f7f4;
+margin-top:80px;
+padding:60px 8%
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:40px
+}
+
+.footer-logo{
+font-size:22px;
+font-weight:bold;
+color:#1b5e20;
+margin-bottom:10px
+}
+
+.footer-column h4{
+margin-bottom:15px
+}
+
+.footer-column a{
+display:block;
+text-decoration:none;
+color:#555;
+margin-bottom:10px;
+transition:0.25s
+}
+
+.footer-column a:hover{
+color:#1b5e20;
+padding-left:4px
+}
+
+.footer-bottom{
+margin-top:40px;
+border-top:1px solid #ddd;
+padding-top:20px;
+text-align:center;
+color:#777;
+font-size:14px
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">WildAtlas</div>
+
+<nav>
+<a href="nature.html">Home</a>
+<a href="mountain.html">Mountains</a>
+<a href="ranges.html">Ranges</a>
+<a href="geology.html" class="active">Geology</a>
+<a href="blog.html">Blog</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Mountain Geology</h1>
+<p>Understand the geological forces that create mountains, shape landscapes, and transform the Earth over millions of years.</p>
+</section>
+
+<section class="section">
+
+<h2>Geology Feature</h2>
+
+<div class="feature">
+
+<h3 style="font-size:32px;margin-bottom:20px">
+How Mountains Are Formed
+</h3>
+
+<p>
+Mountains form through powerful geological forces deep within the Earth's crust.
+<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80" style="width:250px;height:250px;object-fit:cover;border-radius:10px;float:right;margin:10px 0 10px 20px;">
+Most mountains are created when tectonic plates collide, forcing the Earth's crust to fold and rise.
+</p>
+
+<p>
+Over millions of years these slow movements build enormous mountain ranges such as the Himalayas and the Andes.
+</p>
+
+<p>
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80" style="width:250px;height:250px;object-fit:cover;border-radius:10px;float:left;margin:10px 20px 10px 0;">
+Volcanic activity can also form mountains when magma rises through the crust and solidifies into towering volcanic peaks.
+</p>
+
+<p>
+Erosion from wind, water, and glaciers constantly reshapes mountains, carving valleys, cliffs, and dramatic landscapes.
+</p>
+
+<div style="clear:both"></div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Types of Mountains</h2>
+
+<div class="geo-grid">
+
+<div class="geo-card">
+<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80">
+<div class="geo-card-content">
+<h3>Fold Mountains</h3>
+<p>Formed when tectonic plates collide and push layers of rock upward. Examples include the Himalayas and the Alps.</p>
+</div>
+</div>
+
+<div class="geo-card">
+<img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80">
+<div class="geo-card-content">
+<h3>Volcanic Mountains</h3>
+<p>Created when magma erupts and solidifies. Famous examples include Mount Fuji and Mount St. Helens.</p>
+</div>
+</div>
+
+<div class="geo-card">
+<img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80">
+<div class="geo-card-content">
+<h3>Block Mountains</h3>
+<p>Formed when large sections of Earth's crust are uplifted along faults due to tectonic forces.</p>
+</div>
+</div>
+
+<div class="geo-card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80">
+<div class="geo-card-content">
+<h3>Dome Mountains</h3>
+<p>Created when magma pushes the Earth's crust upward but does not erupt onto the surface.</p>
+</div>
+</div>
+
+</div>
+
+<div class="info-strip">
+
+<div class="info-box">
+<h4>Tectonic Plates</h4>
+<p>The Earth's crust is divided into plates that slowly move and collide, forming mountains.</p>
+</div>
+
+<div class="info-box">
+<h4>Erosion</h4>
+<p>Wind, water, and glaciers gradually wear down mountains over millions of years.</p>
+</div>
+
+<div class="info-box">
+<h4>Geological Time</h4>
+<p>Mountain formation happens extremely slowly, often taking tens of millions of years.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<div class="footer-logo">WildAtlas</div>
+<p>Discover mountains, landscapes, and natural wonders from around the world.</p>
+</div>
+
+<div class="footer-column">
+<h4>Explore</h4>
+<a href="mountain.html">Mountains</a>
+<a href="ranges.html">Ranges</a>
+<a href="geology.html">Geology</a>
+<a href="blog.html">Blog</a>
+</div>
+
+<div class="footer-column">
+<h4>Resources</h4>
+<a href="#">Mountain Encyclopedia</a>
+<a href="#">Climbing Guides</a>
+<a href="#">Photo Gallery</a>
+<a href="#">Educational Articles</a>
+</div>
+
+<div class="footer-column">
+<h4>Company</h4>
+<a href="#">About Us</a>
+<a href="#">Contact</a>
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Use</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 WildAtlas — Mountain Geology
+</div>
+
+</footer>
+
+</body>
+</html>

@@ -1,16 +1,20 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>WildAtlas - Explore the Wild World</title>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial, Helvetica, sans-serif}
 body{background:#ffffff;color:#222;line-height:1.6}
+
 header{display:flex;justify-content:space-between;align-items:center;padding:20px 8%;border-bottom:1px solid #eee}
 .logo{font-size:26px;font-weight:700;color:#1b5e20}
+
 nav a{margin:0 15px;text-decoration:none;color:#333;font-weight:500}
 nav a:hover{color:#1b5e20}
+
 .auth-buttons button{margin-left:10px;padding:8px 16px;border:none;border-radius:6px;cursor:pointer}
 .login{background:#eee}
 .signup{background:#1b5e20;color:#fff}
@@ -53,22 +57,68 @@ nav a:hover{color:#1b5e20}
 
 .ad{margin:60px auto;text-align:center;border:2px dashed #ddd;padding:25px;width:80%;color:#777}
 
-footer{padding:40px 8%;border-top:1px solid #eee;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
-.footer-links a{display:block;margin-bottom:8px;color:#555;text-decoration:none}
-.footer-links a:hover{color:#1b5e20}
+/* FOOTER */
+
+footer{
+background:#f4f7f4;
+margin-top:80px;
+padding:60px 8%
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:40px
+}
+
+.footer-logo{
+font-size:22px;
+font-weight:bold;
+color:#1b5e20;
+margin-bottom:10px
+}
+
+.footer-column h4{
+margin-bottom:15px
+}
+
+.footer-column a{
+display:block;
+text-decoration:none;
+color:#555;
+margin-bottom:10px;
+transition:0.25s
+}
+
+.footer-column a:hover{
+color:#1b5e20;
+padding-left:4px
+}
+
+.footer-bottom{
+margin-top:40px;
+border-top:1px solid #ddd;
+padding-top:20px;
+text-align:center;
+color:#777;
+font-size:14px
+}
 </style>
 </head>
+
 <body>
 
 <header>
 <div class="logo">WildAtlas</div>
+
 <nav>
-<a href="#">Home</a>
-<a href="animal.html">Animals</a>
-<a href="#">Mountains</a>
+<a href="index.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="mountain.html">Mountains</a>
 <a href="#">Habitats</a>
-<a href="#">Blog</a>
+<a href="blog.html">Blog</a>
 </nav>
+
 <div class="auth-buttons">
 <button class="login">Login</button>
 <button class="signup">Sign Up</button>
@@ -86,35 +136,37 @@ footer{padding:40px 8%;border-top:1px solid #eee;display:flex;justify-content:sp
 
 <section class="section">
 <h2>🌍 Nature Story of the Day</h2>
+
 <div class="story-box">
+
 <div class="story-date">March 15, 2026</div>
+
 <h3>The Snow Leopard: Ghost of the Mountains</h3>
+
 <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d" style="width:100%;border-radius:10px;margin:15px 0;height:220px;object-fit:cover;"/>
+
 <p>
-High in the rugged mountains of Central Asia lives one of the most mysterious predators on Earth—the snow leopard. Often called the "Ghost of the Mountains," this elusive big cat roams remote alpine regions where few humans ever travel. Its natural habitat stretches across countries like Nepal, India, Mongolia, and China, where towering peaks and deep valleys create the perfect environment for this powerful hunter.
+High in the rugged mountains of Central Asia lives one of the most mysterious predators on Earth—the snow leopard.
 </p>
-<p>
-The snow leopard is perfectly adapted to survive in some of the harshest climates on the planet. Its thick grey fur protects it from freezing temperatures, while its long bushy tail helps maintain balance on steep rocky cliffs. The tail can also wrap around its body like a blanket when the animal rests in the cold mountain air.
-</p>
+
 <img src="https://images.unsplash.com/photo-1549366021-9f761d450615" style="width:100%;border-radius:10px;margin:20px 0;height:220px;object-fit:cover;"/>
+
 <p>
-Unlike many big cats, snow leopards are incredibly difficult to spot in the wild. Their spotted coats blend almost perfectly with the rocky mountain terrain, providing natural camouflage. Because of this, even scientists studying them may go months or years without seeing one in person.
+Snow leopards are skilled hunters capable of leaping up to six times their body length.
 </p>
-<p>
-Snow leopards are skilled hunters capable of leaping up to six times their body length. They primarily prey on mountain animals such as blue sheep, ibex, and smaller mammals. These cats are solitary creatures and typically roam vast territories across mountain ranges in search of food.
-</p>
+
 <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13" style="width:100%;border-radius:10px;margin:20px 0;height:220px;object-fit:cover;"/>
+
 <p>
-Unfortunately, snow leopards are considered a vulnerable species. Habitat loss, climate change, and illegal hunting threaten their survival. Conservation groups and wildlife researchers are working hard to protect these animals and the fragile ecosystems they depend on.
+Despite the challenges they face, the snow leopard remains one of nature's most fascinating predators.
 </p>
-<p>
-Despite the challenges they face, the snow leopard remains one of nature's most fascinating predators. Hidden among the peaks and glaciers of Asia's highest mountains, it continues to inspire explorers, scientists, and wildlife lovers around the world.
-</p>
+
 </div>
 </section>
 
 <section class="section">
 <h2>Explore Topics</h2>
+
 <div class="cards">
 
 <div class="card">
@@ -148,6 +200,7 @@ Despite the challenges they face, the snow leopard remains one of nature's most 
 
 <section class="section">
 <h2>Latest Articles</h2>
+
 <div class="blog-grid">
 
 <div class="blog-card">
@@ -179,12 +232,14 @@ Despite the challenges they face, the snow leopard remains one of nature's most 
 
 <section class="section">
 <h2>Wildlife Gallery</h2>
+
 <div class="gallery">
 <img src="https://images.unsplash.com/photo-1501706362039-c6e80948b3c4"/>
 <img src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d"/>
 <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9"/>
 <img src="https://images.unsplash.com/photo-1474511320723-9a56873867e3"/>
 </div>
+
 </section>
 
 <section class="newsletter">
@@ -196,24 +251,42 @@ Despite the challenges they face, the snow leopard remains one of nature's most 
 </section>
 
 <footer>
+
+<div class="footer-grid">
+
 <div>
-<h3>WildAtlas</h3>
-<p>Explore wildlife, mountains, and ecosystems from around the world.</p>
+<div class="footer-logo">WildAtlas</div>
+<p>Discover wildlife, ecosystems, and natural wonders from around the world.</p>
 </div>
 
-<div class="footer-links">
-<strong>Explore</strong>
-<a href="#">Animals</a>
-<a href="#">Mountains</a>
+<div class="footer-column">
+<h4>Explore</h4>
+<a href="animals.html">Animals</a>
+<a href="mountain.html">Mountains</a>
 <a href="#">Habitats</a>
-<a href="#">Blog</a>
+<a href="blog.html">Blog</a>
 </div>
 
-<div class="footer-links">
-<strong>Company</strong>
-<a href="#">About</a>
+<div class="footer-column">
+<h4>Resources</h4>
+<a href="#">Wildlife Encyclopedia</a>
+<a href="#">Nature Articles</a>
+<a href="#">Photo Gallery</a>
+<a href="#">Educational Guides</a>
+</div>
+
+<div class="footer-column">
+<h4>Company</h4>
+<a href="about.html">About Us</a>
 <a href="#">Contact</a>
 <a href="#">Privacy Policy</a>
+<a href="#">Terms of Use</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 WildAtlas — Wildlife Encyclopedia
 </div>
 
 </footer>

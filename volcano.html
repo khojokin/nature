@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WildAtlas | Volcanoes</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#ffffff;
+      color:#222;
+      line-height:1.6;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 8%;
+      border-bottom:1px solid #e8e8e8;
+      background:#fff;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#1b5e20;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#333;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav a:hover,
+    nav a.active{
+      color:#1b5e20;
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .search-box input{
+      padding:10px 14px;
+      border:1px solid #ccc;
+      border-radius:25px;
+      outline:none;
+      width:180px;
+    }
+
+    .btn{
+      padding:10px 18px;
+      border:none;
+      border-radius:25px;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-login{
+      background:#f1f1f1;
+      color:#222;
+    }
+
+    .btn-signup{
+      background:#1b5e20;
+      color:#fff;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .hero{
+      background:
+      linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
+      url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      color:#fff;
+      text-align:center;
+      padding:115px 8%;
+    }
+
+    .hero h1{
+      font-size:54px;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      font-size:18px;
+      max-width:760px;
+      margin:auto;
+      color:#f3f3f3;
+    }
+
+    .top-ad{
+      background:linear-gradient(135deg,#edf7ed,#dff1df);
+      border:1px solid #cfe5cf;
+      border-radius:18px;
+      padding:30px;
+      text-align:center;
+      margin:50px 8% 0;
+    }
+
+    .top-ad h3{
+      color:#1b5e20;
+      margin-bottom:10px;
+      font-size:28px;
+    }
+
+    .top-ad p{
+      color:#444;
+      margin-bottom:15px;
+    }
+
+    .top-ad a{
+      display:inline-block;
+      padding:12px 22px;
+      background:#1b5e20;
+      color:#fff;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:600;
+    }
+
+    .section{
+      padding:70px 8%;
+    }
+
+    .section-title{
+      font-size:34px;
+      margin-bottom:15px;
+      color:#1b5e20;
+      text-align:center;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      color:#666;
+      max-width:760px;
+      margin:0 auto 45px;
+    }
+
+    .volcano-layout{
+      display:grid;
+      grid-template-columns:2.2fr 1fr;
+      gap:35px;
+      align-items:start;
+    }
+
+    .volcano-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .card-content{
+      padding:22px;
+    }
+
+    .tag{
+      display:inline-block;
+      background:#e8f5e9;
+      color:#1b5e20;
+      padding:6px 12px;
+      border-radius:20px;
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:12px;
+    }
+
+    .card h3{
+      font-size:22px;
+      margin-bottom:10px;
+    }
+
+    .card p{
+      color:#666;
+      margin-bottom:16px;
+    }
+
+    .read-more{
+      text-decoration:none;
+      color:#1b5e20;
+      font-weight:700;
+    }
+
+    .sidebar{
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+    }
+
+    .ad-box{
+      background:#f8faf8;
+      border:1px solid #e2ebe2;
+      border-radius:18px;
+      padding:24px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    .ad-box h4{
+      color:#1b5e20;
+      margin-bottom:10px;
+      font-size:22px;
+    }
+
+    .ad-box p{
+      color:#555;
+      margin-bottom:14px;
+    }
+
+    .ad-box a{
+      display:inline-block;
+      text-decoration:none;
+      background:#1b5e20;
+      color:#fff;
+      padding:10px 18px;
+      border-radius:25px;
+      font-weight:600;
+    }
+
+    .mini-ad{
+      background:#fff7e6;
+      border:1px solid #f0deb0;
+      border-radius:18px;
+      padding:22px;
+    }
+
+    .mini-ad h4{
+      color:#8a5a00;
+      margin-bottom:10px;
+    }
+
+    .mini-ad p{
+      color:#5f4a1b;
+      margin-bottom:14px;
+    }
+
+    .mini-ad a{
+      display:inline-block;
+      text-decoration:none;
+      background:#8a5a00;
+      color:#fff;
+      padding:10px 18px;
+      border-radius:25px;
+      font-weight:600;
+    }
+
+    .featured-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+      gap:25px;
+    }
+
+    .featured-box{
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .featured-box:hover{
+      transform:translateY(-6px);
+    }
+
+    .featured-box img{
+      width:100%;
+      height:210px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .featured-content{
+      padding:20px;
+    }
+
+    .featured-content h3{
+      color:#1b5e20;
+      margin-bottom:10px;
+      font-size:22px;
+    }
+
+    .featured-content p{
+      color:#666;
+    }
+
+    .facts{
+      background:#f4f7f4;
+    }
+
+    .facts-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .fact-box{
+      background:#fff;
+      padding:28px;
+      border-radius:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+      text-align:center;
+    }
+
+    .fact-box h3{
+      font-size:32px;
+      color:#1b5e20;
+      margin-bottom:8px;
+    }
+
+    .fact-box p{
+      color:#666;
+    }
+
+    .newsletter{
+      background:#f4f7f4;
+      text-align:center;
+      padding:70px 8%;
+    }
+
+    .newsletter h2{
+      font-size:34px;
+      color:#1b5e20;
+      margin-bottom:12px;
+    }
+
+    .newsletter p{
+      color:#555;
+      max-width:650px;
+      margin:0 auto 24px;
+    }
+
+    .newsletter form{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .newsletter input{
+      padding:14px 16px;
+      width:320px;
+      max-width:100%;
+      border:1px solid #ccc;
+      border-radius:30px;
+      outline:none;
+    }
+
+    .newsletter button{
+      padding:14px 24px;
+      border:none;
+      border-radius:30px;
+      background:#1b5e20;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    footer{
+      background:#111;
+      color:#ddd;
+      padding:60px 8% 25px;
+      margin-top:0;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:30px;
+      margin-bottom:35px;
+    }
+
+    .footer-col h3{
+      color:#fff;
+      margin-bottom:15px;
+      font-size:20px;
+    }
+
+    .footer-col p{
+      color:#bbb;
+    }
+
+    .footer-col a{
+      display:block;
+      color:#bbb;
+      text-decoration:none;
+      margin-bottom:10px;
+      transition:0.3s;
+    }
+
+    .footer-col a:hover{
+      color:#fff;
+    }
+
+    .footer-bottom{
+      border-top:1px solid #2a2a2a;
+      padding-top:20px;
+      text-align:center;
+      color:#999;
+      font-size:14px;
+    }
+
+    @media (max-width: 992px){
+      .volcano-layout{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 768px){
+      header{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav{
+        justify-content:center;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .search-box input{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">WildAtlas</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Animals</a>
+      <a href="#">Insects</a>
+      <a href="#">Mountains</a>
+      <a href="#">Forests</a>
+      <a href="#">Nature Articles</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="search-box">
+        <input type="text" placeholder="Search volcanoes..." />
+      </div>
+      <button class="btn btn-login">Log In</button>
+      <button class="btn btn-signup">Sign Up</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Volcanoes of the Earth</h1>
+    <p>
+      Discover the fire beneath the planet’s surface — from explosive eruptions and lava flows to towering peaks that reshape landscapes and ecosystems.
+    </p>
+  </section>
+
+  <section class="top-ad">
+    <h3>Advertise With WildAtlas</h3>
+    <p>
+      Promote documentaries, hiking gear, geology books, travel campaigns, photography tools, and outdoor adventure brands on this page.
+    </p>
+    <a href="#">Place Your Ad</a>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Featured Volcano Stories</h2>
+    <p class="section-subtitle">
+      Explore legendary volcanoes, dramatic eruptions, and the natural forces that shape some of the world’s most powerful landscapes.
+    </p>
+
+    <div class="volcano-layout">
+      <div class="volcano-grid">
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80" alt="Volcanic mountain">
+          <div class="card-content">
+            <span class="tag">Stratovolcanoes</span>
+            <h3>Why Stratovolcanoes Are So Powerful</h3>
+            <p>Learn how steep volcanic cones build pressure over time and produce some of the most dramatic eruptions on Earth.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=80" alt="Lava flow">
+          <div class="card-content">
+            <span class="tag">Lava</span>
+            <h3>The Rivers of Fire Beneath the Crust</h3>
+            <p>Discover how magma reaches the surface, cools into rock, and helps create entirely new landscapes.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80" alt="Mountain volcano">
+          <div class="card-content">
+            <span class="tag">Peaks</span>
+            <h3>Volcanoes That Became Mountains</h3>
+            <p>Some of the world’s most beautiful mountain ranges were formed by ancient volcanic activity over millions of years.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=80" alt="Volcanic landscape">
+          <div class="card-content">
+            <span class="tag">Landscapes</span>
+            <h3>How Volcanoes Build New Worlds</h3>
+            <p>From islands to black sand beaches, volcanoes create dramatic environments that support unique ecosystems.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="sidebar">
+        <div class="ad-box">
+          <h4>Sponsored Ad Space</h4>
+          <p>
+            This is a great place for geology tools, outdoor clothing, volcano tours, field guides, or science education brands.
+          </p>
+          <a href="#">Advertise Here</a>
+        </div>
+
+        <div class="mini-ad">
+          <h4>Documentary Promotion</h4>
+          <p>
+            Feature your volcano documentary, Earth science series, or nature YouTube campaign in this high-visibility section.
+          </p>
+          <a href="#">Promote Now</a>
+        </div>
+
+        <div class="ad-box">
+          <h4>Affiliate Product Ad</h4>
+          <p>
+            Add cameras, hiking boots, geology books, field journals, or travel accessories here for affiliate income.
+          </p>
+          <a href="#">View Offer</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="top-ad" style="margin:0;">
+      <h3>Featured Brand Collaboration</h3>
+      <p>
+        A wide premium advert area for travel sponsors, conservation campaigns, geology organizations, or educational partners.
+      </p>
+      <a href="#">Become a Sponsor</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Related Natural Wonders</h2>
+    <p class="section-subtitle">
+      Keep visitors exploring other dramatic parts of the natural world connected to volcanic landscapes and Earth science.
+    </p>
+
+    <div class="featured-grid">
+      <div class="featured-box">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80" alt="Mountains">
+        <div class="featured-content">
+          <h3>Mountains</h3>
+          <p>Explore towering peaks, extreme weather, and breathtaking landforms shaped over time.</p>
+        </div>
+      </div>
+
+      <div class="featured-box">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80" alt="Forests">
+        <div class="featured-content">
+          <h3>Forests</h3>
+          <p>See how lush forests grow even in regions influenced by volcanic soil and rugged terrain.</p>
+        </div>
+      </div>
+
+      <div class="featured-box">
+        <img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1000&q=80" alt="Oceans">
+        <div class="featured-content">
+          <h3>Oceans</h3>
+          <p>Learn how underwater volcanoes and tectonic activity shape marine landscapes below the surface.</p>
+        </div>
+      </div>
+
+      <div class="featured-box">
+        <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1000&q=80" alt="Wildlife">
+        <div class="featured-content">
+          <h3>Wildlife</h3>
+          <p>Discover animals that survive and adapt in harsh volcanic and mountainous habitats.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section facts">
+    <h2 class="section-title">Amazing Volcano Facts</h2>
+    <p class="section-subtitle">
+      Volcanoes are among the most powerful natural systems on Earth, shaping land, climate, and ecosystems across the globe.
+    </p>
+
+    <div class="facts-grid">
+      <div class="fact-box">
+        <h3>1,500+</h3>
+        <p>Potentially active volcanoes on land</p>
+      </div>
+
+      <div class="fact-box">
+        <h3>75%</h3>
+        <p>Of Earth’s volcanoes lie around the Pacific Ring of Fire</p>
+      </div>
+
+      <div class="fact-box">
+        <h3>80%</h3>
+        <p>Of the planet’s surface was shaped by volcanic activity</p>
+      </div>
+
+      <div class="fact-box">
+        <h3>Underwater</h3>
+        <p>Most volcanic activity actually happens beneath the oceans</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Stay Updated With WildAtlas</h2>
+    <p>
+      Join our newsletter for geology stories, wildlife discoveries, mountain features, and more natural wonders.
+    </p>
+    <form>
+      <input type="email" placeholder="Enter your email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>WildAtlas</h3>
+        <p>
+          Bringing the beauty of nature closer through stories, research, visuals, and wild exploration.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <a href="#">Home</a>
+        <a href="#">Animals</a>
+        <a href="#">Insects</a>
+        <a href="#">Mountains</a>
+        <a href="#">Forests</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Advertise</h3>
+        <a href="#">Sponsored Posts</a>
+        <a href="#">Banner Ads</a>
+        <a href="#">Brand Collaboration</a>
+        <a href="#">Affiliate Partnerships</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Help Center</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 WildAtlas. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

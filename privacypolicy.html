@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WildAtlas | Privacy Policy</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#ffffff;
+      color:#222;
+      line-height:1.7;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 8%;
+      border-bottom:1px solid #e8e8e8;
+      background:#fff;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#1b5e20;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#333;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav a:hover,
+    nav a.active{
+      color:#1b5e20;
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .search-box input{
+      padding:10px 14px;
+      border:1px solid #ccc;
+      border-radius:25px;
+      outline:none;
+      width:180px;
+    }
+
+    .btn{
+      padding:10px 18px;
+      border:none;
+      border-radius:25px;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-login{
+      background:#f1f1f1;
+      color:#222;
+    }
+
+    .btn-signup{
+      background:#1b5e20;
+      color:#fff;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .hero{
+      background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      color:white;
+      text-align:center;
+      padding:100px 8%;
+    }
+
+    .hero h1{
+      font-size:48px;
+      margin-bottom:14px;
+    }
+
+    .hero p{
+      font-size:18px;
+      max-width:760px;
+      margin:auto;
+      color:#f3f3f3;
+    }
+
+    .top-ad{
+      background:linear-gradient(135deg, #edf7ed, #dff1df);
+      border:1px solid #cfe5cf;
+      border-radius:18px;
+      padding:30px;
+      text-align:center;
+      margin:50px 8% 0;
+    }
+
+    .top-ad h3{
+      color:#1b5e20;
+      margin-bottom:10px;
+      font-size:28px;
+    }
+
+    .top-ad p{
+      color:#444;
+      margin-bottom:15px;
+    }
+
+    .top-ad a{
+      display:inline-block;
+      padding:12px 22px;
+      background:#1b5e20;
+      color:#fff;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:600;
+    }
+
+    .section{
+      padding:70px 8%;
+    }
+
+    .policy-wrapper{
+      max-width:1000px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:0.85fr 2fr;
+      gap:30px;
+      align-items:start;
+    }
+
+    .policy-sidebar{
+      background:#f8faf8;
+      border:1px solid #e2ebe2;
+      border-radius:20px;
+      padding:24px;
+      position:sticky;
+      top:110px;
+    }
+
+    .policy-sidebar h3{
+      color:#1b5e20;
+      margin-bottom:16px;
+      font-size:22px;
+    }
+
+    .policy-sidebar a{
+      display:block;
+      text-decoration:none;
+      color:#555;
+      margin-bottom:12px;
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    .policy-sidebar a:hover{
+      color:#1b5e20;
+    }
+
+    .policy-content{
+      background:#fff;
+      border-radius:20px;
+      padding:36px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .policy-content .updated{
+      display:inline-block;
+      background:#e8f5e9;
+      color:#1b5e20;
+      padding:8px 14px;
+      border-radius:20px;
+      font-size:14px;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    .policy-content h2{
+      color:#1b5e20;
+      font-size:30px;
+      margin-bottom:10px;
+    }
+
+    .policy-content > p.intro{
+      color:#666;
+      margin-bottom:28px;
+    }
+
+    .policy-section{
+      margin-bottom:30px;
+    }
+
+    .policy-section h3{
+      color:#1b5e20;
+      font-size:22px;
+      margin-bottom:10px;
+    }
+
+    .policy-section p{
+      color:#555;
+      margin-bottom:10px;
+    }
+
+    .policy-section ul{
+      padding-left:20px;
+      color:#555;
+    }
+
+    .policy-section li{
+      margin-bottom:8px;
+    }
+
+    .mini-ad{
+      margin-top:35px;
+      background:#fff7e6;
+      border:1px solid #f0deb0;
+      border-radius:18px;
+      padding:22px;
+    }
+
+    .mini-ad h4{
+      color:#8a5a00;
+      margin-bottom:10px;
+      font-size:22px;
+    }
+
+    .mini-ad p{
+      color:#5f4a1b;
+      margin-bottom:14px;
+    }
+
+    .mini-ad a{
+      display:inline-block;
+      text-decoration:none;
+      background:#8a5a00;
+      color:#fff;
+      padding:10px 18px;
+      border-radius:25px;
+      font-weight:600;
+    }
+
+    .newsletter{
+      background:#f4f7f4;
+      text-align:center;
+      padding:70px 8%;
+    }
+
+    .newsletter h2{
+      font-size:34px;
+      color:#1b5e20;
+      margin-bottom:12px;
+    }
+
+    .newsletter p{
+      color:#555;
+      max-width:650px;
+      margin:0 auto 24px;
+    }
+
+    .newsletter form{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .newsletter input{
+      padding:14px 16px;
+      width:320px;
+      max-width:100%;
+      border:1px solid #ccc;
+      border-radius:30px;
+      outline:none;
+    }
+
+    .newsletter button{
+      padding:14px 24px;
+      border:none;
+      border-radius:30px;
+      background:#1b5e20;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    footer{
+      background:#111;
+      color:#ddd;
+      padding:60px 8% 25px;
+      margin-top:0;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:30px;
+      margin-bottom:35px;
+    }
+
+    .footer-col h3{
+      color:#fff;
+      margin-bottom:15px;
+      font-size:20px;
+    }
+
+    .footer-col p{
+      color:#bbb;
+    }
+
+    .footer-col a{
+      display:block;
+      color:#bbb;
+      text-decoration:none;
+      margin-bottom:10px;
+      transition:0.3s;
+    }
+
+    .footer-col a:hover{
+      color:#fff;
+    }
+
+    .footer-bottom{
+      border-top:1px solid #2a2a2a;
+      padding-top:20px;
+      text-align:center;
+      color:#999;
+      font-size:14px;
+    }
+
+    @media (max-width: 992px){
+      .policy-wrapper{
+        grid-template-columns:1fr;
+      }
+
+      .policy-sidebar{
+        position:static;
+      }
+    }
+
+    @media (max-width: 768px){
+      header{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav{
+        justify-content:center;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .search-box input{
+        width:100%;
+      }
+
+      .policy-content{
+        padding:24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">WildAtlas</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Animals</a>
+      <a href="#">Mountains</a>
+      <a href="#">Forests</a>
+      <a href="#">Nature Articles</a>
+      <a href="#">Contact</a>
+      <a href="#" class="active">Privacy Policy</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="search-box">
+        <input type="text" placeholder="Search here..." />
+      </div>
+      <button class="btn btn-login">Log In</button>
+      <button class="btn btn-signup">Sign Up</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Privacy Policy</h1>
+    <p>
+      Learn how WildAtlas collects, uses, protects, and manages your personal information across our website and services.
+    </p>
+  </section>
+
+  <section class="top-ad">
+    <h3>Advertise With Confidence</h3>
+    <p>
+      WildAtlas values transparency, trust, and user privacy while creating meaningful brand and advertising opportunities.
+    </p>
+    <a href="#">Partner With Us</a>
+  </section>
+
+  <section class="section">
+    <div class="policy-wrapper">
+      <aside class="policy-sidebar">
+        <h3>Quick Links</h3>
+        <a href="#introduction">Introduction</a>
+        <a href="#information">Information We Collect</a>
+        <a href="#usage">How We Use Information</a>
+        <a href="#cookies">Cookies</a>
+        <a href="#sharing">Information Sharing</a>
+        <a href="#security">Data Security</a>
+        <a href="#rights">Your Rights</a>
+        <a href="#contact">Contact Us</a>
+      </aside>
+
+      <div class="policy-content">
+        <span class="updated">Last Updated: March 2026</span>
+        <h2>WildAtlas Privacy Policy</h2>
+        <p class="intro">
+          This Privacy Policy explains how WildAtlas collects, uses, and protects information when you visit our website, subscribe to our newsletter, contact us, or interact with our services.
+        </p>
+
+        <div class="policy-section" id="introduction">
+          <h3>1. Introduction</h3>
+          <p>
+            WildAtlas is committed to protecting your privacy and handling your information responsibly. By using our website, you agree to the terms outlined in this Privacy Policy.
+          </p>
+        </div>
+
+        <div class="policy-section" id="information">
+          <h3>2. Information We Collect</h3>
+          <p>We may collect the following types of information:</p>
+          <ul>
+            <li>Personal details such as your name and email address when you contact us or subscribe.</li>
+            <li>Basic usage data such as pages visited, device type, browser type, and time spent on the website.</li>
+            <li>Information you provide through forms, comments, enquiries, or advertising requests.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section" id="usage">
+          <h3>3. How We Use Your Information</h3>
+          <p>Your information may be used to:</p>
+          <ul>
+            <li>Respond to enquiries and support requests.</li>
+            <li>Send newsletters, updates, and site-related information.</li>
+            <li>Improve website performance, design, and content.</li>
+            <li>Manage partnerships, advertising requests, and collaborations.</li>
+            <li>Maintain website security and prevent misuse.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section" id="cookies">
+          <h3>4. Cookies and Tracking Technologies</h3>
+          <p>
+            WildAtlas may use cookies and similar technologies to improve user experience, remember preferences, and better understand how visitors interact with the site.
+          </p>
+          <p>
+            You can usually control or disable cookies through your browser settings, though some features of the website may not function properly if cookies are disabled.
+          </p>
+        </div>
+
+        <div class="policy-section" id="sharing">
+          <h3>5. Information Sharing</h3>
+          <p>
+            We do not sell your personal information. We may share limited information with trusted service providers who help us operate the website, deliver newsletters, or manage analytics, only where necessary.
+          </p>
+          <p>
+            We may also disclose information if required by law or when necessary to protect our website, users, or legal rights.
+          </p>
+        </div>
+
+        <div class="policy-section">
+          <h3>6. Third-Party Links</h3>
+          <p>
+            Our website may contain links to third-party websites, advertisers, affiliates, or partner platforms. We are not responsible for the privacy practices or content of those external websites.
+          </p>
+        </div>
+
+        <div class="policy-section" id="security">
+          <h3>7. Data Security</h3>
+          <p>
+            We take reasonable steps to protect your information from unauthorized access, disclosure, alteration, or misuse. However, no internet-based system is completely secure, so we cannot guarantee absolute security.
+          </p>
+        </div>
+
+        <div class="policy-section" id="rights">
+          <h3>8. Your Rights</h3>
+          <p>Depending on your location, you may have rights to:</p>
+          <ul>
+            <li>Request access to the personal data we hold about you.</li>
+            <li>Ask for corrections to inaccurate information.</li>
+            <li>Request deletion of your personal data where appropriate.</li>
+            <li>Withdraw consent from marketing communications at any time.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>9. Children’s Privacy</h3>
+          <p>
+            WildAtlas does not knowingly collect personal information from children without appropriate consent. If you believe a child has provided personal information through our site, please contact us so we can address it promptly.
+          </p>
+        </div>
+
+        <div class="policy-section">
+          <h3>10. Changes to This Policy</h3>
+          <p>
+            We may update this Privacy Policy from time to time to reflect changes in our services, technology, or legal obligations. Any updates will be posted on this page with a revised date.
+          </p>
+        </div>
+
+        <div class="policy-section" id="contact">
+          <h3>11. Contact Us</h3>
+          <p>
+            If you have questions about this Privacy Policy or how your information is handled, please contact us at:
+          </p>
+          <p>
+            Email: hello@wildatlas.com<br>
+            Location: London, United Kingdom
+          </p>
+        </div>
+
+        <div class="mini-ad">
+          <h4>Sponsored Policy Space</h4>
+          <p>
+            This area can be used for trusted partner highlights, eco-brand messaging, or privacy-focused sponsor promotions.
+          </p>
+          <a href="#">Advertise Here</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Stay Updated With WildAtlas</h2>
+    <p>
+      Subscribe for new nature stories, wildlife features, site updates, and fresh outdoor inspiration.
+    </p>
+    <form>
+      <input type="email" placeholder="Enter your email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>WildAtlas</h3>
+        <p>
+          Bringing the beauty of nature closer through stories, research, visuals, and wild exploration.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <a href="#">Home</a>
+        <a href="#">Animals</a>
+        <a href="#">Mountains</a>
+        <a href="#">Forests</a>
+        <a href="#">Nature Articles</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Advertise</h3>
+        <a href="#">Sponsored Posts</a>
+        <a href="#">Banner Ads</a>
+        <a href="#">Brand Collaboration</a>
+        <a href="#">Affiliate Partnerships</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Help Center</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 WildAtlas. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
