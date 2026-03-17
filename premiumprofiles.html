@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Impact | WildAtlas</title>
+  <title>Member Benefits | WildAtlas</title>
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="shortcut icon" href="logo.png" />
 
@@ -121,48 +121,48 @@
       text-align:center;
     }
 
-    .hero-impact{
+    .hero-benefits{
       padding:100px 6%;
       color:#fff;
       background:
         linear-gradient(rgba(17,24,39,0.68), rgba(17,24,39,0.68)),
         url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      min-height:480px;
+      min-height:500px;
       display:flex;
       align-items:center;
     }
 
-    .hero-impact-inner{
+    .hero-benefits-inner{
       max-width:1180px;
       margin:0 auto;
       display:grid;
-      grid-template-columns:1.1fr 0.9fr;
+      grid-template-columns:1.08fr 0.92fr;
       gap:40px;
       align-items:center;
       width:100%;
     }
 
-    .hero-impact-text h1{
+    .hero-benefits-text h1{
       font-size:clamp(38px,5vw,58px);
       line-height:1.05;
       margin-bottom:18px;
       font-weight:800;
     }
 
-    .hero-impact-text p{
+    .hero-benefits-text p{
       font-size:clamp(16px,2vw,18px);
       color:#ecfdf5;
       max-width:650px;
       margin-bottom:28px;
     }
 
-    .hero-impact-btns{
+    .hero-benefits-btns{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
     }
 
-    .hero-impact-card{
+    .hero-benefits-card{
       background:rgba(255,255,255,0.1);
       backdrop-filter:blur(10px);
       border:1px solid rgba(255,255,255,0.18);
@@ -170,31 +170,31 @@
       padding:28px;
     }
 
-    .hero-impact-card h3{
+    .hero-benefits-card h3{
       font-size:21px;
       margin-bottom:18px;
     }
 
-    .hero-impact-stats{
+    .hero-benefits-stats{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:14px;
     }
 
-    .hero-impact-stat{
+    .hero-benefits-stat{
       background:rgba(255,255,255,0.08);
       padding:16px;
       border-radius:16px;
       text-align:center;
     }
 
-    .hero-impact-stat h4{
+    .hero-benefits-stat h4{
       font-size:24px;
       color:#fbbf24;
       margin-bottom:4px;
     }
 
-    .hero-impact-stat p{
+    .hero-benefits-stat p{
       font-size:12px;
       text-transform:uppercase;
       font-weight:700;
@@ -206,45 +206,13 @@
     .section-header h2{font-size:36px;color:#14532d;margin-bottom:15px;}
     .section-header p{color:#6b7280;max-width:720px;margin:0 auto;}
 
-    .category-grid{
+    .benefits-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:24px;
-    }
-
-    .category-box{
-      background:#f9fafb;
-      border:1px solid #e5e7eb;
-      border-radius:22px;
-      padding:24px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.03);
-      text-align:center;
-    }
-
-    .category-box h3{
-      font-size:30px;
-      color:#14532d;
-      margin-bottom:8px;
-    }
-
-    .category-box h4{
-      font-size:18px;
-      color:#111827;
-      margin-bottom:8px;
-    }
-
-    .category-box p{
-      color:#6b7280;
-      font-size:14px;
-    }
-
-    .impact-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
       gap:30px;
     }
 
-    .impact-card{
+    .benefit-card{
       background:#fff;
       border:1px solid #f3f4f6;
       border-radius:24px;
@@ -252,43 +220,25 @@
       box-shadow:0 10px 30px rgba(0,0,0,0.03);
       display:flex;
       flex-direction:column;
-      position:relative;
     }
 
-    .impact-card:hover{
+    .benefit-card:hover{
       transform:translateY(-10px);
       box-shadow:0 20px 40px rgba(0,0,0,0.08);
     }
 
-    .premium-lock{
-      position:absolute;
-      top:15px;
-      left:15px;
-      background:rgba(17,24,39,0.85);
-      color:#fff;
-      padding:6px 12px;
-      border-radius:999px;
-      font-size:11px;
-      font-weight:700;
-      z-index:2;
-      display:flex;
-      align-items:center;
-      gap:5px;
-      backdrop-filter:blur(4px);
-    }
+    .benefit-img{height:220px;overflow:hidden;}
+    .benefit-img img{width:100%;height:100%;object-fit:cover;transition:0.5s;}
+    .benefit-card:hover .benefit-img img{transform:scale(1.08);}
 
-    .impact-img{height:220px;overflow:hidden;}
-    .impact-img img{width:100%;height:100%;object-fit:cover;transition:0.5s;}
-    .impact-card:hover .impact-img img{transform:scale(1.08);}
-
-    .impact-content{
+    .benefit-content{
       padding:25px;
       flex:1;
       display:flex;
       flex-direction:column;
     }
 
-    .impact-tag{
+    .benefit-tag{
       font-size:11px;
       text-transform:uppercase;
       font-weight:800;
@@ -300,20 +250,20 @@
       margin-bottom:15px;
     }
 
-    .impact-content h3{
+    .benefit-content h3{
       font-size:22px;
       margin-bottom:10px;
       color:#111827;
     }
 
-    .impact-content p{
+    .benefit-content p{
       color:#6b7280;
       font-size:15px;
       margin-bottom:18px;
       flex:1;
     }
 
-    .impact-data{
+    .benefit-data{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:10px;
@@ -323,7 +273,7 @@
       border-radius:14px;
     }
 
-    .impact-data span{
+    .benefit-data span{
       display:block;
       font-size:11px;
       color:#6b7280;
@@ -331,17 +281,49 @@
       font-weight:700;
     }
 
-    .impact-data strong{
+    .benefit-data strong{
       font-size:15px;
       color:#1f2937;
     }
 
-    .impact-link{
+    .benefit-link{
       font-weight:700;
       color:#14532d;
       display:flex;
       align-items:center;
       gap:5px;
+      font-size:14px;
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:24px;
+    }
+
+    .feature-box{
+      background:#f9fafb;
+      border:1px solid #e5e7eb;
+      border-radius:22px;
+      padding:24px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.03);
+      text-align:center;
+    }
+
+    .feature-box h3{
+      font-size:30px;
+      color:#14532d;
+      margin-bottom:8px;
+    }
+
+    .feature-box h4{
+      font-size:18px;
+      color:#111827;
+      margin-bottom:8px;
+    }
+
+    .feature-box p{
+      color:#6b7280;
       font-size:14px;
     }
 
@@ -374,23 +356,53 @@
       font-size:16px;
     }
 
-    .impact-list{
+    .benefit-list{
       display:grid;
       gap:14px;
       margin-top:18px;
     }
 
-    .impact-list-item{
+    .benefit-list-item{
       background:#f9fafb;
       border:1px solid #e5e7eb;
       border-radius:16px;
       padding:16px;
     }
 
-    .impact-list-item strong{
+    .benefit-list-item strong{
       display:block;
       color:#14532d;
       margin-bottom:4px;
+    }
+
+    .cta-box{
+      max-width:980px;
+      margin:0 auto;
+      background:linear-gradient(135deg,#14532d,#166534);
+      color:#fff;
+      border-radius:28px;
+      padding:40px 28px;
+      text-align:center;
+      box-shadow:0 18px 40px rgba(20,83,45,0.18);
+    }
+
+    .cta-box h2{
+      font-size:clamp(30px,4vw,42px);
+      margin-bottom:12px;
+      line-height:1.15;
+    }
+
+    .cta-box p{
+      max-width:720px;
+      margin:0 auto 20px;
+      color:#ecfdf5;
+    }
+
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
     }
 
     footer{background:#111827;color:#9ca3af;padding:80px 6% 40px;}
@@ -408,12 +420,12 @@
     }
 
     @media (max-width:1024px){
-      .hero-impact-inner,
+      .hero-benefits-inner,
       .split-section{
         grid-template-columns:1fr;
       }
 
-      .hero-impact-text,
+      .hero-benefits-text,
       .split-text{
         text-align:center;
         display:flex;
@@ -421,7 +433,7 @@
         align-items:center;
       }
 
-      .impact-list{
+      .benefit-list{
         width:100%;
       }
     }
@@ -459,11 +471,12 @@
     }
 
     @media (max-width:640px){
-      .hero-impact{padding:84px 5%;}
+      .hero-benefits{padding:84px 5%;}
       .section{padding:70px 5%;}
       .header-inner{gap:14px;}
       .logo-text h2{font-size:22px;}
       .logo-text span{font-size:11px;}
+      .cta-box{padding:32px 18px;}
     }
   </style>
 </head>
@@ -489,7 +502,7 @@
           <a href="species.html">Species</a>
           <a href="biomes.html">Biomes</a>
           <a href="earth.html">Earth</a>
-          <a href="impact.html" class="active">Impact</a>
+          <a href="impact.html">Impact</a>
           <a href="places.html">Places</a>
           <a href="connection.html">Connection</a>
           <a href="library.html">Library</a>
@@ -507,24 +520,24 @@
     </div>
   </header>
 
-  <section class="hero-impact">
-    <div class="hero-impact-inner">
-      <div class="hero-impact-text">
-        <h1>Tracking Humanity’s Impact on the Natural World</h1>
-        <p>Explore habitat loss, climate pressure, pollution, restoration efforts, and the measurable ways human activity is reshaping ecosystems across the planet.</p>
-        <div class="hero-impact-btns">
-          <a href="#featured-impact" class="btn" style="background:#14532d;color:#fff;">Explore Impact</a>
-          <a href="subscribe.html" class="btn" style="background:rgba(255,255,255,0.18);color:#fff;backdrop-filter:blur(5px);">Unlock Premium Reports</a>
+  <section class="hero-benefits">
+    <div class="hero-benefits-inner">
+      <div class="hero-benefits-text">
+        <h1>See What You Get With WildAtlas Membership</h1>
+        <p>Member benefits unlock the richest side of WildAtlas — premium documentaries, deeper guides, exclusive archives, and a more immersive way to explore the natural world.</p>
+        <div class="hero-benefits-btns">
+          <a href="#member-benefits" class="btn" style="background:#14532d;color:#fff;">Explore Benefits</a>
+          <a href="subscribe.html" class="btn" style="background:rgba(255,255,255,0.18);color:#fff;backdrop-filter:blur(5px);">Join WildAtlas</a>
         </div>
       </div>
 
-      <div class="hero-impact-card">
-        <h3>Impact Dashboard</h3>
-        <div class="hero-impact-stats">
-          <div class="hero-impact-stat"><h4>43%</h4><p>Habitats Under Pressure</p></div>
-          <div class="hero-impact-stat"><h4>1M+</h4><p>Species at Risk</p></div>
-          <div class="hero-impact-stat"><h4>2.1M</h4><p>Hectares Restored</p></div>
-          <div class="hero-impact-stat"><h4>24/7</h4><p>Monitoring</p></div>
+      <div class="hero-benefits-card">
+        <h3>Member Access Dashboard</h3>
+        <div class="hero-benefits-stats">
+          <div class="hero-benefits-stat"><h4>320+</h4><p>Premium Films</p></div>
+          <div class="hero-benefits-stat"><h4>1.8K</h4><p>Archives</p></div>
+          <div class="hero-benefits-stat"><h4>120+</h4><p>Deep Guides</p></div>
+          <div class="hero-benefits-stat"><h4>24/7</h4><p>Member Access</p></div>
         </div>
       </div>
     </div>
@@ -532,124 +545,122 @@
 
   <section class="section">
     <div class="section-header">
-      <h2>Key Impact Indicators</h2>
-      <p>WildAtlas highlights major signals showing how environmental stress is affecting biodiversity, land, water, climate, and ecological stability.</p>
+      <h2>What Membership Unlocks</h2>
+      <p>WildAtlas membership is designed to go beyond ordinary browsing and give you deeper access to nature knowledge, media, and discovery tools.</p>
     </div>
 
-    <div class="category-grid">
-      <div class="category-box">
-        <h3>75%</h3>
-        <h4>Land Altered</h4>
-        <p>Much of Earth’s land surface has been significantly changed by farming, cities, industry, and extraction.</p>
+    <div class="feature-grid">
+      <div class="feature-box">
+        <h3>Plus</h3>
+        <h4>Premium Media</h4>
+        <p>Unlock documentaries, exclusive video features, and premium visual storytelling across the platform.</p>
       </div>
-      <div class="category-box">
-        <h3>85%</h3>
-        <h4>Wetlands Lost</h4>
-        <p>Wetland decline has reduced biodiversity, freshwater buffering, and natural flood protection in many regions.</p>
+      <div class="feature-box">
+        <h3>Deep</h3>
+        <h4>Topic Access</h4>
+        <p>Go beyond short summaries with richer profiles, deeper learning paths, and extra context.</p>
       </div>
-      <div class="category-box">
-        <h3>+1.1°C</h3>
-        <h4>Global Warming</h4>
-        <p>Rising temperatures are shifting weather systems, habitats, migration routes, and ecological balance worldwide.</p>
+      <div class="feature-box">
+        <h3>Member</h3>
+        <h4>Archives</h4>
+        <p>Access protected collections of field recordings, curated photo archives, and special resources.</p>
       </div>
-      <div class="category-box">
-        <h3>Millions</h3>
-        <h4>Tons of Waste</h4>
-        <p>Pollution entering land, rivers, and oceans continues to threaten food chains, ecosystems, and species survival.</p>
+      <div class="feature-box">
+        <h3>Early</h3>
+        <h4>New Releases</h4>
+        <p>Members can get priority access to new WildAtlas collections, updates, and premium additions.</p>
       </div>
     </div>
   </section>
 
-  <section class="section" id="featured-impact">
+  <section class="section" id="member-benefits">
     <div class="section-header">
-      <h2>Major Impact Areas</h2>
-      <p>Explore the main environmental pressures transforming ecosystems and the solutions being developed to reduce long-term damage.</p>
+      <h2>Core Member Benefits</h2>
+      <p>These are the biggest reasons WildAtlas members choose to go beyond the free experience.</p>
     </div>
 
-    <div class="impact-grid">
-      <div class="impact-card">
-        <div class="impact-img"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80" alt="Deforestation"></div>
-        <div class="impact-content">
-          <span class="impact-tag">Land Use</span>
-          <h3>Deforestation</h3>
-          <p>Forest clearing reduces biodiversity, weakens carbon storage, fragments ecosystems, and disrupts water and rainfall cycles.</p>
-          <div class="impact-data">
-            <div><span>Main Driver</span><strong>Agriculture</strong></div>
-            <div><span>Effect</span><strong>Habitat Loss</strong></div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-img"><img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80" alt="Premium documentaries"></div>
+        <div class="benefit-content">
+          <span class="benefit-tag">Media Access</span>
+          <h3>Premium Documentaries</h3>
+          <p>Watch exclusive long-form nature films, cinematic wildlife features, and member-only educational videos.</p>
+          <div class="benefit-data">
+            <div><span>Access</span><strong>Premium</strong></div>
+            <div><span>Format</span><strong>Video</strong></div>
           </div>
-          <a href="#" class="impact-link">Explore Forest Impact →</a>
+          <a href="library.html" class="benefit-link">Explore Media →</a>
         </div>
       </div>
 
-      <div class="impact-card">
-        <div class="premium-lock"><span>🔒</span> PRO ACCESS</div>
-        <div class="impact-img"><img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=600&q=80" alt="Climate Change"></div>
-        <div class="impact-content">
-          <span class="impact-tag">Climate</span>
-          <h3>Climate Change</h3>
-          <p>Rising temperatures are altering habitats, weather extremes, ice cover, migration patterns, and ecosystem resilience globally.</p>
-          <div class="impact-data">
-            <div><span>Main Driver</span><strong>Emissions</strong></div>
-            <div><span>Scale</span><strong>Global</strong></div>
+      <div class="benefit-card">
+        <div class="benefit-img"><img src="https://images.unsplash.com/photo-1492691523567-6170c819ad3a?auto=format&fit=crop&w=800&q=80" alt="Visual archives"></div>
+        <div class="benefit-content">
+          <span class="benefit-tag">Exclusive Collections</span>
+          <h3>Private Archives</h3>
+          <p>Browse curated image sets, special field recordings, and hidden library collections not available to free users.</p>
+          <div class="benefit-data">
+            <div><span>Access</span><strong>Members</strong></div>
+            <div><span>Format</span><strong>Mixed Media</strong></div>
           </div>
-          <a href="subscribe.html" class="impact-link" style="color:#d97706;">Unlock Climate Reports →</a>
+          <a href="library.html" class="benefit-link">Open Archives →</a>
         </div>
       </div>
 
-      <div class="impact-card">
-        <div class="impact-img"><img src="https://images.unsplash.com/photo-1484291470158-b8f8d608850d?auto=format&fit=crop&w=600&q=80" alt="Pollution"></div>
-        <div class="impact-content">
-          <span class="impact-tag">Pollution</span>
-          <h3>Plastic & Waste</h3>
-          <p>Waste entering rivers, oceans, and food webs threatens species, degrades ecosystems, and creates lasting environmental harm.</p>
-          <div class="impact-data">
-            <div><span>Main Zone</span><strong>Land & Sea</strong></div>
-            <div><span>Risk</span><strong>Bioaccumulation</strong></div>
+      <div class="benefit-card">
+        <div class="benefit-img"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Deep guides"></div>
+        <div class="benefit-content">
+          <span class="benefit-tag">Learning</span>
+          <h3>Deeper Guides</h3>
+          <p>Go further with expanded species profiles, biome breakdowns, Earth systems guides, and richer topic pathways.</p>
+          <div class="benefit-data">
+            <div><span>Depth</span><strong>Expanded</strong></div>
+            <div><span>Focus</span><strong>Learning</strong></div>
           </div>
-          <a href="#" class="impact-link">Explore Pollution Data →</a>
+          <a href="species.html" class="benefit-link">Discover More →</a>
         </div>
       </div>
 
-      <div class="impact-card">
-        <div class="impact-img"><img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=600&q=80" alt="Overfishing"></div>
-        <div class="impact-content">
-          <span class="impact-tag">Marine Pressure</span>
-          <h3>Overfishing</h3>
-          <p>Unsustainable harvest reduces fish stocks, destabilizes marine food webs, and weakens ocean ecosystem resilience.</p>
-          <div class="impact-data">
-            <div><span>Main Effect</span><strong>Stock Collapse</strong></div>
-            <div><span>Region</span><strong>Coastal / Open Sea</strong></div>
+      <div class="benefit-card">
+        <div class="benefit-img"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80" alt="Exclusive releases"></div>
+        <div class="benefit-content">
+          <span class="benefit-tag">Priority Access</span>
+          <h3>New Releases First</h3>
+          <p>Be first to explore new collections, premium pages, topic bundles, and special WildAtlas releases as they arrive.</p>
+          <div class="benefit-data">
+            <div><span>Release</span><strong>Early</strong></div>
+            <div><span>Benefit</span><strong>Priority</strong></div>
           </div>
-          <a href="#" class="impact-link">Explore Ocean Pressure →</a>
+          <a href="subscribe.html" class="benefit-link">Become a Member →</a>
         </div>
       </div>
 
-      <div class="impact-card">
-        <div class="premium-lock"><span>🔒</span> PRO ACCESS</div>
-        <div class="impact-img"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Mining and Extraction"></div>
-        <div class="impact-content">
-          <span class="impact-tag">Extraction</span>
-          <h3>Mining & Resource Use</h3>
-          <p>Large-scale extraction can degrade land, pollute water systems, and fragment ecological corridors when poorly managed.</p>
-          <div class="impact-data">
-            <div><span>Pressure</span><strong>Land Degradation</strong></div>
-            <div><span>Risk</span><strong>Water Contamination</strong></div>
+      <div class="benefit-card">
+        <div class="benefit-img"><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80" alt="Immersive experience"></div>
+        <div class="benefit-content">
+          <span class="benefit-tag">Immersion</span>
+          <h3>Richer Nature Experience</h3>
+          <p>Membership turns WildAtlas into a deeper and more immersive platform for discovery across all seven pillars.</p>
+          <div class="benefit-data">
+            <div><span>Mode</span><strong>Immersive</strong></div>
+            <div><span>Scope</span><strong>Full Platform</strong></div>
           </div>
-          <a href="subscribe.html" class="impact-link" style="color:#d97706;">Unlock Extraction Maps →</a>
+          <a href="index.html" class="benefit-link">Explore Platform →</a>
         </div>
       </div>
 
-      <div class="impact-card">
-        <div class="impact-img"><img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=600&q=80" alt="Restoration"></div>
-        <div class="impact-content">
-          <span class="impact-tag">Solutions</span>
-          <h3>Restoration & Recovery</h3>
-          <p>Rewilding, habitat repair, stronger protection, and restoration programs are helping damaged ecosystems recover.</p>
-          <div class="impact-data">
-            <div><span>Focus</span><strong>Ecosystem Repair</strong></div>
-            <div><span>Outcome</span><strong>Resilience</strong></div>
+      <div class="benefit-card">
+        <div class="benefit-img"><img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80" alt="Growing platform"></div>
+        <div class="benefit-content">
+          <span class="benefit-tag">Growth</span>
+          <h3>Support a Growing Atlas</h3>
+          <p>Your membership helps WildAtlas expand with more topics, more media, more guides, and a stronger long-term platform.</p>
+          <div class="benefit-data">
+            <div><span>Value</span><strong>Support</strong></div>
+            <div><span>Future</span><strong>Growth</strong></div>
           </div>
-          <a href="#" class="impact-link">Explore Recovery Projects →</a>
+          <a href="subscribe.html" class="benefit-link">Support WildAtlas →</a>
         </div>
       </div>
     </div>
@@ -658,28 +669,39 @@
   <section class="section">
     <div class="split-section">
       <div class="split-image">
-        <img src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?auto=format&fit=crop&w=1200&q=80" alt="Conservation fieldwork">
+        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80" alt="WildAtlas members">
       </div>
 
       <div class="split-text">
-        <h2>Why Impact Matters in WildAtlas</h2>
-        <p>Impact connects knowledge to urgency. It helps readers understand not only how nature works, but also how it is being changed by human activity across land, oceans, climate, and ecosystems.</p>
-        <p>By following impact topics, readers can connect species, places, Earth systems, and conservation action into one meaningful picture of the changing planet.</p>
+        <h2>Why Members Get More From WildAtlas</h2>
+        <p>WildAtlas membership is built for people who want more than quick facts. It is for readers who want richer media, deeper understanding, and a stronger connection to the living world.</p>
+        <p>Whether you care most about species, ecosystems, Earth systems, impact, places, or media, membership unlocks a fuller way to explore the platform.</p>
 
-        <div class="impact-list">
-          <div class="impact-list-item">
-            <strong>Track environmental change</strong>
-            <span>See how habitat loss, warming, pollution, and extraction influence ecosystems over time.</span>
+        <div class="benefit-list">
+          <div class="benefit-list-item">
+            <strong>More depth</strong>
+            <span>Move beyond previews and unlock richer profiles, guides, and learning pathways.</span>
           </div>
-          <div class="impact-list-item">
-            <strong>Understand causes and consequences</strong>
-            <span>Impact topics show how human pressure affects biodiversity, climate balance, and ecological resilience.</span>
+          <div class="benefit-list-item">
+            <strong>More immersion</strong>
+            <span>Experience nature through premium documentaries, soundscapes, archives, and visual collections.</span>
           </div>
-          <div class="impact-list-item">
-            <strong>Highlight solutions and recovery</strong>
-            <span>Restoration, protection, and sustainable action create pathways for ecosystems to recover.</span>
+          <div class="benefit-list-item">
+            <strong>More access</strong>
+            <span>Get priority entry to new WildAtlas releases, premium updates, and future member content.</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="cta-box">
+      <h2>Ready to Unlock the Full WildAtlas Experience?</h2>
+      <p>Choose a plan, become a member, and start exploring the premium side of WildAtlas with deeper access across the entire platform.</p>
+      <div class="cta-actions">
+        <a href="subscribe.html" class="btn" style="background:#d97706;color:#fff;">Join WildAtlas</a>
+        <a href="login.html" class="btn" style="background:rgba(255,255,255,0.16);color:#fff;border:1px solid rgba(255,255,255,0.18);">Log In</a>
       </div>
     </div>
   </section>
@@ -699,7 +721,7 @@
       </div>
       <div class="footer-col">
         <h3>Community</h3>
-        <a href="subscribe.html">Member Benefits</a>
+        <a href="member-benefits.html">Member Benefits</a>
         <a href="login.html">Member Login</a>
         <a href="blog.html">Nature Blog</a>
         <a href="places.html">Wild Places</a>
@@ -712,7 +734,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>©️ 2026 WildAtlas. All rights reserved. Tracking Earth’s Changing Systems.</p>
+      <p>©️ 2026 WildAtlas. All rights reserved. Membership for Deeper Discovery.</p>
     </div>
   </footer>
 
@@ -799,36 +821,20 @@
         keywords: "library documentary documentaries media photography wildlife videos audio archive"
       },
       {
-        title: "Deforestation",
-        type: "Impact Topic",
-        category: "Land Use",
-        summary: "Forest loss reduces biodiversity, fragments habitats, and weakens carbon storage.",
-        link: "impact.html",
-        keywords: "deforestation forest loss habitat destruction land use"
+        title: "Join WildAtlas",
+        type: "Membership",
+        category: "Premium",
+        summary: "Choose a membership plan and unlock premium WildAtlas content.",
+        link: "subscribe.html",
+        keywords: "join wildatlas subscribe membership premium plan"
       },
       {
-        title: "Climate Change",
-        type: "Impact Topic",
-        category: "Climate",
-        summary: "Rising temperatures alter ecosystems, weather patterns, and species survival.",
-        link: "impact.html",
-        keywords: "climate change warming emissions weather ecosystems"
-      },
-      {
-        title: "Ocean Pollution",
-        type: "Impact Topic",
-        category: "Pollution",
-        summary: "Waste and plastics threaten marine ecosystems, coastlines, and food chains.",
-        link: "impact.html",
-        keywords: "ocean pollution plastic waste marine debris sea pollution"
-      },
-      {
-        title: "Restoration & Recovery",
-        type: "Impact Topic",
-        category: "Solutions",
-        summary: "Habitat repair, rewilding, and stronger protection help ecosystems recover.",
-        link: "impact.html",
-        keywords: "restoration recovery rewilding habitat repair conservation solutions"
+        title: "Member Benefits",
+        type: "Membership",
+        category: "Benefits",
+        summary: "See what members unlock across premium media, archives, and deeper learning.",
+        link: "member-benefits.html",
+        keywords: "member benefits premium access exclusive media archives features"
       },
       {
         title: "Log In",
@@ -837,14 +843,6 @@
         summary: "Sign in to your WildAtlas account to continue your journey.",
         link: "login.html",
         keywords: "login sign in member account access"
-      },
-      {
-        title: "Join WildAtlas",
-        type: "Membership",
-        category: "Premium",
-        summary: "Choose a membership plan and unlock premium WildAtlas content.",
-        link: "subscribe.html",
-        keywords: "join wildatlas subscribe membership premium plan"
       },
       {
         title: "Terms of Service",

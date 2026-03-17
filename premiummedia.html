@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unlock Premium Media | WildAtlas</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="shortcut icon" href="logo.png" />
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{background:#ffffff;color:#1f2937;line-height:1.6;overflow-x:hidden;}
+    img{max-width:100%;display:block;}
+    a{text-decoration:none;transition:0.3s;}
+
+    header{padding:12px 6%;border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+    .logo-wrap{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+    .logo-wrap img{width:50px;height:50px;object-fit:cover;border-radius:12px;border:2px solid #14532d;background:#fff;padding:2px;}
+    .logo-text h2{font-size:24px;line-height:1;color:#14532d;letter-spacing:-0.5px;}
+    .logo-text span{display:block;font-size:12px;color:#6b7280;margin-top:2px;font-weight:500;}
+
+    .menu-toggle{display:none;width:44px;height:44px;border:none;background:#f3f4f6;border-radius:10px;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px;}
+    .menu-toggle span{width:20px;height:2px;background:#111827;border-radius:2px;transition:0.3s;}
+    .menu-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .menu-toggle.active span:nth-child(2){opacity:0;}
+    .menu-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    .nav-area{display:flex;align-items:center;gap:18px;flex:1;justify-content:flex-end;}
+    nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+    nav a{color:#4b5563;font-weight:600;padding:8px 12px;border-radius:999px;font-size:14px;}
+    nav a:hover, nav a.active{background:#ecfdf5;color:#14532d;}
+
+    .nav-actions{display:flex;align-items:center;gap:10px;margin-left:8px;border-left:1px solid #e5e7eb;padding-left:16px;}
+    .btn{display:inline-block;padding:10px 20px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;border:none;white-space:nowrap;}
+    .btn-login{color:#4b5563;font-weight:600;}
+    .btn-join{background:#d97706;color:#fff;box-shadow:0 4px 14px rgba(217,119,6,0.25);}
+    .btn-join:hover{background:#b45309;transform:translateY(-1px);}
+
+    .search-wrap{position:relative;width:190px;flex-shrink:0;}
+    .search-box{
+      width:100%;
+      padding:11px 14px;
+      border:1px solid #d1d5db;
+      border-radius:999px;
+      font-size:13px;
+      outline:none;
+      background:#f9fafb;
+      color:#111827;
+    }
+    .search-box:focus{
+      border-color:#14532d;
+      box-shadow:0 0 0 3px rgba(20,83,45,0.08);
+      background:#fff;
+    }
+    .search-results{
+      position:absolute;
+      top:calc(100% + 10px);
+      left:0;
+      width:320px;
+      max-width:calc(100vw - 40px);
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:18px;
+      box-shadow:0 16px 35px rgba(0,0,0,0.08);
+      padding:8px;
+      display:none;
+      max-height:380px;
+      overflow-y:auto;
+      z-index:1200;
+    }
+    .search-results.show{display:block;}
+    .search-result-item{display:block;padding:12px 14px;border-radius:14px;color:#1f2937;}
+    .search-result-item:hover{background:#ecfdf5;}
+    .search-result-item strong{display:block;font-size:14px;color:#14532d;margin-bottom:3px;}
+    .search-result-item span{display:block;font-size:12px;color:#6b7280;margin-bottom:4px;font-weight:700;text-transform:uppercase;}
+    .search-result-item p{font-size:13px;color:#4b5563;line-height:1.4;}
+    .search-empty{padding:14px;border-radius:14px;background:#f9fafb;color:#6b7280;font-size:14px;text-align:center;}
+
+    .hero{
+      padding:110px 6%;
+      color:#fff;
+      background:
+        linear-gradient(rgba(17,24,39,0.66), rgba(17,24,39,0.66)),
+        url('https://images.unsplash.com/photo-1492691523567-6170c819ad3a?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      min-height:560px;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-inner{
+      max-width:1180px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1.08fr 0.92fr;
+      gap:36px;
+      align-items:center;
+      width:100%;
+    }
+
+    .hero-text h1{
+      font-size:clamp(38px,5vw,62px);
+      line-height:1.03;
+      margin-bottom:16px;
+      font-weight:800;
+    }
+
+    .hero-text p{
+      font-size:clamp(16px,2vw,18px);
+      color:#ecfdf5;
+      max-width:660px;
+      margin-bottom:24px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .hero-card{
+      background:rgba(255,255,255,0.1);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius:26px;
+      padding:28px;
+    }
+
+    .hero-card h3{
+      font-size:22px;
+      margin-bottom:16px;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .hero-stat{
+      background:rgba(255,255,255,0.08);
+      border-radius:16px;
+      padding:16px;
+      text-align:center;
+    }
+
+    .hero-stat h4{
+      font-size:22px;
+      color:#fbbf24;
+      margin-bottom:4px;
+    }
+
+    .hero-stat p{
+      font-size:12px;
+      text-transform:uppercase;
+      font-weight:700;
+      opacity:0.9;
+    }
+
+    .section{padding:90px 6%;}
+    .section-inner{max-width:1240px;margin:0 auto;}
+    .section-header{text-align:center;margin-bottom:56px;}
+    .section-header h2{font-size:36px;color:#14532d;margin-bottom:15px;}
+    .section-header p{color:#6b7280;max-width:780px;margin:0 auto;}
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:22px;
+    }
+
+    .feature-box{
+      background:#f9fafb;
+      border:1px solid #e5e7eb;
+      border-radius:22px;
+      padding:24px;
+      text-align:center;
+      box-shadow:0 8px 24px rgba(0,0,0,0.03);
+    }
+
+    .feature-box h3{
+      color:#14532d;
+      font-size:30px;
+      margin-bottom:8px;
+    }
+
+    .feature-box h4{
+      font-size:18px;
+      color:#111827;
+      margin-bottom:8px;
+    }
+
+    .feature-box p{
+      color:#6b7280;
+      font-size:14px;
+    }
+
+    .media-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:24px;
+    }
+
+    .media-card{
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 12px 30px rgba(0,0,0,0.04);
+      display:flex;
+      flex-direction:column;
+    }
+
+    .media-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 18px 38px rgba(0,0,0,0.08);
+    }
+
+    .media-thumb{
+      position:relative;
+      height:220px;
+      overflow:hidden;
+    }
+
+    .media-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .premium-badge{
+      position:absolute;
+      top:16px;
+      left:16px;
+      background:rgba(17,24,39,0.84);
+      color:#fff;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:0.3px;
+    }
+
+    .play-badge{
+      position:absolute;
+      right:16px;
+      bottom:16px;
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.9);
+      color:#111827;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      font-weight:700;
+      box-shadow:0 8px 20px rgba(0,0,0,0.18);
+    }
+
+    .media-content{
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    .media-tag{
+      display:inline-block;
+      width:fit-content;
+      background:#ecfdf5;
+      color:#166534;
+      font-size:11px;
+      text-transform:uppercase;
+      font-weight:800;
+      padding:5px 12px;
+      border-radius:999px;
+      margin-bottom:14px;
+    }
+
+    .media-content h3{
+      font-size:22px;
+      color:#111827;
+      margin-bottom:10px;
+      line-height:1.2;
+    }
+
+    .media-content p{
+      color:#6b7280;
+      font-size:15px;
+      margin-bottom:18px;
+      flex:1;
+    }
+
+    .media-data{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      background:#f9fafb;
+      border:1px solid #eef2f7;
+      border-radius:16px;
+      padding:14px;
+      margin-bottom:18px;
+    }
+
+    .media-data span{
+      display:block;
+      font-size:11px;
+      color:#6b7280;
+      text-transform:uppercase;
+      font-weight:700;
+      margin-bottom:3px;
+    }
+
+    .media-data strong{
+      font-size:15px;
+      color:#111827;
+    }
+
+    .media-link{
+      font-weight:700;
+      color:#14532d;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-size:14px;
+    }
+
+    .split-section{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .split-image img{
+      width:100%;
+      height:100%;
+      min-height:340px;
+      object-fit:cover;
+      border-radius:26px;
+      box-shadow:0 12px 32px rgba(0,0,0,0.08);
+    }
+
+    .split-text h2{
+      font-size:36px;
+      color:#14532d;
+      margin-bottom:14px;
+      line-height:1.1;
+    }
+
+    .split-text p{
+      color:#4b5563;
+      margin-bottom:14px;
+      font-size:15px;
+    }
+
+    .benefit-list{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .benefit-item{
+      background:#f9fafb;
+      border:1px solid #e5e7eb;
+      border-radius:18px;
+      padding:16px;
+    }
+
+    .benefit-item strong{
+      display:block;
+      color:#14532d;
+      margin-bottom:4px;
+      font-size:16px;
+    }
+
+    .benefit-item span{
+      color:#6b7280;
+      font-size:14px;
+    }
+
+    .topic-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:24px;
+    }
+
+    .topic-box{
+      background:#f9fafb;
+      border:1px solid #e5e7eb;
+      border-radius:22px;
+      padding:24px;
+    }
+
+    .topic-box h4{
+      font-size:22px;
+      color:#14532d;
+      margin-bottom:10px;
+    }
+
+    .topic-box p{
+      color:#6b7280;
+      font-size:15px;
+    }
+
+    .cta-box{
+      background:linear-gradient(135deg,#14532d,#166534);
+      color:#fff;
+      border-radius:28px;
+      padding:42px 28px;
+      text-align:center;
+      box-shadow:0 18px 40px rgba(20,83,45,0.18);
+    }
+
+    .cta-box h2{
+      font-size:clamp(30px,4vw,42px);
+      margin-bottom:12px;
+      line-height:1.15;
+    }
+
+    .cta-box p{
+      max-width:760px;
+      margin:0 auto 20px;
+      color:#ecfdf5;
+    }
+
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    footer{background:#111827;color:#9ca3af;padding:80px 6% 40px;}
+    .footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:60px;}
+    .footer-col h3{color:#fff;font-size:18px;margin-bottom:20px;}
+    .footer-col a{display:block;color:#9ca3af;margin-bottom:12px;font-size:15px;}
+    .footer-col a:hover{color:#fbbf24;}
+    .footer-bottom{text-align:center;border-top:1px solid rgba(255,255,255,0.05);padding-top:40px;font-size:14px;}
+
+    @media (max-width:1180px){
+      .search-wrap{width:170px;}
+      .search-box{padding:10px 13px;font-size:12.5px;}
+      .nav-actions{gap:8px;padding-left:12px;}
+      .btn{padding:10px 16px;font-size:13px;}
+    }
+
+    @media (max-width:1024px){
+      .hero-inner,
+      .split-section{
+        grid-template-columns:1fr;
+      }
+      .hero-text,
+      .split-text{
+        text-align:center;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+      }
+      .benefit-list{width:100%;}
+    }
+
+    @media (max-width:860px){
+      .nav-area{
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:#fff;
+        flex-direction:column;
+        padding:30px;
+        border-bottom:1px solid #e5e7eb;
+        box-shadow:0 10px 20px rgba(0,0,0,0.05);
+      }
+      .nav-area.open{display:flex;}
+      nav{flex-direction:column;width:100%;}
+      nav a{width:100%;text-align:center;padding:12px;}
+      .nav-actions{
+        width:100%;
+        margin:0;
+        padding:20px 0 0;
+        border-left:none;
+        border-top:1px solid #f3f4f6;
+        flex-direction:column;
+      }
+      .search-wrap{width:100%;max-width:100%;}
+      .search-results{width:100%;max-width:100%;}
+      .btn-login{width:100%;text-align:center;padding:12px 16px;}
+      .btn-join{width:100%;}
+      .menu-toggle{display:flex;}
+    }
+
+    @media (max-width:640px){
+      .hero{padding:84px 5%;}
+      .section{padding:70px 5%;}
+      .gallery-card img,
+      .media-thumb{height:220px;}
+      .header-inner{gap:14px;}
+      .logo-text h2{font-size:22px;}
+      .logo-text span{font-size:11px;}
+      .cta-box{padding:32px 18px;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-wrap">
+        <img src="logo.png" alt="WildAtlas Logo">
+        <div class="logo-text">
+          <h2>WildAtlas</h2>
+          <span>The Nature Encyclopedia</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-area" id="navArea">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="species.html">Species</a>
+          <a href="biomes.html">Biomes</a>
+          <a href="earth.html">Earth</a>
+          <a href="impact.html">Impact</a>
+          <a href="places.html">Places</a>
+          <a href="connection.html">Connection</a>
+          <a href="library.html" class="active">Library</a>
+        </nav>
+
+        <div class="nav-actions">
+          <div class="search-wrap">
+            <input type="text" id="siteSearchInput" class="search-box" placeholder="Search WildAtlas...">
+            <div id="searchResults" class="search-results"></div>
+          </div>
+          <a href="login.html" class="btn-login">Log In</a>
+          <a href="subscribe.html" class="btn btn-join">Join WildAtlas</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Unlock Premium Media</h1>
+        <p>
+          Step into the premium side of WildAtlas and access cinematic documentaries, exclusive wildlife footage,
+          protected archives, immersive soundscapes, and deeper nature storytelling designed for serious explorers.
+        </p>
+        <div class="hero-buttons">
+          <a href="#premium-media" class="btn" style="background:#14532d;color:#fff;">Explore Premium Media</a>
+          <a href="subscribe.html" class="btn" style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.18);">Upgrade Membership</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Media Access Preview</h3>
+        <div class="hero-stats">
+          <div class="hero-stat"><h4>320+</h4><p>Premium Films</p></div>
+          <div class="hero-stat"><h4>4K</h4><p>Visual Library</p></div>
+          <div class="hero-stat"><h4>HD Audio</h4><p>Soundscapes</p></div>
+          <div class="hero-stat"><h4>Members</h4><p>Only Access</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>What Premium Media Unlocks</h2>
+        <p>WildAtlas premium media gives members deeper visual storytelling, higher-quality learning tools, and richer access to the wild world.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h3>Exclusive</h3>
+          <h4>Documentaries</h4>
+          <p>Unlock long-form nature films, rare wildlife stories, and cinematic educational features.</p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Protected</h3>
+          <h4>Archives</h4>
+          <p>Access curated image collections, field recordings, and member-only visual libraries.</p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Immersive</h3>
+          <h4>Soundscapes</h4>
+          <p>Explore natural calls, environmental sound libraries, and atmospheric audio experiences.</p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Richer</h3>
+          <h4>Learning</h4>
+          <p>Premium media turns articles and profiles into a deeper multimedia experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="premium-media">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Premium Media Highlights</h2>
+        <p>Here are some of the premium experiences members can unlock across the WildAtlas platform.</p>
+      </div>
+
+      <div class="media-grid">
+        <div class="media-card">
+          <div class="media-thumb">
+            <img src="https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&w=1200&q=80" alt="Wildlife documentary">
+            <span class="premium-badge">Premium Documentary</span>
+            <span class="play-badge">▶️</span>
+          </div>
+          <div class="media-content">
+            <span class="media-tag">Wildlife Film</span>
+            <h3>Predators of the Frozen North</h3>
+            <p>Unlock a cinematic polar wildlife documentary with advanced footage, narration, and environmental context.</p>
+            <div class="media-data">
+              <div>
+                <span>Format</span>
+                <strong>4K Video</strong>
+              </div>
+              <div>
+                <span>Length</span>
+                <strong>52 mins</strong>
+              </div>
+            </div>
+            <a href="subscribe.html" class="media-link">Unlock This Film →</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <img src="https://images.unsplash.com/photo-1492691523567-6170c819ad3a?auto=format&fit=crop&w=1200&q=80" alt="Archive photography">
+            <span class="premium-badge">Members Archive</span>
+            <span class="play-badge">★</span>
+          </div>
+          <div class="media-content">
+            <span class="media-tag">Photo Archive</span>
+            <h3>Rare Wildlife Image Collection</h3>
+            <p>Browse protected galleries of rare species, close-up field images, and high-resolution nature reference sets.</p>
+            <div class="media-data">
+              <div>
+                <span>Type</span>
+                <strong>HD Archive</strong>
+              </div>
+              <div>
+                <span>Access</span>
+                <strong>Members Only</strong>
+              </div>
+            </div>
+            <a href="subscribe.html" class="media-link">Open Premium Archive →</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Nature soundscape">
+            <span class="premium-badge">Audio Library</span>
+            <span class="play-badge">♫</span>
+          </div>
+          <div class="media-content">
+            <span class="media-tag">Soundscape</span>
+            <h3>Rainforest Calls & Atmospheres</h3>
+            <p>Experience premium environmental audio, bird calls, forest ambience, and immersive sound recordings.</p>
+            <div class="media-data">
+              <div>
+                <span>Format</span>
+                <strong>HD Audio</strong>
+              </div>
+              <div>
+                <span>Use</span>
+                <strong>Immersive</strong>
+              </div>
+            </div>
+            <a href="subscribe.html" class="media-link">Listen with Membership →</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Earth documentary">
+            <span class="premium-badge">Deep Feature</span>
+            <span class="play-badge">▶️</span>
+          </div>
+          <div class="media-content">
+            <span class="media-tag">Earth Systems</span>
+            <h3>Inside the Living Planet</h3>
+            <p>Unlock a premium Earth feature combining geology, climate visuals, and guided storytelling across planetary systems.</p>
+            <div class="media-data">
+              <div>
+                <span>Format</span>
+                <strong>Feature Video</strong>
+              </div>
+              <div>
+                <span>Focus</span>
+                <strong>Earth</strong>
+              </div>
+            </div>
+            <a href="subscribe.html" class="media-link">Watch Full Feature →</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80" alt="Conservation media">
+            <span class="premium-badge">Impact Series</span>
+            <span class="play-badge">▶️</span>
+          </div>
+          <div class="media-content">
+            <span class="media-tag">Conservation</span>
+            <h3>Frontlines of Restoration</h3>
+            <p>See premium conservation stories, ecosystem recovery case studies, and field reporting from major habitats.</p>
+            <div class="media-data">
+              <div>
+                <span>Series</span>
+                <strong>Impact</strong>
+              </div>
+              <div>
+                <span>Access</span>
+                <strong>Premium</strong>
+              </div>
+            </div>
+            <a href="subscribe.html" class="media-link">Unlock Impact Series →</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80" alt="Expedition footage">
+            <span class="premium-badge">Expedition Vault</span>
+            <span class="play-badge">★</span>
+          </div>
+          <div class="media-content">
+            <span class="media-tag">Expedition Media</span>
+            <h3>Field Expeditions & Rare Footage</h3>
+            <p>Unlock members-only expedition clips, field notes, premium edits, and rare visual moments from the wild.</p>
+            <div class="media-data">
+              <div>
+                <span>Content</span>
+                <strong>Rare Access</strong>
+              </div>
+              <div>
+                <span>Library</span>
+                <strong>Vault</strong>
+              </div>
+            </div>
+            <a href="subscribe.html" class="media-link">Enter the Vault →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="split-section">
+        <div class="split-image">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80" alt="Premium wild landscape">
+        </div>
+
+        <div class="split-text">
+          <h2>Why Premium Media Matters</h2>
+          <p>
+            Premium media takes WildAtlas beyond simple reading. It creates a more cinematic, immersive, and memorable way
+            to experience wildlife, landscapes, ecosystems, and Earth systems.
+          </p>
+          <p>
+            It helps members connect facts with visuals, science with atmosphere, and nature knowledge with powerful storytelling.
+          </p>
+
+          <div class="benefit-list">
+            <div class="benefit-item">
+              <strong>Deeper immersion</strong>
+              <span>Watch, hear, and experience the wild through protected premium media collections.</span>
+            </div>
+            <div class="benefit-item">
+              <strong>Better storytelling</strong>
+              <span>Premium films and archives help turn knowledge into something more vivid and memorable.</span>
+            </div>
+            <div class="benefit-item">
+              <strong>Exclusive access</strong>
+              <span>Unlock media that is unavailable to standard visitors across the main WildAtlas experience.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Member Media Benefits</h2>
+        <p>Premium media is built to support discovery, education, and a more polished WildAtlas experience.</p>
+      </div>
+
+      <div class="topic-grid">
+        <div class="topic-box">
+          <h4>Documentary Access</h4>
+          <p>Watch longer, richer, more polished visual stories about species, habitats, and planetary systems.</p>
+        </div>
+
+        <div class="topic-box">
+          <h4>Protected Archives</h4>
+          <p>Open members-only galleries, research-style media libraries, and premium visual references.</p>
+        </div>
+
+        <div class="topic-box">
+          <h4>Audio Experiences</h4>
+          <p>Unlock atmosphere tracks, field sounds, species calls, and other premium listening features.</p>
+        </div>
+
+        <div class="topic-box">
+          <h4>Higher-Value Learning</h4>
+          <p>Premium media gives deeper context and supports a stronger educational experience across the whole platform.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="cta-box">
+        <h2>Ready to Unlock Premium Media?</h2>
+        <p>Upgrade your WildAtlas membership and open the premium side of nature discovery with exclusive films, archives, soundscapes, and immersive storytelling.</p>
+        <div class="cta-actions">
+          <a href="subscribe.html" class="btn" style="background:#d97706;color:#fff;">Upgrade Now</a>
+          <a href="member-benefits.html" class="btn" style="background:rgba(255,255,255,0.16);color:#fff;border:1px solid rgba(255,255,255,0.18);">View Member Benefits</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h3 style="color:#10b981;">WildAtlas</h3>
+        <p>The definitive digital map of nature. Built for explorers, scientists, and the curious.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <a href="species.html">Species</a>
+        <a href="biomes.html">Biomes</a>
+        <a href="earth.html">Earth</a>
+        <a href="impact.html">Impact</a>
+      </div>
+      <div class="footer-col">
+        <h3>Community</h3>
+        <a href="member-benefits.html">Member Benefits</a>
+        <a href="login.html">Member Login</a>
+        <a href="blog.html">Nature Blog</a>
+        <a href="places.html">Wild Places</a>
+      </div>
+      <div class="footer-col">
+        <h3>Support</h3>
+        <a href="contact.html">Contact Us</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>©️ 2026 WildAtlas. All rights reserved. Premium media for deeper discovery.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navArea = document.getElementById('navArea');
+    const siteSearchInput = document.getElementById('siteSearchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navArea.classList.toggle('open');
+    });
+
+    document.querySelectorAll('nav a').forEach(link => {
+      if(link.href === window.location.href) {
+        link.classList.add('active');
+      }
+    });
+
+    const defaultSearchItems = [
+      { title:"Home", type:"Section", category:"WildAtlas", summary:"Start your journey through the main WildAtlas discovery pillars.", link:"index.html", keywords:"home wildatlas main homepage nature encyclopedia" },
+      { title:"Library", type:"Section", category:"Multimedia", summary:"Access documentaries, wildlife media, photography, field recordings, and visual guides.", link:"library.html", keywords:"library documentary documentaries media photography wildlife videos audio archive" },
+      { title:"Unlock Premium Media", type:"Premium Access", category:"Media", summary:"Discover exclusive documentaries, protected archives, immersive soundscapes, and premium visual storytelling.", link:"unlock-premium-media.html", keywords:"unlock premium media documentaries archives audio soundscapes premium video" },
+      { title:"Member Benefits", type:"Membership", category:"Benefits", summary:"See what members unlock across premium media, archives, and deeper learning.", link:"member-benefits.html", keywords:"member benefits premium access exclusive media archives features" },
+      { title:"Unlock Premium Profiles", type:"Premium Access", category:"Profiles", summary:"Learn what premium profiles include across species, biomes, Earth, and member-only content.", link:"unlock-premium-profiles.html", keywords:"unlock premium profiles member access deeper profiles exclusive" },
+      { title:"Join WildAtlas", type:"Membership", category:"Premium", summary:"Choose a membership plan and unlock premium WildAtlas content.", link:"subscribe.html", keywords:"join wildatlas subscribe membership premium plan" },
+      { title:"Payment Page", type:"Checkout", category:"Billing", summary:"Complete membership payment using Apple Pay, Google Pay, bank transfer, or card.", link:"payment.html", keywords:"payment checkout apple pay google pay bank transfer card billing" },
+      { title:"Log In", type:"Account", category:"Access", summary:"Sign in to your WildAtlas account to continue your journey.", link:"login.html", keywords:"login sign in member account access" }
+    ];
+
+    function getSearchItems(){
+      const saved = localStorage.getItem("wildatlas_search_items");
+      if(saved){
+        try{
+          const parsed = JSON.parse(saved);
+          if(Array.isArray(parsed) && parsed.length){
+            return parsed;
+          }
+        }catch(error){}
+      }
+      return defaultSearchItems;
+    }
+
+    function renderSearchResults(query){
+      const items = getSearchItems();
+      const cleanQuery = query.trim().toLowerCase();
+      searchResults.innerHTML = "";
+
+      if(!cleanQuery){
+        searchResults.classList.remove("show");
+        return;
+      }
+
+      const matches = items.filter(item => {
+        const searchableText = `
+          ${item.title || ""}
+          ${item.type || ""}
+          ${item.category || ""}
+          ${item.summary || ""}
+          ${item.keywords || ""}
+        `.toLowerCase();
+
+        return searchableText.includes(cleanQuery);
+      });
+
+      if(matches.length === 0){
+        searchResults.innerHTML = `<div class="search-empty">No results found. Try another keyword.</div>`;
+        searchResults.classList.add("show");
+        return;
+      }
+
+      matches.slice(0, 8).forEach(item => {
+        const result = document.createElement("a");
+        result.href = item.link || "#";
+        result.className = "search-result-item";
+        result.innerHTML = `
+          <strong>${item.title || "Untitled"}</strong>
+          <span>${item.category || "General"} • ${item.type || "Item"}</span>
+          <p>${item.summary || ""}</p>
+        `;
+        searchResults.appendChild(result);
+      });
+
+      searchResults.classList.add("show");
+    }
+
+    siteSearchInput.addEventListener("input", function(){
+      renderSearchResults(this.value);
+    });
+
+    document.addEventListener("click", function(e){
+      if(!e.target.closest(".search-wrap")){
+        searchResults.classList.remove("show");
+      }
+    });
+
+    siteSearchInput.addEventListener("focus", function(){
+      if(this.value.trim()){
+        renderSearchResults(this.value);
+      }
+    });
+  </script>
+</body>
+</html>

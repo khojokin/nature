@@ -1,14 +1,14 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nile Crocodile | WildAtlas</title>
+  <title>African Elephant | WildAtlas</title>
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="shortcut icon" href="logo.png" />
 
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;}
     html{scroll-behavior:smooth;}
     body{background:#ffffff;color:#1f2937;line-height:1.6;overflow-x:hidden;}
     img{max-width:100%;display:block;}
@@ -82,8 +82,8 @@
       padding:110px 6%;
       color:#fff;
       background:
-        linear-gradient(rgba(17,24,39,0.62), rgba(17,24,39,0.62)),
-        url('https://images.unsplash.com/photo-1560275619-4662e36fa65c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        linear-gradient(rgba(17,24,39,0.60), rgba(17,24,39,0.60)),
+        url('https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       min-height:560px;
       display:flex;
       align-items:center;
@@ -109,7 +109,7 @@
     .hero-text p{
       font-size:clamp(16px,2vw,18px);
       color:#ecfdf5;
-      max-width:660px;
+      max-width:650px;
       margin-bottom:24px;
     }
 
@@ -146,7 +146,7 @@
     }
 
     .hero-stat h4{
-      font-size:22px;
+      font-size:24px;
       color:#fbbf24;
       margin-bottom:4px;
     }
@@ -162,7 +162,7 @@
     .section-inner{max-width:1240px;margin:0 auto;}
     .section-header{text-align:center;margin-bottom:56px;}
     .section-header h2{font-size:36px;color:#14532d;margin-bottom:15px;}
-    .section-header p{color:#6b7280;max-width:780px;margin:0 auto;}
+    .section-header p{color:#6b7280;max-width:760px;margin:0 auto;}
 
     .facts-grid{
       display:grid;
@@ -196,32 +196,32 @@
       font-size:14px;
     }
 
-    .content-grid{
+    .profile-layout{
       display:grid;
-      grid-template-columns:0.92fr 1.08fr;
+      grid-template-columns:0.9fr 1.1fr;
       gap:30px;
       align-items:start;
     }
 
-    .side-card,
-    .main-card{
+    .profile-card,
+    .article-card{
       background:#fff;
       border:1px solid #e5e7eb;
       border-radius:26px;
       box-shadow:0 12px 32px rgba(0,0,0,0.04);
     }
 
-    .side-card{padding:28px;position:sticky;top:95px;}
-    .main-card{padding:30px;}
+    .profile-card{padding:28px;position:sticky;top:95px;}
+    .article-card{padding:30px;}
 
-    .side-card h3{
+    .profile-card h3{
       font-size:28px;
       color:#14532d;
       margin-bottom:18px;
       line-height:1.1;
     }
 
-    .side-photo{
+    .profile-photo{
       width:100%;
       height:280px;
       object-fit:cover;
@@ -229,19 +229,19 @@
       margin-bottom:18px;
     }
 
-    .side-list{
+    .profile-list{
       display:grid;
       gap:12px;
     }
 
-    .side-item{
+    .profile-item{
       background:#f9fafb;
       border:1px solid #eef2f7;
       border-radius:16px;
       padding:14px 15px;
     }
 
-    .side-item span{
+    .profile-item span{
       display:block;
       font-size:11px;
       color:#6b7280;
@@ -250,13 +250,16 @@
       margin-bottom:4px;
     }
 
-    .side-item strong{
+    .profile-item strong{
       color:#111827;
       font-size:15px;
       word-break:break-word;
     }
 
-    .article-block{margin-bottom:30px;}
+    .article-block{
+      margin-bottom:30px;
+    }
+
     .article-block:last-child{margin-bottom:0;}
 
     .article-block h3{
@@ -301,7 +304,10 @@
       object-fit:cover;
     }
 
-    .gallery-card .caption{padding:18px;}
+    .gallery-card .caption{
+      padding:18px;
+    }
+
     .gallery-card .caption h4{
       color:#14532d;
       font-size:20px;
@@ -313,26 +319,26 @@
       font-size:14px;
     }
 
-    .topic-grid{
+    .compare-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
       gap:24px;
     }
 
-    .topic-box{
+    .compare-box{
       background:#f9fafb;
       border:1px solid #e5e7eb;
       border-radius:22px;
       padding:24px;
     }
 
-    .topic-box h4{
+    .compare-box h4{
       font-size:22px;
       color:#14532d;
       margin-bottom:10px;
     }
 
-    .topic-box p{
+    .compare-box p{
       color:#6b7280;
       font-size:15px;
     }
@@ -377,8 +383,8 @@
       .search-box{padding:10px 13px;font-size:12.5px;}
       .nav-actions{gap:8px;padding-left:12px;}
       .btn{padding:10px 16px;font-size:13px;}
-      .content-grid{grid-template-columns:1fr;}
-      .side-card{position:relative;top:0;}
+      .profile-layout{grid-template-columns:1fr;}
+      .profile-card{position:relative;top:0;}
     }
 
     @media (max-width:1024px){
@@ -420,7 +426,7 @@
     @media (max-width:640px){
       .hero{padding:84px 5%;}
       .section{padding:70px 5%;}
-      .main-card,.side-card{padding:22px 18px;}
+      .article-card,.profile-card{padding:22px 18px;}
       .gallery-card img{height:220px;}
       .header-inner{gap:14px;}
       .logo-text h2{font-size:22px;}
@@ -472,25 +478,25 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <h1>Nile Crocodile</h1>
+        <h1>African Elephant</h1>
         <p>
-          The Nile crocodile is one of Africa’s largest and most powerful reptiles. It is an apex predator,
-          a strong swimmer, and one of the best-known crocodile species in the world, found in rivers,
-          lakes, swamps, and some brackish waters across eastern and southern Africa.
+          The African elephant is the largest land animal on Earth, famous for its intelligence,
+          social family groups, huge ears, and powerful trunk. It plays a major role in shaping
+          African ecosystems by opening paths, dispersing seeds, and influencing vegetation.
         </p>
         <div class="hero-buttons">
           <a href="#biography" class="btn" style="background:#14532d;color:#fff;">Read Biography</a>
-          <a href="#gallery" class="btn" style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.18);">View Gallery</a>
+          <a href="#gallery" class="btn" style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.18);">View Photos</a>
         </div>
       </div>
 
       <div class="hero-card">
         <h3>Quick Species Stats</h3>
         <div class="hero-stats">
-          <div class="hero-stat"><h4>Crocodylus niloticus</h4><p>Scientific Name</p></div>
-          <div class="hero-stat"><h4>Least Concern</h4><p>IUCN Status</p></div>
-          <div class="hero-stat"><h4>4–4.5 m</h4><p>Average Length</p></div>
-          <div class="hero-stat"><h4>Apex Predator</h4><p>Trophic Level</p></div>
+          <div class="hero-stat"><h4>Loxodonta</h4><p>Genus</p></div>
+          <div class="hero-stat"><h4>Vulnerable</h4><p>Status</p></div>
+          <div class="hero-stat"><h4>22 Months</h4><p>Gestation</p></div>
+          <div class="hero-stat"><h4>1 Calf</h4><p>Usual Birth</p></div>
         </div>
       </div>
     </div>
@@ -499,33 +505,33 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-header">
-        <h2>The Identity Header</h2>
-        <p>The Nile crocodile is one of the largest living reptiles and the largest crocodile species in Africa.  [oai_citation:1‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)</p>
+        <h2>Key Facts</h2>
+        <p>African elephants are extraordinary mammals with powerful bodies, complex emotions, and strong social intelligence.</p>
       </div>
 
       <div class="facts-grid">
         <div class="fact-box">
-          <h3>Common Name</h3>
-          <h4>Nile Crocodile</h4>
-          <p>A famous African crocodile strongly associated with freshwater systems.  [oai_citation:2‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)</p>
+          <h3>Scientific</h3>
+          <h4>Loxodonta africana</h4>
+          <p>The savanna African elephant is the best-known African elephant species.</p>
         </div>
 
         <div class="fact-box">
-          <h3>Scientific Name</h3>
-          <h4>Crocodylus niloticus</h4>
-          <p>A true crocodile species in family Crocodylidae.  [oai_citation:3‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)</p>
+          <h3>Height</h3>
+          <h4>Up to 4 m</h4>
+          <p>Adult males can reach impressive shoulder heights in open savanna habitats.</p>
         </div>
 
         <div class="fact-box">
-          <h3>Class</h3>
-          <h4>Reptilia</h4>
-          <p>A reptile with thick skin, powerful jaws, webbed toes, and a muscular tail.  [oai_citation:4‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)</p>
+          <h3>Weight</h3>
+          <h4>6,000 kg+</h4>
+          <p>Large bulls can weigh several tons, making them the heaviest land mammals alive.</p>
         </div>
 
         <div class="fact-box">
-          <h3>Status</h3>
-          <h4>Least Concern</h4>
-          <p>The IUCN classifies the Nile crocodile as Least Concern globally.  [oai_citation:5‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)</p>
+          <h3>Children</h3>
+          <h4>Usually 1 calf</h4>
+          <p>Twins are very rare. A mother usually gives birth to one baby after a long pregnancy.</p>
         </div>
       </div>
     </div>
@@ -533,184 +539,161 @@
 
   <section class="section" id="biography">
     <div class="section-inner">
-      <div class="content-grid">
-        <aside class="side-card">
+      <div class="profile-layout">
+        <aside class="profile-card">
           <h3>Species Profile</h3>
-          <img class="side-photo" src="https://images.unsplash.com/photo-1560275619-4662e36fa65c?auto=format&fit=crop&w=1000&q=80" alt="Crocodile resting at the water edge">
+          <img class="profile-photo" src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1000&q=80" alt="African elephant standing in grassland">
 
-          <div class="side-list">
-            <div class="side-item">
+          <div class="profile-list">
+            <div class="profile-item">
               <span>Common Name</span>
-              <strong>Nile Crocodile</strong>
+              <strong>African Elephant</strong>
             </div>
-            <div class="side-item">
+            <div class="profile-item">
               <span>Scientific Name</span>
-              <strong>Crocodylus niloticus</strong>
+              <strong>Loxodonta africana</strong>
             </div>
-            <div class="side-item">
-              <span>Class</span>
-              <strong>Reptilia</strong>
+            <div class="profile-item">
+              <span>Animal Group</span>
+              <strong>Mammal</strong>
             </div>
-            <div class="side-item">
+            <div class="profile-item">
+              <span>Diet</span>
+              <strong>Herbivore</strong>
+            </div>
+            <div class="profile-item">
+              <span>Habitat</span>
+              <strong>Savannas, grasslands, woodlands, forests</strong>
+            </div>
+            <div class="profile-item">
+              <span>Average Lifespan</span>
+              <strong>About 50–70 years</strong>
+            </div>
+            <div class="profile-item">
+              <span>Pregnancy</span>
+              <strong>Around 22 months</strong>
+            </div>
+            <div class="profile-item">
+              <span>Number of Children</span>
+              <strong>Usually 1 calf at a time</strong>
+            </div>
+            <div class="profile-item">
+              <span>Social Structure</span>
+              <strong>Family herds led by females</strong>
+            </div>
+            <div class="profile-item">
               <span>Conservation Status</span>
-              <strong>Least Concern</strong>
-            </div>
-            <div class="side-item">
-              <span>Trophic Level</span>
-              <strong>Apex predator</strong>
-            </div>
-            <div class="side-item">
-              <span>Circadian Rhythm</span>
-              <strong>Mostly ambush-active; often most dangerous near water edges</strong>
-            </div>
-            <div class="side-item">
-              <span>Social Pattern</span>
-              <strong>Largely solitary but may gather at basking and feeding sites</strong>
-            </div>
-            <div class="side-item">
-              <span>Population Estimate</span>
-              <strong>About 250,000–500,000 total</strong>
+              <strong>Vulnerable</strong>
             </div>
           </div>
         </aside>
 
-        <div class="main-card">
+        <div class="article-card">
           <div class="article-block">
-            <h3>Physical Profile</h3>
+            <h3>Biography</h3>
             <p>
-              The Nile crocodile is one of the most formidable reptiles alive. Average adults are commonly about
-              4 to 4.5 metres long and weigh around 410 kg, though exceptional individuals can exceed 6 metres
-              and 680 kg. Males are larger than females.  [oai_citation:6‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)
+              The African elephant is one of the most iconic animals in the world. It is famous for its huge body,
+              long trunk, curved tusks, and very large ears. African elephants live across parts of sub-Saharan Africa
+              and are especially associated with savannas, open woodland, and some forest regions.
             </p>
             <p>
-              Its distinguishing features include thick armored skin, bony plates on the back, a long powerful snout,
-              clawed webbed toes, short strong legs, and a muscular tail used for swimming and sudden bursts of force.  [oai_citation:7‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)
+              These animals are not just physically impressive — they are also deeply intelligent. They recognize members
+              of their herd, communicate through sound and vibration, show signs of memory and emotion, and care strongly
+              for their young. Their social bonds are among the strongest in the animal kingdom.
+            </p>
+          </div>
+
+          <div class="article-block">
+            <h3>Scientific Name and Classification</h3>
+            <p>
+              The scientific name commonly used for the African savanna elephant is <strong>Loxodonta africana</strong>.
+              It belongs to the order <strong>Proboscidea</strong> and the family <strong>Elephantidae</strong>.
             </p>
             <p>
-              Anatomical adaptations include:
+              African elephants are generally separated from Asian elephants by their larger ears, different head shape,
+              and other body differences. There is also a forest African elephant, usually recognized separately from the
+              larger savanna form.
+            </p>
+          </div>
+
+          <div class="article-block">
+            <h3>Appearance</h3>
+            <p>
+              African elephants have grey, wrinkled skin, a long muscular trunk, tusks, pillar-like legs, and broad ears
+              that help release heat. Their trunk is one of the most useful body parts in the animal world. It is used for:
             </p>
             <ul>
-              <li>eyes, ears, and nostrils positioned high on the head for stealth in water</li>
-              <li>powerful jaws for seizing and drowning prey</li>
-              <li>dense armored skin for protection</li>
-              <li>a strong tail for propulsion</li>
-              <li>excellent ambush hunting ability at shorelines</li>
+              <li>breathing</li>
+              <li>smelling</li>
+              <li>touching</li>
+              <li>lifting food</li>
+              <li>drinking water</li>
+              <li>communicating</li>
+              <li>defending themselves</li>
             </ul>
           </div>
 
           <div class="article-block">
-            <h3>Habitat & Geography</h3>
+            <h3>Habitat</h3>
             <p>
-              Nile crocodiles inhabit freshwater lakes, rivers, and swamps, as well as some brackish waters,
-              across southern and eastern Africa and Madagascar.  [oai_citation:8‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)
+              African elephants are found in different habitats, including grasslands, savannas, woodland, wetlands,
+              and certain forests. They need very large areas because they travel often in search of water, food,
+              and safe movement routes.
             </p>
             <p>
-              Their main biomes include rivers, wetlands, lake systems, marshes, floodplains, and riverbank habitats.
-              They often rest on banks, sandbars, mud edges, and shallow waters where they can bask and wait for prey.
-            </p>
-            <p>
-              Territory size varies with sex, food availability, and local competition. Shelter may include water margins,
-              dense shoreline vegetation, submerged resting spots, and nesting areas used by females.
+              Since they eat huge amounts of plant matter every day, they help shape their habitat by knocking down
+              trees, opening paths, and spreading seeds through their dung.
             </p>
           </div>
 
           <div class="article-block">
-            <h3>Diet & Hunting</h3>
+            <h3>Diet</h3>
             <p>
-              The Nile crocodile is an apex predator. Adult individuals often feed on fish, birds, mammals,
-              other crocodiles, carrion, and sometimes very large prey, whereas juveniles take smaller prey such as
-              fish, crustaceans, amphibians, and other reptiles.  [oai_citation:9‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)
-            </p>
-            <p>
-              Their feeding strategy is classic ambush predation: they float nearly motionless with only the eyes,
-              ears, and nostrils exposed, then lunge suddenly from the water’s edge to seize prey and drag it underwater.  [oai_citation:10‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)
-            </p>
-            <p>
-              Because they are semi-aquatic, water is central to their survival, movement, temperature control, and hunting success.
+              African elephants are herbivores. They feed on grasses, bark, roots, fruit, leaves, and branches.
+              An adult can spend much of the day eating because such a large body requires a huge amount of plant food.
             </p>
           </div>
 
           <div class="article-block">
-            <h3>Behavior & Social Structure</h3>
+            <h3>Family Life and Number of Children</h3>
             <p>
-              Nile crocodiles are not social in the mammal sense, but they may gather in the same productive waters
-              or basking areas. Larger individuals often dominate access to prime feeding or basking positions.
+              African elephants usually live in family groups led by experienced adult females, often called matriarchs.
+              These groups may include daughters, sisters, calves, and younger elephants.
             </p>
             <p>
-              Communication may involve:
+              A female elephant normally gives birth to <strong>one calf</strong> at a time. Twins are rare. The gestation
+              period is about <strong>22 months</strong>, which is one of the longest pregnancies in the animal world.
+            </p>
+            <p>
+              Elephant calves are heavily protected by the herd. Mothers and related females help guide, defend,
+              and care for babies as they grow.
+            </p>
+          </div>
+
+          <div class="article-block">
+            <h3>Behaviour and Intelligence</h3>
+            <p>
+              African elephants are known for memory, problem solving, strong social behaviour, and emotional awareness.
+              They communicate with body language, rumbles, trumpets, and very low-frequency sounds that can travel long distances.
+            </p>
+            <p>
+              They are also known to mourn lost herd members, protect calves with great care, and return to places they remember.
+            </p>
+          </div>
+
+          <div class="article-block">
+            <h3>Threats</h3>
+            <p>
+              Even though African elephants are powerful animals, they face serious threats. These include:
             </p>
             <ul>
-              <li>visual postures</li>
-              <li>vocal sounds and hatching calls</li>
-              <li>water vibrations and splashing displays</li>
-              <li>territorial and breeding behaviours</li>
+              <li>poaching for ivory</li>
+              <li>habitat loss</li>
+              <li>human-wildlife conflict</li>
+              <li>fragmentation of migration routes</li>
             </ul>
             <p>
-              Females show notable parental care. After nesting, they guard the nest and remain with hatchlings for a period
-              after they emerge. Young often stay with the mother until gradually dispersing from about three months onward.  [oai_citation:11‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)
-            </p>
-          </div>
-
-          <div class="article-block">
-            <h3>Mating Rituals & Reproduction</h3>
-            <p>
-              Mating occurs once per year. Females can reach sexual maturity after growing beyond about 2 metres,
-              often by around age 10, while males usually mature later, between about 12 and 19 years.  [oai_citation:12‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)
-            </p>
-            <p>
-              A female lays a clutch of up to 80 eggs between one and five months after mating. She buries them in
-              a nest chamber in sand or soil along a riverbank or sandy shore. Incubation lasts about three months,
-              and incubation temperature influences the sex of the young.  [oai_citation:13‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)
-            </p>
-            <p>
-              Since this is a reptile, “number of children” is best understood as clutch size rather than live births.
-              A single nesting event may produce dozens of hatchlings.  [oai_citation:14‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)
-            </p>
-          </div>
-
-          <div class="article-block">
-            <h3>Evolution & History</h3>
-            <p>
-              Nile crocodiles belong to an ancient crocodilian lineage that reaches deep into Earth’s evolutionary past.
-              Crocodilians are among the great surviving reptile groups whose body plan has remained remarkably successful
-              for millions of years.
-            </p>
-            <p>
-              The closest living relatives of the Nile crocodile are other true crocodiles in family Crocodylidae.
-              In a broader sense, crocodilians are also evolutionarily closer to birds than to lizards.
-            </p>
-          </div>
-
-          <div class="article-block">
-            <h3>Conservation & Threats</h3>
-            <p>
-              The Nile crocodile is listed as Least Concern, and studies estimate a total population of roughly 250,000 to 500,000 animals,
-              with about 50,000 to 70,000 adults in many distinct populations.  [oai_citation:15‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)
-            </p>
-            <p>
-              Natural threats include egg predation by animals such as baboons and mongooses. Human-related threats include:
-            </p>
-            <ul>
-              <li>habitat loss from land conversion to agriculture</li>
-              <li>hunting and retaliation killings</li>
-              <li>poisoning and baiting</li>
-              <li>water pollution from industrial, mining, and agricultural runoff</li>
-            </ul>
-            <p>
-              Many populations improved after strong protections and habitat management, though localized declines still occur.  [oai_citation:16‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)
-            </p>
-          </div>
-
-          <div class="article-block">
-            <h3>Cultural & Human Impact</h3>
-            <p>
-              Nile crocodiles have long held a strong place in African history, fear, folklore, and symbolism.
-              Their size and reputation have made them important in storytelling, river culture, tourism, and
-              wildlife conservation awareness.
-            </p>
-            <p>
-              Economically, crocodiles can influence tourism, conservation funding, and in some regions human safety planning.
-              Historically, they were also heavily hunted for skins, trophies, meat, and because of conflict with people.  [oai_citation:17‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)
+              Conservation work is very important to protect elephant populations and the landscapes they depend on.
             </p>
           </div>
         </div>
@@ -721,40 +704,40 @@
   <section class="section" id="gallery">
     <div class="section-inner">
       <div class="section-header">
-        <h2>Multimedia & Gallery</h2>
-        <p>Add more images, audio cues, video clips, or documentaries here later.</p>
+        <h2>Photo Gallery</h2>
+        <p>Different views of the African elephant in the wild.</p>
       </div>
 
       <div class="gallery-grid">
         <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1560275619-4662e36fa65c?auto=format&fit=crop&w=1000&q=80" alt="Crocodile on river edge">
+          <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1000&q=80" alt="African elephant portrait">
           <div class="caption">
-            <h4>Shoreline Ambush</h4>
-            <p>Nile crocodiles often wait almost motionless at water edges before striking.  [oai_citation:18‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)</p>
+            <h4>Portrait View</h4>
+            <p>A close look at the face, tusks, and large ears of an African elephant.</p>
           </div>
         </div>
 
         <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1534188753412-3e26d0d618d2?auto=format&fit=crop&w=1000&q=80" alt="Crocodile in water">
+          <img src="https://images.unsplash.com/photo-1552410260-0fd9b577afa6?auto=format&fit=crop&w=1000&q=80" alt="African elephant walking">
           <div class="caption">
-            <h4>Aquatic Hunter</h4>
-            <p>The eyes, nostrils, and ears sit high on the head to help conceal most of the body underwater.</p>
+            <h4>On the Move</h4>
+            <p>Elephants often travel long distances to find food, water, and safe routes.</p>
           </div>
         </div>
 
         <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1598971861713-54ad16a7e72e?auto=format&fit=crop&w=1000&q=80" alt="Close-up crocodile scales">
+          <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=80" alt="African elephant herd">
           <div class="caption">
-            <h4>Armored Skin</h4>
-            <p>Its thick hide and bony plates provide both protection and a distinctive prehistoric look.  [oai_citation:19‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)</p>
+            <h4>Family Herd</h4>
+            <p>Elephants are social animals that depend heavily on herd protection and leadership.</p>
           </div>
         </div>
 
         <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1578326457399-3b34dbbf23b8?auto=format&fit=crop&w=1000&q=80" alt="River wetland habitat">
+          <img src="https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=1000&q=80" alt="Elephant with calf">
           <div class="caption">
-            <h4>Wetland Habitat</h4>
-            <p>Rivers, lakes, swamps, and brackish edges are core parts of its range.  [oai_citation:20‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)</p>
+            <h4>Mother and Calf</h4>
+            <p>A calf usually stays close to its mother and herd for safety and learning.</p>
           </div>
         </div>
       </div>
@@ -764,29 +747,29 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-header">
-        <h2>Did You Know?</h2>
-        <p>Fast facts you can keep as trivia cards or expand later.</p>
+        <h2>Why African Elephants Matter</h2>
+        <p>They are not just giant mammals — they are ecosystem engineers that influence landscapes and support biodiversity.</p>
       </div>
 
-      <div class="topic-grid">
-        <div class="topic-box">
-          <h4>Africa’s Giant Crocodile</h4>
-          <p>The Nile crocodile is the largest crocodile species in Africa.  [oai_citation:21‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)</p>
+      <div class="compare-grid">
+        <div class="compare-box">
+          <h4>Seed Dispersers</h4>
+          <p>They help spread plant life by moving seeds across large distances.</p>
         </div>
 
-        <div class="topic-box">
-          <h4>Very Large Clutches</h4>
-          <p>A female can lay up to 80 eggs in a single clutch.  [oai_citation:22‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)</p>
+        <div class="compare-box">
+          <h4>Path Makers</h4>
+          <p>They open routes through vegetation used later by other animals.</p>
         </div>
 
-        <div class="topic-box">
-          <h4>Temperature Shapes Sex</h4>
-          <p>Incubation temperature during egg development helps determine whether hatchlings become male or female.  [oai_citation:23‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)</p>
+        <div class="compare-box">
+          <h4>Water Finders</h4>
+          <p>In some dry places, elephants dig for water, which can benefit other species too.</p>
         </div>
 
-        <div class="topic-box">
-          <h4>Long-Lived Predator</h4>
-          <p>Nile crocodiles are thought to live around 40 to 60 years in the wild.  [oai_citation:24‡Encyclopedia Britannica](https://www.britannica.com/animal/Nile-crocodile)</p>
+        <div class="compare-box">
+          <h4>Landscape Shapers</h4>
+          <p>Their feeding and movement patterns can change the structure of entire habitats.</p>
         </div>
       </div>
     </div>
@@ -795,8 +778,8 @@
   <section class="section">
     <div class="section-inner">
       <div class="cta-box">
-        <h2>Explore More WildAtlas Species Profiles</h2>
-        <p>Send the next animal and I’ll format it in this same detailed biography structure using your list.</p>
+        <h2>Explore More Wildlife Profiles</h2>
+        <p>Continue your WildAtlas journey by discovering more iconic animals, habitats, and natural systems across the platform.</p>
         <div class="cta-actions">
           <a href="species.html" class="btn" style="background:#d97706;color:#fff;">Back to Species</a>
           <a href="library.html" class="btn" style="background:rgba(255,255,255,0.16);color:#fff;border:1px solid rgba(255,255,255,0.18);">Open Library</a>
@@ -834,7 +817,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>©️ 2026 WildAtlas. All rights reserved. Species knowledge for deeper discovery.</p>
+      <p>©️ 2026 WildAtlas. All rights reserved. Wildlife knowledge for deeper discovery.</p>
     </div>
   </footer>
 
@@ -858,11 +841,11 @@
     const defaultSearchItems = [
       { title:"Home", type:"Section", category:"WildAtlas", summary:"Start your journey through the main WildAtlas discovery pillars.", link:"index.html", keywords:"home wildatlas main homepage nature encyclopedia" },
       { title:"Species", type:"Section", category:"Biology", summary:"Explore the taxonomy of animals, insects, birds, marine life, and more.", link:"species.html", keywords:"species animals mammals birds reptiles insects wildlife taxonomy" },
-      { title:"Nile Crocodile", type:"Species Profile", category:"Reptile", summary:"Read the biography, habitat, size, diet, breeding, and conservation details for the Nile crocodile.", link:"crocodile.html", keywords:"nile crocodile crocodile crocodylus niloticus reptile apex predator africa" },
-      { title:"Green Iguana", type:"Species Profile", category:"Reptile", summary:"Read the biography, habitat, diet, behavior, and conservation details for the green iguana.", link:"green-iguana.html", keywords:"green iguana iguana iguana reptile lizard profile herbivore tropical" },
       { title:"African Elephant", type:"Species Profile", category:"Mammal", summary:"Read the biography, facts, habitat, behaviour, and family life of the African elephant.", link:"african-elephant.html", keywords:"african elephant loxodonta africana elephant profile tusks calf mammal" },
+      { title:"Tiger", type:"Species Profile", category:"Mammal", summary:"Explore the tiger profile and its role as a major predator.", link:"tiger.html", keywords:"tiger bengal tiger big cat predator" },
       { title:"Biomes", type:"Section", category:"Ecosystems", summary:"Journey through rainforests, deserts, tundras, oceans, and other habitats.", link:"biomes.html", keywords:"biomes habitats rainforest desert tundra ocean ecosystem" },
       { title:"Earth", type:"Section", category:"Geosphere", summary:"Study geology, volcanoes, climate systems, oceans, and planetary science.", link:"earth.html", keywords:"earth geology climate volcano tectonics atmosphere" },
+      { title:"Impact", type:"Section", category:"Conservation", summary:"Learn about climate change, conservation efforts, habitat loss, and restoration solutions.", link:"impact.html", keywords:"impact conservation climate change sustainability environment habitat loss restoration" },
       { title:"Library", type:"Section", category:"Multimedia", summary:"Access documentaries, wildlife media, photography, field recordings, and visual guides.", link:"library.html", keywords:"library documentary documentaries media photography wildlife videos audio archive" }
     ];
 

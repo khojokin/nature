@@ -3,759 +3,1000 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WildAtlas | Subscription</title>
+  <title>Payment | WildAtlas</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="shortcut icon" href="logo.png" />
+
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{background:#f8fafc;color:#1f2937;line-height:1.6;overflow-x:hidden;}
+    img{max-width:100%;display:block;}
+    a{text-decoration:none;transition:0.3s;}
 
-    body{
-      background:#ffffff;
-      color:#222;
-      line-height:1.6;
-    }
+    header{padding:12px 6%;border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+    .logo-wrap{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+    .logo-wrap img{width:50px;height:50px;object-fit:cover;border-radius:12px;border:2px solid #14532d;background:#fff;padding:2px;}
+    .logo-text h2{font-size:24px;line-height:1;color:#14532d;letter-spacing:-0.5px;}
+    .logo-text span{display:block;font-size:12px;color:#6b7280;margin-top:2px;font-weight:500;}
 
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:18px 8%;
-      border-bottom:1px solid #e8e8e8;
-      background:#fff;
-      position:sticky;
-      top:0;
-      z-index:1000;
-      flex-wrap:wrap;
-      gap:15px;
-    }
+    .menu-toggle{display:none;width:44px;height:44px;border:none;background:#f3f4f6;border-radius:10px;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px;}
+    .menu-toggle span{width:20px;height:2px;background:#111827;border-radius:2px;transition:0.3s;}
+    .menu-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .menu-toggle.active span:nth-child(2){opacity:0;}
+    .menu-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
-    .logo{
-      font-size:28px;
-      font-weight:700;
-      color:#1b5e20;
-    }
+    .nav-area{display:flex;align-items:center;gap:18px;flex:1;justify-content:flex-end;}
+    nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+    nav a{color:#4b5563;font-weight:600;padding:8px 12px;border-radius:999px;font-size:14px;}
+    nav a:hover, nav a.active{background:#ecfdf5;color:#14532d;}
+    .nav-actions{display:flex;align-items:center;gap:10px;margin-left:8px;border-left:1px solid #e5e7eb;padding-left:16px;}
+    .btn{display:inline-block;padding:10px 20px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;border:none;white-space:nowrap;}
+    .btn-login{color:#4b5563;font-weight:600;}
+    .btn-join{background:#d97706;color:#fff;box-shadow:0 4px 14px rgba(217,119,6,0.25);}
+    .btn-join:hover{background:#b45309;transform:translateY(-1px);}
 
-    nav{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-
-    nav a{
-      text-decoration:none;
-      color:#333;
-      font-weight:500;
-      transition:0.3s;
-    }
-
-    nav a:hover,
-    nav a.active{
-      color:#1b5e20;
-    }
-
-    .nav-actions{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .search-box input{
-      padding:10px 14px;
-      border:1px solid #ccc;
-      border-radius:25px;
-      outline:none;
-      width:180px;
-    }
-
-    .btn{
-      padding:10px 18px;
-      border:none;
-      border-radius:25px;
-      cursor:pointer;
-      font-weight:600;
-      transition:0.3s;
-    }
-
-    .btn-login{
-      background:#f1f1f1;
-      color:#222;
-    }
-
-    .btn-signup{
-      background:#1b5e20;
-      color:#fff;
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-    }
-
-    .hero{
-      background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-      url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-      color:white;
-      text-align:center;
-      padding:110px 8%;
-    }
-
-    .hero h1{
-      font-size:52px;
-      margin-bottom:15px;
-    }
-
-    .hero p{
-      font-size:18px;
-      max-width:760px;
-      margin:auto;
-      color:#f3f3f3;
-    }
-
-    .top-ad{
-      background:linear-gradient(135deg, #edf7ed, #dff1df);
-      border:1px solid #cfe5cf;
-      border-radius:18px;
-      padding:30px;
-      text-align:center;
-      margin:50px 8% 0;
-    }
-
-    .top-ad h3{
-      color:#1b5e20;
-      margin-bottom:10px;
-      font-size:28px;
-    }
-
-    .top-ad p{
-      color:#444;
-      margin-bottom:15px;
-    }
-
-    .top-ad a{
-      display:inline-block;
-      padding:12px 22px;
-      background:#1b5e20;
-      color:#fff;
-      text-decoration:none;
-      border-radius:30px;
-      font-weight:600;
-    }
-
-    .section{
-      padding:70px 8%;
-    }
-
-    .section-title{
-      font-size:34px;
-      margin-bottom:15px;
-      color:#1b5e20;
-      text-align:center;
-    }
-
-    .section-subtitle{
-      text-align:center;
-      color:#666;
-      max-width:760px;
-      margin:0 auto 45px;
-    }
-
-    .plans{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-      gap:25px;
-      margin-bottom:55px;
-    }
-
-    .plan-card{
-      background:#fff;
-      border-radius:20px;
-      padding:30px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.08);
-      border:1px solid #e8e8e8;
-      transition:0.3s;
-      position:relative;
-    }
-
-    .plan-card:hover{
-      transform:translateY(-6px);
-    }
-
-    .plan-badge{
-      position:absolute;
-      top:18px;
-      right:18px;
-      background:#1b5e20;
-      color:#fff;
-      font-size:12px;
-      font-weight:700;
-      padding:6px 10px;
-      border-radius:20px;
-    }
-
-    .plan-card h3{
-      font-size:26px;
-      color:#1b5e20;
-      margin-bottom:10px;
-    }
-
-    .price{
-      font-size:38px;
-      font-weight:700;
-      margin-bottom:8px;
-    }
-
-    .price span{
-      font-size:16px;
-      color:#666;
-      font-weight:500;
-    }
-
-    .plan-card p{
-      color:#666;
-      margin-bottom:18px;
-    }
-
-    .plan-card ul{
-      list-style:none;
-      margin-bottom:22px;
-    }
-
-    .plan-card ul li{
-      margin-bottom:10px;
-      color:#444;
-    }
-
-    .select-plan{
-      display:inline-block;
+    .search-wrap{position:relative;width:190px;flex-shrink:0;}
+    .search-box{
       width:100%;
-      text-align:center;
-      padding:12px 18px;
-      background:#1b5e20;
+      padding:11px 14px;
+      border:1px solid #d1d5db;
+      border-radius:999px;
+      font-size:13px;
+      outline:none;
+      background:#f9fafb;
+      color:#111827;
+    }
+    .search-box:focus{
+      border-color:#14532d;
+      box-shadow:0 0 0 3px rgba(20,83,45,0.08);
+      background:#fff;
+    }
+    .search-results{
+      position:absolute;
+      top:calc(100% + 10px);
+      left:0;
+      width:320px;
+      max-width:calc(100vw - 40px);
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:18px;
+      box-shadow:0 16px 35px rgba(0,0,0,0.08);
+      padding:8px;
+      display:none;
+      max-height:380px;
+      overflow-y:auto;
+      z-index:1200;
+    }
+    .search-results.show{display:block;}
+    .search-result-item{display:block;padding:12px 14px;border-radius:14px;color:#1f2937;}
+    .search-result-item:hover{background:#ecfdf5;}
+    .search-result-item strong{display:block;font-size:14px;color:#14532d;margin-bottom:3px;}
+    .search-result-item span{display:block;font-size:12px;color:#6b7280;margin-bottom:4px;font-weight:700;text-transform:uppercase;}
+    .search-result-item p{font-size:13px;color:#4b5563;line-height:1.4;}
+    .search-empty{padding:14px;border-radius:14px;background:#f9fafb;color:#6b7280;font-size:14px;text-align:center;}
+
+    .hero-payment{
+      padding:90px 6% 40px;
+      background:linear-gradient(135deg,#14532d,#166534);
       color:#fff;
-      text-decoration:none;
-      border-radius:30px;
-      font-weight:600;
+    }
+    .hero-payment-inner{
+      max-width:1180px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:32px;
+      align-items:center;
+    }
+    .hero-payment h1{
+      font-size:clamp(34px,5vw,54px);
+      line-height:1.06;
+      margin-bottom:16px;
+      font-weight:800;
+    }
+    .hero-payment p{
+      color:#ecfdf5;
+      font-size:clamp(16px,2vw,18px);
+      max-width:640px;
     }
 
-    .subscription-layout{
+    .payment-shell{
+      max-width:1180px;
+      margin:-10px auto 0;
+      padding:0 6% 80px;
+    }
+
+    .payment-grid{
       display:grid;
-      grid-template-columns:1.3fr 0.8fr;
-      gap:35px;
+      grid-template-columns:0.95fr 1.05fr;
+      gap:28px;
       align-items:start;
     }
 
-    .payment-form,
-    .summary-box{
+    .panel{
       background:#fff;
-      border-radius:20px;
-      padding:32px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      border:1px solid #e5e7eb;
+      border-radius:28px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.05);
     }
 
-    .payment-form h2,
-    .summary-box h2{
-      color:#1b5e20;
-      margin-bottom:10px;
-      font-size:28px;
+    .summary-panel{
+      padding:28px;
+      position:sticky;
+      top:92px;
     }
 
-    .payment-form p,
-    .summary-box p{
-      color:#666;
-      margin-bottom:22px;
-    }
-
-    form{
-      display:grid;
-      gap:18px;
-    }
-
-    .form-row{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-
-    .input-group{
+    .summary-title{
       display:flex;
-      flex-direction:column;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:20px;
     }
 
-    .input-group label{
+    .summary-title h2{
+      font-size:28px;
+      color:#14532d;
+      line-height:1.1;
+    }
+
+    .plan-badge{
+      background:#ecfdf5;
+      color:#166534;
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      padding:6px 12px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+
+    .summary-card{
+      background:#f9fafb;
+      border:1px solid #eef2f7;
+      border-radius:22px;
+      padding:20px;
+      margin-bottom:20px;
+    }
+
+    .summary-card h3{
+      font-size:22px;
+      color:#111827;
       margin-bottom:8px;
-      font-weight:600;
-      color:#333;
     }
 
-    .input-group input,
-    .input-group select{
-      padding:14px 16px;
-      border:1px solid #d8d8d8;
-      border-radius:14px;
-      outline:none;
+    .summary-card p{
+      color:#6b7280;
       font-size:15px;
-      transition:0.3s;
+      margin-bottom:16px;
     }
 
-    .input-group input:focus,
-    .input-group select:focus{
-      border-color:#1b5e20;
-      box-shadow:0 0 0 3px rgba(27,94,32,0.08);
+    .price-big{
+      display:flex;
+      align-items:flex-end;
+      gap:6px;
     }
 
-    .pay-btn{
-      padding:15px 24px;
-      border:none;
-      border-radius:30px;
-      background:#1b5e20;
-      color:#fff;
+    .price-big strong{
+      font-size:42px;
+      line-height:1;
+      color:#14532d;
+    }
+
+    .price-big span{
+      font-size:14px;
+      color:#6b7280;
       font-weight:700;
-      cursor:pointer;
-      transition:0.3s;
-      font-size:16px;
+      margin-bottom:5px;
     }
 
-    .pay-btn:hover{
-      transform:translateY(-2px);
+    .benefit-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .benefit-item{
+      background:#f9fafb;
+      border:1px solid #eef2f7;
+      border-radius:16px;
+      padding:14px 15px;
+      color:#4b5563;
+      font-size:14px;
+    }
+
+    .benefit-item strong{
+      display:block;
+      color:#14532d;
+      margin-bottom:3px;
     }
 
     .secure-note{
-      background:#f4f7f4;
-      border:1px solid #dde7dd;
-      border-radius:14px;
+      margin-top:20px;
       padding:16px;
-      color:#555;
+      border-radius:18px;
+      background:#fff7ed;
+      border:1px solid #fed7aa;
+      color:#9a3412;
       font-size:14px;
     }
 
-    .summary-item{
+    .form-panel{
+      padding:30px;
+    }
+
+    .panel-head{
+      margin-bottom:22px;
+    }
+
+    .panel-head h2{
+      font-size:30px;
+      color:#14532d;
+      margin-bottom:8px;
+      line-height:1.1;
+    }
+
+    .panel-head p{
+      color:#6b7280;
+      font-size:15px;
+    }
+
+    .payment-methods{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin-bottom:24px;
+    }
+
+    .method-box{
+      position:relative;
+    }
+
+    .method-box input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
+
+    .method-label{
       display:flex;
+      flex-direction:column;
+      gap:8px;
+      border:1px solid #d1d5db;
+      background:#fff;
+      border-radius:20px;
+      padding:18px;
+      cursor:pointer;
+      min-height:110px;
+      transition:0.25s;
+    }
+
+    .method-label:hover{
+      border-color:#14532d;
+      transform:translateY(-2px);
+    }
+
+    .method-box input:checked + .method-label{
+      border-color:#14532d;
+      background:#ecfdf5;
+      box-shadow:0 0 0 3px rgba(20,83,45,0.08);
+    }
+
+    .method-title{
+      display:flex;
+      align-items:center;
       justify-content:space-between;
-      gap:16px;
-      margin-bottom:14px;
-      color:#444;
+      gap:8px;
     }
 
-    .summary-item.total{
-      font-weight:700;
-      color:#111;
+    .method-title strong{
       font-size:18px;
-      border-top:1px solid #e5e5e5;
-      padding-top:16px;
-      margin-top:10px;
+      color:#111827;
     }
 
-    .summary-features{
-      margin-top:24px;
-      padding-top:20px;
-      border-top:1px solid #e5e5e5;
-    }
-
-    .summary-features h3{
-      color:#1b5e20;
-      margin-bottom:12px;
+    .method-icon{
       font-size:20px;
     }
 
-    .summary-features ul{
-      list-style:none;
+    .method-label span{
+      font-size:14px;
+      color:#6b7280;
+      line-height:1.4;
     }
 
-    .summary-features li{
-      margin-bottom:10px;
-      color:#555;
+    .payment-section{
+      display:none;
+      margin-top:8px;
+      border-top:1px solid #eef2f7;
+      padding-top:22px;
     }
 
-    .middle-banner{
-      margin-top:0;
+    .payment-section.active{
+      display:block;
     }
 
-    .newsletter{
-      background:#f4f7f4;
+    .section-title{
+      font-size:22px;
+      color:#14532d;
+      margin-bottom:14px;
+      line-height:1.1;
+    }
+
+    .field-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .field{
+      display:grid;
+      gap:8px;
+      margin-bottom:16px;
+    }
+
+    .field.full{
+      grid-column:1 / -1;
+    }
+
+    .field label{
+      font-size:14px;
+      font-weight:700;
+      color:#1f2937;
+    }
+
+    .field input,
+    .field select,
+    .field textarea{
+      width:100%;
+      padding:14px 16px;
+      border:1px solid #d1d5db;
+      border-radius:16px;
+      outline:none;
+      font-size:15px;
+      color:#111827;
+      background:#fff;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus{
+      border-color:#14532d;
+      box-shadow:0 0 0 3px rgba(20,83,45,0.08);
+    }
+
+    .wallet-card{
+      background:#f9fafb;
+      border:1px dashed #cbd5e1;
+      border-radius:18px;
+      padding:18px;
+      color:#475569;
+      font-size:14px;
+      margin-bottom:16px;
+    }
+
+    .wallet-card strong{
+      display:block;
+      color:#14532d;
+      margin-bottom:4px;
+    }
+
+    .pay-btn{
+      width:100%;
+      padding:15px 18px;
+      border:none;
+      border-radius:999px;
+      font-weight:800;
+      font-size:15px;
+      cursor:pointer;
+      color:#fff;
+      background:#14532d;
+      margin-top:8px;
+    }
+
+    .pay-btn:hover{
+      background:#166534;
+    }
+
+    .pay-btn.wallet{
+      background:#111827;
+    }
+
+    .pay-btn.wallet:hover{
+      background:#000;
+    }
+
+    .pay-btn.google{
+      background:#0f766e;
+    }
+
+    .pay-btn.google:hover{
+      background:#115e59;
+    }
+
+    .helper-text{
+      margin-top:12px;
+      color:#6b7280;
+      font-size:13px;
       text-align:center;
-      padding:70px 8%;
     }
 
-    .newsletter h2{
-      font-size:34px;
-      color:#1b5e20;
-      margin-bottom:12px;
+    .bank-box{
+      background:#f8fafc;
+      border:1px solid #e2e8f0;
+      border-radius:20px;
+      padding:20px;
+      margin-bottom:16px;
     }
 
-    .newsletter p{
-      color:#555;
-      max-width:650px;
-      margin:0 auto 24px;
+    .bank-box h4{
+      font-size:20px;
+      color:#14532d;
+      margin-bottom:10px;
     }
 
-    .newsletter form{
-      display:flex;
-      justify-content:center;
+    .bank-details{
+      display:grid;
       gap:12px;
+    }
+
+    .bank-row{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      padding-bottom:10px;
+      border-bottom:1px solid #e5e7eb;
       flex-wrap:wrap;
     }
 
-    .newsletter input{
-      padding:14px 16px;
-      width:320px;
-      max-width:100%;
-      border:1px solid #ccc;
-      border-radius:30px;
-      outline:none;
+    .bank-row:last-child{
+      border-bottom:none;
+      padding-bottom:0;
     }
 
-    .newsletter button{
-      padding:14px 24px;
-      border:none;
-      border-radius:30px;
-      background:#1b5e20;
-      color:#fff;
+    .bank-row span{
+      color:#6b7280;
+      font-size:14px;
       font-weight:600;
-      cursor:pointer;
     }
 
-    footer{
-      background:#111;
-      color:#ddd;
-      padding:60px 8% 25px;
+    .bank-row strong{
+      color:#111827;
+      font-size:15px;
+      word-break:break-word;
     }
 
-    .footer-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-      gap:30px;
-      margin-bottom:35px;
-    }
-
-    .footer-col h3{
-      color:#fff;
-      margin-bottom:15px;
-      font-size:20px;
-    }
-
-    .footer-col p{
-      color:#bbb;
-    }
-
-    .footer-col a{
-      display:block;
-      color:#bbb;
-      text-decoration:none;
-      margin-bottom:10px;
-      transition:0.3s;
-    }
-
-    .footer-col a:hover{
-      color:#fff;
-    }
-
-    .footer-bottom{
-      border-top:1px solid #2a2a2a;
-      padding-top:20px;
-      text-align:center;
-      color:#999;
+    .notice{
+      margin-top:14px;
+      background:#eff6ff;
+      border:1px solid #bfdbfe;
+      color:#1d4ed8;
+      border-radius:16px;
+      padding:14px;
       font-size:14px;
     }
 
-    @media (max-width: 992px){
-      .subscription-layout{
-        grid-template-columns:1fr;
-      }
+    footer{background:#111827;color:#9ca3af;padding:80px 6% 40px;}
+    .footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:60px;}
+    .footer-col h3{color:#fff;font-size:18px;margin-bottom:20px;}
+    .footer-col a{display:block;color:#9ca3af;margin-bottom:12px;font-size:15px;}
+    .footer-col a:hover{color:#fbbf24;}
+    .footer-bottom{text-align:center;border-top:1px solid rgba(255,255,255,0.05);padding-top:40px;font-size:14px;}
+
+    @media (max-width:1180px){
+      .search-wrap{width:170px;}
+      .search-box{padding:10px 13px;font-size:12.5px;}
+      .nav-actions{gap:8px;padding-left:12px;}
+      .btn{padding:10px 16px;font-size:13px;}
+      .payment-grid{grid-template-columns:1fr;}
+      .summary-panel{position:relative;top:0;}
     }
 
-    @media (max-width: 768px){
-      header{
-        flex-direction:column;
-        gap:15px;
-      }
-
-      nav{
-        justify-content:center;
-      }
-
-      .hero h1{
-        font-size:38px;
-      }
-
-      .form-row{
-        grid-template-columns:1fr;
-      }
-
-      .search-box input{
+    @media (max-width:860px){
+      .hero-payment-inner{grid-template-columns:1fr;}
+      .nav-area{
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
         width:100%;
+        background:#fff;
+        flex-direction:column;
+        padding:30px;
+        border-bottom:1px solid #e5e7eb;
+        box-shadow:0 10px 20px rgba(0,0,0,0.05);
       }
+      .nav-area.open{display:flex;}
+      nav{flex-direction:column;width:100%;}
+      nav a{width:100%;text-align:center;padding:12px;}
+      .nav-actions{
+        width:100%;
+        margin:0;
+        padding:20px 0 0;
+        border-left:none;
+        border-top:1px solid #f3f4f6;
+        flex-direction:column;
+      }
+      .search-wrap{width:100%;max-width:100%;}
+      .search-results{width:100%;max-width:100%;}
+      .btn-login{width:100%;text-align:center;padding:12px 16px;}
+      .btn-join{width:100%;}
+      .menu-toggle{display:flex;}
+      .payment-methods{grid-template-columns:1fr;}
+      .field-grid{grid-template-columns:1fr;}
+    }
+
+    @media (max-width:640px){
+      .hero-payment{padding:84px 5% 36px;}
+      .payment-shell{padding:0 5% 70px;}
+      .form-panel,
+      .summary-panel{padding:22px 18px;}
+      .header-inner{gap:14px;}
+      .logo-text h2{font-size:22px;}
+      .logo-text span{font-size:11px;}
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">WildAtlas</div>
+    <div class="header-inner">
+      <a href="index.html" class="logo-wrap">
+        <img src="logo.png" alt="WildAtlas Logo">
+        <div class="logo-text">
+          <h2>WildAtlas</h2>
+          <span>The Nature Encyclopedia</span>
+        </div>
+      </a>
 
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Animals</a>
-      <a href="#">Insects</a>
-      <a href="#">Mountains</a>
-      <a href="#">Forests</a>
-      <a href="#">Nature Articles</a>
-      <a href="#">Contact</a>
-     </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
 
-    <div class="nav-actions">
-      <div class="search-box">
-        <input type="text" placeholder="Search here..." />
+      <div class="nav-area" id="navArea">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="species.html">Species</a>
+          <a href="biomes.html">Biomes</a>
+          <a href="earth.html">Earth</a>
+          <a href="impact.html">Impact</a>
+          <a href="places.html">Places</a>
+          <a href="connection.html">Connection</a>
+          <a href="library.html">Library</a>
+        </nav>
+        
+        <div class="nav-actions">
+          <div class="search-wrap">
+            <input type="text" id="siteSearchInput" class="search-box" placeholder="Search WildAtlas...">
+            <div id="searchResults" class="search-results"></div>
+          </div>
+          <a href="login.html" class="btn-login">Log In</a>
+          <a href="subscribe.html" class="btn btn-join">Join WildAtlas</a>
+        </div>
       </div>
-      <button class="btn btn-login">Log In</button>
-      <button class="btn btn-signup">Sign Up</button>
     </div>
   </header>
 
-  <section class="hero">
-    <h1>Subscribe to WildAtlas</h1>
-    <p>
-      Unlock premium wildlife stories, exclusive nature features, member newsletters, and special content from across the wild world.
-    </p>
-  </section>
-
-  <section class="top-ad">
-    <h3>Go Premium With WildAtlas</h3>
-    <p>
-      Support the platform and enjoy exclusive access to premium articles, featured documentaries, and subscriber-only benefits.
-    </p>
-    <a href="#">See Benefits</a>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Choose Your Plan</h2>
-    <p class="section-subtitle">
-      Pick a subscription plan that fits how you want to explore nature, wildlife, and premium content.
-    </p>
-
-    <div class="plans">
-      <div class="plan-card">
-        <h3>Starter</h3>
-        <div class="price">£4.99 <span>/ month</span></div>
-        <p>Great for casual readers who want access to selected premium stories.</p>
-        <ul>
-          <li>✓ Premium weekly article access</li>
-          <li>✓ Subscriber newsletter</li>
-          <li>✓ Member-only updates</li>
-          <li>✓ Early access to selected features</li>
-        </ul>
-        <a href="#" class="select-plan">Choose Starter</a>
+  <section class="hero-payment">
+    <div class="hero-payment-inner">
+      <div>
+        <h1>Complete Your WildAtlas Payment</h1>
+        <p>Choose the payment method that works best for you. This page includes Apple Pay, Google Pay, bank transfer, and card layout options in one clean checkout screen.</p>
       </div>
 
-      <div class="plan-card">
-        <span class="plan-badge">Popular</span>
-        <h3>Explorer</h3>
-        <div class="price">£9.99 <span>/ month</span></div>
-        <p>Perfect for readers who want deeper access to WildAtlas premium content.</p>
-        <ul>
-          <li>✓ Full premium article access</li>
-          <li>✓ Exclusive wildlife reports</li>
-          <li>✓ Monthly digital magazine</li>
-          <li>✓ Early access to documentaries</li>
-        </ul>
-        <a href="#" class="select-plan">Choose Explorer</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>Annual</h3>
-        <div class="price">£89.99 <span>/ year</span></div>
-        <p>Best value for full access all year with added membership perks.</p>
-        <ul>
-          <li>✓ Everything in Explorer</li>
-          <li>✓ Save more yearly</li>
-          <li>✓ Premium member badge</li>
-          <li>✓ Priority support</li>
-        </ul>
-        <a href="#" class="select-plan">Choose Annual</a>
+      <div class="hero-premium-card hero-payment-card">
+        <div class="hero-premium-stats hero-payment-stats">
+          <div class="hero-premium-stat hero-payment-stat"><h4>4</h4><p>Payment Methods</p></div>
+          <div class="hero-premium-stat hero-payment-stat"><h4>24/7</h4><p>Checkout Access</p></div>
+          <div class="hero-premium-stat hero-payment-stat"><h4>SSL</h4><p>Ready Layout</p></div>
+          <div class="hero-premium-stat hero-payment-stat"><h4>Fast</h4><p>Member Upgrade</p></div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="subscription-layout">
-      <div class="payment-form">
-        <h2>Payment Details</h2>
-        <p>Fill in your details below to start your WildAtlas subscription.</p>
-
-        <form>
-          <div class="form-row">
-            <div class="input-group">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" placeholder="Enter your first name" />
-            </div>
-
-            <div class="input-group">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" placeholder="Enter your last name" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="input-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" placeholder="Enter your email address" />
-            </div>
-
-            <div class="input-group">
-              <label for="plan">Select Plan</label>
-              <select id="plan">
-                <option>Explorer - £9.99/month</option>
-                <option>Starter - £4.99/month</option>
-                <option>Annual - £89.99/year</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label for="cardName">Name on Card</label>
-            <input type="text" id="cardName" placeholder="Enter name on card" />
-          </div>
-
-          <div class="input-group">
-            <label for="cardNumber">Card Number</label>
-            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" />
-          </div>
-
-          <div class="form-row">
-            <div class="input-group">
-              <label for="expiry">Expiry Date</label>
-              <input type="text" id="expiry" placeholder="MM/YY" />
-            </div>
-
-            <div class="input-group">
-              <label for="cvv">CVV</label>
-              <input type="text" id="cvv" placeholder="123" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="input-group">
-              <label for="country">Country</label>
-              <input type="text" id="country" placeholder="Enter your country" />
-            </div>
-
-            <div class="input-group">
-              <label for="postcode">Postcode</label>
-              <input type="text" id="postcode" placeholder="Enter postcode" />
-            </div>
-          </div>
-
-          <button type="submit" class="pay-btn">Subscribe & Pay</button>
-
-          <div class="secure-note">
-            This is a subscription page design. To accept real payments safely, connect this form to a secure payment provider like Stripe or PayPal.
-          </div>
-        </form>
-      </div>
-
-      <aside class="summary-box">
-        <h2>Order Summary</h2>
-        <p>Review your plan before completing payment.</p>
-
-        <div class="summary-item">
-          <span>Plan</span>
-          <span>Explorer</span>
+  <div class="payment-shell">
+    <div class="payment-grid">
+      <aside class="panel summary-panel">
+        <div class="summary-title">
+          <h2>Order Summary</h2>
+          <span class="plan-badge">WildAtlas Plus</span>
         </div>
 
-        <div class="summary-item">
-          <span>Billing</span>
-          <span>Monthly</span>
+        <div class="summary-card">
+          <h3>Premium Membership</h3>
+          <p>Unlock premium profiles, exclusive documentaries, deeper archives, and member-only learning content.</p>
+          <div class="price-big">
+            <strong>$9</strong>
+            <span>/ month</span>
+          </div>
         </div>
 
-        <div class="summary-item">
-          <span>Subtotal</span>
-          <span>£9.99</span>
+        <div class="benefit-list">
+          <div class="benefit-item">
+            <strong>Premium profiles</strong>
+            Extended species, biome, Earth, and impact content.
+          </div>
+          <div class="benefit-item">
+            <strong>Member-only library</strong>
+            Extra documentaries, audio, and visual archives.
+          </div>
+          <div class="benefit-item">
+            <strong>Priority releases</strong>
+            Early access to new WildAtlas collections.
+          </div>
         </div>
 
-        <div class="summary-item">
-          <span>Processing</span>
-          <span>£0.00</span>
-        </div>
-
-        <div class="summary-item total">
-          <span>Total</span>
-          <span>£9.99</span>
-        </div>
-
-        <div class="summary-features">
-          <h3>Included Benefits</h3>
-          <ul>
-            <li>✓ Unlimited premium stories</li>
-            <li>✓ Exclusive wildlife reports</li>
-            <li>✓ Monthly digital magazine</li>
-            <li>✓ Early documentary access</li>
-            <li>✓ Subscriber-only newsletters</li>
-          </ul>
+        <div class="secure-note">
+          This is a front-end payment page design. To process real payments, connect it later to Stripe, PayPal, Flutterwave, Paystack, or another payment provider.
         </div>
       </aside>
-    </div>
-  </section>
 
-  <section class="section" style="padding-top:0;">
-    <div class="top-ad middle-banner">
-      <h3>Premium Sponsor Highlight</h3>
-      <p>
-        This wide banner can also be used to promote premium partners, conservation campaigns, or featured member offers.
-      </p>
-      <a href="#">Become a Partner</a>
-    </div>
-  </section>
+      <section class="panel form-panel">
+        <div class="panel-head">
+          <h2>Choose Payment Method</h2>
+          <p>Select Apple Pay, Google Pay, bank transfer, or card. The fields below change automatically based on your choice.</p>
+        </div>
 
-  <section class="newsletter">
-    <h2>Stay Connected With WildAtlas</h2>
-    <p>
-      Join our newsletter for wildlife discoveries, premium updates, and inspiring stories from nature.
-    </p>
-    <form>
-      <input type="email" placeholder="Enter your email address" />
-      <button type="submit">Subscribe</button>
-    </form>
-  </section>
+        <div class="payment-methods">
+          <div class="method-box">
+            <input type="radio" name="paymentMethod" id="applePay" value="apple" checked>
+            <label class="method-label" for="applePay">
+              <div class="method-title">
+                <strong>Apple Pay</strong>
+                <span class="method-icon"></span>
+              </div>
+              <span>Fast checkout for Apple devices and supported browsers.</span>
+            </label>
+          </div>
+
+          <div class="method-box">
+            <input type="radio" name="paymentMethod" id="googlePay" value="google">
+            <label class="method-label" for="googlePay">
+              <div class="method-title">
+                <strong>Google Pay</strong>
+                <span class="method-icon">G</span>
+              </div>
+              <span>Quick pay using your saved Google-supported wallet.</span>
+            </label>
+          </div>
+
+          <div class="method-box">
+            <input type="radio" name="paymentMethod" id="cardPay" value="card">
+            <label class="method-label" for="cardPay">
+              <div class="method-title">
+                <strong>Card</strong>
+                <span class="method-icon">💳</span>
+              </div>
+              <span>Pay with debit or credit card using card details.</span>
+            </label>
+          </div>
+
+          <div class="method-box">
+            <input type="radio" name="paymentMethod" id="bankPay" value="bank">
+            <label class="method-label" for="bankPay">
+              <div class="method-title">
+                <strong>Bank Transfer</strong>
+                <span class="method-icon">🏦</span>
+              </div>
+              <span>Manual transfer using the bank details provided below.</span>
+            </label>
+          </div>
+        </div>
+
+        <div id="appleSection" class="payment-section active">
+          <h3 class="section-title">Apple Pay Checkout</h3>
+          <div class="wallet-card">
+            <strong>Apple Pay ready layout</strong>
+            This button is a placeholder design. When connected to a real gateway, it can open Apple Pay on supported devices.
+          </div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="appleEmail">Email Address</label>
+              <input type="email" id="appleEmail" placeholder="Enter your email">
+            </div>
+            <div class="field">
+              <label for="appleName">Full Name</label>
+              <input type="text" id="appleName" placeholder="Enter your name">
+            </div>
+          </div>
+
+          <button class="pay-btn wallet" type="button">Pay with Apple Pay</button>
+          <div class="helper-text">Works best after connecting a real Apple Pay enabled processor.</div>
+        </div>
+
+        <div id="googleSection" class="payment-section">
+          <h3 class="section-title">Google Pay Checkout</h3>
+          <div class="wallet-card">
+            <strong>Google Pay ready layout</strong>
+            This button is a placeholder design. After backend integration, it can launch Google Pay on supported devices and browsers.
+          </div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="googleEmail">Email Address</label>
+              <input type="email" id="googleEmail" placeholder="Enter your email">
+            </div>
+            <div class="field">
+              <label for="googleName">Full Name</label>
+              <input type="text" id="googleName" placeholder="Enter your name">
+            </div>
+          </div>
+
+          <button class="pay-btn google" type="button">Pay with Google Pay</button>
+          <div class="helper-text">Connect this later to Stripe, Google Pay API, or another supported gateway.</div>
+        </div>
+
+        <div id="cardSection" class="payment-section">
+          <h3 class="section-title">Card Payment</h3>
+
+          <div class="field-grid">
+            <div class="field full">
+              <label for="cardName">Name on Card</label>
+              <input type="text" id="cardName" placeholder="Full name on card">
+            </div>
+
+            <div class="field full">
+              <label for="cardNumber">Card Number</label>
+              <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+            </div>
+
+            <div class="field">
+              <label for="expiryDate">Expiry Date</label>
+              <input type="text" id="expiryDate" placeholder="MM/YY">
+            </div>
+
+            <div class="field">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" placeholder="123">
+            </div>
+
+            <div class="field full">
+              <label for="billingEmail">Billing Email</label>
+              <input type="email" id="billingEmail" placeholder="Enter your billing email">
+            </div>
+
+            <div class="field">
+              <label for="country">Country</label>
+              <select id="country">
+                <option>Select country</option>
+                <option>United Kingdom</option>
+                <option>United States</option>
+                <option>Ghana</option>
+                <option>Canada</option>
+                <option>Nigeria</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="zipCode">Postcode / ZIP</label>
+              <input type="text" id="zipCode" placeholder="Postcode or ZIP">
+            </div>
+          </div>
+
+          <button class="pay-btn" type="button">Pay $9 with Card</button>
+          <div class="helper-text">Use tokenized processing later. Do not store raw card details in plain HTML.</div>
+        </div>
+
+        <div id="bankSection" class="payment-section">
+          <h3 class="section-title">Bank Transfer</h3>
+
+          <div class="bank-box">
+            <h4>Transfer Details</h4>
+            <div class="bank-details">
+              <div class="bank-row">
+                <span>Bank Name</span>
+                <strong>WildAtlas Business Bank</strong>
+              </div>
+              <div class="bank-row">
+                <span>Account Name</span>
+                <strong>WildAtlas Media Ltd</strong>
+              </div>
+              <div class="bank-row">
+                <span>Sort Code</span>
+                <strong>12-34-56</strong>
+              </div>
+              <div class="bank-row">
+                <span>Account Number</span>
+                <strong>12345678</strong>
+              </div>
+              <div class="bank-row">
+                <span>IBAN</span>
+                <strong>GB12 WILD 1234 5678 9012 34</strong>
+              </div>
+              <div class="bank-row">
+                <span>Reference</span>
+                <strong>WILDATLAS-MEMBER</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice">
+            After sending the transfer, submit your details below so you can match the payment faster.
+          </div>
+
+          <div class="field-grid" style="margin-top:16px;">
+            <div class="field">
+              <label for="bankFullName">Full Name</label>
+              <input type="text" id="bankFullName" placeholder="Enter your name">
+            </div>
+            <div class="field">
+              <label for="bankEmail">Email Address</label>
+              <input type="email" id="bankEmail" placeholder="Enter your email">
+            </div>
+            <div class="field">
+              <label for="bankReference">Transfer Reference Used</label>
+              <input type="text" id="bankReference" placeholder="Reference used">
+            </div>
+            <div class="field">
+              <label for="bankAmount">Amount Sent</label>
+              <input type="text" id="bankAmount" placeholder="$9">
+            </div>
+          </div>
+
+          <button class="pay-btn" type="button">I Have Sent the Bank Transfer</button>
+          <div class="helper-text">For real use, connect this to your email, database, or admin panel.</div>
+        </div>
+      </section>
+    </div>
+  </div>
 
   <footer>
-    <div class="footer-grid">
+    <div class="footer-inner">
       <div class="footer-col">
-        <h3>WildAtlas</h3>
-        <p>
-          Bringing the beauty of nature closer through stories, research, visuals, and wild exploration.
-        </p>
+        <h3 style="color:#10b981;">WildAtlas</h3>
+        <p>The definitive digital map of nature. Built for explorers, scientists, and the curious.</p>
       </div>
-
       <div class="footer-col">
         <h3>Explore</h3>
-        <a href="#">Home</a>
-        <a href="#">Animals</a>
-        <a href="#">Insects</a>
-        <a href="#">Mountains</a>
-        <a href="#">Forests</a>
+        <a href="species.html">Species</a>
+        <a href="biomes.html">Biomes</a>
+        <a href="earth.html">Earth</a>
+        <a href="impact.html">Impact</a>
       </div>
-
       <div class="footer-col">
-        <h3>Membership</h3>
-        <a href="#">Subscription</a>
-        <a href="#">Premium Access</a>
-        <a href="#">Member Benefits</a>
-        <a href="#">Gift Membership</a>
+        <h3>Community</h3>
+        <a href="member-benefits.html">Member Benefits</a>
+        <a href="login.html">Member Login</a>
+        <a href="blog.html">Nature Blog</a>
+        <a href="places.html">Wild Places</a>
       </div>
-
       <div class="footer-col">
         <h3>Support</h3>
-        <a href="#">Contact</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Help Center</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
       </div>
     </div>
-
     <div class="footer-bottom">
-      © 2026 WildAtlas. All rights reserved.
+      <p>©️ 2026 WildAtlas. All rights reserved. Secure payment layout for membership checkout.</p>
     </div>
   </footer>
 
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navArea = document.getElementById('navArea');
+    const siteSearchInput = document.getElementById('siteSearchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navArea.classList.toggle('open');
+    });
+
+    document.querySelectorAll('nav a').forEach(link => {
+      if(link.href === window.location.href) {
+        link.classList.add('active');
+      }
+    });
+
+    const defaultSearchItems = [
+      { title:"Home", type:"Section", category:"WildAtlas", summary:"Start your journey through the main WildAtlas discovery pillars.", link:"index.html", keywords:"home wildatlas main homepage nature encyclopedia" },
+      { title:"Species", type:"Section", category:"Biology", summary:"Explore the taxonomy of animals, insects, birds, marine life, and more.", link:"species.html", keywords:"species animals mammals birds reptiles insects wildlife taxonomy" },
+      { title:"Biomes", type:"Section", category:"Ecosystems", summary:"Journey through rainforests, deserts, tundras, oceans, and other habitats.", link:"biomes.html", keywords:"biomes habitats rainforest desert tundra ocean ecosystem" },
+      { title:"Earth", type:"Section", category:"Geosphere", summary:"Study geology, volcanoes, climate systems, oceans, and planetary science.", link:"earth.html", keywords:"earth geology climate volcano tectonics atmosphere" },
+      { title:"Impact", type:"Section", category:"Conservation", summary:"Learn about climate change, conservation efforts, habitat loss, and restoration solutions.", link:"impact.html", keywords:"impact conservation climate change sustainability environment habitat loss restoration" },
+      { title:"Places", type:"Section", category:"Locations", summary:"Discover national parks, mountains, forests, islands, and natural landmarks.", link:"places.html", keywords:"places national parks mountains landmarks travel nature" },
+      { title:"Connection", type:"Section", category:"Humanity", summary:"Explore gardening, foraging, nature therapy, hiking, and human connection with the wild.", link:"connection.html", keywords:"connection gardening foraging survival outdoor therapy wellness hiking nature" },
+      { title:"Library", type:"Section", category:"Multimedia", summary:"Access documentaries, wildlife media, photography, field recordings, and visual guides.", link:"library.html", keywords:"library documentary documentaries media photography wildlife videos audio archive" },
+      { title:"Join WildAtlas", type:"Membership", category:"Premium", summary:"Choose a membership plan and unlock premium WildAtlas content.", link:"subscribe.html", keywords:"join wildatlas subscribe membership premium plan" },
+      { title:"Payment Page", type:"Checkout", category:"Billing", summary:"Complete membership payment using Apple Pay, Google Pay, bank transfer, or card.", link:"payment.html", keywords:"payment checkout apple pay google pay bank transfer card billing" },
+      { title:"Log In", type:"Account", category:"Access", summary:"Sign in to your WildAtlas account to continue your journey.", link:"login.html", keywords:"login sign in member account access" }
+    ];
+
+    function getSearchItems(){
+      const saved = localStorage.getItem("wildatlas_search_items");
+      if(saved){
+        try{
+          const parsed = JSON.parse(saved);
+          if(Array.isArray(parsed) && parsed.length){
+            return parsed;
+          }
+        }catch(error){}
+      }
+      return defaultSearchItems;
+    }
+
+    function renderSearchResults(query){
+      const items = getSearchItems();
+      const cleanQuery = query.trim().toLowerCase();
+      searchResults.innerHTML = "";
+
+      if(!cleanQuery){
+        searchResults.classList.remove("show");
+        return;
+      }
+
+      const matches = items.filter(item => {
+        const searchableText = `
+          ${item.title || ""}
+          ${item.type || ""}
+          ${item.category || ""}
+          ${item.summary || ""}
+          ${item.keywords || ""}
+        `.toLowerCase();
+
+        return searchableText.includes(cleanQuery);
+      });
+
+      if(matches.length === 0){
+        searchResults.innerHTML = `<div class="search-empty">No results found. Try another keyword.</div>`;
+        searchResults.classList.add("show");
+        return;
+      }
+
+      matches.slice(0, 8).forEach(item => {
+        const result = document.createElement("a");
+        result.href = item.link || "#";
+        result.className = "search-result-item";
+        result.innerHTML = `
+          <strong>${item.title || "Untitled"}</strong>
+          <span>${item.category || "General"} • ${item.type || "Item"}</span>
+          <p>${item.summary || ""}</p>
+        `;
+        searchResults.appendChild(result);
+      });
+
+      searchResults.classList.add("show");
+    }
+
+    siteSearchInput.addEventListener("input", function(){
+      renderSearchResults(this.value);
+    });
+
+    document.addEventListener("click", function(e){
+      if(!e.target.closest(".search-wrap")){
+        searchResults.classList.remove("show");
+      }
+    });
+
+    siteSearchInput.addEventListener("focus", function(){
+      if(this.value.trim()){
+        renderSearchResults(this.value);
+      }
+    });
+
+    const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
+    const sections = {
+      apple: document.getElementById('appleSection'),
+      google: document.getElementById('googleSection'),
+      card: document.getElementById('cardSection'),
+      bank: document.getElementById('bankSection')
+    };
+
+    function showPaymentSection(method){
+      Object.keys(sections).forEach(key => {
+        sections[key].classList.remove('active');
+      });
+      sections[method].classList.add('active');
+    }
+
+    paymentRadios.forEach(radio => {
+      radio.addEventListener('change', function(){
+        showPaymentSection(this.value);
+      });
+    });
+  </script>
 </body>
 </html>
