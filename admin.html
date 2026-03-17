@@ -1,147 +1,892 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>WildAtlas Admin</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WildAtlas | Local Admin</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial, Helvetica, sans-serif}
-body{background:#f8faf8;color:#222;padding:40px 8%}
+    html{
+      scroll-behavior:smooth;
+    }
 
-.container{
-max-width:900px;
-margin:auto;
-background:#fff;
-padding:30px;
-border-radius:16px;
-box-shadow:0 8px 24px rgba(0,0,0,0.06)
-}
+    body{
+      background:#f6faf7;
+      color:#1f2937;
+      line-height:1.6;
+    }
 
-h1{
-margin-bottom:10px;
-color:#1b5e20
-}
+    a{
+      text-decoration:none;
+    }
 
-p{
-color:#666;
-margin-bottom:25px
-}
+    .layout{
+      display:grid;
+      grid-template-columns:320px 1fr;
+      min-height:100vh;
+    }
 
-label{
-display:block;
-margin:18px 0 8px;
-font-weight:600
-}
+    .sidebar{
+      background:#0f172a;
+      color:#fff;
+      padding:24px 18px;
+      position:sticky;
+      top:0;
+      height:100vh;
+      overflow-y:auto;
+      border-right:1px solid rgba(255,255,255,0.08);
+    }
 
-input, textarea{
-width:100%;
-padding:14px;
-border:1px solid #ddd;
-border-radius:10px;
-outline:none;
-font-size:15px
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:28px;
+      padding-bottom:18px;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
 
-textarea{
-min-height:120px;
-resize:vertical
-}
+    .brand img{
+      width:56px;
+      height:56px;
+      object-fit:cover;
+      border-radius:14px;
+      border:2px solid #22c55e;
+      background:#fff;
+      padding:2px;
+    }
 
-.actions{
-margin-top:25px;
-display:flex;
-gap:12px;
-flex-wrap:wrap
-}
+    .brand h2{
+      font-size:22px;
+      line-height:1.1;
+    }
 
-button{
-padding:13px 20px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:600
-}
+    .brand span{
+      display:block;
+      font-size:13px;
+      color:#cbd5e1;
+      margin-top:3px;
+    }
 
-.save-btn{
-background:#1b5e20;
-color:#fff
-}
+    .side-links{
+      display:grid;
+      gap:10px;
+    }
 
-.clear-btn{
-background:#eee;
-color:#222
-}
+    .side-links a{
+      display:block;
+      padding:12px 14px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.04);
+      color:#dbe4ee;
+      border:1px solid rgba(255,255,255,0.06);
+      font-weight:600;
+      font-size:14px;
+    }
 
-.note{
-margin-top:18px;
-font-size:14px;
-color:#777
-}
-</style>
+    .side-links a:hover{
+      background:rgba(255,255,255,0.1);
+    }
+
+    .main{
+      padding:28px;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+
+    .topbar h1{
+      color:#14532d;
+      font-size:clamp(30px,4vw,44px);
+      line-height:1.15;
+      margin-bottom:8px;
+    }
+
+    .topbar p{
+      color:#6b7280;
+      max-width:780px;
+    }
+
+    .action-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .btn{
+      border:none;
+      border-radius:999px;
+      padding:12px 18px;
+      cursor:pointer;
+      font-weight:700;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-primary{
+      background:#14532d;
+      color:#fff;
+    }
+
+    .btn-outline{
+      background:#fff;
+      color:#14532d;
+      border:1px solid #d1d5db;
+    }
+
+    .btn-gold{
+      background:#facc15;
+      color:#111827;
+    }
+
+    .btn-red{
+      background:#dc2626;
+      color:#fff;
+    }
+
+    .admin-grid{
+      display:grid;
+      gap:24px;
+    }
+
+    .panel{
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:24px;
+      padding:24px;
+      box-shadow:0 10px 24px rgba(0,0,0,0.05);
+    }
+
+    .panel h2{
+      color:#14532d;
+      font-size:30px;
+      line-height:1.2;
+      margin-bottom:8px;
+    }
+
+    .panel p{
+      color:#6b7280;
+      margin-bottom:18px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .field{
+      display:grid;
+      gap:8px;
+    }
+
+    .full{
+      grid-column:1 / -1;
+    }
+
+    .field label{
+      font-size:14px;
+      font-weight:700;
+      color:#1f2937;
+    }
+
+    .field input,
+    .field textarea,
+    .field select{
+      width:100%;
+      padding:14px 15px;
+      border:1px solid #d1d5db;
+      border-radius:14px;
+      outline:none;
+      font-size:15px;
+      color:#111827;
+      background:#fff;
+    }
+
+    .field textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus{
+      border-color:#16a34a;
+      box-shadow:0 0 0 3px rgba(22,163,74,0.08);
+    }
+
+    .subheading{
+      color:#166534;
+      font-size:20px;
+      margin:10px 0 14px;
+      font-weight:700;
+    }
+
+    .status{
+      display:none;
+      padding:14px 16px;
+      border-radius:14px;
+      margin-bottom:20px;
+      font-weight:700;
+      background:#ecfdf3;
+      border:1px solid #bbf7d0;
+      color:#166534;
+    }
+
+    .status.error{
+      background:#fef2f2;
+      border-color:#fecaca;
+      color:#b91c1c;
+    }
+
+    .preview-box{
+      background:#f0fdf4;
+      border:1px solid #dcfce7;
+      border-radius:18px;
+      padding:18px;
+      margin-top:16px;
+    }
+
+    .preview-box strong{
+      display:block;
+      color:#166534;
+      margin-bottom:6px;
+    }
+
+    .entry-list{
+      display:grid;
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .entry-card{
+      border:1px solid #e5e7eb;
+      border-radius:20px;
+      padding:18px;
+      background:#fafafa;
+    }
+
+    .entry-card h4{
+      color:#14532d;
+      font-size:20px;
+      margin-bottom:10px;
+    }
+
+    .entry-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+
+    .json-box{
+      width:100%;
+      min-height:180px;
+      border:1px solid #d1d5db;
+      border-radius:16px;
+      padding:14px;
+      font-size:14px;
+      resize:vertical;
+      outline:none;
+    }
+
+    .small-note{
+      font-size:13px;
+      color:#6b7280;
+      margin-top:8px;
+    }
+
+    @media (max-width:1080px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+
+      .sidebar{
+        position:relative;
+        height:auto;
+      }
+    }
+
+    @media (max-width:760px){
+      .main{
+        padding:18px;
+      }
+
+      .panel{
+        padding:18px;
+      }
+
+      .form-grid{
+        grid-template-columns:1fr;
+      }
+
+      .action-buttons{
+        width:100%;
+      }
+
+      .action-buttons .btn{
+        width:100%;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-<h1>WildAtlas Admin</h1>
-<p>Paste your documentary here and publish it to the homepage.</p>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <img id="adminLogoPreview" src="logo.png" alt="WildAtlas Logo">
+        <div>
+          <h2>WildAtlas Admin</h2>
+          <span>Local storage control panel</span>
+        </div>
+      </div>
 
-<label for="date">Date</label>
-<input type="text" id="date" placeholder="March 15, 2026">
+      <div class="side-links">
+        <a href="#branding">Branding</a>
+        <a href="#search-settings">Search Settings</a>
+        <a href="#content-manager">Pages / Articles / Documentaries</a>
+        <a href="#search-manager">Search Index Manager</a>
+        <a href="#tools">Backup & Tools</a>
+      </div>
+    </aside>
 
-<label for="title">Title</label>
-<input type="text" id="title" placeholder="The Snow Leopard: Ghost of the Mountains">
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>WildAtlas Admin Dashboard</h1>
+          <p>
+            Use this page to update the site through localStorage, manage searchable content, and add new documentaries, articles, and pages without touching code.
+          </p>
+        </div>
 
-<label for="img1">Image 1 URL</label>
-<input type="text" id="img1" placeholder="https://...">
+        <div class="action-buttons">
+          <button class="btn btn-primary" id="saveAllBtn">Save All Changes</button>
+          <button class="btn btn-outline" id="reloadBtn">Reload Saved Data</button>
+          <button class="btn btn-gold" id="resetDefaultsBtn">Reset Defaults</button>
+          <button class="btn btn-red" id="clearStorageBtn">Clear All Saved Data</button>
+        </div>
+      </div>
 
-<label for="text1">Paragraph 1</label>
-<textarea id="text1" placeholder="Write first paragraph..."></textarea>
+      <div class="status" id="statusBox"></div>
 
-<label for="img2">Image 2 URL</label>
-<input type="text" id="img2" placeholder="https://...">
+      <div class="admin-grid">
 
-<label for="text2">Paragraph 2</label>
-<textarea id="text2" placeholder="Write second paragraph..."></textarea>
+        <section class="panel" id="branding">
+          <h2>Branding</h2>
+          <p>Update the main WildAtlas site identity.</p>
 
-<label for="img3">Image 3 URL</label>
-<input type="text" id="img3" placeholder="https://...">
+          <div class="form-grid">
+            <div class="field">
+              <label for="siteName">Site Name</label>
+              <input type="text" id="siteName">
+            </div>
 
-<label for="text3">Paragraph 3</label>
-<textarea id="text3" placeholder="Write third paragraph..."></textarea>
+            <div class="field">
+              <label for="siteTagline">Site Tagline</label>
+              <input type="text" id="siteTagline">
+            </div>
 
-<div class="actions">
-<button class="save-btn" onclick="saveDocumentary()">Publish Documentary</button>
-<button class="clear-btn" onclick="clearDocumentary()">Clear Saved Documentary</button>
-</div>
+            <div class="field full">
+              <label for="siteLogo">Logo Path or URL</label>
+              <input type="text" id="siteLogo">
+            </div>
+          </div>
 
-<div class="note">
-This version saves to your browser using localStorage.
-</div>
-</div>
+          <div class="preview-box">
+            <strong>Logo Preview</strong>
+            <img id="logoLivePreview" src="logo.png" alt="Logo Preview" style="width:90px;height:90px;object-fit:cover;border-radius:16px;border:2px solid #14532d;background:#fff;padding:2px;">
+          </div>
+        </section>
 
-<script>
-function saveDocumentary() {
-  const documentary = {
-    date: document.getElementById("date").value,
-    title: document.getElementById("title").value,
-    img1: document.getElementById("img1").value,
-    text1: document.getElementById("text1").value,
-    img2: document.getElementById("img2").value,
-    text2: document.getElementById("text2").value,
-    img3: document.getElementById("img3").value,
-    text3: document.getElementById("text3").value
-  };
+        <section class="panel" id="search-settings">
+          <h2>Search Settings</h2>
+          <p>Control the text shown in the search bar and the search page title.</p>
 
-  localStorage.setItem("wildatlasDocumentary", JSON.stringify(documentary));
-  alert("Documentary published successfully.");
-}
+          <div class="form-grid">
+            <div class="field">
+              <label for="searchTitle">Search Section Title</label>
+              <input type="text" id="searchTitle">
+            </div>
 
-function clearDocumentary() {
-  localStorage.removeItem("wildatlasDocumentary");
-  alert("Saved documentary removed.");
-}
-</script>
+            <div class="field">
+              <label for="searchPlaceholder">Search Placeholder</label>
+              <input type="text" id="searchPlaceholder">
+            </div>
+
+            <div class="field full">
+              <label for="searchEmptyText">No Results Text</label>
+              <input type="text" id="searchEmptyText">
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="content-manager">
+          <h2>Pages / Articles / Documentaries Manager</h2>
+          <p>Add, edit, or remove content entries that can also appear in search results.</p>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="contentTitle">Title</label>
+              <input type="text" id="contentTitle">
+            </div>
+
+            <div class="field">
+              <label for="contentType">Type</label>
+              <select id="contentType">
+                <option value="Article">Article</option>
+                <option value="Documentary">Documentary</option>
+                <option value="Page">Page</option>
+                <option value="Guide">Guide</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="contentCategory">Category</label>
+              <select id="contentCategory">
+                <option value="Species">Species</option>
+                <option value="Biomes">Biomes</option>
+                <option value="Earth">Earth</option>
+                <option value="Impact">Impact</option>
+                <option value="Places">Places</option>
+                <option value="Connection">Connection</option>
+                <option value="Library">Library</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="contentLink">Page Link</label>
+              <input type="text" id="contentLink" placeholder="tiger.html">
+            </div>
+
+            <div class="field full">
+              <label for="contentImage">Image Path or URL</label>
+              <input type="text" id="contentImage">
+            </div>
+
+            <div class="field full">
+              <label for="contentSummary">Short Summary</label>
+              <textarea id="contentSummary"></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="contentKeywords">Keywords (comma separated)</label>
+              <input type="text" id="contentKeywords" placeholder="tiger, big cat, asia, predator">
+            </div>
+          </div>
+
+          <div class="entry-actions">
+            <button class="btn btn-primary" id="addContentBtn">Add Content</button>
+            <button class="btn btn-outline" id="updateContentBtn">Update Selected</button>
+            <button class="btn btn-red" id="clearContentFormBtn">Clear Form</button>
+          </div>
+
+          <div class="entry-list" id="contentList"></div>
+        </section>
+
+        <section class="panel" id="search-manager">
+          <h2>Search Index Manager</h2>
+          <p>
+            The items above are automatically used for site search. This section shows the live searchable list that your search bar will read.
+          </p>
+
+          <div class="preview-box">
+            <strong>Total Searchable Items</strong>
+            <span id="searchCountDisplay">0</span>
+          </div>
+
+          <div class="entry-list" id="searchIndexList"></div>
+        </section>
+
+        <section class="panel" id="tools">
+          <h2>Backup & Tools</h2>
+          <p>Export your admin data or import it later.</p>
+
+          <div class="entry-actions" style="margin-bottom:14px;">
+            <button class="btn btn-primary" id="exportBtn">Export JSON</button>
+            <button class="btn btn-outline" id="importBtn">Import JSON</button>
+          </div>
+
+          <textarea class="json-box" id="jsonBox" placeholder="Exported JSON will appear here, or paste JSON here to import."></textarea>
+          <div class="small-note">
+            This export includes branding, search settings, and the full searchable content library.
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const defaults = {
+      siteName: "WildAtlas",
+      siteTagline: "Explore the wild world of nature",
+      siteLogo: "logo.png",
+      searchTitle: "Search WildAtlas",
+      searchPlaceholder: "Search species, biomes, documentaries, articles, or topics...",
+      searchEmptyText: "No results found. Try another keyword."
+    };
+
+    const defaultContent = [
+      {
+        title: "Bengal Tiger",
+        type: "Species",
+        category: "Species",
+        link: "tiger.html",
+        image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1200&q=80",
+        summary: "A powerful striped predator found in forests and grasslands across Asia.",
+        keywords: "tiger,bengal tiger,big cat,predator,asia"
+      },
+      {
+        title: "Tropical Rainforest",
+        type: "Biome",
+        category: "Biomes",
+        link: "biomes.html",
+        image: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=80",
+        summary: "A humid, species-rich biome with dense vegetation and year-round warmth.",
+        keywords: "rainforest,tropical biome,jungle,canopy,humid"
+      },
+      {
+        title: "Earth's Crust",
+        type: "Article",
+        category: "Earth",
+        link: "earth.html",
+        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        summary: "The outer solid shell of Earth, divided into continental and oceanic crust.",
+        keywords: "earth crust,geology,tectonic plates,planet surface"
+      },
+      {
+        title: "Deep Ocean Documentary",
+        type: "Documentary",
+        category: "Library",
+        link: "deep-ocean.html",
+        image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+        summary: "A look at the strange and fascinating creatures of the deep sea.",
+        keywords: "deep ocean,documentary,marine life,abyssal zone"
+      }
+    ];
+
+    const fieldKeys = Object.keys(defaults);
+    let contentItems = [];
+    let selectedIndex = -1;
+
+    const statusBox = document.getElementById("statusBox");
+    const siteLogoInput = document.getElementById("siteLogo");
+    const logoLivePreview = document.getElementById("logoLivePreview");
+    const adminLogoPreview = document.getElementById("adminLogoPreview");
+    const contentList = document.getElementById("contentList");
+    const searchIndexList = document.getElementById("searchIndexList");
+    const searchCountDisplay = document.getElementById("searchCountDisplay");
+
+    function showStatus(message, isError = false){
+      statusBox.textContent = message;
+      statusBox.style.display = "block";
+      if(isError){
+        statusBox.classList.add("error");
+      }else{
+        statusBox.classList.remove("error");
+      }
+
+      setTimeout(() => {
+        statusBox.style.display = "none";
+      }, 3000);
+    }
+
+    function getSavedContent(key){
+      const saved = localStorage.getItem("wildatlas_content_" + key);
+      return saved !== null ? saved : defaults[key];
+    }
+
+    function setPreviewLogo(){
+      const value = siteLogoInput.value.trim() || "logo.png";
+      logoLivePreview.src = value;
+      adminLogoPreview.src = value;
+    }
+
+    function loadFields(){
+      fieldKeys.forEach(key => {
+        const el = document.getElementById(key);
+        if(el){
+          el.value = getSavedContent(key);
+        }
+      });
+
+      setPreviewLogo();
+      loadContentItems();
+    }
+
+    function saveFields(){
+      fieldKeys.forEach(key => {
+        const el = document.getElementById(key);
+        if(el){
+          localStorage.setItem("wildatlas_content_" + key, el.value.trim());
+        }
+      });
+
+      localStorage.setItem("wildatlas_search_items", JSON.stringify(contentItems));
+      setPreviewLogo();
+      showStatus("WildAtlas local admin changes saved.");
+    }
+
+    function resetToDefaults(){
+      fieldKeys.forEach(key => {
+        const el = document.getElementById(key);
+        if(el){
+          el.value = defaults[key];
+        }
+      });
+
+      contentItems = JSON.parse(JSON.stringify(defaultContent));
+      selectedIndex = -1;
+      clearContentForm();
+      renderContentItems();
+      setPreviewLogo();
+      showStatus("Inputs reset to default values.");
+    }
+
+    function clearAllSavedData(){
+      fieldKeys.forEach(key => {
+        localStorage.removeItem("wildatlas_content_" + key);
+      });
+      localStorage.removeItem("wildatlas_search_items");
+      resetToDefaults();
+      showStatus("All saved WildAtlas data cleared.", true);
+    }
+
+    function loadContentItems(){
+      const saved = localStorage.getItem("wildatlas_search_items");
+      if(saved){
+        try{
+          contentItems = JSON.parse(saved);
+        }catch(error){
+          contentItems = JSON.parse(JSON.stringify(defaultContent));
+        }
+      }else{
+        contentItems = JSON.parse(JSON.stringify(defaultContent));
+      }
+
+      if(!Array.isArray(contentItems)){
+        contentItems = JSON.parse(JSON.stringify(defaultContent));
+      }
+
+      renderContentItems();
+    }
+
+    function renderContentItems(){
+      contentList.innerHTML = "";
+      searchIndexList.innerHTML = "";
+      searchCountDisplay.textContent = contentItems.length;
+
+      if(contentItems.length === 0){
+        contentList.innerHTML = '<div class="preview-box"><strong>No content added yet.</strong>Add one above.</div>';
+        searchIndexList.innerHTML = '<div class="preview-box"><strong>No searchable items yet.</strong></div>';
+        return;
+      }
+
+      contentItems.forEach((item, index) => {
+        const contentCard = document.createElement("div");
+        contentCard.className = "entry-card";
+        contentCard.innerHTML = `
+          <h4>${index + 1}. ${item.title || "Untitled"}</h4>
+          <p><strong>Type:</strong> ${item.type || "Item"}</p>
+          <p><strong>Category:</strong> ${item.category || "General"}</p>
+          <p><strong>Link:</strong> ${item.link || "#"}</p>
+          <p>${item.summary || ""}</p>
+          <div class="entry-actions">
+            <button class="btn btn-outline" onclick="editContentItem(${index})">Edit</button>
+            <button class="btn btn-red" onclick="deleteContentItem(${index})">Delete</button>
+            <button class="btn btn-gold" onclick="moveContentUp(${index})">Move Up</button>
+            <button class="btn btn-primary" onclick="moveContentDown(${index})">Move Down</button>
+          </div>
+        `;
+        contentList.appendChild(contentCard);
+
+        const searchCard = document.createElement("div");
+        searchCard.className = "entry-card";
+        searchCard.innerHTML = `
+          <h4>${item.title || "Untitled"}</h4>
+          <p><strong>Search Terms:</strong> ${item.keywords || ""}</p>
+          <p><strong>Destination:</strong> ${item.link || "#"}</p>
+        `;
+        searchIndexList.appendChild(searchCard);
+      });
+    }
+
+    function clearContentForm(){
+      document.getElementById("contentTitle").value = "";
+      document.getElementById("contentType").value = "Article";
+      document.getElementById("contentCategory").value = "Species";
+      document.getElementById("contentLink").value = "";
+      document.getElementById("contentImage").value = "";
+      document.getElementById("contentSummary").value = "";
+      document.getElementById("contentKeywords").value = "";
+      selectedIndex = -1;
+    }
+
+    function getContentFormData(){
+      return {
+        title: document.getElementById("contentTitle").value.trim(),
+        type: document.getElementById("contentType").value.trim(),
+        category: document.getElementById("contentCategory").value.trim(),
+        link: document.getElementById("contentLink").value.trim(),
+        image: document.getElementById("contentImage").value.trim(),
+        summary: document.getElementById("contentSummary").value.trim(),
+        keywords: document.getElementById("contentKeywords").value.trim()
+      };
+    }
+
+    function addContentItem(){
+      const item = getContentFormData();
+
+      if(!item.title || !item.summary || !item.link){
+        showStatus("Title, summary, and page link are required.", true);
+        return;
+      }
+
+      contentItems.push(item);
+      renderContentItems();
+      clearContentForm();
+      showStatus("Content item added. Click Save All Changes.");
+    }
+
+    function editContentItem(index){
+      const item = contentItems[index];
+      if(!item) return;
+
+      selectedIndex = index;
+      document.getElementById("contentTitle").value = item.title || "";
+      document.getElementById("contentType").value = item.type || "Article";
+      document.getElementById("contentCategory").value = item.category || "Species";
+      document.getElementById("contentLink").value = item.link || "";
+      document.getElementById("contentImage").value = item.image || "";
+      document.getElementById("contentSummary").value = item.summary || "";
+      document.getElementById("contentKeywords").value = item.keywords || "";
+      showStatus("Content loaded into form. Edit it and click Update Selected.");
+    }
+
+    function updateContentItem(){
+      if(selectedIndex < 0){
+        showStatus("Select an item to update first.", true);
+        return;
+      }
+
+      const item = getContentFormData();
+
+      if(!item.title || !item.summary || !item.link){
+        showStatus("Title, summary, and page link are required.", true);
+        return;
+      }
+
+      contentItems[selectedIndex] = item;
+      renderContentItems();
+      clearContentForm();
+      showStatus("Selected content updated.");
+    }
+
+    function deleteContentItem(index){
+      contentItems.splice(index, 1);
+      renderContentItems();
+      clearContentForm();
+      showStatus("Content item removed.");
+    }
+
+    function moveContentUp(index){
+      if(index <= 0) return;
+      [contentItems[index - 1], contentItems[index]] = [contentItems[index], contentItems[index - 1]];
+      renderContentItems();
+    }
+
+    function moveContentDown(index){
+      if(index >= contentItems.length - 1) return;
+      [contentItems[index + 1], contentItems[index]] = [contentItems[index], contentItems[index + 1]];
+      renderContentItems();
+    }
+
+    function exportData(){
+      const data = {
+        content: {},
+        searchItems: contentItems
+      };
+
+      fieldKeys.forEach(key => {
+        const el = document.getElementById(key);
+        data.content[key] = el ? el.value.trim() : defaults[key];
+      });
+
+      document.getElementById("jsonBox").value = JSON.stringify(data, null, 2);
+      showStatus("Data exported to the JSON box.");
+    }
+
+    function importData(){
+      const json = document.getElementById("jsonBox").value.trim();
+      if(!json){
+        showStatus("Paste JSON into the box first.", true);
+        return;
+      }
+
+      try{
+        const parsed = JSON.parse(json);
+
+        if(parsed.content && typeof parsed.content === "object"){
+          fieldKeys.forEach(key => {
+            if(parsed.content[key] !== undefined){
+              const el = document.getElementById(key);
+              if(el){
+                el.value = parsed.content[key];
+              }
+            }
+          });
+        }
+
+        if(Array.isArray(parsed.searchItems)){
+          contentItems = parsed.searchItems;
+        }
+
+        renderContentItems();
+        clearContentForm();
+        setPreviewLogo();
+        showStatus("JSON imported successfully. Click Save All Changes.");
+      }catch(error){
+        showStatus("Invalid JSON format.", true);
+      }
+    }
+
+    document.getElementById("saveAllBtn").addEventListener("click", saveFields);
+    document.getElementById("reloadBtn").addEventListener("click", loadFields);
+    document.getElementById("resetDefaultsBtn").addEventListener("click", resetToDefaults);
+    document.getElementById("clearStorageBtn").addEventListener("click", clearAllSavedData);
+
+    document.getElementById("addContentBtn").addEventListener("click", addContentItem);
+    document.getElementById("updateContentBtn").addEventListener("click", updateContentItem);
+    document.getElementById("clearContentFormBtn").addEventListener("click", clearContentForm);
+
+    document.getElementById("exportBtn").addEventListener("click", exportData);
+    document.getElementById("importBtn").addEventListener("click", importData);
+
+    siteLogoInput.addEventListener("input", setPreviewLogo);
+
+    window.editContentItem = editContentItem;
+    window.deleteContentItem = deleteContentItem;
+    window.moveContentUp = moveContentUp;
+    window.moveContentDown = moveContentDown;
+
+    loadFields();
+  </script>
 
 </body>
 </html>

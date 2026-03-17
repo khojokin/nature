@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildAtlas | Dogs</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#ffffff;
+color:#222;
+line-height:1.6;
+}
+
+/* NAVBAR */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+border-bottom:1px solid #e8e8e8;
+background:#fff;
+position:sticky;
+top:0;
+z-index:1000;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#1b5e20;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover,
+nav a.active{
+color:#1b5e20;
+}
+
+.nav-actions{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.search-box input{
+padding:10px 14px;
+border:1px solid #ccc;
+border-radius:25px;
+outline:none;
+width:180px;
+}
+
+.btn{
+padding:10px 18px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn-login{
+background:#f1f1f1;
+color:#222;
+}
+
+.btn-signup{
+background:#1b5e20;
+color:#fff;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+url('https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+color:white;
+text-align:center;
+padding:110px 8%;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+max-width:760px;
+margin:auto;
+color:#f3f3f3;
+}
+
+/* TOP DOCUMENTARY SECTION */
+
+.top-documentary{
+padding:60px 8% 20px;
+}
+
+.documentary-wrap{
+background:linear-gradient(135deg,#f6fbf6,#eaf5ea);
+border:1px solid #d8e8d8;
+border-radius:24px;
+padding:30px;
+box-shadow:0 8px 24px rgba(0,0,0,0.06);
+}
+
+.documentary-label{
+display:inline-block;
+background:#1b5e20;
+color:#fff;
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:700;
+margin-bottom:14px;
+}
+
+.documentary-wrap h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.documentary-wrap p{
+color:#555;
+max-width:900px;
+margin-bottom:25px;
+}
+
+.doc-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.doc-card{
+background:#fff;
+border-radius:18px;
+padding:22px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+border:1px solid #e8eeee;
+}
+
+.doc-card h3{
+color:#1b5e20;
+font-size:22px;
+margin-bottom:10px;
+}
+
+.doc-card p{
+color:#666;
+margin-bottom:14px;
+}
+
+.doc-card a{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* AD */
+
+.top-ad{
+background:linear-gradient(135deg,#edf7ed,#dff1df);
+border:1px solid #cfe5cf;
+border-radius:18px;
+padding:30px;
+text-align:center;
+margin:30px 8% 0;
+}
+
+.top-ad h3{
+color:#1b5e20;
+margin-bottom:10px;
+font-size:28px;
+}
+
+.top-ad p{
+color:#444;
+margin-bottom:15px;
+}
+
+.top-ad a{
+display:inline-block;
+padding:12px 22px;
+background:#1b5e20;
+color:#fff;
+text-decoration:none;
+border-radius:30px;
+font-weight:600;
+}
+
+/* SECTION */
+
+.section{
+padding:70px 8%;
+}
+
+.section-title{
+font-size:34px;
+margin-bottom:15px;
+color:#1b5e20;
+text-align:center;
+}
+
+.section-subtitle{
+text-align:center;
+color:#666;
+max-width:760px;
+margin:0 auto 45px;
+}
+
+/* GRID */
+
+.animals-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+/* CARD */
+
+.card{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+
+.card-content{
+padding:22px;
+}
+
+.tag{
+display:inline-block;
+background:#e8f5e9;
+color:#1b5e20;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+margin-bottom:12px;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+margin-bottom:16px;
+}
+
+.read-more{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* FACTS */
+
+.facts{
+background:#f4f7f4;
+}
+
+.facts-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.fact-box{
+background:#fff;
+padding:28px;
+border-radius:18px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+text-align:center;
+}
+
+.fact-box h3{
+font-size:30px;
+color:#1b5e20;
+margin-bottom:8px;
+}
+
+.fact-box p{
+color:#666;
+}
+
+/* SPLIT INFO */
+
+.info-split{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+align-items:center;
+}
+
+.info-split img{
+width:100%;
+border-radius:20px;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+}
+
+.info-text h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:15px;
+}
+
+.info-text p{
+color:#555;
+margin-bottom:14px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+background:#f4f7f4;
+text-align:center;
+padding:70px 8%;
+}
+
+.newsletter h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.newsletter p{
+color:#555;
+max-width:650px;
+margin:0 auto 24px;
+}
+
+.newsletter form{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.newsletter input{
+padding:14px 16px;
+width:320px;
+max-width:100%;
+border:1px solid #ccc;
+border-radius:30px;
+outline:none;
+}
+
+.newsletter button{
+padding:14px 24px;
+border:none;
+border-radius:30px;
+background:#1b5e20;
+color:#fff;
+font-weight:600;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:#ddd;
+padding:60px 8% 25px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-bottom:35px;
+}
+
+.footer-col h3{
+color:#fff;
+margin-bottom:15px;
+}
+
+.footer-col a{
+display:block;
+color:#bbb;
+text-decoration:none;
+margin-bottom:10px;
+}
+
+.footer-col a:hover{
+color:#fff;
+}
+
+.footer-col p{
+color:#bbb;
+}
+
+.footer-bottom{
+border-top:1px solid #2a2a2a;
+padding-top:20px;
+text-align:center;
+color:#999;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+.info-split{
+grid-template-columns:1fr;
+}
+}
+
+@media (max-width:768px){
+
+header{
+flex-direction:column;
+}
+
+nav{
+justify-content:center;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.search-box input{
+width:100%;
+}
+
+.documentary-wrap h2{
+font-size:28px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">WildAtlas</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="animals.html" class="active">Animals</a>
+<a href="insects.html">Insects</a>
+<a href="mountains.html">Mountains</a>
+<a href="forests.html">Forests</a>
+<a href="nature-articles.html">Nature Articles</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div class="nav-actions">
+
+<div class="search-box">
+<input type="text" placeholder="Search dogs...">
+</div>
+
+<a href="login.html" class="btn btn-login">Log In</a>
+<a href="signup.html" class="btn btn-signup">Sign Up</a>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>Dogs of the World</h1>
+
+<p>
+Explore loyal companions, working breeds, playful puppies, and the fascinating science behind dog behavior, birth, growth, and daily habits.
+</p>
+
+</section>
+
+<section class="top-documentary">
+
+<div class="documentary-wrap">
+<span class="documentary-label">Dog Documentary Section</span>
+<h2>Documentaries About Dogs, Habits, Birth Rate, and Daily Life</h2>
+<p>
+This section highlights dog-focused documentary topics at the very top of the page so visitors can quickly explore dog behavior, breeding, puppy development, family life, and the bond between dogs and humans.
+</p>
+
+<div class="doc-grid">
+
+<div class="doc-card">
+<h3>Dog Habits</h3>
+<p>
+Explore everyday dog habits such as barking, tail wagging, digging, sleeping patterns, social behavior, and how dogs communicate with people and other animals.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Birth Rate & Puppies</h3>
+<p>
+Learn about dog pregnancy, litter size, puppy birth, early care, and how different breeds can have different reproductive patterns and growth stages.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Working & Family Dogs</h3>
+<p>
+Discover how dogs serve as companions, protectors, guides, herders, and rescue animals while building strong emotional bonds with humans.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Breed Differences</h3>
+<p>
+See how dog breeds vary in size, energy, intelligence, coat type, and temperament, from tiny lap dogs to powerful working breeds.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<section class="top-ad">
+
+<h3>Advertise Pet & Animal Brands</h3>
+
+<p>
+Promote pet care products, dog documentaries, training services, pet food brands, rescue campaigns, and animal education projects to WildAtlas readers.
+</p>
+
+<a href="#">Advertise Here</a>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Featured Dog Stories</h2>
+
+<p class="section-subtitle">
+Discover fascinating facts about dogs, their lifestyles, intelligence, loyalty, and the many roles they play in human life.
+</p>
+
+<div class="animals-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=80" alt="Puppy">
+<div class="card-content">
+<span class="tag">Puppies</span>
+<h3>From Birth to Growth</h3>
+<p>Puppies develop quickly in their first weeks, learning movement, sound, bonding, and social behavior.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1000&q=80" alt="Working dog">
+<div class="card-content">
+<span class="tag">Working Dogs</span>
+<h3>Built to Help Humans</h3>
+<p>Many dogs are trained for rescue work, security, guiding, farming, and emotional support.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&w=1000&q=80" alt="Dog breeds">
+<div class="card-content">
+<span class="tag">Breeds</span>
+<h3>So Many Types, One Species</h3>
+<p>Dogs come in hundreds of breeds with huge differences in appearance, temperament, and energy.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1000&q=80" alt="Dog behavior">
+<div class="card-content">
+<span class="tag">Behavior</span>
+<h3>Understanding Dog Communication</h3>
+<p>Dogs express feelings through posture, facial expression, body movement, barking, and tail signals.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=1000&q=80" alt="Family dog">
+<div class="card-content">
+<span class="tag">Family Life</span>
+<h3>Loyal Companions at Home</h3>
+<p>Dogs are loved around the world for companionship, loyalty, and strong emotional connection to families.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80" alt="Dog running">
+<div class="card-content">
+<span class="tag">Activity</span>
+<h3>Energy, Play, and Exercise</h3>
+<p>Regular movement, games, and mental stimulation help dogs stay healthy, happy, and well behaved.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="info-split">
+<img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=1200&q=80" alt="Dogs together">
+
+<div class="info-text">
+<h2>Dog Habits, Reproduction, and Daily Life</h2>
+<p>
+Dogs are highly social animals that often live closely with humans. Their daily habits may include sleeping for long hours, exploring through smell, playing, eating on routine, and responding strongly to tone and body language.
+</p>
+<p>
+A female dog’s pregnancy usually lasts a little over two months, and litter sizes can vary depending on breed, size, age, and health. Some breeds may have small litters, while others can produce much larger ones.
+</p>
+<p>
+Because dogs adapt so well to human homes, farms, cities, and working environments, they have become one of the most successful and diverse domestic animals in the world.
+</p>
+</div>
+</div>
+
+</section>
+
+<section class="section facts">
+
+<h2 class="section-title">Amazing Dog Facts</h2>
+
+<p class="section-subtitle">
+Dogs are intelligent, adaptable animals with strong senses, varied breeds, and a deep history alongside humans.
+</p>
+
+<div class="facts-grid">
+
+<div class="fact-box">
+<h3>300+</h3>
+<p>Recognized dog breeds exist worldwide</p>
+</div>
+
+<div class="fact-box">
+<h3>Powerful Smell</h3>
+<p>Dogs rely heavily on scent to understand the world</p>
+</div>
+
+<div class="fact-box">
+<h3>Litter Sizes Vary</h3>
+<p>Breed and body size can affect puppy birth numbers</p>
+</div>
+
+<div class="fact-box">
+<h3>Highly Social</h3>
+<p>Dogs bond strongly with humans and other dogs</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="newsletter">
+
+<h2>Stay Updated With Dog Stories</h2>
+
+<p>
+Subscribe for dog discoveries, pet care features, animal documentaries, and featured WildAtlas stories.
+</p>
+
+<form>
+<input type="email" placeholder="Enter your email address">
+<button type="submit">Subscribe</button>
+</form>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-col">
+<h3>WildAtlas</h3>
+<p>Discover wildlife, pets, landscapes, and natural wonders across the world.</p>
+</div>
+
+<div class="footer-col">
+<h3>Explore</h3>
+<a href="index.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="dogs.html">Dogs</a>
+<a href="lizards.html">Lizards</a>
+<a href="dinosaur.html">Dinosaurs</a>
+</div>
+
+<div class="footer-col">
+<h3>Topics</h3>
+<a href="volcano.html">Volcano</a>
+<a href="tsunami.html">Tsunami</a>
+<a href="sinkhole.html">Sinkhole</a>
+<a href="nature-articles.html">Nature Articles</a>
+</div>
+
+<div class="footer-col">
+<h3>Support</h3>
+<a href="contact.html">Contact</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="help-center.html">Help Center</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 WildAtlas. All rights reserved.
+</div>
+
+</footer>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,16 +7,16 @@
 
 <style>
 *{
-box-sizing:border-box;
 margin:0;
 padding:0;
-font-family:Arial, Helvetica, sans-serif
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
 background:#ffffff;
 color:#222;
-line-height:1.7
+line-height:1.6;
 }
 
 /* HEADER */
@@ -25,69 +25,147 @@ header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:22px 8%;
-border-bottom:1px solid #eee;
-background:white;
+padding:18px 8%;
+border-bottom:1px solid #e8e8e8;
+background:#fff;
 position:sticky;
 top:0;
-z-index:1000
+z-index:1000;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.logo-wrap{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo-wrap img{
+width:54px;
+height:54px;
+object-fit:cover;
+border-radius:12px;
+background:#fff;
+border:2px solid #1b5e20;
+padding:2px;
 }
 
 .logo{
-font-size:26px;
+font-size:28px;
 font-weight:700;
-color:#1b5e20
+color:#1b5e20;
+}
+
+.menu-toggle{
+display:none;
+background:#1b5e20;
+color:#fff;
+border:none;
+font-size:24px;
+padding:10px 14px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.nav-wrap{
+display:flex;
+align-items:center;
+gap:20px;
+flex:1;
+justify-content:flex-end;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
 }
 
 nav a{
-margin:0 15px;
 text-decoration:none;
 color:#333;
 font-weight:500;
-transition:0.3s
+transition:0.3s;
 }
 
 nav a:hover,
 nav a.active{
-color:#1b5e20
+color:#1b5e20;
+}
+
+.nav-actions{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:10px 18px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn-login{
+background:#f1f1f1;
+color:#222;
+}
+
+.btn-signup{
+background:#1b5e20;
+color:#fff;
+}
+
+.btn:hover{
+transform:translateY(-2px);
 }
 
 /* HERO */
 
 .hero{
-padding:90px 8%;
+padding:100px 8%;
 text-align:center;
-background:#f4f7f4
+background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+color:#fff;
 }
 
 .hero h1{
-font-size:42px;
-margin-bottom:15px
+font-size:50px;
+margin-bottom:15px;
 }
 
 .hero p{
-color:#555;
+color:#f3f3f3;
 font-size:18px;
 max-width:760px;
-margin:auto
+margin:auto;
 }
 
 /* SECTION */
 
 .section{
 padding:70px 8%;
-max-width:1200px;
-margin:auto
+max-width:1300px;
+margin:auto;
 }
 
 .section h2{
-font-size:30px;
-margin-bottom:22px
+font-size:34px;
+margin-bottom:22px;
+color:#1b5e20;
 }
 
 .section p{
 color:#555;
-margin-bottom:18px
+margin-bottom:18px;
 }
 
 /* ABOUT BLOCK */
@@ -96,18 +174,19 @@ margin-bottom:18px
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:35px;
-align-items:center
+align-items:center;
 }
 
 .about-image img{
 width:100%;
 height:420px;
 object-fit:cover;
-border-radius:16px
+border-radius:20px;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
 }
 
 .about-text h2{
-margin-bottom:20px
+margin-bottom:20px;
 }
 
 /* VALUES */
@@ -116,33 +195,33 @@ margin-bottom:20px
 margin-top:35px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:22px
+gap:22px;
 }
 
 .value-card{
 background:#fff;
 border:1px solid #eee;
-border-radius:14px;
+border-radius:18px;
 padding:24px;
 transition:0.3s;
-box-shadow:0 4px 12px rgba(0,0,0,0.03)
+box-shadow:0 8px 24px rgba(0,0,0,0.05);
 }
 
 .value-card:hover{
 transform:translateY(-6px);
-box-shadow:0 12px 24px rgba(0,0,0,0.08)
+box-shadow:0 12px 24px rgba(0,0,0,0.08);
 }
 
 .value-card h3{
-font-size:20px;
+font-size:22px;
 margin-bottom:10px;
-color:#1b5e20
+color:#1b5e20;
 }
 
 .value-card p{
 font-size:14px;
 color:#555;
-margin-bottom:0
+margin-bottom:0;
 }
 
 /* TEAM */
@@ -151,36 +230,36 @@ margin-bottom:0
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:24px;
-margin-top:30px
+margin-top:30px;
 }
 
 .team-card{
 background:#fff;
 border:1px solid #eee;
-border-radius:14px;
+border-radius:18px;
 overflow:hidden;
 transition:0.3s;
-box-shadow:0 4px 12px rgba(0,0,0,0.03)
+box-shadow:0 8px 24px rgba(0,0,0,0.05);
 }
 
 .team-card:hover{
 transform:translateY(-8px);
-box-shadow:0 12px 24px rgba(0,0,0,0.08)
+box-shadow:0 12px 24px rgba(0,0,0,0.08);
 }
 
 .team-card img{
 width:100%;
 height:250px;
-object-fit:cover
+object-fit:cover;
 }
 
 .team-content{
-padding:20px
+padding:20px;
 }
 
 .team-content h3{
 font-size:20px;
-margin-bottom:6px
+margin-bottom:6px;
 }
 
 .team-content span{
@@ -188,13 +267,13 @@ display:block;
 font-size:14px;
 color:#1b5e20;
 font-weight:600;
-margin-bottom:10px
+margin-bottom:10px;
 }
 
 .team-content p{
 font-size:14px;
 color:#555;
-margin-bottom:0
+margin-bottom:0;
 }
 
 /* CTA */
@@ -202,19 +281,21 @@ margin-bottom:0
 .cta{
 background:#f4f7f4;
 padding:45px;
-border-radius:18px;
+border-radius:22px;
 text-align:center;
-margin-top:40px
+margin-top:40px;
+box-shadow:0 8px 24px rgba(0,0,0,0.04);
 }
 
 .cta h2{
-margin-bottom:12px
+margin-bottom:12px;
+color:#1b5e20;
 }
 
 .cta p{
 max-width:700px;
 margin:0 auto 20px;
-color:#555
+color:#555;
 }
 
 .cta a{
@@ -223,60 +304,134 @@ text-decoration:none;
 background:#1b5e20;
 color:white;
 padding:14px 24px;
-border-radius:8px;
+border-radius:30px;
 font-weight:600;
-transition:0.3s
+transition:0.3s;
 }
 
 .cta a:hover{
-background:#144218
+background:#144218;
 }
 
 /* FOOTER */
 
 footer{
-background:#f4f7f4;
-margin-top:80px;
-padding:60px 8%
+background:#111;
+color:#ddd;
+padding:60px 8% 25px;
+margin-top:30px;
 }
 
 .footer-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:40px
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-bottom:35px;
 }
 
 .footer-logo{
-font-size:22px;
-font-weight:bold;
-color:#1b5e20;
-margin-bottom:10px
+font-size:24px;
+font-weight:700;
+color:#fff;
+margin-bottom:12px;
 }
 
 .footer-column h4{
-margin-bottom:15px
+margin-bottom:15px;
+color:#fff;
 }
 
 .footer-column a{
 display:block;
 text-decoration:none;
-color:#555;
+color:#bbb;
 margin-bottom:10px;
-transition:0.25s
+transition:0.25s;
 }
 
 .footer-column a:hover{
-color:#1b5e20;
-padding-left:4px
+color:#fff;
+}
+
+.footer-column p{
+color:#bbb;
 }
 
 .footer-bottom{
-margin-top:40px;
-border-top:1px solid #ddd;
+margin-top:10px;
+border-top:1px solid #2a2a2a;
 padding-top:20px;
 text-align:center;
-color:#777;
-font-size:14px
+color:#999;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+.about-grid{
+grid-template-columns:1fr;
+}
+}
+
+@media (max-width:768px){
+header{
+align-items:center;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.nav-wrap{
+display:none;
+width:100%;
+flex-direction:column;
+align-items:flex-start;
+background:#fff;
+padding-top:10px;
+border-top:1px solid #eee;
+}
+
+.nav-wrap.show{
+display:flex;
+}
+
+nav{
+flex-direction:column;
+align-items:flex-start;
+width:100%;
+gap:14px;
+padding:10px 0;
+}
+
+.nav-actions{
+width:100%;
+flex-direction:column;
+align-items:flex-start;
+padding-bottom:10px;
+}
+
+.hero{
+padding:80px 8%;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.logo-wrap img{
+width:46px;
+height:46px;
+}
+
+.logo{
+font-size:24px;
+}
+
+.section h2{
+font-size:28px;
+}
 }
 </style>
 </head>
@@ -284,30 +439,51 @@ font-size:14px
 <body>
 
 <header>
+<div class="logo-wrap">
+<img src="wildatlas.png" alt="WildAtlas Logo">
 <div class="logo">WildAtlas</div>
+</div>
 
+<button class="menu-toggle" id="menuToggle">&#9776;</button>
+
+<div class="nav-wrap" id="navWrap">
 <nav>
 <a href="index.html">Home</a>
-<a href="mountain.html">Mountains</a>
+<a href="mountains.html">Mountains</a>
 <a href="ranges.html">Ranges</a>
 <a href="geology.html">Geology</a>
-<a href="blog.html">Blog</a>
+<a href="nature-articles.html">Nature Articles</a>
 <a href="about.html" class="active">About Us</a>
+<a href="contact.html">Contact</a>
 </nav>
+
+<div class="nav-actions">
+<a href="login.html" class="btn btn-login">Log In</a>
+<a href="signup.html" class="btn btn-signup">Sign Up</a>
+</div>
+</div>
 </header>
 
 <section class="hero">
 <h1>About WildAtlas</h1>
-<p>We are passionate about sharing the beauty, science, and wonder of mountains, landscapes, and the natural world through inspiring and educational content.</p>
+<p>
+We are passionate about sharing the beauty, science, and wonder of mountains, landscapes, wildlife, insects, and the natural world through inspiring and educational content.
+</p>
 </section>
 
 <section class="section">
 <div class="about-grid">
 <div class="about-text">
 <h2>Who We Are</h2>
-<p>WildAtlas is a nature-inspired digital platform created to explore the world’s most remarkable mountains, ranges, geological formations, and natural stories. Our goal is to make learning about the Earth both engaging and visually inspiring.</p>
-<p>From towering peaks to the science behind tectonic movement, we bring together education, exploration, and storytelling in one place. We believe nature is not only beautiful, but also deeply important to understand and protect.</p>
-<p>Whether you are a student, traveler, climber, or simply someone who loves the outdoors, WildAtlas is built to help you discover something meaningful.</p>
+<p>
+WildAtlas is a nature-inspired digital platform created to explore the world’s most remarkable mountains, landscapes, animals, insects, geological formations, and natural stories. Our goal is to make learning about the Earth both engaging and visually inspiring.
+</p>
+<p>
+From towering peaks and forest life to volcanoes, wildlife, and the science behind natural systems, we bring together education, exploration, and storytelling in one place. We believe nature is not only beautiful, but also deeply important to understand and protect.
+</p>
+<p>
+Whether you are a student, traveler, wildlife lover, researcher, or simply someone who loves the outdoors, WildAtlas is built to help you discover something meaningful.
+</p>
 </div>
 
 <div class="about-image">
@@ -322,12 +498,12 @@ font-size:14px
 <div class="values-grid">
 <div class="value-card">
 <h3>Education</h3>
-<p>We create content that helps people understand mountains, geology, and the natural systems that shape our planet.</p>
+<p>We create content that helps people understand mountains, wildlife, insects, geology, and the natural systems that shape our planet.</p>
 </div>
 
 <div class="value-card">
 <h3>Exploration</h3>
-<p>We celebrate curiosity, adventure, and the excitement of discovering landscapes from around the world.</p>
+<p>We celebrate curiosity, adventure, and the excitement of discovering natural landscapes and species from around the world.</p>
 </div>
 
 <div class="value-card">
@@ -351,7 +527,7 @@ font-size:14px
 <div class="team-content">
 <h3>Daniel Carter</h3>
 <span>Founder & Editor</span>
-<p>Daniel leads WildAtlas with a passion for mountains, educational storytelling, and digital nature experiences.</p>
+<p>Daniel leads WildAtlas with a passion for nature, storytelling, and building educational digital experiences.</p>
 </div>
 </div>
 
@@ -360,7 +536,7 @@ font-size:14px
 <div class="team-content">
 <h3>Sophia Reed</h3>
 <span>Content Researcher</span>
-<p>Sophia focuses on geological research, environmental topics, and making complex ideas easy to understand.</p>
+<p>Sophia focuses on environmental topics, wildlife research, and making complex ideas easier to understand.</p>
 </div>
 </div>
 
@@ -369,15 +545,17 @@ font-size:14px
 <div class="team-content">
 <h3>James Walker</h3>
 <span>Visual Designer</span>
-<p>James shapes the visual side of WildAtlas, combining clean design with powerful nature photography.</p>
+<p>James shapes the visual side of WildAtlas, combining clean design with strong nature imagery.</p>
 </div>
 </div>
 </div>
 
 <div class="cta">
 <h2>Explore With Us</h2>
-<p>WildAtlas is more than a website — it is a growing space for mountain lovers, curious minds, and anyone inspired by the natural world.</p>
-<a href="blog.html">Visit Our Blog</a>
+<p>
+WildAtlas is more than a website — it is a growing space for nature lovers, curious minds, and anyone inspired by the wild world.
+</p>
+<a href="nature-articles.html">Visit Nature Articles</a>
 </div>
 </section>
 
@@ -386,39 +564,50 @@ font-size:14px
 
 <div>
 <div class="footer-logo">WildAtlas</div>
-<p>Discover mountains, landscapes, and natural wonders from around the world.</p>
+<p>Discover wildlife, landscapes, reptiles, storms, insects, and natural wonders across the world.</p>
 </div>
 
 <div class="footer-column">
 <h4>Explore</h4>
-<a href="mountain.html">Mountains</a>
-<a href="ranges.html">Ranges</a>
-<a href="geology.html">Geology</a>
-<a href="blog.html">Blog</a>
+<a href="index.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="insects.html">Insects</a>
+<a href="mountains.html">Mountains</a>
+<a href="forests.html">Forests</a>
 </div>
 
 <div class="footer-column">
-<h4>Company</h4>
+<h4>Topics</h4>
+<a href="volcano.html">Volcano</a>
+<a href="tsunami.html">Tsunami</a>
+<a href="sinkhole.html">Sinkhole</a>
+<a href="nature-articles.html">Nature Articles</a>
+<a href="membership.html">Membership</a>
+</div>
+
+<div class="footer-column">
+<h4>Support</h4>
+<a href="contact.html">Contact</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="help-center.html">Help Center</a>
 <a href="about.html">About Us</a>
-<a href="#">Contact</a>
-<a href="#">Privacy Policy</a>
-<a href="#">Terms of Use</a>
-</div>
-
-<div class="footer-column">
-<h4>Resources</h4>
-<a href="#">Mountain Encyclopedia</a>
-<a href="#">Photo Gallery</a>
-<a href="#">Educational Articles</a>
-<a href="#">Travel Inspiration</a>
 </div>
 
 </div>
 
 <div class="footer-bottom">
-© 2026 WildAtlas — About Us
+© 2026 WildAtlas. All rights reserved.
 </div>
 </footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navWrap = document.getElementById("navWrap");
+
+menuToggle.addEventListener("click", function(){
+  navWrap.classList.toggle("show");
+});
+</script>
 
 </body>
 </html>

@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildAtlas | Jaguars</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#ffffff;
+color:#222;
+line-height:1.6;
+}
+
+/* NAVBAR */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+border-bottom:1px solid #e8e8e8;
+background:#fff;
+position:sticky;
+top:0;
+z-index:1000;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#1b5e20;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover,
+nav a.active{
+color:#1b5e20;
+}
+
+.nav-actions{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+/* SEARCH */
+
+.search-box{
+position:relative;
+}
+
+.search-box input{
+padding:10px 14px;
+border:1px solid #ccc;
+border-radius:25px;
+outline:none;
+width:190px;
+}
+
+.search-suggestions{
+position:absolute;
+top:48px;
+left:0;
+width:320px;
+max-height:320px;
+overflow-y:auto;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:18px;
+box-shadow:0 10px 24px rgba(0,0,0,0.08);
+display:none;
+z-index:1500;
+padding:8px 0;
+}
+
+.search-item{
+display:block;
+padding:12px 16px;
+text-decoration:none;
+color:#333;
+border-bottom:1px solid #f1f1f1;
+transition:0.3s;
+}
+
+.search-item:last-child{
+border-bottom:none;
+}
+
+.search-item:hover{
+background:#f4f7f4;
+color:#1b5e20;
+}
+
+.search-item strong{
+display:block;
+font-size:15px;
+margin-bottom:4px;
+}
+
+.search-item span{
+font-size:13px;
+color:#666;
+display:block;
+}
+
+.no-result{
+padding:14px 16px;
+color:#666;
+font-size:14px;
+}
+
+.btn{
+padding:10px 18px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn-login{
+background:#f1f1f1;
+color:#222;
+}
+
+.btn-signup{
+background:#1b5e20;
+color:#fff;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+url('https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+color:white;
+text-align:center;
+padding:110px 8%;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+max-width:760px;
+margin:auto;
+color:#f3f3f3;
+}
+
+/* TOP DOCUMENTARY SECTION */
+
+.top-documentary{
+padding:60px 8% 20px;
+}
+
+.documentary-wrap{
+background:linear-gradient(135deg,#f6fbf6,#eaf5ea);
+border:1px solid #d8e8d8;
+border-radius:24px;
+padding:30px;
+box-shadow:0 8px 24px rgba(0,0,0,0.06);
+}
+
+.documentary-label{
+display:inline-block;
+background:#1b5e20;
+color:#fff;
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:700;
+margin-bottom:14px;
+}
+
+.documentary-wrap h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.documentary-wrap p{
+color:#555;
+max-width:900px;
+margin-bottom:25px;
+}
+
+.doc-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.doc-card{
+background:#fff;
+border-radius:18px;
+padding:22px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+border:1px solid #e8eeee;
+}
+
+.doc-card h3{
+color:#1b5e20;
+font-size:22px;
+margin-bottom:10px;
+}
+
+.doc-card p{
+color:#666;
+margin-bottom:14px;
+}
+
+.doc-card a{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* AD */
+
+.top-ad{
+background:linear-gradient(135deg,#edf7ed,#dff1df);
+border:1px solid #cfe5cf;
+border-radius:18px;
+padding:30px;
+text-align:center;
+margin:30px 8% 0;
+}
+
+.top-ad h3{
+color:#1b5e20;
+margin-bottom:10px;
+font-size:28px;
+}
+
+.top-ad p{
+color:#444;
+margin-bottom:15px;
+}
+
+.top-ad a{
+display:inline-block;
+padding:12px 22px;
+background:#1b5e20;
+color:#fff;
+text-decoration:none;
+border-radius:30px;
+font-weight:600;
+}
+
+/* SECTION */
+
+.section{
+padding:70px 8%;
+}
+
+.section-title{
+font-size:34px;
+margin-bottom:15px;
+color:#1b5e20;
+text-align:center;
+}
+
+.section-subtitle{
+text-align:center;
+color:#666;
+max-width:760px;
+margin:0 auto 45px;
+}
+
+/* GRID */
+
+.animals-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+/* CARD */
+
+.card{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+
+.card-content{
+padding:22px;
+}
+
+.tag{
+display:inline-block;
+background:#e8f5e9;
+color:#1b5e20;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+margin-bottom:12px;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+margin-bottom:16px;
+}
+
+.read-more{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* FACTS */
+
+.facts{
+background:#f4f7f4;
+}
+
+.facts-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.fact-box{
+background:#fff;
+padding:28px;
+border-radius:18px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+text-align:center;
+}
+
+.fact-box h3{
+font-size:30px;
+color:#1b5e20;
+margin-bottom:8px;
+}
+
+.fact-box p{
+color:#666;
+}
+
+/* SPLIT INFO */
+
+.info-split{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+align-items:center;
+}
+
+.info-split img{
+width:100%;
+border-radius:20px;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+}
+
+.info-text h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:15px;
+}
+
+.info-text p{
+color:#555;
+margin-bottom:14px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+background:#f4f7f4;
+text-align:center;
+padding:70px 8%;
+}
+
+.newsletter h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.newsletter p{
+color:#555;
+max-width:650px;
+margin:0 auto 24px;
+}
+
+.newsletter form{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.newsletter input{
+padding:14px 16px;
+width:320px;
+max-width:100%;
+border:1px solid #ccc;
+border-radius:30px;
+outline:none;
+}
+
+.newsletter button{
+padding:14px 24px;
+border:none;
+border-radius:30px;
+background:#1b5e20;
+color:#fff;
+font-weight:600;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:#ddd;
+padding:60px 8% 25px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-bottom:35px;
+}
+
+.footer-col h3{
+color:#fff;
+margin-bottom:15px;
+}
+
+.footer-col a{
+display:block;
+color:#bbb;
+text-decoration:none;
+margin-bottom:10px;
+}
+
+.footer-col a:hover{
+color:#fff;
+}
+
+.footer-col p{
+color:#bbb;
+}
+
+.footer-bottom{
+border-top:1px solid #2a2a2a;
+padding-top:20px;
+text-align:center;
+color:#999;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+.info-split{
+grid-template-columns:1fr;
+}
+}
+
+@media (max-width:768px){
+header{
+flex-direction:column;
+}
+
+nav{
+justify-content:center;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.search-box input{
+width:100%;
+}
+
+.search-suggestions{
+width:100%;
+min-width:260px;
+}
+
+.documentary-wrap h2{
+font-size:28px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">WildAtlas</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="animals.html" class="active">Animals</a>
+<a href="insects.html">Insects</a>
+<a href="mountains.html">Mountains</a>
+<a href="forests.html">Forests</a>
+<a href="nature-articles.html">Nature Articles</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div class="nav-actions">
+<div class="search-box">
+<input type="text" id="siteSearch" placeholder="Search topics..." autocomplete="off">
+<div class="search-suggestions" id="searchSuggestions"></div>
+</div>
+
+<a href="login.html" class="btn btn-login">Log In</a>
+<a href="signup.html" class="btn btn-signup">Sign Up</a>
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>Jaguars of the Wild</h1>
+
+<p>
+Explore the world of jaguars — powerful spotted predators known for strength, stealth, tree cover ambushes, and life deep in forests, wetlands, and river regions.
+</p>
+
+</section>
+
+<section class="top-documentary">
+
+<div class="documentary-wrap">
+<span class="documentary-label">Jaguar Documentary Section</span>
+<h2>Documentaries About Jaguars, Hunting, Cubs, Habits, and Survival</h2>
+<p>
+This top section gives visitors quick access to jaguar documentary topics, including jaguar habitats, hunting behavior, cub development, daily habits, powerful bite strength, and conservation challenges in the wild.
+</p>
+
+<div class="doc-grid">
+
+<div class="doc-card">
+<h3>Jaguar Habits</h3>
+<p>
+Learn how jaguars move quietly through forests, patrol territory, rest in shade, swim across rivers, and hunt mostly alone.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Cubs and Birth</h3>
+<p>
+Explore jaguar pregnancy, cub birth, maternal care, and how young jaguars learn survival skills from their mother.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Hunting and Bite Power</h3>
+<p>
+Discover how jaguars stalk prey and use one of the strongest bites among big cats to capture animals in dense habitats.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Conservation and Habitat</h3>
+<p>
+See how forest loss, habitat fragmentation, and conflict with humans affect jaguar populations across the Americas.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<section class="top-ad">
+
+<h3>Advertise Wildlife & Nature Brands</h3>
+
+<p>
+Promote wildlife documentaries, jungle conservation projects, eco-tourism, outdoor brands, and education campaigns to WildAtlas readers.
+</p>
+
+<a href="#">Advertise Here</a>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Featured Jaguar Stories</h2>
+
+<p class="section-subtitle">
+Discover how jaguars hunt, raise cubs, move through forests, and survive as one of the strongest predators in the Americas.
+</p>
+
+<div class="animals-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1000&q=80" alt="Jaguar resting">
+<div class="card-content">
+<span class="tag">Predator</span>
+<h3>Silent Strength in the Forest</h3>
+<p>Jaguars combine stealth, patience, and sudden force to ambush prey in thick cover.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?auto=format&fit=crop&w=1000&q=80" alt="Jaguar face">
+<div class="card-content">
+<span class="tag">Behavior</span>
+<h3>Solitary and Territorial</h3>
+<p>Most jaguars live alone, marking territory and moving over large ranges in search of food and water.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1501706362039-c6e80948c7c2?auto=format&fit=crop&w=1000&q=80" alt="Jaguar cub">
+<div class="card-content">
+<span class="tag">Cubs</span>
+<h3>Growing Up Under Protection</h3>
+<p>Jaguar cubs depend on their mother for safety, learning, and food during the earliest stages of life.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=80" alt="Jaguar habitat">
+<div class="card-content">
+<span class="tag">Habitats</span>
+<h3>Rainforests, Rivers, and Wetlands</h3>
+<p>Jaguars often live in dense forests and river regions where cover and prey are plentiful.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=80" alt="Jaguar movement">
+<div class="card-content">
+<span class="tag">Movement</span>
+<h3>Built for Climbing and Swimming</h3>
+<p>Jaguars are strong swimmers and capable climbers, helping them move through complex environments.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1000&q=80" alt="Jaguar conservation">
+<div class="card-content">
+<span class="tag">Conservation</span>
+<h3>Protecting the Jungle Hunter</h3>
+<p>Conservation work focuses on protecting habitats, connecting wild corridors, and reducing threats to jaguars.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="info-split">
+<img src="https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&w=1200&q=80" alt="Jaguar in nature">
+
+<div class="info-text">
+<h2>Jaguar Habits, Cubs, and Natural Role</h2>
+<p>
+Jaguars are large wild cats recognized by their golden coats and dark rosette markings. They are powerful hunters and are especially known for their strong jaws and ability to take down a wide range of prey.
+</p>
+<p>
+A female jaguar usually gives birth to a small number of cubs and raises them in hidden shelter. The cubs stay close to their mother while learning to move, hide, and eventually hunt on their own.
+</p>
+<p>
+As top predators, jaguars help keep ecosystems balanced by controlling prey populations. Protecting jaguars also helps protect forests, wetlands, and many other species that share the same habitat.
+</p>
+</div>
+</div>
+
+</section>
+
+<section class="section facts">
+
+<h2 class="section-title">Amazing Jaguar Facts</h2>
+
+<p class="section-subtitle">
+Jaguars are powerful, adaptable big cats with strong hunting skills and a crucial role in tropical ecosystems.
+</p>
+
+<div class="facts-grid">
+
+<div class="fact-box">
+<h3>Strong Bite</h3>
+<p>Jaguars are famous for having one of the strongest bites among big cats</p>
+</div>
+
+<div class="fact-box">
+<h3>Solitary</h3>
+<p>Most adult jaguars live and hunt alone</p>
+</div>
+
+<div class="fact-box">
+<h3>Water Lovers</h3>
+<p>Jaguars are more comfortable in water than many other big cats</p>
+</div>
+
+<div class="fact-box">
+<h3>Top Predator</h3>
+<p>They help balance prey populations in forest and wetland habitats</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="newsletter">
+
+<h2>Stay Updated With Jaguar Stories</h2>
+
+<p>
+Subscribe for jaguar discoveries, wildlife documentaries, conservation updates, and featured WildAtlas stories.
+</p>
+
+<form>
+<input type="email" placeholder="Enter your email address">
+<button type="submit">Subscribe</button>
+</form>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-col">
+<h3>WildAtlas</h3>
+<p>Discover wildlife, landscapes, reptiles, storms, and natural wonders across the world.</p>
+</div>
+
+<div class="footer-col">
+<h3>Explore</h3>
+<a href="index.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="dogs.html">Dogs</a>
+<a href="jaguar.html">Jaguars</a>
+<a href="mountains.html">Mountains</a>
+</div>
+
+<div class="footer-col">
+<h3>Topics</h3>
+<a href="volcano.html">Volcano</a>
+<a href="tsunami.html">Tsunami</a>
+<a href="sinkhole.html">Sinkhole</a>
+<a href="nature-articles.html">Nature Articles</a>
+<a href="membership.html">Membership</a>
+</div>
+
+<div class="footer-col">
+<h3>Support</h3>
+<a href="contact.html">Contact</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="help-center.html">Help Center</a>
+<a href="membership.html">Membership</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 WildAtlas. All rights reserved.
+</div>
+
+</footer>
+
+<script>
+const searchData = [
+  {
+    title: "Home",
+    description: "Explore wildlife, nature, oceans, mountains, and natural wonders.",
+    keywords: ["home", "wildatlas", "nature", "website", "explore"],
+    url: "index.html"
+  },
+  {
+    title: "Animals",
+    description: "Wild animals, habitats, predators, and fascinating animal stories.",
+    keywords: ["animals", "wildlife", "habitats", "lions", "elephants", "wolves", "tigers", "giraffes", "crocodiles", "jaguars"],
+    url: "animals.html"
+  },
+  {
+    title: "Dogs",
+    description: "Dog habits, puppies, birth rate, breeds, and documentaries.",
+    keywords: ["dogs", "dog", "puppies", "breeds", "birth rate", "dog habits", "pets"],
+    url: "dogs.html"
+  },
+  {
+    title: "Tigers",
+    description: "Tiger habits, cubs, hunting, conservation, and documentaries.",
+    keywords: ["tiger", "tigers", "cubs", "big cat", "predator", "stripes", "hunting"],
+    url: "tiger.html"
+  },
+  {
+    title: "Jaguars",
+    description: "Jaguar habits, cubs, hunting, forests, and documentaries.",
+    keywords: ["jaguar", "jaguars", "big cat", "rosettes", "forest predator", "bite strength"],
+    url: "jaguar.html"
+  },
+  {
+    title: "Crocodiles",
+    description: "Crocodile habits, eggs, hunting, wetlands, and documentaries.",
+    keywords: ["crocodile", "crocodiles", "eggs", "reptile", "wetlands", "ambush", "jaws"],
+    url: "crocodile.html"
+  },
+  {
+    title: "Spiders",
+    description: "Spider webs, hunting, silk, habitats, and spider documentaries.",
+    keywords: ["spiders", "spider", "web", "silk", "arachnid", "tarantula", "jumping spider"],
+    url: "spider.html"
+  },
+  {
+    title: "Lizards",
+    description: "Geckos, iguanas, Komodo dragons, and reptile stories.",
+    keywords: ["lizards", "lizard", "gecko", "iguana", "komodo dragon", "reptiles"],
+    url: "lizards.html"
+  },
+  {
+    title: "Dinosaurs",
+    description: "Prehistoric giants, fossils, extinction, and ancient life.",
+    keywords: ["dinosaurs", "dinosaur", "fossils", "prehistoric", "t rex", "triceratops", "extinction"],
+    url: "dinosaur.html"
+  },
+  {
+    title: "Insects",
+    description: "Tiny creatures, insect life, survival, and biodiversity.",
+    keywords: ["insects", "bugs", "small creatures", "biodiversity"],
+    url: "insects.html"
+  },
+  {
+    title: "Mountains",
+    description: "Peaks, rocky landscapes, elevation, and mountain ecosystems.",
+    keywords: ["mountains", "mountain", "peaks", "rocky", "climbing", "highlands"],
+    url: "mountains.html"
+  },
+  {
+    title: "Forests",
+    description: "Forest ecosystems, trees, wildlife, and green landscapes.",
+    keywords: ["forests", "forest", "trees", "jungle", "woodland", "rainforest"],
+    url: "forests.html"
+  },
+  {
+    title: "Volcano",
+    description: "Lava, eruptions, magma, ash clouds, and volcano science.",
+    keywords: ["volcano", "volcanoes", "lava", "eruption", "magma", "ash"],
+    url: "volcano.html"
+  },
+  {
+    title: "Tsunami",
+    description: "Ocean waves, underwater earthquakes, and coastal destruction.",
+    keywords: ["tsunami", "ocean wave", "underwater earthquake", "coastal flooding", "sea disaster"],
+    url: "tsunami.html"
+  },
+  {
+    title: "Tornadoes",
+    description: "Severe storms, rotating winds, tornado formation, and safety.",
+    keywords: ["tornado", "tornadoes", "storm", "twister", "wind", "weather"],
+    url: "tornado.html"
+  },
+  {
+    title: "Sinkholes",
+    description: "Ground collapse, underground erosion, and geology.",
+    keywords: ["sinkhole", "sinkholes", "ground collapse", "erosion", "geology"],
+    url: "sinkhole.html"
+  },
+  {
+    title: "Nature Articles",
+    description: "Explore stories about landscapes, weather, animals, and Earth.",
+    keywords: ["nature articles", "articles", "nature", "earth", "science", "stories"],
+    url: "nature-articles.html"
+  },
+  {
+    title: "Contact",
+    description: "Contact WildAtlas for support and general questions.",
+    keywords: ["contact", "support", "help", "reach us"],
+    url: "contact.html"
+  },
+  {
+    title: "Help Center",
+    description: "Find help, answers, and support information.",
+    keywords: ["help center", "help", "support", "questions"],
+    url: "help-center.html"
+  },
+  {
+    title: "Privacy Policy",
+    description: "Read the privacy and website policy information.",
+    keywords: ["privacy", "policy", "privacy policy"],
+    url: "privacy-policy.html"
+  },
+  {
+    title: "Membership",
+    description: "Join WildAtlas membership and subscription options.",
+    keywords: ["membership", "subscribe", "subscription", "premium", "join"],
+    url: "membership.html"
+  }
+];
+
+const searchInput = document.getElementById("siteSearch");
+const suggestionsBox = document.getElementById("searchSuggestions");
+
+function showSuggestions(results){
+  if(results.length === 0){
+    suggestionsBox.innerHTML = `<div class="no-result">No topics found</div>`;
+    suggestionsBox.style.display = "block";
+    return;
+  }
+
+  suggestionsBox.innerHTML = results.map(item => `
+    <a class="search-item" href="${item.url}">
+      <strong>${item.title}</strong>
+      <span>${item.description}</span>
+    </a>
+  `).join("");
+
+  suggestionsBox.style.display = "block";
+}
+
+function searchTopics(query){
+  const cleanQuery = query.toLowerCase().trim();
+
+  if(cleanQuery === ""){
+    suggestionsBox.style.display = "none";
+    suggestionsBox.innerHTML = "";
+    return;
+  }
+
+  const matches = searchData.filter(item => {
+    const inTitle = item.title.toLowerCase().includes(cleanQuery);
+    const inDescription = item.description.toLowerCase().includes(cleanQuery);
+    const inKeywords = item.keywords.some(keyword =>
+      keyword.toLowerCase().includes(cleanQuery)
+    );
+    return inTitle || inDescription || inKeywords;
+  });
+
+  showSuggestions(matches.slice(0, 8));
+}
+
+searchInput.addEventListener("input", function(){
+  searchTopics(this.value);
+});
+
+searchInput.addEventListener("focus", function(){
+  if(this.value.trim() !== ""){
+    searchTopics(this.value);
+  }
+});
+
+searchInput.addEventListener("keydown", function(e){
+  if(e.key === "Enter"){
+    const query = this.value.toLowerCase().trim();
+    const firstMatch = searchData.find(item => {
+      return (
+        item.title.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query) ||
+        item.keywords.some(keyword => keyword.toLowerCase().includes(query))
+      );
+    });
+
+    if(firstMatch){
+      window.location.href = firstMatch.url;
+    }
+  }
+});
+
+document.addEventListener("click", function(e){
+  if(!document.querySelector(".search-box").contains(e.target)){
+    suggestionsBox.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>

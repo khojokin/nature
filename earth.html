@@ -1,9 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Join WildAtlas | Membership</title>
+  <title>Earth | WildAtlas</title>
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="shortcut icon" href="logo.png" />
 
@@ -121,48 +121,48 @@
       text-align:center;
     }
 
-    .hero-subscribe{
+    .hero-earth{
       padding:100px 6%;
       color:#fff;
       background:
         linear-gradient(rgba(17,24,39,0.68), rgba(17,24,39,0.68)),
-        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      min-height:500px;
+        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      min-height:480px;
       display:flex;
       align-items:center;
     }
 
-    .hero-subscribe-inner{
+    .hero-earth-inner{
       max-width:1180px;
       margin:0 auto;
       display:grid;
-      grid-template-columns:1.08fr 0.92fr;
+      grid-template-columns:1.1fr 0.9fr;
       gap:40px;
       align-items:center;
       width:100%;
     }
 
-    .hero-subscribe-text h1{
+    .hero-earth-text h1{
       font-size:clamp(38px,5vw,58px);
       line-height:1.05;
       margin-bottom:18px;
       font-weight:800;
     }
 
-    .hero-subscribe-text p{
+    .hero-earth-text p{
       font-size:clamp(16px,2vw,18px);
       color:#ecfdf5;
       max-width:650px;
       margin-bottom:28px;
     }
 
-    .hero-subscribe-btns{
+    .hero-earth-btns{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
     }
 
-    .hero-subscribe-card{
+    .hero-earth-card{
       background:rgba(255,255,255,0.1);
       backdrop-filter:blur(10px);
       border:1px solid rgba(255,255,255,0.18);
@@ -170,31 +170,31 @@
       padding:28px;
     }
 
-    .hero-subscribe-card h3{
+    .hero-earth-card h3{
       font-size:21px;
       margin-bottom:18px;
     }
 
-    .hero-subscribe-stats{
+    .hero-earth-stats{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:14px;
     }
 
-    .hero-subscribe-stat{
+    .hero-earth-stat{
       background:rgba(255,255,255,0.08);
       padding:16px;
       border-radius:16px;
       text-align:center;
     }
 
-    .hero-subscribe-stat h4{
+    .hero-earth-stat h4{
       font-size:24px;
       color:#fbbf24;
       margin-bottom:4px;
     }
 
-    .hero-subscribe-stat p{
+    .hero-earth-stat p{
       font-size:12px;
       text-transform:uppercase;
       font-weight:700;
@@ -206,50 +206,57 @@
     .section-header h2{font-size:36px;color:#14532d;margin-bottom:15px;}
     .section-header p{color:#6b7280;max-width:720px;margin:0 auto;}
 
-    .plans-grid{
+    .earth-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
       gap:30px;
-      align-items:stretch;
     }
 
-    .plan-card{
+    .earth-card{
       background:#fff;
-      border:1px solid #e5e7eb;
-      border-radius:28px;
-      padding:30px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.04);
-      position:relative;
+      border:1px solid #f3f4f6;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.03);
       display:flex;
       flex-direction:column;
+      position:relative;
     }
 
-    .plan-card:hover{
+    .earth-card:hover{
       transform:translateY(-10px);
       box-shadow:0 20px 40px rgba(0,0,0,0.08);
     }
 
-    .plan-card.featured{
-      border:2px solid #14532d;
-      box-shadow:0 22px 45px rgba(20,83,45,0.10);
-    }
-
-    .plan-badge{
+    .premium-lock{
       position:absolute;
-      top:16px;
-      right:16px;
-      background:#14532d;
+      top:15px;
+      left:15px;
+      background:rgba(17,24,39,0.85);
       color:#fff;
       padding:6px 12px;
       border-radius:999px;
       font-size:11px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:0.4px;
+      font-weight:700;
+      z-index:2;
+      display:flex;
+      align-items:center;
+      gap:5px;
+      backdrop-filter:blur(4px);
     }
 
-    .plan-tag{
-      display:inline-block;
+    .earth-img{height:220px;overflow:hidden;}
+    .earth-img img{width:100%;height:100%;object-fit:cover;transition:0.5s;}
+    .earth-card:hover .earth-img img{transform:scale(1.08);}
+
+    .earth-content{
+      padding:25px;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .earth-tag{
       font-size:11px;
       text-transform:uppercase;
       font-weight:800;
@@ -258,100 +265,84 @@
       padding:4px 12px;
       border-radius:99px;
       width:fit-content;
-      margin-bottom:16px;
+      margin-bottom:15px;
     }
 
-    .plan-card h3{
-      font-size:28px;
+    .earth-content h3{
+      font-size:22px;
+      margin-bottom:10px;
+      color:#111827;
+    }
+
+    .earth-content p{
+      color:#6b7280;
+      font-size:15px;
+      margin-bottom:18px;
+      flex:1;
+    }
+
+    .earth-data{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-bottom:18px;
+      background:#f9fafb;
+      padding:14px;
+      border-radius:14px;
+    }
+
+    .earth-data span{
+      display:block;
+      font-size:11px;
+      color:#6b7280;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+
+    .earth-data strong{
+      font-size:15px;
+      color:#1f2937;
+    }
+
+    .earth-link{
+      font-weight:700;
+      color:#14532d;
+      display:flex;
+      align-items:center;
+      gap:5px;
+      font-size:14px;
+    }
+
+    .category-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:24px;
+    }
+
+    .category-box{
+      background:#f9fafb;
+      border:1px solid #e5e7eb;
+      border-radius:22px;
+      padding:24px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.03);
+      text-align:center;
+    }
+
+    .category-box h3{
+      font-size:30px;
+      color:#14532d;
+      margin-bottom:8px;
+    }
+
+    .category-box h4{
+      font-size:18px;
       color:#111827;
       margin-bottom:8px;
     }
 
-    .plan-desc{
-      color:#6b7280;
-      font-size:15px;
-      margin-bottom:20px;
-    }
-
-    .price-row{
-      display:flex;
-      align-items:flex-end;
-      gap:6px;
-      margin-bottom:20px;
-    }
-
-    .price-row strong{
-      font-size:42px;
-      color:#14532d;
-      line-height:1;
-    }
-
-    .price-row span{
+    .category-box p{
       color:#6b7280;
       font-size:14px;
-      font-weight:700;
-      margin-bottom:6px;
-    }
-
-    .plan-features{
-      display:grid;
-      gap:12px;
-      margin-bottom:24px;
-      flex:1;
-    }
-
-    .plan-features div{
-      background:#f9fafb;
-      border:1px solid #eef2f7;
-      padding:12px 14px;
-      border-radius:14px;
-      color:#374151;
-      font-size:14px;
-    }
-
-    .plan-btn{
-      width:100%;
-      text-align:center;
-      padding:14px 18px;
-      border-radius:999px;
-      font-weight:700;
-      font-size:15px;
-    }
-
-    .plan-btn.primary{
-      background:#14532d;
-      color:#fff;
-    }
-
-    .plan-btn.secondary{
-      background:#fff7ed;
-      color:#b45309;
-      border:1px solid #fed7aa;
-    }
-
-    .benefits-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:24px;
-    }
-
-    .benefit-box{
-      background:#f9fafb;
-      border:1px solid #e5e7eb;
-      border-radius:24px;
-      padding:24px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.03);
-    }
-
-    .benefit-box h3{
-      font-size:22px;
-      color:#14532d;
-      margin-bottom:10px;
-    }
-
-    .benefit-box p{
-      color:#6b7280;
-      font-size:15px;
     }
 
     .split-section{
@@ -383,97 +374,23 @@
       font-size:16px;
     }
 
-    .member-list{
+    .earth-list{
       display:grid;
       gap:14px;
       margin-top:18px;
     }
 
-    .member-list-item{
+    .earth-list-item{
       background:#f9fafb;
       border:1px solid #e5e7eb;
       border-radius:16px;
       padding:16px;
     }
 
-    .member-list-item strong{
+    .earth-list-item strong{
       display:block;
       color:#14532d;
       margin-bottom:4px;
-    }
-
-    .join-form-wrap{
-      max-width:760px;
-      margin:0 auto;
-      background:#fff;
-      border:1px solid #e5e7eb;
-      border-radius:28px;
-      padding:32px;
-      box-shadow:0 16px 40px rgba(0,0,0,0.05);
-    }
-
-    .join-form{
-      display:grid;
-      gap:16px;
-    }
-
-    .form-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .field{
-      display:grid;
-      gap:8px;
-    }
-
-    .field label{
-      font-size:14px;
-      font-weight:700;
-      color:#1f2937;
-    }
-
-    .field input,
-    .field select{
-      width:100%;
-      padding:14px 16px;
-      border:1px solid #d1d5db;
-      border-radius:16px;
-      outline:none;
-      font-size:15px;
-      color:#111827;
-      background:#fff;
-    }
-
-    .field input:focus,
-    .field select:focus{
-      border-color:#14532d;
-      box-shadow:0 0 0 3px rgba(20,83,45,0.08);
-    }
-
-    .join-submit{
-      width:100%;
-      padding:15px 18px;
-      border:none;
-      border-radius:999px;
-      background:#d97706;
-      color:#fff;
-      font-weight:700;
-      font-size:15px;
-      cursor:pointer;
-      margin-top:4px;
-    }
-
-    .join-submit:hover{
-      background:#b45309;
-    }
-
-    .join-note{
-      text-align:center;
-      color:#6b7280;
-      font-size:14px;
-      margin-top:8px;
     }
 
     footer{background:#111827;color:#9ca3af;padding:80px 6% 40px;}
@@ -491,16 +408,21 @@
     }
 
     @media (max-width:1024px){
-      .hero-subscribe-inner,
+      .hero-earth-inner,
       .split-section{
         grid-template-columns:1fr;
       }
 
-      .hero-subscribe-text{
+      .hero-earth-text,
+      .split-text{
         text-align:center;
         display:flex;
         flex-direction:column;
         align-items:center;
+      }
+
+      .earth-list{
+        width:100%;
       }
     }
 
@@ -537,10 +459,8 @@
     }
 
     @media (max-width:640px){
-      .hero-subscribe{padding:84px 5%;}
+      .hero-earth{padding:84px 5%;}
       .section{padding:70px 5%;}
-      .join-form-wrap{padding:24px 18px;}
-      .form-grid{grid-template-columns:1fr;}
       .header-inner{gap:14px;}
       .logo-text h2{font-size:22px;}
       .logo-text span{font-size:11px;}
@@ -568,7 +488,7 @@
           <a href="index.html">Home</a>
           <a href="species.html">Species</a>
           <a href="biomes.html">Biomes</a>
-          <a href="earth.html">Earth</a>
+          <a href="earth.html" class="active">Earth</a>
           <a href="impact.html">Impact</a>
           <a href="places.html">Places</a>
           <a href="connection.html">Connection</a>
@@ -587,112 +507,150 @@
     </div>
   </header>
 
-  <section class="hero-subscribe">
-    <div class="hero-subscribe-inner">
-      <div class="hero-subscribe-text">
-        <h1>Join WildAtlas and Unlock the Full World of Nature</h1>
-        <p>Become a member to access premium documentaries, exclusive archives, deeper species insights, curated field guides, and a richer way to explore the natural world.</p>
-        <div class="hero-subscribe-btns">
-          <a href="#plans" class="btn" style="background:#14532d;color:#fff;">View Membership Plans</a>
-          <a href="#join-form" class="btn" style="background:rgba(255,255,255,0.18);color:#fff;backdrop-filter:blur(5px);">Join Now</a>
+  <section class="hero-earth">
+    <div class="hero-earth-inner">
+      <div class="hero-earth-text">
+        <h1>Understand Earth as a Living Planetary System</h1>
+        <p>Explore geology, tectonics, atmosphere, oceans, climate, and planetary processes that shape the world where species, ecosystems, and human life all exist.</p>
+        <div class="hero-earth-btns">
+          <a href="#featured-earth" class="btn" style="background:#14532d;color:#fff;">Explore Earth Systems</a>
+          <a href="subscribe.html" class="btn" style="background:rgba(255,255,255,0.18);color:#fff;backdrop-filter:blur(5px);">Unlock Premium Maps</a>
         </div>
       </div>
 
-      <div class="hero-subscribe-card">
-        <h3>Membership Dashboard</h3>
-        <div class="hero-subscribe-stats">
-          <div class="hero-subscribe-stat"><h4>320+</h4><p>Premium Films</p></div>
-          <div class="hero-subscribe-stat"><h4>1.8K</h4><p>Archives</p></div>
-          <div class="hero-subscribe-stat"><h4>120+</h4><p>Guides</p></div>
-          <div class="hero-subscribe-stat"><h4>24/7</h4><p>Access</p></div>
+      <div class="hero-earth-card">
+        <h3>Earth Dashboard</h3>
+        <div class="hero-earth-stats">
+          <div class="hero-earth-stat"><h4>4.5B</h4><p>Years Old</p></div>
+          <div class="hero-earth-stat"><h4>71%</h4><p>Ocean Cover</p></div>
+          <div class="hero-earth-stat"><h4>7</h4><p>Continents</p></div>
+          <div class="hero-earth-stat"><h4>24/7</h4><p>Planetary Change</p></div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="plans">
-    <div class="section-header">
-      <h2>Choose Your Membership</h2>
-      <p>Select the WildAtlas plan that fits your level of curiosity, exploration, and access to deeper nature content.</p>
-    </div>
-
-    <div class="plans-grid">
-      <div class="plan-card">
-        <span class="plan-tag">Starter</span>
-        <h3>Explorer</h3>
-        <p class="plan-desc">A simple entry plan for casual readers and curious visitors.</p>
-        <div class="price-row">
-          <strong>Free</strong>
-          <span>/ forever</span>
-        </div>
-        <div class="plan-features">
-          <div>Access to standard site pages</div>
-          <div>Browse public species and biome content</div>
-          <div>Limited library previews</div>
-          <div>Basic search across WildAtlas</div>
-        </div>
-        <a href="#join-form" class="plan-btn secondary">Start Free</a>
-      </div>
-
-      <div class="plan-card featured">
-        <span class="plan-badge">Most Popular</span>
-        <span class="plan-tag">Premium</span>
-        <h3>WildAtlas Plus</h3>
-        <p class="plan-desc">For members who want the full experience with premium media and deeper access.</p>
-        <div class="price-row">
-          <strong>$9</strong>
-          <span>/ month</span>
-        </div>
-        <div class="plan-features">
-          <div>Full access to documentaries and premium library media</div>
-          <div>Exclusive archives, audio collections, and visual guides</div>
-          <div>Member-only field guides and deeper topic collections</div>
-          <div>Priority access to new WildAtlas releases</div>
-        </div>
-        <a href="#join-form" class="plan-btn primary">Join WildAtlas Plus</a>
-      </div>
-
-      <div class="plan-card">
-        <span class="plan-tag">Annual</span>
-        <h3>WildAtlas Pro</h3>
-        <p class="plan-desc">Best for dedicated learners, creators, and deep explorers of the natural world.</p>
-        <div class="price-row">
-          <strong>$79</strong>
-          <span>/ year</span>
-        </div>
-        <div class="plan-features">
-          <div>Everything in Plus</div>
-          <div>Priority member collections and seasonal releases</div>
-          <div>Expanded premium archive access</div>
-          <div>Best-value yearly membership option</div>
-        </div>
-        <a href="#join-form" class="plan-btn secondary">Choose Pro</a>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="section-header">
-      <h2>Why Join WildAtlas?</h2>
-      <p>Membership is designed to turn WildAtlas into more than a website — it becomes a richer, deeper nature learning experience.</p>
+      <h2>Core Earth Systems</h2>
+      <p>WildAtlas breaks the planet into connected systems so readers can understand how land, water, air, and internal forces shape the natural world.</p>
     </div>
 
-    <div class="benefits-grid">
-      <div class="benefit-box">
-        <h3>Premium Media</h3>
-        <p>Watch exclusive documentaries, explore private photo archives, and listen to curated field recordings.</p>
+    <div class="category-grid">
+      <div class="category-box">
+        <h3>Crust</h3>
+        <h4>Surface Layer</h4>
+        <p>The outer solid shell of Earth where continents, oceans, mountains, and tectonic plates are found.</p>
       </div>
-      <div class="benefit-box">
-        <h3>Deeper Learning</h3>
-        <p>Go beyond summaries with advanced guides, richer collections, and more complete topic pathways.</p>
+      <div class="category-box">
+        <h3>Atmosphere</h3>
+        <h4>Air System</h4>
+        <p>The layer of gases that drives weather, climate, and the protective conditions for life.</p>
       </div>
-      <div class="benefit-box">
-        <h3>Better Discovery</h3>
-        <p>Use membership to unlock the most immersive parts of WildAtlas across species, places, Earth, and connection.</p>
+      <div class="category-box">
+        <h3>Hydrosphere</h3>
+        <h4>Water System</h4>
+        <p>Oceans, rivers, lakes, glaciers, and groundwater that shape ecosystems and climate balance.</p>
       </div>
-      <div class="benefit-box">
-        <h3>Growing Archive</h3>
-        <p>As WildAtlas expands, members gain access to new media, special collections, and premium updates.</p>
+      <div class="category-box">
+        <h3>Geodynamics</h3>
+        <h4>Internal Forces</h4>
+        <p>The deep planetary processes behind volcanoes, earthquakes, mountain building, and plate movement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="featured-earth">
+    <div class="section-header">
+      <h2>Featured Earth Topics</h2>
+      <p>Explore some of the most important systems and forces that define Earth as a dynamic and interconnected planet.</p>
+    </div>
+
+    <div class="earth-grid">
+      <div class="earth-card">
+        <div class="earth-img"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Earth's Crust"></div>
+        <div class="earth-content">
+          <span class="earth-tag">Surface Layer</span>
+          <h3>Earth’s Crust</h3>
+          <p>The thin outer shell of the planet, broken into tectonic plates that shape continents, seafloor, and mountain ranges.</p>
+          <div class="earth-data">
+            <div><span>Thickness</span><strong>5–70 km</strong></div>
+            <div><span>Type</span><strong>Oceanic / Continental</strong></div>
+          </div>
+          <a href="#" class="earth-link">Explore the Crust →</a>
+        </div>
+      </div>
+
+      <div class="earth-card">
+        <div class="premium-lock"><span>🔒</span> PRO ACCESS</div>
+        <div class="earth-img"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="The Mantle"></div>
+        <div class="earth-content">
+          <span class="earth-tag">Interior</span>
+          <h3>The Mantle</h3>
+          <p>A massive layer of hot rock where convection helps drive plate tectonics, volcanism, and deep Earth activity.</p>
+          <div class="earth-data">
+            <div><span>Depth</span><strong>2,900 km</strong></div>
+            <div><span>State</span><strong>Semi-solid</strong></div>
+          </div>
+          <a href="subscribe.html" class="earth-link" style="color:#d97706;">Unlock Interior Models →</a>
+        </div>
+      </div>
+
+      <div class="earth-card">
+        <div class="earth-img"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=600&q=80" alt="Global Oceans"></div>
+        <div class="earth-content">
+          <span class="earth-tag">Hydrosphere</span>
+          <h3>Global Oceans</h3>
+          <p>Oceans regulate temperature, store heat, shape weather, and support a huge share of life across the planet.</p>
+          <div class="earth-data">
+            <div><span>Coverage</span><strong>71%</strong></div>
+            <div><span>Avg Depth</span><strong>3,688 m</strong></div>
+          </div>
+          <a href="#" class="earth-link">Explore the Oceans →</a>
+        </div>
+      </div>
+
+      <div class="earth-card">
+        <div class="premium-lock"><span>🔒</span> PRO ACCESS</div>
+        <div class="earth-img"><img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=600&q=80" alt="Atmosphere"></div>
+        <div class="earth-content">
+          <span class="earth-tag">Air System</span>
+          <h3>Atmosphere</h3>
+          <p>The gaseous envelope surrounding Earth, essential for weather, climate balance, and protection from harmful radiation.</p>
+          <div class="earth-data">
+            <div><span>Main Gas</span><strong>Nitrogen</strong></div>
+            <div><span>Role</span><strong>Climate & Weather</strong></div>
+          </div>
+          <a href="subscribe.html" class="earth-link" style="color:#d97706;">Unlock Climate Layers →</a>
+        </div>
+      </div>
+
+      <div class="earth-card">
+        <div class="earth-img"><img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=600&q=80" alt="Plate Tectonics"></div>
+        <div class="earth-content">
+          <span class="earth-tag">Geodynamics</span>
+          <h3>Plate Tectonics</h3>
+          <p>The movement of Earth’s plates shapes earthquakes, volcanoes, mountain systems, ocean trenches, and continental drift.</p>
+          <div class="earth-data">
+            <div><span>Motion</span><strong>cm / year</strong></div>
+            <div><span>Impact</span><strong>Global</strong></div>
+          </div>
+          <a href="#" class="earth-link">Explore Plate Motion →</a>
+        </div>
+      </div>
+
+      <div class="earth-card">
+        <div class="earth-img"><img src="https://images.unsplash.com/photo-1561484930-998b6a7b22e8?auto=format&fit=crop&w=600&q=80" alt="Climate System"></div>
+        <div class="earth-content">
+          <span class="earth-tag">Planetary Balance</span>
+          <h3>Climate System</h3>
+          <p>Earth’s climate emerges from interactions between atmosphere, oceans, ice, land, sunlight, and living systems.</p>
+          <div class="earth-data">
+            <div><span>Drivers</span><strong>Solar + Internal</strong></div>
+            <div><span>Scale</span><strong>Planetary</strong></div>
+          </div>
+          <a href="#" class="earth-link">Explore Climate Cycles →</a>
+        </div>
       </div>
     </div>
   </section>
@@ -700,76 +658,29 @@
   <section class="section">
     <div class="split-section">
       <div class="split-image">
-        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80" alt="WildAtlas membership">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Planet Earth">
       </div>
 
       <div class="split-text">
-        <h2>A Membership Built for Curious Minds</h2>
-        <p>WildAtlas membership is for readers who want more than surface-level content. It opens the door to richer visual storytelling, expanded learning, and a more immersive relationship with nature knowledge.</p>
-        <p>Whether you are drawn to wildlife, ecosystems, places, environmental change, or media archives, membership helps you go deeper with every visit.</p>
+        <h2>Why Earth Matters in WildAtlas</h2>
+        <p>Earth is the foundation beneath everything else on the platform. Species, biomes, impact, and places all depend on the geological, atmospheric, and oceanic systems of the planet.</p>
+        <p>By understanding Earth systems, readers can see how climate, landforms, water, and internal forces create the conditions for life and environmental change.</p>
 
-        <div class="member-list">
-          <div class="member-list-item">
-            <strong>Go beyond previews</strong>
-            <span>Unlock the premium side of WildAtlas with exclusive documentaries, archives, and deeper access.</span>
+        <div class="earth-list">
+          <div class="earth-list-item">
+            <strong>See the planet as one system</strong>
+            <span>Earth is not just land and ocean, but a set of connected processes shaping every ecosystem.</span>
           </div>
-          <div class="member-list-item">
-            <strong>Keep exploring in one place</strong>
-            <span>Bring together species, places, Earth systems, and visual resources inside one growing platform.</span>
+          <div class="earth-list-item">
+            <strong>Understand the forces behind nature</strong>
+            <span>Mountains, weather, volcanoes, oceans, and habitats all emerge from Earth’s physical systems.</span>
           </div>
-          <div class="member-list-item">
-            <strong>Support future growth</strong>
-            <span>Membership helps WildAtlas expand into a larger, richer nature encyclopedia over time.</span>
+          <div class="earth-list-item">
+            <strong>Link science with exploration</strong>
+            <span>Earth topics help connect biomes, species, impact, and places into one complete natural picture.</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="join-form">
-    <div class="section-header">
-      <h2>Join WildAtlas Today</h2>
-      <p>Create your membership and start exploring premium nature content across the platform.</p>
-    </div>
-
-    <div class="join-form-wrap">
-      <form class="join-form">
-        <div class="form-grid">
-          <div class="field">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" placeholder="Enter your first name">
-          </div>
-
-          <div class="field">
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" placeholder="Enter your last name">
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="joinEmail">Email Address</label>
-          <input type="email" id="joinEmail" placeholder="Enter your email">
-        </div>
-
-        <div class="form-grid">
-          <div class="field">
-            <label for="joinPassword">Password</label>
-            <input type="password" id="joinPassword" placeholder="Create a password">
-          </div>
-
-          <div class="field">
-            <label for="planSelect">Choose Plan</label>
-            <select id="planSelect">
-              <option>Explorer - Free</option>
-              <option>WildAtlas Plus - $9/month</option>
-              <option>WildAtlas Pro - $79/year</option>
-            </select>
-          </div>
-        </div>
-
-        <button type="submit" class="join-submit">Create Membership</button>
-        <div class="join-note">Already have an account? <a href="login.html" style="color:#14532d;font-weight:700;">Log in here</a></div>
-      </form>
     </div>
   </section>
 
@@ -801,7 +712,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>©️ 2026 WildAtlas. All rights reserved. Membership for Deeper Discovery.</p>
+      <p>©️ 2026 WildAtlas. All rights reserved. Exploring the Planet Behind All Life.</p>
     </div>
   </footer>
 
@@ -823,6 +734,14 @@
     });
 
     const defaultSearchItems = [
+      {
+        title: "Home",
+        type: "Section",
+        category: "WildAtlas",
+        summary: "Start your journey through the main WildAtlas discovery pillars.",
+        link: "index.html",
+        keywords: "home wildatlas main homepage nature encyclopedia"
+      },
       {
         title: "Species",
         type: "Section",
@@ -880,6 +799,30 @@
         keywords: "library documentary documentaries media photography wildlife videos audio archive"
       },
       {
+        title: "Earth’s Crust",
+        type: "Earth Topic",
+        category: "Geology",
+        summary: "The outer solid shell of Earth where tectonic plates, continents, and ocean floors are found.",
+        link: "earth.html",
+        keywords: "earth crust tectonic plates geology continents seafloor"
+      },
+      {
+        title: "Plate Tectonics",
+        type: "Earth Topic",
+        category: "Geodynamics",
+        summary: "The motion of Earth’s plates shapes earthquakes, volcanoes, and mountain formation.",
+        link: "earth.html",
+        keywords: "plate tectonics volcanoes earthquakes mountains geology"
+      },
+      {
+        title: "Global Oceans",
+        type: "Earth Topic",
+        category: "Hydrosphere",
+        summary: "Earth’s oceans regulate climate, support biodiversity, and shape weather systems.",
+        link: "earth.html",
+        keywords: "global oceans hydrosphere sea marine climate water"
+      },
+      {
         title: "Log In",
         type: "Account",
         category: "Access",
@@ -896,12 +839,12 @@
         keywords: "join wildatlas subscribe membership premium plan"
       },
       {
-        title: "WildAtlas Plus",
-        type: "Membership Plan",
-        category: "Premium",
-        summary: "Monthly premium membership with full access to exclusive media and archives.",
-        link: "subscribe.html",
-        keywords: "plus plan monthly subscription premium documentaries"
+        title: "Terms of Service",
+        type: "Legal",
+        category: "Policy",
+        summary: "Read the rules, responsibilities, and conditions for using WildAtlas.",
+        link: "terms.html",
+        keywords: "terms service legal policy rules conditions wildatlas"
       }
     ];
 

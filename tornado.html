@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildAtlas | Tornadoes</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#ffffff;
+color:#222;
+line-height:1.6;
+}
+
+/* NAVBAR */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+border-bottom:1px solid #e8e8e8;
+background:#fff;
+position:sticky;
+top:0;
+z-index:1000;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#1b5e20;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover,
+nav a.active{
+color:#1b5e20;
+}
+
+.nav-actions{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.search-box input{
+padding:10px 14px;
+border:1px solid #ccc;
+border-radius:25px;
+outline:none;
+width:180px;
+}
+
+.btn{
+padding:10px 18px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn-login{
+background:#f1f1f1;
+color:#222;
+}
+
+.btn-signup{
+background:#1b5e20;
+color:#fff;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+color:white;
+text-align:center;
+padding:110px 8%;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+max-width:760px;
+margin:auto;
+color:#f3f3f3;
+}
+
+/* TOP DOCUMENTARY SECTION */
+
+.top-documentary{
+padding:60px 8% 20px;
+}
+
+.documentary-wrap{
+background:linear-gradient(135deg,#f6fbf6,#eaf5ea);
+border:1px solid #d8e8d8;
+border-radius:24px;
+padding:30px;
+box-shadow:0 8px 24px rgba(0,0,0,0.06);
+}
+
+.documentary-label{
+display:inline-block;
+background:#1b5e20;
+color:#fff;
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:700;
+margin-bottom:14px;
+}
+
+.documentary-wrap h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.documentary-wrap p{
+color:#555;
+max-width:900px;
+margin-bottom:25px;
+}
+
+.doc-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.doc-card{
+background:#fff;
+border-radius:18px;
+padding:22px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+border:1px solid #e8eeee;
+}
+
+.doc-card h3{
+color:#1b5e20;
+font-size:22px;
+margin-bottom:10px;
+}
+
+.doc-card p{
+color:#666;
+margin-bottom:14px;
+}
+
+.doc-card a{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* AD */
+
+.top-ad{
+background:linear-gradient(135deg,#edf7ed,#dff1df);
+border:1px solid #cfe5cf;
+border-radius:18px;
+padding:30px;
+text-align:center;
+margin:30px 8% 0;
+}
+
+.top-ad h3{
+color:#1b5e20;
+margin-bottom:10px;
+font-size:28px;
+}
+
+.top-ad p{
+color:#444;
+margin-bottom:15px;
+}
+
+.top-ad a{
+display:inline-block;
+padding:12px 22px;
+background:#1b5e20;
+color:#fff;
+text-decoration:none;
+border-radius:30px;
+font-weight:600;
+}
+
+/* SECTION */
+
+.section{
+padding:70px 8%;
+}
+
+.section-title{
+font-size:34px;
+margin-bottom:15px;
+color:#1b5e20;
+text-align:center;
+}
+
+.section-subtitle{
+text-align:center;
+color:#666;
+max-width:760px;
+margin:0 auto 45px;
+}
+
+/* GRID */
+
+.animals-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+/* CARD */
+
+.card{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+
+.card-content{
+padding:22px;
+}
+
+.tag{
+display:inline-block;
+background:#e8f5e9;
+color:#1b5e20;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+margin-bottom:12px;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+margin-bottom:16px;
+}
+
+.read-more{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* FACTS */
+
+.facts{
+background:#f4f7f4;
+}
+
+.facts-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.fact-box{
+background:#fff;
+padding:28px;
+border-radius:18px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+text-align:center;
+}
+
+.fact-box h3{
+font-size:30px;
+color:#1b5e20;
+margin-bottom:8px;
+}
+
+.fact-box p{
+color:#666;
+}
+
+/* SPLIT INFO */
+
+.info-split{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+align-items:center;
+}
+
+.info-split img{
+width:100%;
+border-radius:20px;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+}
+
+.info-text h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:15px;
+}
+
+.info-text p{
+color:#555;
+margin-bottom:14px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+background:#f4f7f4;
+text-align:center;
+padding:70px 8%;
+}
+
+.newsletter h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.newsletter p{
+color:#555;
+max-width:650px;
+margin:0 auto 24px;
+}
+
+.newsletter form{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.newsletter input{
+padding:14px 16px;
+width:320px;
+max-width:100%;
+border:1px solid #ccc;
+border-radius:30px;
+outline:none;
+}
+
+.newsletter button{
+padding:14px 24px;
+border:none;
+border-radius:30px;
+background:#1b5e20;
+color:#fff;
+font-weight:600;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:#ddd;
+padding:60px 8% 25px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-bottom:35px;
+}
+
+.footer-col h3{
+color:#fff;
+margin-bottom:15px;
+}
+
+.footer-col a{
+display:block;
+color:#bbb;
+text-decoration:none;
+margin-bottom:10px;
+}
+
+.footer-col a:hover{
+color:#fff;
+}
+
+.footer-col p{
+color:#bbb;
+}
+
+.footer-bottom{
+border-top:1px solid #2a2a2a;
+padding-top:20px;
+text-align:center;
+color:#999;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+.info-split{
+grid-template-columns:1fr;
+}
+}
+
+@media (max-width:768px){
+
+header{
+flex-direction:column;
+}
+
+nav{
+justify-content:center;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.search-box input{
+width:100%;
+}
+
+.documentary-wrap h2{
+font-size:28px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">WildAtlas</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="insects.html">Insects</a>
+<a href="mountains.html">Mountains</a>
+<a href="forests.html">Forests</a>
+<a href="nature-articles.html" class="active">Nature Articles</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div class="nav-actions">
+
+<div class="search-box">
+<input type="text" placeholder="Search tornadoes...">
+</div>
+
+<a href="login.html" class="btn btn-login">Log In</a>
+<a href="signup.html" class="btn btn-signup">Sign Up</a>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>Tornadoes of the Sky</h1>
+
+<p>
+Explore violent rotating storms, tornado formation, warning signs, safety lessons, and the incredible force behind one of nature’s most dangerous wind events.
+</p>
+
+</section>
+
+<section class="top-documentary">
+
+<div class="documentary-wrap">
+<span class="documentary-label">Tornado Documentary Section</span>
+<h2>Documentaries About Tornadoes, Formation, Damage, and Survival</h2>
+<p>
+This top section gives visitors instant access to tornado documentary topics, including how tornadoes develop, where they are most common, how they cause damage, and what people can do to stay safe during severe storms.
+</p>
+
+<div class="doc-grid">
+
+<div class="doc-card">
+<h3>How Tornadoes Form</h3>
+<p>
+Learn how warm moist air, cold dry air, wind shear, and severe thunderstorms combine to create powerful rotating columns of air.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Damage and Destruction</h3>
+<p>
+See how tornadoes tear through towns, uproot trees, destroy buildings, and leave behind narrow but devastating paths.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Warnings and Safety</h3>
+<p>
+Explore tornado warning systems, emergency preparation, shelter choices, and how fast decisions can save lives.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Storm Chasers and Research</h3>
+<p>
+Discover how meteorologists and storm chasers study tornadoes to better understand and predict severe weather.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<section class="top-ad">
+
+<h3>Advertise Weather & Science Brands</h3>
+
+<p>
+Promote weather documentaries, safety campaigns, science programs, outdoor gear, and educational projects to WildAtlas readers.
+</p>
+
+<a href="#">Advertise Here</a>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Featured Tornado Stories</h2>
+
+<p class="section-subtitle">
+Discover how tornadoes form, how they move, what makes them dangerous, and why they are among the most dramatic weather events on Earth.
+</p>
+
+<div class="animals-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1000&q=80" alt="Tornado storm">
+<div class="card-content">
+<span class="tag">Formation</span>
+<h3>Born From Violent Storms</h3>
+<p>Tornadoes often develop from severe thunderstorms where unstable air and strong wind changes create rotation.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80" alt="Dark clouds">
+<div class="card-content">
+<span class="tag">Supercells</span>
+<h3>The Storms That Spawn Twisters</h3>
+<p>Many of the strongest tornadoes come from supercell thunderstorms with deep rotating updrafts.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80" alt="Damage">
+<div class="card-content">
+<span class="tag">Damage</span>
+<h3>Wind Power at Its Worst</h3>
+<p>Tornado winds can rip roofs away, toss debris through the air, and destroy buildings in seconds.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1000&q=80" alt="Warning">
+<div class="card-content">
+<span class="tag">Warnings</span>
+<h3>Minutes Matter</h3>
+<p>Sirens, radar, and weather alerts help people take shelter quickly when tornado danger is near.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80" alt="Open land">
+<div class="card-content">
+<span class="tag">Tornado Alley</span>
+<h3>Where Twisters Strike Often</h3>
+<p>Some regions experience more tornadoes because of the way different air masses collide there.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=1000&q=80" alt="Storm science">
+<div class="card-content">
+<span class="tag">Research</span>
+<h3>Chasing the Storm</h3>
+<p>Scientists study tornadoes to improve forecasting and help communities prepare for dangerous weather.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="info-split">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80" alt="Storm clouds">
+
+<div class="info-text">
+<h2>Tornado Behavior, Power, and Safety</h2>
+<p>
+A tornado is a rapidly rotating column of air that extends from a thunderstorm to the ground. Some are thin and short-lived, while others become wide, violent, and capable of causing catastrophic destruction.
+</p>
+<p>
+Tornadoes can change direction, strengthen quickly, and produce flying debris that makes them especially dangerous. Even weaker tornadoes can damage roofs, trees, vehicles, and power lines.
+</p>
+<p>
+The safest response is usually to move to a strong interior shelter on the lowest level of a building, away from windows, and stay alert to weather warnings during severe storm conditions.
+</p>
+</div>
+</div>
+
+</section>
+
+<section class="section facts">
+
+<h2 class="section-title">Amazing Tornado Facts</h2>
+
+<p class="section-subtitle">
+Tornadoes are fast, unpredictable, and capable of producing concentrated damage in very short periods of time.
+</p>
+
+<div class="facts-grid">
+
+<div class="fact-box">
+<h3>Rotating Winds</h3>
+<p>Tornadoes are violently spinning columns of air</p>
+</div>
+
+<div class="fact-box">
+<h3>Short Notice</h3>
+<p>Warnings may give only minutes to take shelter</p>
+</div>
+
+<div class="fact-box">
+<h3>Severe Storms</h3>
+<p>Many strong tornadoes form from supercell thunderstorms</p>
+</div>
+
+<div class="fact-box">
+<h3>Narrow Paths</h3>
+<p>Damage can be intense but focused in a specific track</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="newsletter">
+
+<h2>Stay Updated With Weather Stories</h2>
+
+<p>
+Subscribe for tornado science, storm documentaries, severe weather updates, and featured WildAtlas stories.
+</p>
+
+<form>
+<input type="email" placeholder="Enter your email address">
+<button type="submit">Subscribe</button>
+</form>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-col">
+<h3>WildAtlas</h3>
+<p>Discover wildlife, weather, landscapes, and natural wonders across the world.</p>
+</div>
+
+<div class="footer-col">
+<h3>Explore</h3>
+<a href="index.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="dogs.html">Dogs</a>
+<a href="mountains.html">Mountains</a>
+<a href="tornado.html">Tornadoes</a>
+</div>
+
+<div class="footer-col">
+<h3>Topics</h3>
+<a href="volcano.html">Volcano</a>
+<a href="tsunami.html">Tsunami</a>
+<a href="sinkhole.html">Sinkhole</a>
+<a href="nature-articles.html">Nature Articles</a>
+</div>
+
+<div class="footer-col">
+<h3>Support</h3>
+<a href="contact.html">Contact</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="help-center.html">Help Center</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 WildAtlas. All rights reserved.
+</div>
+
+</footer>
+
+</body>
+</html>

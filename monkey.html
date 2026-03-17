@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WildAtlas | Explore the Natural World</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="shortcut icon" href="logo.png" />
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{background:#ffffff;color:#1f2937;line-height:1.6;overflow-x:hidden;}
+    img{max-width:100%;display:block;}
+    a{text-decoration:none;}
+
+    header{padding:16px 6%;border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+    .logo-wrap{display:flex;align-items:center;gap:12px;min-width:0;flex-shrink:0;}
+    .logo-wrap img{width:54px;height:54px;object-fit:cover;border-radius:14px;border:2px solid #14532d;background:#fff;padding:2px;flex-shrink:0;}
+    .logo-text h2{font-size:26px;line-height:1.1;color:#14532d;}
+    .logo-text span{display:block;font-size:13px;color:#6b7280;margin-top:2px;}
+
+    .menu-toggle{display:none;width:46px;height:46px;border:none;background:#f3f4f6;border-radius:12px;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px;}
+    .menu-toggle span{width:22px;height:2px;background:#111827;border-radius:2px;transition:0.3s;}
+    .menu-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .menu-toggle.active span:nth-child(2){opacity:0;}
+    .menu-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    .nav-area{display:flex;align-items:center;gap:20px;flex:1;min-width:0;}
+    nav{display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap;flex:1;}
+    nav a{color:#4b5563;font-weight:600;padding:10px 12px;border-radius:999px;transition:0.3s;white-space:nowrap;font-size:15px;}
+    nav a:hover, nav a.active{background:#ecfdf5;color:#14532d;}
+
+    .nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+    .btn{display:inline-block;padding:11px 18px;border-radius:999px;font-weight:700;transition:0.3s;text-align:center;border:none;cursor:pointer;}
+    .btn-primary{background:#14532d;color:#fff;}
+    .btn-outline{background:#f3f4f6;color:#14532d;border:1px solid #d1d5db;}
+    .btn:hover{transform:translateY(-2px);}
+
+    .hero{padding:110px 6%;color:#fff;background:linear-gradient(rgba(17,24,39,0.5), rgba(17,24,39,0.5)), url('https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;}
+    .hero-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px;align-items:center;}
+    .hero-text h1{font-size:clamp(38px,6vw,60px);line-height:1.1;margin-bottom:20px;}
+    .hero-text p{font-size:clamp(16px,2vw,19px);color:#e5f4eb;max-width:700px;margin-bottom:30px;}
+
+    .hero-card{background:rgba(255,255,255,0.15);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.2);border-radius:24px;padding:30px;}
+    .hero-mini-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px;}
+    .hero-mini-box{background:rgba(255,255,255,0.1);border-radius:16px;padding:16px;text-align:center;}
+    .hero-mini-box h4{font-size:22px;color:#fff;}
+    .hero-mini-box p{font-size:13px;color:#dcfce7;}
+
+    .section{padding:80px 6%;}
+    .section-title{font-size:clamp(28px,4vw,36px);text-align:center;color:#14532d;margin-bottom:12px;}
+    .section-subtitle{text-align:center;max-width:700px;margin:0 auto 50px;color:#6b7280;}
+
+    .category-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
+    .category-card{background:#fff;border:1px solid #e5e7eb;border-radius:22px;overflow:hidden;transition:0.3s;display:flex;flex-direction:column;}
+    .category-card:hover{transform:translateY(-8px);box-shadow:0 12px 30px rgba(0,0,0,0.08);}
+    .category-card img{width:100%;height:200px;object-fit:cover;}
+    .category-content{padding:24px;flex:1;display:flex;flex-direction:column;}
+    .category-tag{display:inline-block;padding:5px 12px;border-radius:999px;background:#ecfdf5;color:#166534;font-size:12px;font-weight:700;margin-bottom:12px;width:fit-content;}
+    .category-content h3{font-size:24px;margin-bottom:12px;color:#111827;}
+    .category-content p{color:#6b7280;margin-bottom:20px;font-size:15px;flex:1;}
+    .read-more{color:#14532d;font-weight:700;display:flex;align-items:center;gap:6px;}
+
+    footer{background:#111827;color:#d1d5db;padding:80px 6% 30px;}
+    .footer-grid{max-width:1180px;margin:0 auto 50px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;}
+    .footer-col h3{color:#fff;margin-bottom:20px;font-size:18px;}
+    .footer-col a{display:block;color:#9ca3af;margin-bottom:12px;transition:0.2s;}
+    .footer-col a:hover{color:#fff;transform:translateX(5px);}
+    .footer-bottom{max-width:1180px;margin:0 auto;text-align:center;border-top:1px solid rgba(255,255,255,0.1);padding-top:30px;font-size:14px;}
+
+    @media (max-width:1024px){.hero-inner{grid-template-columns:1fr;}}
+    @media (max-width:860px){
+      .menu-toggle{display:flex;}
+      .nav-area{display:none;position:absolute;top:100%;left:0;width:100%;background:#fff;padding:20px;flex-direction:column;border-bottom:1px solid #e5e7eb;}
+      .nav-area.open{display:flex;}
+      nav{flex-direction:column;width:100%;}
+      nav a{width:100%;text-align:center;padding:15px;}
+      .nav-actions{width:100%;flex-direction:column;}
+      .nav-actions .btn{width:100%;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-wrap">
+        <img src="logo.png" alt="WildAtlas Logo">
+        <div class="logo-text">
+          <h2>WildAtlas</h2>
+          <span>The Nature Encyclopedia</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-area" id="navArea">
+        <nav>
+          <a href="index.html" class="active">Home</a>
+          <a href="species.html">Species</a>
+          <a href="biomes.html">Biomes</a>
+          <a href="earth.html">Earth</a>
+          <a href="impact.html">Impact</a>
+          <a href="places.html">Places</a>
+          <a href="connection.html">Connection</a>
+          <a href="library.html">Library</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="blog.html" class="btn btn-primary">Visit Blog</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Explore the Full Spectrum of Nature</h1>
+        <p>Your digital compass for the natural world. From the smallest microbes to the vastness of our planet's geosphere, WildAtlas organizes Earth's wonders into seven core pillars of discovery.</p>
+        <div class="hero-buttons">
+          <a href="#pillars" class="btn btn-primary">Start Exploring</a>
+          <a href="library.html" class="btn btn-outline" style="background:rgba(255,255,255,0.1); color:#fff; border-color:rgba(255,255,255,0.3)">View Library</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Atlas Stats</h3>
+        <div class="hero-mini-stats">
+          <div class="hero-mini-box"><h4>1M+</h4><p>Species Catalogned</p></div>
+          <div class="hero-mini-box"><h4>7</h4><p>Discovery Pillars</p></div>
+          <div class="hero-mini-box"><h4>500+</h4><p>Nature Guides</p></div>
+          <div class="hero-mini-box"><h4>HD</h4><p>Media Library</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pillars">
+    <h2 class="section-title">The Seven Pillars of WildAtlas</h2>
+    <p class="section-subtitle">Our mission is to categorize the natural world into digestible, interconnected sections for curious minds.</p>
+
+    <div class="category-grid">
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=800&q=80" alt="Species">
+        <div class="category-content">
+          <span class="category-tag">Biology</span>
+          <h3>Species</h3>
+          <p>The encyclopedia of life. Explore animals, plants, fungi, and the fascinating tree of evolution.</p>
+          <a href="species.html" class="read-more">Learn about Life →</a>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80" alt="Biomes">
+        <div class="category-content">
+          <span class="category-tag">Ecosystems</span>
+          <h3>Biomes</h3>
+          <p>Journey through rainforests, oceans, deserts, and tundras to see how life adapts to its environment.</p>
+          <a href="biomes.html" class="read-more">Explore Habitats →</a>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Earth">
+        <div class="category-content">
+          <span class="category-tag">Geology</span>
+          <h3>Earth</h3>
+          <p>Uncover the physical world: plate tectonics, volcanoes, weather patterns, and planetary science.</p>
+          <a href="earth.html" class="read-more">Study the Planet →</a>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80" alt="Impact">
+        <div class="category-content">
+          <span class="category-tag">Conservation</span>
+          <h3>Impact</h3>
+          <p>Understanding our changing climate, conservation success stories, and how to protect our future.</p>
+          <a href="impact.html" class="read-more">See Our Impact →</a>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Places">
+        <div class="category-content">
+          <span class="category-tag">Locations</span>
+          <h3>Places</h3>
+          <p>A global guide to National Parks, protected wilderness, and the world's most beautiful natural landmarks.</p>
+          <a href="places.html" class="read-more">Visit the Wild →</a>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80" alt="Connection">
+        <div class="category-content">
+          <span class="category-tag">Humanity</span>
+          <h3>Connection</h3>
+          <p>How humans interact with nature: gardening, foraging, outdoor skills, and sustainable living.</p>
+          <a href="connection.html" class="read-more">Connect with Nature →</a>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1492691523567-6170c819ad3a?auto=format&fit=crop&w=800&q=80" alt="Library">
+        <div class="category-content">
+          <span class="category-tag">Multimedia</span>
+          <h3>Library</h3>
+          <p>Immerse yourself in nature through high-quality wildlife photography, videos, and ambient soundscapes.</p>
+          <a href="library.html" class="read-more">Open the Library →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>WildAtlas</h3>
+        <p>Categorizing the beauty and complexity of the natural world for the next generation of explorers.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Core Pillars</h3>
+        <a href="species.html">Species</a>
+        <a href="biomes.html">Biomes</a>
+        <a href="earth.html">Earth</a>
+        <a href="impact.html">Impact</a>
+      </div>
+      <div class="footer-col">
+        <h3>Resources</h3>
+        <a href="places.html">Places</a>
+        <a href="connection.html">Connection</a>
+        <a href="library.html">Library</a>
+        <a href="blog.html">Nature Blog</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <a href="mailto:hello@wildatlas.com">hello@wildatlas.com</a>
+        <a href="contact.html">Send a Message</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>©️ 2026 WildAtlas. Built for Discovery.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navArea = document.getElementById("navArea");
+
+    menuToggle.addEventListener("click", () => {
+      menuToggle.classList.toggle("active");
+      navArea.classList.toggle("open");
+    });
+
+    // Close menu when clicking a link (mobile)
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove("active");
+        navArea.classList.remove("open");
+      });
+    });
+  </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WildAtlas | Animals</title>
+<title>WildAtlas | Dinosaurs</title>
 
 <style>
 *{
@@ -19,7 +19,7 @@ color:#222;
 line-height:1.6;
 }
 
-/* HEADER */
+/* NAVBAR */
 
 header{
 display:flex;
@@ -31,49 +31,14 @@ background:#fff;
 position:sticky;
 top:0;
 z-index:1000;
-gap:15px;
 flex-wrap:wrap;
-}
-
-.logo-wrap{
-display:flex;
-align-items:center;
-gap:12px;
-}
-
-.logo-wrap img{
-width:54px;
-height:54px;
-object-fit:cover;
-border-radius:12px;
-background:#fff;
-border:2px solid #1b5e20;
-padding:2px;
+gap:15px;
 }
 
 .logo{
 font-size:28px;
 font-weight:700;
 color:#1b5e20;
-}
-
-.menu-toggle{
-display:none;
-background:#1b5e20;
-color:#fff;
-border:none;
-font-size:24px;
-padding:10px 14px;
-border-radius:10px;
-cursor:pointer;
-}
-
-.nav-wrap{
-display:flex;
-align-items:center;
-gap:20px;
-flex:1;
-justify-content:flex-end;
 }
 
 nav{
@@ -102,16 +67,12 @@ gap:10px;
 flex-wrap:wrap;
 }
 
-.search-box{
-position:relative;
-}
-
 .search-box input{
 padding:10px 14px;
 border:1px solid #ccc;
 border-radius:25px;
 outline:none;
-width:190px;
+width:180px;
 }
 
 .btn{
@@ -121,13 +82,10 @@ border-radius:25px;
 cursor:pointer;
 font-weight:600;
 transition:0.3s;
-text-decoration:none;
-display:inline-block;
 }
 
 .btn-login{
 background:#f1f1f1;
-color:#222;
 }
 
 .btn-signup{
@@ -143,7 +101,7 @@ transform:translateY(-2px);
 
 .hero{
 background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-url('https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
 color:white;
 text-align:center;
 padding:110px 8%;
@@ -369,16 +327,11 @@ color:#fff;
 margin-bottom:15px;
 }
 
-.footer-col p{
-color:#bbb;
-}
-
 .footer-col a{
 display:block;
 color:#bbb;
 text-decoration:none;
 margin-bottom:10px;
-transition:0.3s;
 }
 
 .footer-col a:hover{
@@ -396,59 +349,23 @@ font-size:14px;
 /* MOBILE */
 
 @media (max-width:768px){
-.menu-toggle{
-display:block;
-}
 
-.nav-wrap{
-display:none;
-width:100%;
+header{
 flex-direction:column;
-align-items:flex-start;
-background:#fff;
-padding-top:10px;
-border-top:1px solid #eee;
-}
-
-.nav-wrap.show{
-display:flex;
 }
 
 nav{
-flex-direction:column;
-align-items:flex-start;
-width:100%;
-gap:14px;
-padding:10px 0;
-}
-
-.nav-actions{
-width:100%;
-flex-direction:column;
-align-items:flex-start;
-padding-bottom:10px;
+justify-content:center;
 }
 
 .hero h1{
 font-size:38px;
 }
 
-.search-box{
-width:100%;
-}
-
 .search-box input{
 width:100%;
 }
 
-.logo-wrap img{
-width:46px;
-height:46px;
-}
-
-.logo{
-font-size:24px;
-}
 }
 </style>
 </head>
@@ -457,52 +374,47 @@ font-size:24px;
 
 <header>
 
-<div class="logo-wrap">
-<img src="wildatlas.png" alt="WildAtlas Logo">
 <div class="logo">WildAtlas</div>
-</div>
 
-<button class="menu-toggle" id="menuToggle">&#9776;</button>
-
-<div class="nav-wrap" id="navWrap">
 <nav>
-<a href="index.html">Home</a>
-<a href="animals.html" class="active">Animals</a>
-<a href="insects.html">Insects</a>
-<a href="mountains.html">Mountains</a>
-<a href="forests.html">Forests</a>
-<a href="nature-articles.html">Nature Articles</a>
-<a href="contact.html">Contact</a>
+<a href="#">Home</a>
+<a href="#">Animals</a>
+<a href="#" class="active">Dinosaurs</a>
+<a href="#">Mountains</a>
+<a href="#">Forests</a>
+<a href="#">Nature Articles</a>
+<a href="#">Contact</a>
 </nav>
 
 <div class="nav-actions">
+
 <div class="search-box">
-<input type="text" placeholder="Search animals...">
+<input type="text" placeholder="Search dinosaurs...">
 </div>
 
-<a href="login.html" class="btn btn-login">Log In</a>
-<a href="signup.html" class="btn btn-signup">Sign Up</a>
-</div>
+<button class="btn btn-login">Log In</button>
+<button class="btn btn-signup">Sign Up</button>
+
 </div>
 
 </header>
 
 <section class="hero">
 
-<h1>Animals of the Wild</h1>
+<h1>Dinosaurs of the Ancient World</h1>
 
 <p>
-Explore incredible animals from around the world — from powerful predators and gentle giants to mysterious creatures of forests, oceans, mountains, and grasslands.
+Explore the age of dinosaurs — from giant plant-eaters and fierce predators to the prehistoric landscapes they ruled millions of years ago.
 </p>
 
 </section>
 
 <section class="top-ad">
 
-<h3>Advertise Wildlife Brands</h3>
+<h3>Advertise Museum & Science Brands</h3>
 
 <p>
-Promote wildlife documentaries, eco-tourism, nature gear, conservation campaigns, and outdoor brands to WildAtlas readers.
+Promote dinosaur documentaries, museum exhibits, science projects, educational kits, and prehistoric adventures to WildAtlas readers.
 </p>
 
 <a href="#">Advertise Here</a>
@@ -511,70 +423,70 @@ Promote wildlife documentaries, eco-tourism, nature gear, conservation campaigns
 
 <section class="section">
 
-<h2 class="section-title">Featured Animal Stories</h2>
+<h2 class="section-title">Featured Dinosaur Stories</h2>
 
 <p class="section-subtitle">
-Discover fascinating facts, behaviors, habitats, and survival stories of animals across the planet.
+Discover fascinating species, ancient habitats, fossil evidence, and the science that helps us understand dinosaurs today.
 </p>
 
 <div class="animals-grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1000&q=80" alt="Lion">
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=80">
 <div class="card-content">
-<span class="tag">Lions</span>
-<h3>The King of the Savannah</h3>
-<p>Learn how lions survive, hunt, and rule across Africa’s grasslands.</p>
+<span class="tag">Tyrannosaurus Rex</span>
+<h3>The Famous Giant Predator</h3>
+<p>Learn how T. rex became one of the most iconic meat-eating dinosaurs in history.</p>
 <a class="read-more" href="#">Read More →</a>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=1000&q=80" alt="Elephants">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=80">
 <div class="card-content">
-<span class="tag">Elephants</span>
-<h3>Giants of the Wild</h3>
-<p>Elephants are intelligent, emotional animals with deep family bonds and complex social lives.</p>
+<span class="tag">Triceratops</span>
+<h3>The Three-Horned Herbivore</h3>
+<p>Triceratops used its horns and frill for defense and became one of the best-known plant-eaters.</p>
 <a class="read-more" href="#">Read More →</a>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1501706362039-c6e80948c7c2?auto=format&fit=crop&w=1000&q=80" alt="Wolves">
+<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1000&q=80">
 <div class="card-content">
-<span class="tag">Wolves</span>
-<h3>The Power of the Pack</h3>
-<p>Wolves survive through teamwork, strategy, and strong family connections.</p>
+<span class="tag">Brachiosaurus</span>
+<h3>The Towering Long-Neck</h3>
+<p>Brachiosaurus reached into the treetops with its long neck and enormous height.</p>
 <a class="read-more" href="#">Read More →</a>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1000&q=80" alt="Penguins">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1000&q=80">
 <div class="card-content">
-<span class="tag">Penguins</span>
-<h3>Life in the Frozen South</h3>
-<p>Penguins thrive in some of the coldest places on Earth with remarkable adaptations.</p>
+<span class="tag">Velociraptor</span>
+<h3>Fast and Intelligent Hunters</h3>
+<p>Velociraptors were smaller than many imagine, but they were agile and dangerous predators.</p>
 <a class="read-more" href="#">Read More →</a>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?auto=format&fit=crop&w=1000&q=80" alt="Tiger">
+<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80">
 <div class="card-content">
-<span class="tag">Tigers</span>
-<h3>Silent Hunters of the Jungle</h3>
-<p>Tigers are powerful solitary predators known for stealth, strength, and beauty.</p>
+<span class="tag">Fossils</span>
+<h3>Clues Buried in Stone</h3>
+<p>Fossils help scientists uncover how dinosaurs lived, moved, hunted, and evolved.</p>
 <a class="read-more" href="#">Read More →</a>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1000&q=80" alt="Giraffe">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80">
 <div class="card-content">
-<span class="tag">Giraffes</span>
-<h3>Towering Gentle Giants</h3>
-<p>Giraffes are the tallest animals on Earth with unique bodies built for browsing treetops.</p>
+<span class="tag">Extinction</span>
+<h3>The End of an Era</h3>
+<p>Discover the theories behind the mass extinction that ended the age of non-avian dinosaurs.</p>
 <a class="read-more" href="#">Read More →</a>
 </div>
 </div>
@@ -585,32 +497,32 @@ Discover fascinating facts, behaviors, habitats, and survival stories of animals
 
 <section class="section facts">
 
-<h2 class="section-title">Amazing Animal Facts</h2>
+<h2 class="section-title">Amazing Dinosaur Facts</h2>
 
 <p class="section-subtitle">
-Animals shape ecosystems across the planet and play important roles in biodiversity, food chains, and environmental balance.
+Dinosaurs lived for millions of years and evolved into an enormous variety of shapes, sizes, and survival strategies.
 </p>
 
 <div class="facts-grid">
 
 <div class="fact-box">
-<h3>8.7M</h3>
-<p>Estimated animal species on Earth</p>
+<h3>230M</h3>
+<p>Dinosaurs first appeared around 230 million years ago</p>
 </div>
 
 <div class="fact-box">
-<h3>70%</h3>
-<p>Of Earth’s animals live in oceans</p>
+<h3>Huge Variety</h3>
+<p>They ranged from chicken-sized hunters to giant long-necked herbivores</p>
 </div>
 
 <div class="fact-box">
-<h3>1,000+</h3>
-<p>New species are discovered every year</p>
+<h3>Fossils</h3>
+<p>Scientists learn about dinosaurs mainly through fossil discoveries</p>
 </div>
 
 <div class="fact-box">
-<h3>Millions</h3>
-<p>Of animals migrate annually across land, sea, and air</p>
+<h3>Bird Link</h3>
+<p>Modern birds are the closest living relatives of dinosaurs</p>
 </div>
 
 </div>
@@ -619,10 +531,10 @@ Animals shape ecosystems across the planet and play important roles in biodivers
 
 <section class="newsletter">
 
-<h2>Stay Updated With Wildlife Stories</h2>
+<h2>Stay Updated With Prehistoric Stories</h2>
 
 <p>
-Subscribe for animal discoveries, nature news, documentaries, and featured WildAtlas stories.
+Subscribe for dinosaur discoveries, fossil finds, science news, and featured WildAtlas stories.
 </p>
 
 <form>
@@ -638,33 +550,30 @@ Subscribe for animal discoveries, nature news, documentaries, and featured WildA
 
 <div class="footer-col">
 <h3>WildAtlas</h3>
-<p>Discover wildlife, landscapes, reptiles, storms, insects, and natural wonders across the world.</p>
+<p>Discover wildlife, ancient creatures, landscapes, and natural wonders across the world.</p>
 </div>
 
 <div class="footer-col">
 <h3>Explore</h3>
-<a href="index.html">Home</a>
-<a href="animals.html">Animals</a>
-<a href="insects.html">Insects</a>
-<a href="mountains.html">Mountains</a>
-<a href="forests.html">Forests</a>
+<a href="#">Home</a>
+<a href="#">Animals</a>
+<a href="#">Dinosaurs</a>
+<a href="#">Mountains</a>
+<a href="#">Forests</a>
 </div>
 
 <div class="footer-col">
-<h3>Topics</h3>
-<a href="volcano.html">Volcano</a>
-<a href="tsunami.html">Tsunami</a>
-<a href="sinkhole.html">Sinkhole</a>
-<a href="nature-articles.html">Nature Articles</a>
-<a href="membership.html">Membership</a>
+<h3>Advertise</h3>
+<a href="#">Sponsored Posts</a>
+<a href="#">Banner Ads</a>
+<a href="#">Brand Collaboration</a>
 </div>
 
 <div class="footer-col">
 <h3>Support</h3>
-<a href="contact.html">Contact</a>
-<a href="privacy-policy.html">Privacy Policy</a>
-<a href="help-center.html">Help Center</a>
-<a href="about.html">About Us</a>
+<a href="#">Contact</a>
+<a href="#">Privacy Policy</a>
+<a href="#">Help Center</a>
 </div>
 
 </div>
@@ -674,15 +583,6 @@ Subscribe for animal discoveries, nature news, documentaries, and featured WildA
 </div>
 
 </footer>
-
-<script>
-const menuToggle = document.getElementById("menuToggle");
-const navWrap = document.getElementById("navWrap");
-
-menuToggle.addEventListener("click", function(){
-  navWrap.classList.toggle("show");
-});
-</script>
 
 </body>
 </html>

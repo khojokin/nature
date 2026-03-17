@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildAtlas | Tigers</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#ffffff;
+color:#222;
+line-height:1.6;
+}
+
+/* NAVBAR */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+border-bottom:1px solid #e8e8e8;
+background:#fff;
+position:sticky;
+top:0;
+z-index:1000;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#1b5e20;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover,
+nav a.active{
+color:#1b5e20;
+}
+
+.nav-actions{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+/* SEARCH */
+
+.search-box{
+position:relative;
+}
+
+.search-box input{
+padding:10px 14px;
+border:1px solid #ccc;
+border-radius:25px;
+outline:none;
+width:190px;
+}
+
+.search-suggestions{
+position:absolute;
+top:48px;
+left:0;
+width:320px;
+max-height:320px;
+overflow-y:auto;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:18px;
+box-shadow:0 10px 24px rgba(0,0,0,0.08);
+display:none;
+z-index:1500;
+padding:8px 0;
+}
+
+.search-item{
+display:block;
+padding:12px 16px;
+text-decoration:none;
+color:#333;
+border-bottom:1px solid #f1f1f1;
+transition:0.3s;
+}
+
+.search-item:last-child{
+border-bottom:none;
+}
+
+.search-item:hover{
+background:#f4f7f4;
+color:#1b5e20;
+}
+
+.search-item strong{
+display:block;
+font-size:15px;
+margin-bottom:4px;
+}
+
+.search-item span{
+font-size:13px;
+color:#666;
+display:block;
+}
+
+.no-result{
+padding:14px 16px;
+color:#666;
+font-size:14px;
+}
+
+.btn{
+padding:10px 18px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn-login{
+background:#f1f1f1;
+color:#222;
+}
+
+.btn-signup{
+background:#1b5e20;
+color:#fff;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+url('https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+color:white;
+text-align:center;
+padding:110px 8%;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+max-width:760px;
+margin:auto;
+color:#f3f3f3;
+}
+
+/* TOP DOCUMENTARY SECTION */
+
+.top-documentary{
+padding:60px 8% 20px;
+}
+
+.documentary-wrap{
+background:linear-gradient(135deg,#f6fbf6,#eaf5ea);
+border:1px solid #d8e8d8;
+border-radius:24px;
+padding:30px;
+box-shadow:0 8px 24px rgba(0,0,0,0.06);
+}
+
+.documentary-label{
+display:inline-block;
+background:#1b5e20;
+color:#fff;
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:700;
+margin-bottom:14px;
+}
+
+.documentary-wrap h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.documentary-wrap p{
+color:#555;
+max-width:900px;
+margin-bottom:25px;
+}
+
+.doc-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.doc-card{
+background:#fff;
+border-radius:18px;
+padding:22px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+border:1px solid #e8eeee;
+}
+
+.doc-card h3{
+color:#1b5e20;
+font-size:22px;
+margin-bottom:10px;
+}
+
+.doc-card p{
+color:#666;
+margin-bottom:14px;
+}
+
+.doc-card a{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* AD */
+
+.top-ad{
+background:linear-gradient(135deg,#edf7ed,#dff1df);
+border:1px solid #cfe5cf;
+border-radius:18px;
+padding:30px;
+text-align:center;
+margin:30px 8% 0;
+}
+
+.top-ad h3{
+color:#1b5e20;
+margin-bottom:10px;
+font-size:28px;
+}
+
+.top-ad p{
+color:#444;
+margin-bottom:15px;
+}
+
+.top-ad a{
+display:inline-block;
+padding:12px 22px;
+background:#1b5e20;
+color:#fff;
+text-decoration:none;
+border-radius:30px;
+font-weight:600;
+}
+
+/* SECTION */
+
+.section{
+padding:70px 8%;
+}
+
+.section-title{
+font-size:34px;
+margin-bottom:15px;
+color:#1b5e20;
+text-align:center;
+}
+
+.section-subtitle{
+text-align:center;
+color:#666;
+max-width:760px;
+margin:0 auto 45px;
+}
+
+/* GRID */
+
+.animals-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+/* CARD */
+
+.card{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+
+.card-content{
+padding:22px;
+}
+
+.tag{
+display:inline-block;
+background:#e8f5e9;
+color:#1b5e20;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+margin-bottom:12px;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+margin-bottom:16px;
+}
+
+.read-more{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* FACTS */
+
+.facts{
+background:#f4f7f4;
+}
+
+.facts-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.fact-box{
+background:#fff;
+padding:28px;
+border-radius:18px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+text-align:center;
+}
+
+.fact-box h3{
+font-size:30px;
+color:#1b5e20;
+margin-bottom:8px;
+}
+
+.fact-box p{
+color:#666;
+}
+
+/* SPLIT INFO */
+
+.info-split{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+align-items:center;
+}
+
+.info-split img{
+width:100%;
+border-radius:20px;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+}
+
+.info-text h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:15px;
+}
+
+.info-text p{
+color:#555;
+margin-bottom:14px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+background:#f4f7f4;
+text-align:center;
+padding:70px 8%;
+}
+
+.newsletter h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.newsletter p{
+color:#555;
+max-width:650px;
+margin:0 auto 24px;
+}
+
+.newsletter form{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.newsletter input{
+padding:14px 16px;
+width:320px;
+max-width:100%;
+border:1px solid #ccc;
+border-radius:30px;
+outline:none;
+}
+
+.newsletter button{
+padding:14px 24px;
+border:none;
+border-radius:30px;
+background:#1b5e20;
+color:#fff;
+font-weight:600;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:#ddd;
+padding:60px 8% 25px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-bottom:35px;
+}
+
+.footer-col h3{
+color:#fff;
+margin-bottom:15px;
+}
+
+.footer-col a{
+display:block;
+color:#bbb;
+text-decoration:none;
+margin-bottom:10px;
+}
+
+.footer-col a:hover{
+color:#fff;
+}
+
+.footer-col p{
+color:#bbb;
+}
+
+.footer-bottom{
+border-top:1px solid #2a2a2a;
+padding-top:20px;
+text-align:center;
+color:#999;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+.info-split{
+grid-template-columns:1fr;
+}
+}
+
+@media (max-width:768px){
+header{
+flex-direction:column;
+}
+
+nav{
+justify-content:center;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.search-box input{
+width:100%;
+}
+
+.search-suggestions{
+width:100%;
+min-width:260px;
+}
+
+.documentary-wrap h2{
+font-size:28px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">WildAtlas</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="animals.html" class="active">Animals</a>
+<a href="insects.html">Insects</a>
+<a href="mountains.html">Mountains</a>
+<a href="forests.html">Forests</a>
+<a href="nature-articles.html">Nature Articles</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div class="nav-actions">
+<div class="search-box">
+<input type="text" id="siteSearch" placeholder="Search topics..." autocomplete="off">
+<div class="search-suggestions" id="searchSuggestions"></div>
+</div>
+
+<a href="login.html" class="btn btn-login">Log In</a>
+<a href="signup.html" class="btn btn-signup">Sign Up</a>
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>Tigers of the Wild</h1>
+
+<p>
+Explore the world of tigers — powerful striped predators known for stealth, strength, solitary habits, and their importance in forests and grassland ecosystems.
+</p>
+
+</section>
+
+<section class="top-documentary">
+
+<div class="documentary-wrap">
+<span class="documentary-label">Tiger Documentary Section</span>
+<h2>Documentaries About Tigers, Hunting, Habits, Cubs, and Survival</h2>
+<p>
+This top section gives visitors fast access to tiger documentary topics, including tiger habitats, hunting techniques, cub development, population challenges, conservation, and the role tigers play in keeping ecosystems balanced.
+</p>
+
+<div class="doc-grid">
+
+<div class="doc-card">
+<h3>Tiger Habits</h3>
+<p>
+Learn how tigers live mostly alone, mark territory, hunt with stealth, rest during the day, and move quietly through dense forests and grasslands.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Cubs and Birth</h3>
+<p>
+Explore tiger pregnancy, birth, cub care, and how mother tigers protect and raise their young in the wild.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Hunting and Power</h3>
+<p>
+Discover how tigers stalk prey, rely on camouflage, and use sudden bursts of strength to catch deer, boar, and other animals.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Conservation and Survival</h3>
+<p>
+See how habitat loss, poaching, and human pressure affect tiger populations and why conservation efforts matter.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<section class="top-ad">
+
+<h3>Advertise Wildlife & Nature Brands</h3>
+
+<p>
+Promote wildlife documentaries, eco-tourism, conservation projects, outdoor gear, and education campaigns to WildAtlas readers.
+</p>
+
+<a href="#">Advertise Here</a>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Featured Tiger Stories</h2>
+
+<p class="section-subtitle">
+Discover how tigers survive, raise cubs, protect territory, and remain one of the most iconic predators on Earth.
+</p>
+
+<div class="animals-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1000&q=80" alt="Tiger in grass">
+<div class="card-content">
+<span class="tag">Predator</span>
+<h3>Silent Hunters of the Wild</h3>
+<p>Tigers rely on stealth, patience, and explosive strength when stalking prey through dense cover.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=1000&q=80" alt="Tiger face">
+<div class="card-content">
+<span class="tag">Behavior</span>
+<h3>Territory and Solitary Life</h3>
+<p>Most tigers live alone and use scent marking, scratches, and movement patterns to defend their space.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1535930749574-1399327ce78f?auto=format&fit=crop&w=1000&q=80" alt="Tiger cub">
+<div class="card-content">
+<span class="tag">Cubs</span>
+<h3>Growing Up in the Wild</h3>
+<p>Tiger cubs depend on their mother for protection, food, and survival skills during early life.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=80" alt="Tiger habitat">
+<div class="card-content">
+<span class="tag">Habitats</span>
+<h3>From Forests to Grasslands</h3>
+<p>Tigers can live in tropical forests, wetlands, mangroves, and grasslands where prey is available.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1000&q=80" alt="Tiger walking">
+<div class="card-content">
+<span class="tag">Movement</span>
+<h3>Built for Strength and Silence</h3>
+<p>The tiger’s powerful body, sharp senses, and striped coat make it a master of camouflage and ambush.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1501706362039-c6e80948c7c2?auto=format&fit=crop&w=1000&q=80" alt="Tiger conservation">
+<div class="card-content">
+<span class="tag">Conservation</span>
+<h3>Protecting a Threatened Icon</h3>
+<p>Conservation work aims to protect tiger habitats, reduce poaching, and support long-term survival.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="info-split">
+<img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1200&q=80" alt="Tiger in the wild">
+
+<div class="info-text">
+<h2>Tiger Habits, Cubs, and Natural Role</h2>
+<p>
+Tigers are among the largest wild cats in the world and are known for their orange coats with black stripes. These stripes help break up their outline in forests and tall grass, making them harder for prey to spot.
+</p>
+<p>
+A female tiger usually gives birth to a small litter of cubs, and the cubs stay with their mother while learning how to hide, move, and eventually hunt. Early survival can be difficult, which makes maternal care extremely important.
+</p>
+<p>
+As top predators, tigers help regulate prey populations and support ecosystem balance. Protecting tigers often also means protecting large natural landscapes filled with many other species.
+</p>
+</div>
+</div>
+
+</section>
+
+<section class="section facts">
+
+<h2 class="section-title">Amazing Tiger Facts</h2>
+
+<p class="section-subtitle">
+Tigers are powerful, adaptable big cats with strong hunting instincts and a major ecological role.
+</p>
+
+<div class="facts-grid">
+
+<div class="fact-box">
+<h3>Striped Coat</h3>
+<p>Each tiger has a unique stripe pattern</p>
+</div>
+
+<div class="fact-box">
+<h3>Solitary</h3>
+<p>Most adult tigers prefer to live and hunt alone</p>
+</div>
+
+<div class="fact-box">
+<h3>Cub Care</h3>
+<p>Mother tigers protect and teach their young</p>
+</div>
+
+<div class="fact-box">
+<h3>Top Predator</h3>
+<p>Tigers help balance prey populations in the wild</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="newsletter">
+
+<h2>Stay Updated With Tiger Stories</h2>
+
+<p>
+Subscribe for tiger discoveries, wildlife documentaries, conservation updates, and featured WildAtlas stories.
+</p>
+
+<form>
+<input type="email" placeholder="Enter your email address">
+<button type="submit">Subscribe</button>
+</form>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-col">
+<h3>WildAtlas</h3>
+<p>Discover wildlife, landscapes, reptiles, storms, and natural wonders across the world.</p>
+</div>
+
+<div class="footer-col">
+<h3>Explore</h3>
+<a href="index.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="dogs.html">Dogs</a>
+<a href="tiger.html">Tigers</a>
+<a href="mountains.html">Mountains</a>
+</div>
+
+<div class="footer-col">
+<h3>Topics</h3>
+<a href="volcano.html">Volcano</a>
+<a href="tsunami.html">Tsunami</a>
+<a href="sinkhole.html">Sinkhole</a>
+<a href="nature-articles.html">Nature Articles</a>
+<a href="membership.html">Membership</a>
+</div>
+
+<div class="footer-col">
+<h3>Support</h3>
+<a href="contact.html">Contact</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="help-center.html">Help Center</a>
+<a href="membership.html">Membership</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 WildAtlas. All rights reserved.
+</div>
+
+</footer>
+
+<script>
+const searchData = [
+  {
+    title: "Home",
+    description: "Explore wildlife, nature, oceans, mountains, and natural wonders.",
+    keywords: ["home", "wildatlas", "nature", "website", "explore"],
+    url: "index.html"
+  },
+  {
+    title: "Animals",
+    description: "Wild animals, habitats, predators, and fascinating animal stories.",
+    keywords: ["animals", "wildlife", "habitats", "lions", "elephants", "wolves", "tigers", "giraffes"],
+    url: "animals.html"
+  },
+  {
+    title: "Dogs",
+    description: "Dog habits, puppies, birth rate, breeds, and documentaries.",
+    keywords: ["dogs", "dog", "puppies", "breeds", "birth rate", "dog habits", "pets"],
+    url: "dogs.html"
+  },
+  {
+    title: "Tigers",
+    description: "Tiger habits, cubs, hunting, conservation, and documentaries.",
+    keywords: ["tiger", "tigers", "cubs", "big cat", "predator", "stripes", "hunting"],
+    url: "tiger.html"
+  },
+  {
+    title: "Spiders",
+    description: "Spider webs, hunting, silk, habitats, and spider documentaries.",
+    keywords: ["spiders", "spider", "web", "silk", "arachnid", "tarantula", "jumping spider"],
+    url: "spider.html"
+  },
+  {
+    title: "Lizards",
+    description: "Geckos, iguanas, Komodo dragons, and reptile stories.",
+    keywords: ["lizards", "lizard", "gecko", "iguana", "komodo dragon", "reptiles"],
+    url: "lizards.html"
+  },
+  {
+    title: "Dinosaurs",
+    description: "Prehistoric giants, fossils, extinction, and ancient life.",
+    keywords: ["dinosaurs", "dinosaur", "fossils", "prehistoric", "t rex", "triceratops", "extinction"],
+    url: "dinosaur.html"
+  },
+  {
+    title: "Insects",
+    description: "Tiny creatures, insect life, survival, and biodiversity.",
+    keywords: ["insects", "bugs", "small creatures", "biodiversity"],
+    url: "insects.html"
+  },
+  {
+    title: "Mountains",
+    description: "Peaks, rocky landscapes, elevation, and mountain ecosystems.",
+    keywords: ["mountains", "mountain", "peaks", "rocky", "climbing", "highlands"],
+    url: "mountains.html"
+  },
+  {
+    title: "Forests",
+    description: "Forest ecosystems, trees, wildlife, and green landscapes.",
+    keywords: ["forests", "forest", "trees", "jungle", "woodland", "rainforest"],
+    url: "forests.html"
+  },
+  {
+    title: "Volcano",
+    description: "Lava, eruptions, magma, ash clouds, and volcano science.",
+    keywords: ["volcano", "volcanoes", "lava", "eruption", "magma", "ash"],
+    url: "volcano.html"
+  },
+  {
+    title: "Tsunami",
+    description: "Ocean waves, underwater earthquakes, and coastal destruction.",
+    keywords: ["tsunami", "ocean wave", "underwater earthquake", "coastal flooding", "sea disaster"],
+    url: "tsunami.html"
+  },
+  {
+    title: "Tornadoes",
+    description: "Severe storms, rotating winds, tornado formation, and safety.",
+    keywords: ["tornado", "tornadoes", "storm", "twister", "wind", "weather"],
+    url: "tornado.html"
+  },
+  {
+    title: "Sinkholes",
+    description: "Ground collapse, underground erosion, and geology.",
+    keywords: ["sinkhole", "sinkholes", "ground collapse", "erosion", "geology"],
+    url: "sinkhole.html"
+  },
+  {
+    title: "Nature Articles",
+    description: "Explore stories about landscapes, weather, animals, and Earth.",
+    keywords: ["nature articles", "articles", "nature", "earth", "science", "stories"],
+    url: "nature-articles.html"
+  },
+  {
+    title: "Contact",
+    description: "Contact WildAtlas for support and general questions.",
+    keywords: ["contact", "support", "help", "reach us"],
+    url: "contact.html"
+  },
+  {
+    title: "Help Center",
+    description: "Find help, answers, and support information.",
+    keywords: ["help center", "help", "support", "questions"],
+    url: "help-center.html"
+  },
+  {
+    title: "Privacy Policy",
+    description: "Read the privacy and website policy information.",
+    keywords: ["privacy", "policy", "privacy policy"],
+    url: "privacy-policy.html"
+  },
+  {
+    title: "Membership",
+    description: "Join WildAtlas membership and subscription options.",
+    keywords: ["membership", "subscribe", "subscription", "premium", "join"],
+    url: "membership.html"
+  }
+];
+
+const searchInput = document.getElementById("siteSearch");
+const suggestionsBox = document.getElementById("searchSuggestions");
+
+function showSuggestions(results){
+  if(results.length === 0){
+    suggestionsBox.innerHTML = `<div class="no-result">No topics found</div>`;
+    suggestionsBox.style.display = "block";
+    return;
+  }
+
+  suggestionsBox.innerHTML = results.map(item => `
+    <a class="search-item" href="${item.url}">
+      <strong>${item.title}</strong>
+      <span>${item.description}</span>
+    </a>
+  `).join("");
+
+  suggestionsBox.style.display = "block";
+}
+
+function searchTopics(query){
+  const cleanQuery = query.toLowerCase().trim();
+
+  if(cleanQuery === ""){
+    suggestionsBox.style.display = "none";
+    suggestionsBox.innerHTML = "";
+    return;
+  }
+
+  const matches = searchData.filter(item => {
+    const inTitle = item.title.toLowerCase().includes(cleanQuery);
+    const inDescription = item.description.toLowerCase().includes(cleanQuery);
+    const inKeywords = item.keywords.some(keyword =>
+      keyword.toLowerCase().includes(cleanQuery)
+    );
+    return inTitle || inDescription || inKeywords;
+  });
+
+  showSuggestions(matches.slice(0, 8));
+}
+
+searchInput.addEventListener("input", function(){
+  searchTopics(this.value);
+});
+
+searchInput.addEventListener("focus", function(){
+  if(this.value.trim() !== ""){
+    searchTopics(this.value);
+  }
+});
+
+searchInput.addEventListener("keydown", function(e){
+  if(e.key === "Enter"){
+    const query = this.value.toLowerCase().trim();
+    const firstMatch = searchData.find(item => {
+      return (
+        item.title.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query) ||
+        item.keywords.some(keyword => keyword.toLowerCase().includes(query))
+      );
+    });
+
+    if(firstMatch){
+      window.location.href = firstMatch.url;
+    }
+  }
+});
+
+document.addEventListener("click", function(e){
+  if(!document.querySelector(".search-box").contains(e.target)){
+    suggestionsBox.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>

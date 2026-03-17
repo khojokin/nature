@@ -1,9 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Log In | WildAtlas</title>
+  <title>Terms of Service | WildAtlas</title>
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="shortcut icon" href="logo.png" />
 
@@ -39,7 +39,12 @@
     .btn-join{background:#d97706;color:#fff;box-shadow:0 4px 14px rgba(217,119,6,0.25);}
     .btn-join:hover{background:#b45309;transform:translateY(-1px);}
 
-    .search-wrap{position:relative;width:190px;flex-shrink:0;}
+    .search-wrap{
+      position:relative;
+      width:190px;
+      flex-shrink:0;
+    }
+
     .search-box{
       width:100%;
       padding:11px 14px;
@@ -50,6 +55,7 @@
       background:#f9fafb;
       color:#111827;
     }
+
     .search-box:focus{
       border-color:#14532d;
       box-shadow:0 0 0 3px rgba(20,83,45,0.08);
@@ -72,6 +78,7 @@
       overflow-y:auto;
       z-index:1200;
     }
+
     .search-results.show{display:block;}
 
     .search-result-item{
@@ -80,13 +87,16 @@
       border-radius:14px;
       color:#1f2937;
     }
+
     .search-result-item:hover{background:#ecfdf5;}
+
     .search-result-item strong{
       display:block;
       font-size:14px;
       color:#14532d;
       margin-bottom:3px;
     }
+
     .search-result-item span{
       display:block;
       font-size:12px;
@@ -95,11 +105,13 @@
       font-weight:700;
       text-transform:uppercase;
     }
+
     .search-result-item p{
       font-size:13px;
       color:#4b5563;
       line-height:1.4;
     }
+
     .search-empty{
       padding:14px;
       border-radius:14px;
@@ -109,207 +121,137 @@
       text-align:center;
     }
 
-    .login-hero{
-      min-height:calc(100vh - 76px);
+    .hero-terms{
+      padding:96px 6%;
+      color:#fff;
       background:
-        linear-gradient(rgba(17,24,39,0.62), rgba(17,24,39,0.62)),
-        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      display:flex;
-      align-items:center;
-      padding:70px 6%;
+        linear-gradient(rgba(17,24,39,0.72), rgba(17,24,39,0.72)),
+        url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      text-align:center;
     }
 
-    .login-wrap{
-      max-width:1180px;
-      margin:0 auto;
-      width:100%;
-      display:grid;
-      grid-template-columns:1fr 0.95fr;
-      gap:40px;
-      align-items:center;
-    }
-
-    .login-copy h1{
+    .hero-terms h1{
       font-size:clamp(36px,5vw,56px);
       line-height:1.08;
-      margin-bottom:18px;
-      color:#ffffff;
+      margin-bottom:16px;
       font-weight:800;
     }
 
-    .login-copy p{
-      color:#ecfdf5;
+    .hero-terms p{
+      max-width:760px;
+      margin:0 auto;
       font-size:clamp(16px,2vw,18px);
-      max-width:620px;
-      margin-bottom:28px;
+      color:#ecfdf5;
     }
 
-    .login-highlights{
+    .section{
+      padding:80px 6%;
+    }
+
+    .terms-wrap{
+      max-width:1180px;
+      margin:0 auto;
       display:grid;
-      gap:14px;
-      max-width:540px;
+      grid-template-columns:280px 1fr;
+      gap:30px;
+      align-items:start;
     }
 
-    .login-highlight{
-      background:rgba(255,255,255,0.1);
-      border:1px solid rgba(255,255,255,0.14);
-      backdrop-filter:blur(8px);
-      border-radius:18px;
-      padding:16px 18px;
-      color:#fff;
+    .terms-sidebar,
+    .terms-content{
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:24px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.04);
     }
 
-    .login-highlight strong{
+    .terms-sidebar{
+      padding:24px;
+      position:sticky;
+      top:100px;
+    }
+
+    .terms-sidebar h3{
+      font-size:22px;
+      color:#14532d;
+      margin-bottom:16px;
+    }
+
+    .terms-links{
+      display:grid;
+      gap:10px;
+    }
+
+    .terms-links a{
       display:block;
-      margin-bottom:4px;
-      color:#fbbf24;
+      padding:12px 14px;
+      border-radius:14px;
+      background:#f9fafb;
+      border:1px solid #eef2f7;
+      color:#14532d;
+      font-weight:700;
+      font-size:14px;
     }
 
-    .login-card{
-      background:rgba(255,255,255,0.96);
-      border:1px solid rgba(255,255,255,0.4);
-      border-radius:28px;
-      padding:32px;
-      box-shadow:0 22px 55px rgba(0,0,0,0.16);
+    .terms-links a:hover{
+      background:#ecfdf5;
     }
 
-    .login-card h2{
+    .terms-note{
+      margin-top:18px;
+      padding:16px;
+      background:#fff7ed;
+      border:1px solid #fed7aa;
+      border-radius:16px;
+      color:#7c2d12;
+      font-size:14px;
+    }
+
+    .terms-content{
+      padding:30px;
+    }
+
+    .terms-block{
+      margin-bottom:32px;
+      scroll-margin-top:110px;
+    }
+
+    .terms-block:last-child{
+      margin-bottom:0;
+    }
+
+    .terms-block h2{
       font-size:30px;
       color:#14532d;
       margin-bottom:10px;
+      line-height:1.2;
     }
 
-    .login-card p{
-      color:#6b7280;
-      margin-bottom:24px;
-      font-size:15px;
-    }
-
-    .login-form{
-      display:grid;
-      gap:16px;
-    }
-
-    .field{
-      display:grid;
-      gap:8px;
-    }
-
-    .field label{
-      font-size:14px;
-      font-weight:700;
-      color:#1f2937;
-    }
-
-    .field input{
-      width:100%;
-      padding:14px 16px;
-      border:1px solid #d1d5db;
-      border-radius:16px;
-      outline:none;
-      font-size:15px;
-      color:#111827;
-      background:#fff;
-    }
-
-    .field input:focus{
-      border-color:#14532d;
-      box-shadow:0 0 0 3px rgba(20,83,45,0.08);
-    }
-
-    .form-row{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:-2px;
-    }
-
-    .remember{
-      display:flex;
-      align-items:center;
-      gap:8px;
+    .terms-block p{
       color:#4b5563;
-      font-size:14px;
-    }
-
-    .remember input{
-      width:auto;
-    }
-
-    .forgot-link{
-      color:#14532d;
-      font-weight:700;
-      font-size:14px;
-    }
-
-    .login-submit{
-      width:100%;
-      padding:14px 18px;
-      border:none;
-      border-radius:999px;
-      background:#14532d;
-      color:#fff;
-      font-weight:700;
+      margin-bottom:12px;
       font-size:15px;
-      cursor:pointer;
-      margin-top:4px;
     }
 
-    .login-submit:hover{
-      background:#166534;
+    .terms-block ul{
+      padding-left:20px;
+      color:#4b5563;
     }
 
-    .divider{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin:8px 0 2px;
-      color:#9ca3af;
-      font-size:13px;
-      font-weight:700;
+    .terms-block li{
+      margin-bottom:10px;
     }
 
-    .divider::before,
-    .divider::after{
-      content:"";
-      flex:1;
-      height:1px;
-      background:#e5e7eb;
-    }
-
-    .social-row{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-    }
-
-    .social-btn{
-      padding:13px 14px;
-      border-radius:999px;
-      border:1px solid #d1d5db;
-      background:#fff;
-      color:#1f2937;
-      font-weight:700;
-      font-size:14px;
-      text-align:center;
-    }
-
-    .social-btn:hover{
+    .highlight-box{
       background:#f9fafb;
+      border:1px solid #e5e7eb;
+      border-radius:18px;
+      padding:18px;
+      margin-top:16px;
     }
 
-    .login-footer{
-      margin-top:18px;
-      text-align:center;
-      color:#6b7280;
-      font-size:14px;
-    }
-
-    .login-footer a{
+    .highlight-box strong{
       color:#14532d;
-      font-weight:700;
     }
 
     footer{background:#111827;color:#9ca3af;padding:80px 6% 40px;}
@@ -326,20 +268,14 @@
       .btn{padding:10px 16px;font-size:13px;}
     }
 
-    @media (max-width:1024px){
-      .login-wrap{
+    @media (max-width:980px){
+      .terms-wrap{
         grid-template-columns:1fr;
       }
 
-      .login-copy{
-        text-align:center;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-      }
-
-      .login-highlights{
-        width:100%;
+      .terms-sidebar{
+        position:relative;
+        top:0;
       }
     }
 
@@ -376,9 +312,10 @@
     }
 
     @media (max-width:640px){
-      .login-hero{padding:64px 5%;}
-      .login-card{padding:24px 18px;}
-      .social-row{grid-template-columns:1fr;}
+      .hero-terms{padding:82px 5%;}
+      .section{padding:64px 5%;}
+      .terms-content{padding:22px 18px;}
+      .terms-sidebar{padding:20px 18px;}
       .header-inner{gap:14px;}
       .logo-text h2{font-size:22px;}
       .logo-text span{font-size:11px;}
@@ -425,64 +362,119 @@
     </div>
   </header>
 
-  <section class="login-hero">
-    <div class="login-wrap">
-      <div class="login-copy">
-        <h1>Welcome Back to WildAtlas</h1>
-        <p>Sign in to continue exploring premium documentaries, exclusive archives, saved collections, and deeper nature resources across the platform.</p>
+  <section class="hero-terms">
+    <h1>Terms of Service</h1>
+    <p>These terms explain the rules, responsibilities, and conditions for using WildAtlas, including membership features, premium content, and general access to the platform.</p>
+  </section>
 
-        <div class="login-highlights">
-          <div class="login-highlight">
-            <strong>Premium access</strong>
-            Unlock exclusive media, guides, and deeper nature archives.
-          </div>
-          <div class="login-highlight">
-            <strong>Save your journey</strong>
-            Keep track of your favorite species, places, and learning paths.
-          </div>
-          <div class="login-highlight">
-            <strong>Continue discovery</strong>
-            Pick up right where you left off across WildAtlas.
+  <section class="section">
+    <div class="terms-wrap">
+      <aside class="terms-sidebar">
+        <h3>On This Page</h3>
+        <div class="terms-links">
+          <a href="#acceptance">Acceptance of Terms</a>
+          <a href="#use-of-site">Use of the Site</a>
+          <a href="#accounts">Accounts & Membership</a>
+          <a href="#premium-content">Premium Content</a>
+          <a href="#intellectual-property">Intellectual Property</a>
+          <a href="#user-conduct">User Conduct</a>
+          <a href="#disclaimers">Disclaimers</a>
+          <a href="#limitation">Limitation of Liability</a>
+          <a href="#changes">Changes to Terms</a>
+          <a href="#contact-terms">Contact Us</a>
+        </div>
+
+        <div class="terms-note">
+          These are starter terms for your WildAtlas website and can be updated later to match your exact membership system, payment tools, and legal requirements.
+        </div>
+      </aside>
+
+      <div class="terms-content">
+        <div class="terms-block" id="acceptance">
+          <h2>Acceptance of Terms</h2>
+          <p>By accessing or using WildAtlas, you agree to follow these Terms of Service. If you do not agree with these terms, you should not use the website or any related services.</p>
+          <p>These terms apply to visitors, free users, members, and anyone accessing WildAtlas content, features, archives, or premium services.</p>
+        </div>
+
+        <div class="terms-block" id="use-of-site">
+          <h2>Use of the Site</h2>
+          <p>WildAtlas is intended to provide educational, informational, and media-based content related to nature, wildlife, ecosystems, Earth systems, and environmental topics.</p>
+          <ul>
+            <li>You may browse, read, and use the site for personal, non-commercial purposes unless otherwise permitted.</li>
+            <li>You may not use the platform in a way that harms the website, other users, or WildAtlas operations.</li>
+            <li>You may not attempt to gain unauthorized access to restricted areas, user accounts, or premium content.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block" id="accounts">
+          <h2>Accounts & Membership</h2>
+          <p>Some parts of WildAtlas may require an account or paid membership. When creating an account, you are responsible for keeping your login information secure.</p>
+          <ul>
+            <li>You are responsible for activity that happens under your account.</li>
+            <li>You should provide accurate information when signing up.</li>
+            <li>We may suspend or remove accounts that violate these terms or misuse the platform.</li>
+          </ul>
+
+          <div class="highlight-box">
+            <p><strong>Important:</strong> If you later connect Stripe, PayPal, or another payment system, this section should be updated to reflect your real billing and subscription rules.</p>
           </div>
         </div>
-      </div>
 
-      <div class="login-card">
-        <h2>Log In</h2>
-        <p>Access your WildAtlas account and continue your journey through the natural world.</p>
+        <div class="terms-block" id="premium-content">
+          <h2>Premium Content</h2>
+          <p>WildAtlas may offer premium features such as exclusive documentaries, archives, field recordings, visual collections, and member-only resources.</p>
+          <ul>
+            <li>Premium content is for authorized members only.</li>
+            <li>You may not share, redistribute, or resell premium content without permission.</li>
+            <li>Membership access may be limited, paused, or cancelled if misuse is detected.</li>
+          </ul>
+        </div>
 
-        <form class="login-form">
-          <div class="field">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="Enter your email">
+        <div class="terms-block" id="intellectual-property">
+          <h2>Intellectual Property</h2>
+          <p>Unless otherwise stated, WildAtlas content — including text, graphics, branding, site design, media presentation, and curated materials — belongs to WildAtlas or its content providers.</p>
+          <p>You may not copy, reproduce, distribute, republish, or commercially exploit WildAtlas materials without prior written permission, except where allowed by law.</p>
+        </div>
+
+        <div class="terms-block" id="user-conduct">
+          <h2>User Conduct</h2>
+          <p>When using WildAtlas, you agree not to engage in behavior that disrupts, harms, or abuses the service.</p>
+          <ul>
+            <li>No unlawful, fraudulent, or abusive use of the site</li>
+            <li>No attempts to scrape, hack, damage, or overload the platform</li>
+            <li>No misuse of account systems, forms, search tools, or premium areas</li>
+            <li>No posting or sharing of harmful, offensive, or infringing material where user input is allowed</li>
+          </ul>
+        </div>
+
+        <div class="terms-block" id="disclaimers">
+          <h2>Disclaimers</h2>
+          <p>WildAtlas is provided on an “as is” and “as available” basis. While we aim to offer useful and accurate information, we do not guarantee that all content will always be complete, current, or error-free.</p>
+          <p>Nature, science, geography, conservation data, and environmental information may change over time, and some content may be simplified for educational use.</p>
+        </div>
+
+        <div class="terms-block" id="limitation">
+          <h2>Limitation of Liability</h2>
+          <p>To the maximum extent permitted by law, WildAtlas will not be liable for indirect, incidental, special, or consequential damages arising from your use of the site or reliance on its content.</p>
+          <p>This includes, where permitted, loss of data, interruption of service, account issues, or problems related to third-party tools, payments, or integrations.</p>
+        </div>
+
+        <div class="terms-block" id="changes">
+          <h2>Changes to Terms</h2>
+          <p>We may update these Terms of Service from time to time. Continued use of WildAtlas after updates means you accept the revised terms.</p>
+          <p>It is your responsibility to review this page occasionally for changes, especially if you use membership services or premium content.</p>
+        </div>
+
+        <div class="terms-block" id="contact-terms">
+          <h2>Contact Us</h2>
+          <p>If you have questions about these Terms of Service, your account, or your use of WildAtlas, you can contact us through the website’s support or contact page.</p>
+
+          <div class="highlight-box">
+            <p><strong>Email:</strong> support@wildatlas.com</p>
+            <p><strong>Support Page:</strong> contact.html</p>
+            <p><strong>Platform:</strong> WildAtlas</p>
           </div>
-
-          <div class="field">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password">
-          </div>
-
-          <div class="form-row">
-            <label class="remember">
-              <input type="checkbox">
-              Remember me
-            </label>
-            <a href="#" class="forgot-link">Forgot password?</a>
-          </div>
-
-          <button type="submit" class="login-submit">Log In</button>
-
-          <div class="divider">or continue with</div>
-
-          <div class="social-row">
-            <a href="#" class="social-btn">Google</a>
-            <a href="#" class="social-btn">Apple</a>
-          </div>
-
-          <div class="login-footer">
-            Don’t have an account? <a href="subscribe.html">Join WildAtlas</a>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
   </section>
@@ -515,7 +507,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>©️ 2026 WildAtlas. All rights reserved. Explore More With Membership.</p>
+      <p>©️ 2026 WildAtlas. All rights reserved. Use of this platform is subject to our terms.</p>
     </div>
   </footer>
 
@@ -594,20 +586,28 @@
         keywords: "library documentary documentaries media photography wildlife videos audio archive"
       },
       {
-        title: "Join WildAtlas",
-        type: "Membership",
-        category: "Account",
-        summary: "Unlock premium features, exclusive media, and member resources.",
-        link: "subscribe.html",
-        keywords: "join membership subscribe premium account"
-      },
-      {
         title: "Log In",
         type: "Account",
         category: "Access",
         summary: "Sign in to your WildAtlas account to continue your journey.",
         link: "login.html",
-        keywords: "login sign in account access member"
+        keywords: "login sign in member account access"
+      },
+      {
+        title: "Join WildAtlas",
+        type: "Membership",
+        category: "Premium",
+        summary: "Choose a membership plan and unlock premium WildAtlas content.",
+        link: "subscribe.html",
+        keywords: "join wildatlas subscribe membership premium plan"
+      },
+      {
+        title: "Terms of Service",
+        type: "Legal",
+        category: "Policy",
+        summary: "Read the rules, responsibilities, and conditions for using WildAtlas.",
+        link: "terms.html",
+        keywords: "terms service legal policy rules conditions wildatlas"
       }
     ];
 

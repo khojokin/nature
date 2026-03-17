@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildAtlas | Spiders</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#ffffff;
+color:#222;
+line-height:1.6;
+}
+
+/* NAVBAR */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+border-bottom:1px solid #e8e8e8;
+background:#fff;
+position:sticky;
+top:0;
+z-index:1000;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#1b5e20;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover,
+nav a.active{
+color:#1b5e20;
+}
+
+.nav-actions{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.search-box input{
+padding:10px 14px;
+border:1px solid #ccc;
+border-radius:25px;
+outline:none;
+width:180px;
+}
+
+.btn{
+padding:10px 18px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn-login{
+background:#f1f1f1;
+color:#222;
+}
+
+.btn-signup{
+background:#1b5e20;
+color:#fff;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+url('https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+color:white;
+text-align:center;
+padding:110px 8%;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+max-width:760px;
+margin:auto;
+color:#f3f3f3;
+}
+
+/* TOP DOCUMENTARY SECTION */
+
+.top-documentary{
+padding:60px 8% 20px;
+}
+
+.documentary-wrap{
+background:linear-gradient(135deg,#f6fbf6,#eaf5ea);
+border:1px solid #d8e8d8;
+border-radius:24px;
+padding:30px;
+box-shadow:0 8px 24px rgba(0,0,0,0.06);
+}
+
+.documentary-label{
+display:inline-block;
+background:#1b5e20;
+color:#fff;
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:700;
+margin-bottom:14px;
+}
+
+.documentary-wrap h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.documentary-wrap p{
+color:#555;
+max-width:900px;
+margin-bottom:25px;
+}
+
+.doc-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.doc-card{
+background:#fff;
+border-radius:18px;
+padding:22px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+border:1px solid #e8eeee;
+}
+
+.doc-card h3{
+color:#1b5e20;
+font-size:22px;
+margin-bottom:10px;
+}
+
+.doc-card p{
+color:#666;
+margin-bottom:14px;
+}
+
+.doc-card a{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* AD */
+
+.top-ad{
+background:linear-gradient(135deg,#edf7ed,#dff1df);
+border:1px solid #cfe5cf;
+border-radius:18px;
+padding:30px;
+text-align:center;
+margin:30px 8% 0;
+}
+
+.top-ad h3{
+color:#1b5e20;
+margin-bottom:10px;
+font-size:28px;
+}
+
+.top-ad p{
+color:#444;
+margin-bottom:15px;
+}
+
+.top-ad a{
+display:inline-block;
+padding:12px 22px;
+background:#1b5e20;
+color:#fff;
+text-decoration:none;
+border-radius:30px;
+font-weight:600;
+}
+
+/* SECTION */
+
+.section{
+padding:70px 8%;
+}
+
+.section-title{
+font-size:34px;
+margin-bottom:15px;
+color:#1b5e20;
+text-align:center;
+}
+
+.section-subtitle{
+text-align:center;
+color:#666;
+max-width:760px;
+margin:0 auto 45px;
+}
+
+/* GRID */
+
+.animals-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+/* CARD */
+
+.card{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+
+.card-content{
+padding:22px;
+}
+
+.tag{
+display:inline-block;
+background:#e8f5e9;
+color:#1b5e20;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+margin-bottom:12px;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+margin-bottom:16px;
+}
+
+.read-more{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* FACTS */
+
+.facts{
+background:#f4f7f4;
+}
+
+.facts-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.fact-box{
+background:#fff;
+padding:28px;
+border-radius:18px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+text-align:center;
+}
+
+.fact-box h3{
+font-size:30px;
+color:#1b5e20;
+margin-bottom:8px;
+}
+
+.fact-box p{
+color:#666;
+}
+
+/* SPLIT INFO */
+
+.info-split{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+align-items:center;
+}
+
+.info-split img{
+width:100%;
+border-radius:20px;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+}
+
+.info-text h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:15px;
+}
+
+.info-text p{
+color:#555;
+margin-bottom:14px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+background:#f4f7f4;
+text-align:center;
+padding:70px 8%;
+}
+
+.newsletter h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.newsletter p{
+color:#555;
+max-width:650px;
+margin:0 auto 24px;
+}
+
+.newsletter form{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.newsletter input{
+padding:14px 16px;
+width:320px;
+max-width:100%;
+border:1px solid #ccc;
+border-radius:30px;
+outline:none;
+}
+
+.newsletter button{
+padding:14px 24px;
+border:none;
+border-radius:30px;
+background:#1b5e20;
+color:#fff;
+font-weight:600;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:#ddd;
+padding:60px 8% 25px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-bottom:35px;
+}
+
+.footer-col h3{
+color:#fff;
+margin-bottom:15px;
+}
+
+.footer-col a{
+display:block;
+color:#bbb;
+text-decoration:none;
+margin-bottom:10px;
+}
+
+.footer-col a:hover{
+color:#fff;
+}
+
+.footer-col p{
+color:#bbb;
+}
+
+.footer-bottom{
+border-top:1px solid #2a2a2a;
+padding-top:20px;
+text-align:center;
+color:#999;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+.info-split{
+grid-template-columns:1fr;
+}
+}
+
+@media (max-width:768px){
+header{
+flex-direction:column;
+}
+
+nav{
+justify-content:center;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.search-box input{
+width:100%;
+}
+
+.documentary-wrap h2{
+font-size:28px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">WildAtlas</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="insects.html" class="active">Insects</a>
+<a href="mountains.html">Mountains</a>
+<a href="forests.html">Forests</a>
+<a href="nature-articles.html">Nature Articles</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div class="nav-actions">
+<div class="search-box">
+<input type="text" placeholder="Search spiders...">
+</div>
+
+<a href="login.html" class="btn btn-login">Log In</a>
+<a href="signup.html" class="btn btn-signup">Sign Up</a>
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>Spiders of the Wild</h1>
+
+<p>
+Explore the fascinating world of spiders — from web builders and hunters to tiny jumpers and giant tarantulas with incredible survival skills.
+</p>
+
+</section>
+
+<section class="top-documentary">
+
+<div class="documentary-wrap">
+<span class="documentary-label">Spider Documentary Section</span>
+<h2>Documentaries About Spiders, Webs, Hunting, and Survival</h2>
+<p>
+This top section gives visitors quick access to spider documentary topics, including how spiders build webs, catch prey, survive in different habitats, reproduce, and play important roles in ecosystems.
+</p>
+
+<div class="doc-grid">
+
+<div class="doc-card">
+<h3>Web Building</h3>
+<p>
+Learn how many spiders spin silk into traps, shelters, egg sacs, and safety lines using one of nature’s most remarkable materials.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Hunting and Prey</h3>
+<p>
+Explore how spiders hunt insects through webs, stealth, speed, vibration sensing, and venom designed to subdue prey.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Life Cycle and Reproduction</h3>
+<p>
+Discover how spiders grow from eggs to spiderlings to adults, and how mating, egg sacs, and survival vary among species.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Habitats Around the World</h3>
+<p>
+See how spiders live in forests, deserts, gardens, caves, and homes, adapting to many different environments.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<section class="top-ad">
+
+<h3>Advertise Nature & Science Brands</h3>
+
+<p>
+Promote wildlife documentaries, education projects, outdoor gear, science exhibits, and conservation campaigns to WildAtlas readers.
+</p>
+
+<a href="#">Advertise Here</a>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Featured Spider Stories</h2>
+
+<p class="section-subtitle">
+Discover how spiders survive, hunt, build webs, and help control insect populations in ecosystems around the world.
+</p>
+
+<div class="animals-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=1000&q=80" alt="Spider web">
+<div class="card-content">
+<span class="tag">Webs</span>
+<h3>Architects of Silk</h3>
+<p>Many spiders create elegant webs that trap prey and show just how precise their silk work can be.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=1000&q=80" alt="Jumping spider">
+<div class="card-content">
+<span class="tag">Jumping Spiders</span>
+<h3>Small but Smart Hunters</h3>
+<p>Jumping spiders rely on strong vision, quick movements, and accuracy instead of building capture webs.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1000&q=80" alt="Tarantula">
+<div class="card-content">
+<span class="tag">Tarantulas</span>
+<h3>Large and Mysterious</h3>
+<p>Tarantulas are among the most famous spiders, known for their size, hairy bodies, and hidden burrows.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1000&q=80" alt="Garden spider">
+<div class="card-content">
+<span class="tag">Garden Spiders</span>
+<h3>Helpers in Nature</h3>
+<p>Spiders in gardens can reduce insect numbers and play an important role in natural balance.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=80" alt="Spider habitat">
+<div class="card-content">
+<span class="tag">Habitats</span>
+<h3>Living Almost Everywhere</h3>
+<p>From rainforests to deserts, spiders have adapted to a huge range of climates and environments.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1000&q=80" alt="Spider hunting">
+<div class="card-content">
+<span class="tag">Predators</span>
+<h3>Silent Insect Hunters</h3>
+<p>Spiders are important predators that help control insect populations in many ecosystems.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="info-split">
+<img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80" alt="Spider in nature">
+
+<div class="info-text">
+<h2>Spider Behavior, Silk, and Survival</h2>
+<p>
+Spiders are arachnids, not insects, and they are known for having eight legs, multiple eyes, and silk-producing organs. Their silk can be used for webs, egg sacs, shelter, climbing, and escaping danger.
+</p>
+<p>
+Some spiders wait patiently in webs, while others actively hunt prey. Different species use different survival strategies, but many rely on vibration sensing, camouflage, speed, and venom to capture food.
+</p>
+<p>
+Although spiders are often feared, most are harmless to humans and are extremely useful in ecosystems because they help keep insect populations under control.
+</p>
+</div>
+</div>
+
+</section>
+
+<section class="section facts">
+
+<h2 class="section-title">Amazing Spider Facts</h2>
+
+<p class="section-subtitle">
+Spiders are diverse, widespread, and among the most effective small predators in the natural world.
+</p>
+
+<div class="facts-grid">
+
+<div class="fact-box">
+<h3>8 Legs</h3>
+<p>Spiders are arachnids with eight legs instead of six</p>
+</div>
+
+<div class="fact-box">
+<h3>Silk Makers</h3>
+<p>They use silk for webs, movement, shelter, and reproduction</p>
+</div>
+
+<div class="fact-box">
+<h3>Global</h3>
+<p>Spiders live in habitats across most parts of the world</p>
+</div>
+
+<div class="fact-box">
+<h3>Predators</h3>
+<p>They help control insect numbers in many ecosystems</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="newsletter">
+
+<h2>Stay Updated With Spider Stories</h2>
+
+<p>
+Subscribe for spider discoveries, nature documentaries, wildlife science, and featured WildAtlas stories.
+</p>
+
+<form>
+<input type="email" placeholder="Enter your email address">
+<button type="submit">Subscribe</button>
+</form>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-col">
+<h3>WildAtlas</h3>
+<p>Discover wildlife, insects, landscapes, and natural wonders across the world.</p>
+</div>
+
+<div class="footer-col">
+<h3>Explore</h3>
+<a href="index.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="insects.html">Insects</a>
+<a href="spider.html">Spiders</a>
+<a href="mountains.html">Mountains</a>
+</div>
+
+<div class="footer-col">
+<h3>Topics</h3>
+<a href="volcano.html">Volcano</a>
+<a href="tsunami.html">Tsunami</a>
+<a href="sinkhole.html">Sinkhole</a>
+<a href="nature-articles.html">Nature Articles</a>
+<a href="membership.html">Membership</a>
+</div>
+
+<div class="footer-col">
+<h3>Support</h3>
+<a href="contact.html">Contact</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="help-center.html">Help Center</a>
+<a href="membership.html">Membership</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 WildAtlas. All rights reserved.
+</div>
+
+</footer>
+
+</body>
+</html>

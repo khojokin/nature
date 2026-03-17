@@ -1,0 +1,1058 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildAtlas | Butterflies</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#ffffff;
+color:#222;
+line-height:1.6;
+}
+
+/* NAVBAR */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+border-bottom:1px solid #e8e8e8;
+background:#fff;
+position:sticky;
+top:0;
+z-index:1000;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.logo-wrap{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo-wrap img{
+width:54px;
+height:54px;
+object-fit:cover;
+border-radius:12px;
+background:#fff;
+border:2px solid #1b5e20;
+padding:2px;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#1b5e20;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover,
+nav a.active{
+color:#1b5e20;
+}
+
+.nav-actions{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+/* SEARCH */
+
+.search-box{
+position:relative;
+}
+
+.search-box input{
+padding:10px 14px;
+border:1px solid #ccc;
+border-radius:25px;
+outline:none;
+width:190px;
+}
+
+.search-suggestions{
+position:absolute;
+top:48px;
+left:0;
+width:320px;
+max-height:320px;
+overflow-y:auto;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:18px;
+box-shadow:0 10px 24px rgba(0,0,0,0.08);
+display:none;
+z-index:1500;
+padding:8px 0;
+}
+
+.search-item{
+display:block;
+padding:12px 16px;
+text-decoration:none;
+color:#333;
+border-bottom:1px solid #f1f1f1;
+transition:0.3s;
+}
+
+.search-item:last-child{
+border-bottom:none;
+}
+
+.search-item:hover{
+background:#f4f7f4;
+color:#1b5e20;
+}
+
+.search-item strong{
+display:block;
+font-size:15px;
+margin-bottom:4px;
+}
+
+.search-item span{
+font-size:13px;
+color:#666;
+display:block;
+}
+
+.no-result{
+padding:14px 16px;
+color:#666;
+font-size:14px;
+}
+
+.btn{
+padding:10px 18px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn-login{
+background:#f1f1f1;
+color:#222;
+}
+
+.btn-signup{
+background:#1b5e20;
+color:#fff;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+url('https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+color:white;
+text-align:center;
+padding:110px 8%;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+max-width:760px;
+margin:auto;
+color:#f3f3f3;
+}
+
+/* TOP DOCUMENTARY SECTION */
+
+.top-documentary{
+padding:60px 8% 20px;
+}
+
+.documentary-wrap{
+background:linear-gradient(135deg,#f6fbf6,#eaf5ea);
+border:1px solid #d8e8d8;
+border-radius:24px;
+padding:30px;
+box-shadow:0 8px 24px rgba(0,0,0,0.06);
+}
+
+.documentary-label{
+display:inline-block;
+background:#1b5e20;
+color:#fff;
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:700;
+margin-bottom:14px;
+}
+
+.documentary-wrap h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.documentary-wrap p{
+color:#555;
+max-width:900px;
+margin-bottom:25px;
+}
+
+.doc-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.doc-card{
+background:#fff;
+border-radius:18px;
+padding:22px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+border:1px solid #e8eeee;
+}
+
+.doc-card h3{
+color:#1b5e20;
+font-size:22px;
+margin-bottom:10px;
+}
+
+.doc-card p{
+color:#666;
+margin-bottom:14px;
+}
+
+.doc-card a{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* AD */
+
+.top-ad{
+background:linear-gradient(135deg,#edf7ed,#dff1df);
+border:1px solid #cfe5cf;
+border-radius:18px;
+padding:30px;
+text-align:center;
+margin:30px 8% 0;
+}
+
+.top-ad h3{
+color:#1b5e20;
+margin-bottom:10px;
+font-size:28px;
+}
+
+.top-ad p{
+color:#444;
+margin-bottom:15px;
+}
+
+.top-ad a{
+display:inline-block;
+padding:12px 22px;
+background:#1b5e20;
+color:#fff;
+text-decoration:none;
+border-radius:30px;
+font-weight:600;
+}
+
+/* SECTION */
+
+.section{
+padding:70px 8%;
+}
+
+.section-title{
+font-size:34px;
+margin-bottom:15px;
+color:#1b5e20;
+text-align:center;
+}
+
+.section-subtitle{
+text-align:center;
+color:#666;
+max-width:760px;
+margin:0 auto 45px;
+}
+
+/* GRID */
+
+.animals-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+/* CARD */
+
+.card{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+
+.card-content{
+padding:22px;
+}
+
+.tag{
+display:inline-block;
+background:#e8f5e9;
+color:#1b5e20;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+margin-bottom:12px;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+margin-bottom:16px;
+}
+
+.read-more{
+text-decoration:none;
+color:#1b5e20;
+font-weight:700;
+}
+
+/* FACTS */
+
+.facts{
+background:#f4f7f4;
+}
+
+.facts-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.fact-box{
+background:#fff;
+padding:28px;
+border-radius:18px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+text-align:center;
+}
+
+.fact-box h3{
+font-size:30px;
+color:#1b5e20;
+margin-bottom:8px;
+}
+
+.fact-box p{
+color:#666;
+}
+
+/* SPLIT INFO */
+
+.info-split{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+align-items:center;
+}
+
+.info-split img{
+width:100%;
+border-radius:20px;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+}
+
+.info-text h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:15px;
+}
+
+.info-text p{
+color:#555;
+margin-bottom:14px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+background:#f4f7f4;
+text-align:center;
+padding:70px 8%;
+}
+
+.newsletter h2{
+font-size:34px;
+color:#1b5e20;
+margin-bottom:12px;
+}
+
+.newsletter p{
+color:#555;
+max-width:650px;
+margin:0 auto 24px;
+}
+
+.newsletter form{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.newsletter input{
+padding:14px 16px;
+width:320px;
+max-width:100%;
+border:1px solid #ccc;
+border-radius:30px;
+outline:none;
+}
+
+.newsletter button{
+padding:14px 24px;
+border:none;
+border-radius:30px;
+background:#1b5e20;
+color:#fff;
+font-weight:600;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:#ddd;
+padding:60px 8% 25px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-bottom:35px;
+}
+
+.footer-col h3{
+color:#fff;
+margin-bottom:15px;
+}
+
+.footer-col a{
+display:block;
+color:#bbb;
+text-decoration:none;
+margin-bottom:10px;
+}
+
+.footer-col a:hover{
+color:#fff;
+}
+
+.footer-col p{
+color:#bbb;
+}
+
+.footer-bottom{
+border-top:1px solid #2a2a2a;
+padding-top:20px;
+text-align:center;
+color:#999;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+.info-split{
+grid-template-columns:1fr;
+}
+}
+
+@media (max-width:768px){
+header{
+flex-direction:column;
+}
+
+nav{
+justify-content:center;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.search-box input{
+width:100%;
+}
+
+.search-suggestions{
+width:100%;
+min-width:260px;
+}
+
+.documentary-wrap h2{
+font-size:28px;
+}
+
+.logo-wrap img{
+width:46px;
+height:46px;
+}
+
+.logo{
+font-size:24px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo-wrap">
+<img src="wildatlas.png" alt="WildAtlas Logo">
+<div class="logo">WildAtlas</div>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="insects.html" class="active">Insects</a>
+<a href="mountains.html">Mountains</a>
+<a href="forests.html">Forests</a>
+<a href="nature-articles.html">Nature Articles</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div class="nav-actions">
+<div class="search-box">
+<input type="text" id="siteSearch" placeholder="Search topics..." autocomplete="off">
+<div class="search-suggestions" id="searchSuggestions"></div>
+</div>
+
+<a href="login.html" class="btn btn-login">Log In</a>
+<a href="signup.html" class="btn btn-signup">Sign Up</a>
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>Butterflies of the Wild</h1>
+
+<p>
+Explore the world of butterflies — delicate insects known for colorful wings, incredible transformations, flower-filled habitats, and their important role in pollination across nature.
+</p>
+
+</section>
+
+<section class="top-documentary">
+
+<div class="documentary-wrap">
+<span class="documentary-label">Butterfly Documentary Section</span>
+<h2>Documentaries About Butterflies, Life Cycle, Wings, Habits, and Survival</h2>
+<p>
+This top section gives visitors quick access to butterfly documentary topics, including butterfly habitats, colorful wings, feeding habits, caterpillars, cocoons, migration, and how these fascinating insects survive in gardens, forests, and meadows.
+</p>
+
+<div class="doc-grid">
+
+<div class="doc-card">
+<h3>Butterfly Habits</h3>
+<p>
+Learn how butterflies feed on nectar, rest on leaves, seek sunlight, and move gently through flowers and natural habitats.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Eggs, Caterpillars, and Cocoons</h3>
+<p>
+Explore how butterflies begin as eggs, grow into caterpillars, form cocoons or chrysalises, and transform into adults.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Wings and Color Patterns</h3>
+<p>
+Discover how butterfly wings display brilliant colors and patterns used for camouflage, warning, and attracting mates.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+<div class="doc-card">
+<h3>Migration and Survival</h3>
+<p>
+See how some butterflies travel long distances and survive through seasonal changes, predators, and habitat challenges.
+</p>
+<a href="#">Watch Documentary →</a>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<section class="top-ad">
+
+<h3>Advertise Wildlife & Nature Brands</h3>
+
+<p>
+Promote butterfly documentaries, insect education, pollinator conservation, eco-tourism, and outdoor brands to WildAtlas readers.
+</p>
+
+<a href="#">Advertise Here</a>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Featured Butterfly Stories</h2>
+
+<p class="section-subtitle">
+Discover how butterflies transform, feed on flowers, survive in natural habitats, and remain among the most beautiful insects in the wild.
+</p>
+
+<div class="animals-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=1000&q=80" alt="Butterfly on flower">
+<div class="card-content">
+<span class="tag">Pollinator</span>
+<h3>Graceful Visitors of Flowers</h3>
+<p>Butterflies move from flower to flower feeding on nectar and helping with pollination.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1000&q=80" alt="Butterfly habitat">
+<div class="card-content">
+<span class="tag">Habitats</span>
+<h3>Gardens, Meadows, and Forests</h3>
+<p>Butterflies thrive in warm habitats filled with flowers, sunlight, and leaves for laying eggs.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1000&q=80" alt="Butterfly life cycle">
+<div class="card-content">
+<span class="tag">Life Cycle</span>
+<h3>From Caterpillar to Butterfly</h3>
+<p>The butterfly life cycle is one of nature’s most amazing transformations.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=1000&q=80" alt="Butterfly resting">
+<div class="card-content">
+<span class="tag">Behavior</span>
+<h3>Light Wings and Gentle Flight</h3>
+<p>Butterflies may seem delicate, but their movement and instincts help them survive in the wild.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1000&q=80" alt="Butterfly close up">
+<div class="card-content">
+<span class="tag">Patterns</span>
+<h3>Colors That Protect and Attract</h3>
+<p>Butterfly wing patterns can hide them from predators or help them stand out during mating.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1420593248178-d88870618ca0?auto=format&fit=crop&w=1000&q=80" alt="Butterfly survival">
+<div class="card-content">
+<span class="tag">Insect Life</span>
+<h3>Built for Beauty and Survival</h3>
+<p>Butterflies survive through camouflage, flight, sunlight, and their close link to plant life.</p>
+<a class="read-more" href="#">Read More →</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="info-split">
+<img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=1200&q=80" alt="Butterfly close up">
+
+<div class="info-text">
+<h2>Butterfly Habits, Life Cycle, and Natural Role</h2>
+<p>
+Butterflies are insects with delicate bodies, long antennae, and colorful wings covered in tiny scales. They spend much of their time feeding on nectar, resting on plants, and searching for safe places to lay eggs.
+</p>
+<p>
+A butterfly begins life as an egg, then becomes a caterpillar before entering a chrysalis stage. After transformation, it emerges as an adult butterfly ready to feed, reproduce, and continue the cycle.
+</p>
+<p>
+As pollinators, butterflies play an important role in healthy ecosystems. Their movement between flowers supports plant reproduction and adds beauty and biodiversity to natural environments.
+</p>
+</div>
+</div>
+
+</section>
+
+<section class="section facts">
+
+<h2 class="section-title">Amazing Butterfly Facts</h2>
+
+<p class="section-subtitle">
+Butterflies are colorful, delicate insects with remarkable life cycles and an important place in natural ecosystems.
+</p>
+
+<div class="facts-grid">
+
+<div class="fact-box">
+<h3>Colorful Wings</h3>
+<p>Butterflies are known for bright wing patterns made of tiny overlapping scales</p>
+</div>
+
+<div class="fact-box">
+<h3>Egg Layers</h3>
+<p>Female butterflies lay eggs on plants that caterpillars can feed on</p>
+</div>
+
+<div class="fact-box">
+<h3>Pollinators</h3>
+<p>They help move pollen from flower to flower while feeding on nectar</p>
+</div>
+
+<div class="fact-box">
+<h3>Metamorphosis</h3>
+<p>Butterflies go through one of the most famous transformations in nature</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="newsletter">
+
+<h2>Stay Updated With Butterfly Stories</h2>
+
+<p>
+Subscribe for butterfly discoveries, insect documentaries, wildlife updates, and featured WildAtlas stories.
+</p>
+
+<form>
+<input type="email" placeholder="Enter your email address">
+<button type="submit">Subscribe</button>
+</form>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-col">
+<h3>WildAtlas</h3>
+<p>Discover wildlife, landscapes, reptiles, storms, insects, and natural wonders across the world.</p>
+</div>
+
+<div class="footer-col">
+<h3>Explore</h3>
+<a href="index.html">Home</a>
+<a href="animals.html">Animals</a>
+<a href="dogs.html">Dogs</a>
+<a href="butterfly.html">Butterflies</a>
+<a href="mountains.html">Mountains</a>
+</div>
+
+<div class="footer-col">
+<h3>Topics</h3>
+<a href="volcano.html">Volcano</a>
+<a href="tsunami.html">Tsunami</a>
+<a href="sinkhole.html">Sinkhole</a>
+<a href="nature-articles.html">Nature Articles</a>
+<a href="membership.html">Membership</a>
+</div>
+
+<div class="footer-col">
+<h3>Support</h3>
+<a href="contact.html">Contact</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="help-center.html">Help Center</a>
+<a href="membership.html">Membership</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 WildAtlas. All rights reserved.
+</div>
+
+</footer>
+
+<script>
+const searchData = [
+  {
+    title: "Home",
+    description: "Explore wildlife, nature, oceans, mountains, and natural wonders.",
+    keywords: ["home", "wildatlas", "nature", "website", "explore"],
+    url: "index.html"
+  },
+  {
+    title: "Animals",
+    description: "Wild animals, habitats, predators, and fascinating animal stories.",
+    keywords: ["animals", "wildlife", "habitats", "lions", "elephants", "wolves", "tigers", "giraffes", "crocodiles", "butterflies"],
+    url: "animals.html"
+  },
+  {
+    title: "Dogs",
+    description: "Dog habits, puppies, birth rate, breeds, and documentaries.",
+    keywords: ["dogs", "dog", "puppies", "breeds", "birth rate", "dog habits", "pets"],
+    url: "dogs.html"
+  },
+  {
+    title: "Tigers",
+    description: "Tiger habits, cubs, hunting, conservation, and documentaries.",
+    keywords: ["tiger", "tigers", "cubs", "big cat", "predator", "stripes", "hunting"],
+    url: "tiger.html"
+  },
+  {
+    title: "Butterflies",
+    description: "Butterfly habits, wings, life cycle, flowers, and documentaries.",
+    keywords: ["butterfly", "butterflies", "wings", "caterpillar", "chrysalis", "pollination", "flowers"],
+    url: "butterfly.html"
+  },
+  {
+    title: "Spiders",
+    description: "Spider webs, hunting, silk, habitats, and spider documentaries.",
+    keywords: ["spiders", "spider", "web", "silk", "arachnid", "tarantula", "jumping spider"],
+    url: "spider.html"
+  },
+  {
+    title: "Lizards",
+    description: "Geckos, iguanas, Komodo dragons, and reptile stories.",
+    keywords: ["lizards", "lizard", "gecko", "iguana", "komodo dragon", "reptiles"],
+    url: "lizards.html"
+  },
+  {
+    title: "Dinosaurs",
+    description: "Prehistoric giants, fossils, extinction, and ancient life.",
+    keywords: ["dinosaurs", "dinosaur", "fossils", "prehistoric", "t rex", "triceratops", "extinction"],
+    url: "dinosaur.html"
+  },
+  {
+    title: "Insects",
+    description: "Tiny creatures, insect life, survival, and biodiversity.",
+    keywords: ["insects", "bugs", "small creatures", "biodiversity", "butterflies", "moths", "bees"],
+    url: "insects.html"
+  },
+  {
+    title: "Mountains",
+    description: "Peaks, rocky landscapes, elevation, and mountain ecosystems.",
+    keywords: ["mountains", "mountain", "peaks", "rocky", "climbing", "highlands"],
+    url: "mountains.html"
+  },
+  {
+    title: "Forests",
+    description: "Forest ecosystems, trees, wildlife, and green landscapes.",
+    keywords: ["forests", "forest", "trees", "jungle", "woodland", "rainforest"],
+    url: "forests.html"
+  },
+  {
+    title: "Volcano",
+    description: "Lava, eruptions, magma, ash clouds, and volcano science.",
+    keywords: ["volcano", "volcanoes", "lava", "eruption", "magma", "ash"],
+    url: "volcano.html"
+  },
+  {
+    title: "Tsunami",
+    description: "Ocean waves, underwater earthquakes, and coastal destruction.",
+    keywords: ["tsunami", "ocean wave", "underwater earthquake", "coastal flooding", "sea disaster"],
+    url: "tsunami.html"
+  },
+  {
+    title: "Tornadoes",
+    description: "Severe storms, rotating winds, tornado formation, and safety.",
+    keywords: ["tornado", "tornadoes", "storm", "twister", "wind", "weather"],
+    url: "tornado.html"
+  },
+  {
+    title: "Sinkholes",
+    description: "Ground collapse, underground erosion, and geology.",
+    keywords: ["sinkhole", "sinkholes", "ground collapse", "erosion", "geology"],
+    url: "sinkhole.html"
+  },
+  {
+    title: "Nature Articles",
+    description: "Explore stories about landscapes, weather, animals, and Earth.",
+    keywords: ["nature articles", "articles", "nature", "earth", "science", "stories"],
+    url: "nature-articles.html"
+  },
+  {
+    title: "Contact",
+    description: "Contact WildAtlas for support and general questions.",
+    keywords: ["contact", "support", "help", "reach us"],
+    url: "contact.html"
+  },
+  {
+    title: "Help Center",
+    description: "Find help, answers, and support information.",
+    keywords: ["help center", "help", "support", "questions"],
+    url: "help-center.html"
+  },
+  {
+    title: "Privacy Policy",
+    description: "Read the privacy and website policy information.",
+    keywords: ["privacy", "policy", "privacy policy"],
+    url: "privacy-policy.html"
+  },
+  {
+    title: "Membership",
+    description: "Join WildAtlas membership and subscription options.",
+    keywords: ["membership", "subscribe", "subscription", "premium", "join"],
+    url: "membership.html"
+  }
+];
+
+const searchInput = document.getElementById("siteSearch");
+const suggestionsBox = document.getElementById("searchSuggestions");
+
+function showSuggestions(results){
+  if(results.length === 0){
+    suggestionsBox.innerHTML = `<div class="no-result">No topics found</div>`;
+    suggestionsBox.style.display = "block";
+    return;
+  }
+
+  suggestionsBox.innerHTML = results.map(item => `
+    <a class="search-item" href="${item.url}">
+      <strong>${item.title}</strong>
+      <span>${item.description}</span>
+    </a>
+  `).join("");
+
+  suggestionsBox.style.display = "block";
+}
+
+function searchTopics(query){
+  const cleanQuery = query.toLowerCase().trim();
+
+  if(cleanQuery === ""){
+    suggestionsBox.style.display = "none";
+    suggestionsBox.innerHTML = "";
+    return;
+  }
+
+  const matches = searchData.filter(item => {
+    const inTitle = item.title.toLowerCase().includes(cleanQuery);
+    const inDescription = item.description.toLowerCase().includes(cleanQuery);
+    const inKeywords = item.keywords.some(keyword =>
+      keyword.toLowerCase().includes(cleanQuery)
+    );
+    return inTitle || inDescription || inKeywords;
+  });
+
+  showSuggestions(matches.slice(0, 8));
+}
+
+searchInput.addEventListener("input", function(){
+  searchTopics(this.value);
+});
+
+searchInput.addEventListener("focus", function(){
+  if(this.value.trim() !== ""){
+    searchTopics(this.value);
+  }
+});
+
+searchInput.addEventListener("keydown", function(e){
+  if(e.key === "Enter"){
+    const query = this.value.toLowerCase().trim();
+    const firstMatch = searchData.find(item => {
+      return (
+        item.title.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query) ||
+        item.keywords.some(keyword => keyword.toLowerCase().includes(query))
+      );
+    });
+
+    if(firstMatch){
+      window.location.href = firstMatch.url;
+    }
+  }
+});
+
+document.addEventListener("click", function(e){
+  if(!document.querySelector(".search-box").contains(e.target)){
+    suggestionsBox.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>

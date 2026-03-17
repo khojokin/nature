@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Join WildAtlas | Membership</title>
+  <title>Library | WildAtlas</title>
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="shortcut icon" href="logo.png" />
 
   <style>
+    /* --- Base Styles --- */
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;}
     html{scroll-behavior:smooth;}
     body{background:#ffffff;color:#1f2937;line-height:1.6;overflow-x:hidden;}
     img{max-width:100%;display:block;}
     a{text-decoration:none;transition:0.3s;}
 
+    /* --- Navigation & Header --- */
     header{padding:12px 6%;border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
     .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;}
     
@@ -39,6 +41,7 @@
     .btn-join{background:#d97706;color:#fff;box-shadow:0 4px 14px rgba(217,119,6,0.25);}
     .btn-join:hover{background:#b45309;transform:translateY(-1px);}
 
+    /* --- Search --- */
     .search-wrap{
       position:relative;
       width:190px;
@@ -121,48 +124,49 @@
       text-align:center;
     }
 
-    .hero-subscribe{
+    /* --- Hero --- */
+    .hero-library{
       padding:100px 6%;
       color:#fff;
       background:
         linear-gradient(rgba(17,24,39,0.68), rgba(17,24,39,0.68)),
-        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      min-height:500px;
+        url('https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      min-height:470px;
       display:flex;
       align-items:center;
     }
 
-    .hero-subscribe-inner{
+    .hero-library-inner{
       max-width:1180px;
       margin:0 auto;
       display:grid;
-      grid-template-columns:1.08fr 0.92fr;
+      grid-template-columns:1.1fr 0.9fr;
       gap:40px;
       align-items:center;
       width:100%;
     }
 
-    .hero-subscribe-text h1{
-      font-size:clamp(38px,5vw,58px);
-      line-height:1.05;
+    .hero-library-text h1{
+      font-size:clamp(36px,5vw,56px);
+      line-height:1.08;
       margin-bottom:18px;
       font-weight:800;
     }
 
-    .hero-subscribe-text p{
+    .hero-library-text p{
       font-size:clamp(16px,2vw,18px);
       color:#ecfdf5;
       max-width:650px;
       margin-bottom:28px;
     }
 
-    .hero-subscribe-btns{
+    .hero-library-btns{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
     }
 
-    .hero-subscribe-card{
+    .hero-library-card{
       background:rgba(255,255,255,0.1);
       backdrop-filter:blur(10px);
       border:1px solid rgba(255,255,255,0.18);
@@ -170,86 +174,95 @@
       padding:28px;
     }
 
-    .hero-subscribe-card h3{
+    .hero-library-card h3{
       font-size:21px;
       margin-bottom:18px;
     }
 
-    .hero-subscribe-stats{
+    .hero-library-stats{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:14px;
     }
 
-    .hero-subscribe-stat{
+    .hero-library-stat{
       background:rgba(255,255,255,0.08);
       padding:16px;
       border-radius:16px;
       text-align:center;
     }
 
-    .hero-subscribe-stat h4{
+    .hero-library-stat h4{
       font-size:24px;
       color:#fbbf24;
       margin-bottom:4px;
     }
 
-    .hero-subscribe-stat p{
+    .hero-library-stat p{
       font-size:12px;
       text-transform:uppercase;
       font-weight:700;
       opacity:0.86;
     }
 
+    /* --- Shared Sections --- */
     .section{padding:90px 6%;max-width:1240px;margin:0 auto;}
     .section-header{text-align:center;margin-bottom:60px;}
     .section-header h2{font-size:36px;color:#14532d;margin-bottom:15px;}
-    .section-header p{color:#6b7280;max-width:720px;margin:0 auto;}
+    .section-header p{color:#6b7280;max-width:700px;margin:0 auto;}
 
-    .plans-grid{
+    /* --- Library Grid --- */
+    .library-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
       gap:30px;
-      align-items:stretch;
     }
 
-    .plan-card{
+    .library-card{
       background:#fff;
-      border:1px solid #e5e7eb;
-      border-radius:28px;
-      padding:30px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.04);
-      position:relative;
+      border:1px solid #f3f4f6;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.03);
       display:flex;
       flex-direction:column;
+      position:relative;
     }
 
-    .plan-card:hover{
+    .library-card:hover{
       transform:translateY(-10px);
       box-shadow:0 20px 40px rgba(0,0,0,0.08);
     }
 
-    .plan-card.featured{
-      border:2px solid #14532d;
-      box-shadow:0 22px 45px rgba(20,83,45,0.10);
-    }
-
-    .plan-badge{
+    .premium-lock{
       position:absolute;
-      top:16px;
-      right:16px;
-      background:#14532d;
+      top:15px;
+      left:15px;
+      background:rgba(17,24,39,0.85);
       color:#fff;
       padding:6px 12px;
       border-radius:999px;
       font-size:11px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:0.4px;
+      font-weight:700;
+      z-index:2;
+      display:flex;
+      align-items:center;
+      gap:5px;
+      backdrop-filter:blur(4px);
     }
 
-    .plan-tag{
-      display:inline-block;
+    .library-img{height:220px;overflow:hidden;}
+    .library-img img{width:100%;height:100%;object-fit:cover;transition:0.5s;}
+    .library-card:hover .library-img img{transform:scale(1.08);}
+
+    .library-content{
+      padding:25px;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .library-tag{
       font-size:11px;
       text-transform:uppercase;
       font-weight:800;
@@ -258,102 +271,88 @@
       padding:4px 12px;
       border-radius:99px;
       width:fit-content;
-      margin-bottom:16px;
+      margin-bottom:15px;
     }
 
-    .plan-card h3{
-      font-size:28px;
+    .library-content h3{
+      font-size:22px;
+      margin-bottom:10px;
+      color:#111827;
+    }
+
+    .library-content p{
+      color:#6b7280;
+      font-size:15px;
+      margin-bottom:18px;
+      flex:1;
+    }
+
+    .library-data{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-bottom:18px;
+      background:#f9fafb;
+      padding:14px;
+      border-radius:14px;
+    }
+
+    .library-data span{
+      display:block;
+      font-size:11px;
+      color:#6b7280;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+
+    .library-data strong{
+      font-size:15px;
+      color:#1f2937;
+    }
+
+    .library-link{
+      font-weight:700;
+      color:#14532d;
+      display:flex;
+      align-items:center;
+      gap:5px;
+      font-size:14px;
+    }
+
+    /* --- Resource Types --- */
+    .resource-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:24px;
+    }
+
+    .resource-box{
+      background:#f9fafb;
+      border:1px solid #e5e7eb;
+      border-radius:22px;
+      padding:24px;
+      text-align:center;
+      box-shadow:0 8px 24px rgba(0,0,0,0.03);
+    }
+
+    .resource-box h3{
+      font-size:30px;
+      color:#14532d;
+      margin-bottom:8px;
+    }
+
+    .resource-box h4{
+      font-size:18px;
       color:#111827;
       margin-bottom:8px;
     }
 
-    .plan-desc{
-      color:#6b7280;
-      font-size:15px;
-      margin-bottom:20px;
-    }
-
-    .price-row{
-      display:flex;
-      align-items:flex-end;
-      gap:6px;
-      margin-bottom:20px;
-    }
-
-    .price-row strong{
-      font-size:42px;
-      color:#14532d;
-      line-height:1;
-    }
-
-    .price-row span{
+    .resource-box p{
       color:#6b7280;
       font-size:14px;
-      font-weight:700;
-      margin-bottom:6px;
     }
 
-    .plan-features{
-      display:grid;
-      gap:12px;
-      margin-bottom:24px;
-      flex:1;
-    }
-
-    .plan-features div{
-      background:#f9fafb;
-      border:1px solid #eef2f7;
-      padding:12px 14px;
-      border-radius:14px;
-      color:#374151;
-      font-size:14px;
-    }
-
-    .plan-btn{
-      width:100%;
-      text-align:center;
-      padding:14px 18px;
-      border-radius:999px;
-      font-weight:700;
-      font-size:15px;
-    }
-
-    .plan-btn.primary{
-      background:#14532d;
-      color:#fff;
-    }
-
-    .plan-btn.secondary{
-      background:#fff7ed;
-      color:#b45309;
-      border:1px solid #fed7aa;
-    }
-
-    .benefits-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:24px;
-    }
-
-    .benefit-box{
-      background:#f9fafb;
-      border:1px solid #e5e7eb;
-      border-radius:24px;
-      padding:24px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.03);
-    }
-
-    .benefit-box h3{
-      font-size:22px;
-      color:#14532d;
-      margin-bottom:10px;
-    }
-
-    .benefit-box p{
-      color:#6b7280;
-      font-size:15px;
-    }
-
+    /* --- Split Section --- */
     .split-section{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -383,99 +382,26 @@
       font-size:16px;
     }
 
-    .member-list{
+    .library-list{
       display:grid;
       gap:14px;
       margin-top:18px;
     }
 
-    .member-list-item{
+    .library-list-item{
       background:#f9fafb;
       border:1px solid #e5e7eb;
       border-radius:16px;
       padding:16px;
     }
 
-    .member-list-item strong{
+    .library-list-item strong{
       display:block;
       color:#14532d;
       margin-bottom:4px;
     }
 
-    .join-form-wrap{
-      max-width:760px;
-      margin:0 auto;
-      background:#fff;
-      border:1px solid #e5e7eb;
-      border-radius:28px;
-      padding:32px;
-      box-shadow:0 16px 40px rgba(0,0,0,0.05);
-    }
-
-    .join-form{
-      display:grid;
-      gap:16px;
-    }
-
-    .form-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .field{
-      display:grid;
-      gap:8px;
-    }
-
-    .field label{
-      font-size:14px;
-      font-weight:700;
-      color:#1f2937;
-    }
-
-    .field input,
-    .field select{
-      width:100%;
-      padding:14px 16px;
-      border:1px solid #d1d5db;
-      border-radius:16px;
-      outline:none;
-      font-size:15px;
-      color:#111827;
-      background:#fff;
-    }
-
-    .field input:focus,
-    .field select:focus{
-      border-color:#14532d;
-      box-shadow:0 0 0 3px rgba(20,83,45,0.08);
-    }
-
-    .join-submit{
-      width:100%;
-      padding:15px 18px;
-      border:none;
-      border-radius:999px;
-      background:#d97706;
-      color:#fff;
-      font-weight:700;
-      font-size:15px;
-      cursor:pointer;
-      margin-top:4px;
-    }
-
-    .join-submit:hover{
-      background:#b45309;
-    }
-
-    .join-note{
-      text-align:center;
-      color:#6b7280;
-      font-size:14px;
-      margin-top:8px;
-    }
-
+    /* --- Footer --- */
     footer{background:#111827;color:#9ca3af;padding:80px 6% 40px;}
     .footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:60px;}
     .footer-col h3{color:#fff;font-size:18px;margin-bottom:20px;}
@@ -483,6 +409,7 @@
     .footer-col a:hover{color:#fbbf24;}
     .footer-bottom{text-align:center;border-top:1px solid rgba(255,255,255,0.05);padding-top:40px;font-size:14px;}
 
+    /* --- Responsive --- */
     @media (max-width:1180px){
       .search-wrap{width:170px;}
       .search-box{padding:10px 13px;font-size:12.5px;}
@@ -491,12 +418,12 @@
     }
 
     @media (max-width:1024px){
-      .hero-subscribe-inner,
+      .hero-library-inner,
       .split-section{
         grid-template-columns:1fr;
       }
 
-      .hero-subscribe-text{
+      .hero-library-text{
         text-align:center;
         display:flex;
         flex-direction:column;
@@ -537,10 +464,8 @@
     }
 
     @media (max-width:640px){
-      .hero-subscribe{padding:84px 5%;}
+      .hero-library{padding:84px 5%;}
       .section{padding:70px 5%;}
-      .join-form-wrap{padding:24px 18px;}
-      .form-grid{grid-template-columns:1fr;}
       .header-inner{gap:14px;}
       .logo-text h2{font-size:22px;}
       .logo-text span{font-size:11px;}
@@ -572,7 +497,7 @@
           <a href="impact.html">Impact</a>
           <a href="places.html">Places</a>
           <a href="connection.html">Connection</a>
-          <a href="library.html">Library</a>
+          <a href="library.html" class="active">Library</a>
         </nav>
         
         <div class="nav-actions">
@@ -587,112 +512,150 @@
     </div>
   </header>
 
-  <section class="hero-subscribe">
-    <div class="hero-subscribe-inner">
-      <div class="hero-subscribe-text">
-        <h1>Join WildAtlas and Unlock the Full World of Nature</h1>
-        <p>Become a member to access premium documentaries, exclusive archives, deeper species insights, curated field guides, and a richer way to explore the natural world.</p>
-        <div class="hero-subscribe-btns">
-          <a href="#plans" class="btn" style="background:#14532d;color:#fff;">View Membership Plans</a>
-          <a href="#join-form" class="btn" style="background:rgba(255,255,255,0.18);color:#fff;backdrop-filter:blur(5px);">Join Now</a>
+  <section class="hero-library">
+    <div class="hero-library-inner">
+      <div class="hero-library-text">
+        <h1>The WildAtlas Library of Nature Media</h1>
+        <p>Access documentaries, photo collections, field recordings, visual guides, and curated resources that bring species, ecosystems, and Earth systems to life.</p>
+        <div class="hero-library-btns">
+          <a href="#featured-library" class="btn" style="background:#14532d;color:#fff;">Browse Library</a>
+          <a href="subscribe.html" class="btn" style="background:rgba(255,255,255,0.18);color:#fff;backdrop-filter:blur(5px);">Unlock Premium Media</a>
         </div>
       </div>
 
-      <div class="hero-subscribe-card">
-        <h3>Membership Dashboard</h3>
-        <div class="hero-subscribe-stats">
-          <div class="hero-subscribe-stat"><h4>320+</h4><p>Premium Films</p></div>
-          <div class="hero-subscribe-stat"><h4>1.8K</h4><p>Archives</p></div>
-          <div class="hero-subscribe-stat"><h4>120+</h4><p>Guides</p></div>
-          <div class="hero-subscribe-stat"><h4>24/7</h4><p>Access</p></div>
+      <div class="hero-library-card">
+        <h3>Library Dashboard</h3>
+        <div class="hero-library-stats">
+          <div class="hero-library-stat"><h4>4K+</h4><p>Media Assets</p></div>
+          <div class="hero-library-stat"><h4>320+</h4><p>Documentaries</p></div>
+          <div class="hero-library-stat"><h4>1.8K</h4><p>Photo Sets</p></div>
+          <div class="hero-library-stat"><h4>24/7</h4><p>Access</p></div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="plans">
-    <div class="section-header">
-      <h2>Choose Your Membership</h2>
-      <p>Select the WildAtlas plan that fits your level of curiosity, exploration, and access to deeper nature content.</p>
-    </div>
-
-    <div class="plans-grid">
-      <div class="plan-card">
-        <span class="plan-tag">Starter</span>
-        <h3>Explorer</h3>
-        <p class="plan-desc">A simple entry plan for casual readers and curious visitors.</p>
-        <div class="price-row">
-          <strong>Free</strong>
-          <span>/ forever</span>
-        </div>
-        <div class="plan-features">
-          <div>Access to standard site pages</div>
-          <div>Browse public species and biome content</div>
-          <div>Limited library previews</div>
-          <div>Basic search across WildAtlas</div>
-        </div>
-        <a href="#join-form" class="plan-btn secondary">Start Free</a>
-      </div>
-
-      <div class="plan-card featured">
-        <span class="plan-badge">Most Popular</span>
-        <span class="plan-tag">Premium</span>
-        <h3>WildAtlas Plus</h3>
-        <p class="plan-desc">For members who want the full experience with premium media and deeper access.</p>
-        <div class="price-row">
-          <strong>$9</strong>
-          <span>/ month</span>
-        </div>
-        <div class="plan-features">
-          <div>Full access to documentaries and premium library media</div>
-          <div>Exclusive archives, audio collections, and visual guides</div>
-          <div>Member-only field guides and deeper topic collections</div>
-          <div>Priority access to new WildAtlas releases</div>
-        </div>
-        <a href="#join-form" class="plan-btn primary">Join WildAtlas Plus</a>
-      </div>
-
-      <div class="plan-card">
-        <span class="plan-tag">Annual</span>
-        <h3>WildAtlas Pro</h3>
-        <p class="plan-desc">Best for dedicated learners, creators, and deep explorers of the natural world.</p>
-        <div class="price-row">
-          <strong>$79</strong>
-          <span>/ year</span>
-        </div>
-        <div class="plan-features">
-          <div>Everything in Plus</div>
-          <div>Priority member collections and seasonal releases</div>
-          <div>Expanded premium archive access</div>
-          <div>Best-value yearly membership option</div>
-        </div>
-        <a href="#join-form" class="plan-btn secondary">Choose Pro</a>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="section-header">
-      <h2>Why Join WildAtlas?</h2>
-      <p>Membership is designed to turn WildAtlas into more than a website — it becomes a richer, deeper nature learning experience.</p>
+      <h2>Resource Collections</h2>
+      <p>Explore the core media types inside the WildAtlas Library, from cinematic documentaries to field sounds and visual archives.</p>
     </div>
 
-    <div class="benefits-grid">
-      <div class="benefit-box">
-        <h3>Premium Media</h3>
-        <p>Watch exclusive documentaries, explore private photo archives, and listen to curated field recordings.</p>
+    <div class="resource-grid">
+      <div class="resource-box">
+        <h3>320+</h3>
+        <h4>Documentaries</h4>
+        <p>Long-form nature films covering wildlife, climate, geology, and conservation stories.</p>
       </div>
-      <div class="benefit-box">
-        <h3>Deeper Learning</h3>
-        <p>Go beyond summaries with advanced guides, richer collections, and more complete topic pathways.</p>
+      <div class="resource-box">
+        <h3>1.8K</h3>
+        <h4>Photo Archives</h4>
+        <p>High-quality stills of species, habitats, landscapes, and ecological moments.</p>
       </div>
-      <div class="benefit-box">
-        <h3>Better Discovery</h3>
-        <p>Use membership to unlock the most immersive parts of WildAtlas across species, places, Earth, and connection.</p>
+      <div class="resource-box">
+        <h3>680+</h3>
+        <h4>Field Recordings</h4>
+        <p>Natural soundscapes including forests, birdsong, oceans, storms, and wetlands.</p>
       </div>
-      <div class="benefit-box">
-        <h3>Growing Archive</h3>
-        <p>As WildAtlas expands, members gain access to new media, special collections, and premium updates.</p>
+      <div class="resource-box">
+        <h3>540+</h3>
+        <h4>Visual Guides</h4>
+        <p>Short educational media pieces designed for quick learning and visual reference.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="featured-library">
+    <div class="section-header">
+      <h2>Featured Library Entries</h2>
+      <p>Discover a curated mix of premium documentaries, visual collections, and natural world resources from across the WildAtlas platform.</p>
+    </div>
+
+    <div class="library-grid">
+      <div class="library-card">
+        <div class="library-img"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Deep Ocean Documentary"></div>
+        <div class="library-content">
+          <span class="library-tag">Documentary</span>
+          <h3>Deep Ocean Worlds</h3>
+          <p>A cinematic dive into the abyss, revealing bioluminescent creatures, seafloor systems, and the strange life of the deep sea.</p>
+          <div class="library-data">
+            <div><span>Format</span><strong>Video</strong></div>
+            <div><span>Topic</span><strong>Marine Life</strong></div>
+          </div>
+          <a href="#" class="library-link">Watch Documentary →</a>
+        </div>
+      </div>
+
+      <div class="library-card">
+        <div class="premium-lock"><span>🔒</span> PRO ACCESS</div>
+        <div class="library-img"><img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=600&q=80" alt="Rainforest Archive"></div>
+        <div class="library-content">
+          <span class="library-tag">Photo Archive</span>
+          <h3>Rainforest Life Collection</h3>
+          <p>A premium visual archive of canopy layers, insects, birds, and rainforest mammals captured across tropical ecosystems.</p>
+          <div class="library-data">
+            <div><span>Format</span><strong>Images</strong></div>
+            <div><span>Topic</span><strong>Rainforest</strong></div>
+          </div>
+          <a href="subscribe.html" class="library-link" style="color:#d97706;">Unlock Archive →</a>
+        </div>
+      </div>
+
+      <div class="library-card">
+        <div class="library-img"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Geology Guide"></div>
+        <div class="library-content">
+          <span class="library-tag">Visual Guide</span>
+          <h3>Earth Layers Explained</h3>
+          <p>A clear visual guide to the crust, mantle, core, tectonic motion, and the powerful geological systems shaping our planet.</p>
+          <div class="library-data">
+            <div><span>Format</span><strong>Guide</strong></div>
+            <div><span>Topic</span><strong>Geology</strong></div>
+          </div>
+          <a href="#" class="library-link">Open Guide →</a>
+        </div>
+      </div>
+
+      <div class="library-card">
+        <div class="premium-lock"><span>🔒</span> PRO ACCESS</div>
+        <div class="library-img"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Coastal Soundscapes"></div>
+        <div class="library-content">
+          <span class="library-tag">Field Recording</span>
+          <h3>Coastal Soundscapes</h3>
+          <p>Listen to waves, seabirds, wind, reefs, and shoreline life through immersive field recordings from different coasts around the world.</p>
+          <div class="library-data">
+            <div><span>Format</span><strong>Audio</strong></div>
+            <div><span>Topic</span><strong>Coasts</strong></div>
+          </div>
+          <a href="subscribe.html" class="library-link" style="color:#d97706;">Unlock Audio Set →</a>
+        </div>
+      </div>
+
+      <div class="library-card">
+        <div class="library-img"><img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=600&q=80" alt="Big Cats Collection"></div>
+        <div class="library-content">
+          <span class="library-tag">Wildlife Collection</span>
+          <h3>Big Cats of the World</h3>
+          <p>A visual and documentary collection focused on tigers, lions, leopards, jaguars, and snow leopards across different habitats.</p>
+          <div class="library-data">
+            <div><span>Format</span><strong>Mixed Media</strong></div>
+            <div><span>Topic</span><strong>Predators</strong></div>
+          </div>
+          <a href="#" class="library-link">Explore Collection →</a>
+        </div>
+      </div>
+
+      <div class="library-card">
+        <div class="library-img"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Mountains Documentary"></div>
+        <div class="library-content">
+          <span class="library-tag">Documentary</span>
+          <h3>Mountains in Motion</h3>
+          <p>A high-altitude documentary exploring glaciers, avalanches, alpine ecology, tectonic uplift, and mountain survival strategies.</p>
+          <div class="library-data">
+            <div><span>Format</span><strong>Video</strong></div>
+            <div><span>Topic</span><strong>Mountains</strong></div>
+          </div>
+          <a href="#" class="library-link">Watch Feature →</a>
+        </div>
       </div>
     </div>
   </section>
@@ -700,76 +663,29 @@
   <section class="section">
     <div class="split-section">
       <div class="split-image">
-        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80" alt="WildAtlas membership">
+        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80" alt="Nature media library">
       </div>
 
       <div class="split-text">
-        <h2>A Membership Built for Curious Minds</h2>
-        <p>WildAtlas membership is for readers who want more than surface-level content. It opens the door to richer visual storytelling, expanded learning, and a more immersive relationship with nature knowledge.</p>
-        <p>Whether you are drawn to wildlife, ecosystems, places, environmental change, or media archives, membership helps you go deeper with every visit.</p>
+        <h2>Why the Library Matters in WildAtlas</h2>
+        <p>The Library transforms information into experience. It gives readers a deeper, more memorable way to understand species, habitats, Earth systems, and conservation stories.</p>
+        <p>By combining documentaries, field recordings, archives, and visual guides, WildAtlas helps nature feel more vivid, real, and connected across the whole platform.</p>
 
-        <div class="member-list">
-          <div class="member-list-item">
-            <strong>Go beyond previews</strong>
-            <span>Unlock the premium side of WildAtlas with exclusive documentaries, archives, and deeper access.</span>
+        <div class="library-list">
+          <div class="library-list-item">
+            <strong>Turn knowledge into immersion</strong>
+            <span>Media helps readers see, hear, and feel the natural world beyond text alone.</span>
           </div>
-          <div class="member-list-item">
-            <strong>Keep exploring in one place</strong>
-            <span>Bring together species, places, Earth systems, and visual resources inside one growing platform.</span>
+          <div class="library-list-item">
+            <strong>Support deeper discovery</strong>
+            <span>Visual and audio resources make complex ecosystems and behaviours easier to understand.</span>
           </div>
-          <div class="member-list-item">
-            <strong>Support future growth</strong>
-            <span>Membership helps WildAtlas expand into a larger, richer nature encyclopedia over time.</span>
+          <div class="library-list-item">
+            <strong>Create a premium experience</strong>
+            <span>The Library is a natural place for documentaries, member archives, and exclusive content.</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="join-form">
-    <div class="section-header">
-      <h2>Join WildAtlas Today</h2>
-      <p>Create your membership and start exploring premium nature content across the platform.</p>
-    </div>
-
-    <div class="join-form-wrap">
-      <form class="join-form">
-        <div class="form-grid">
-          <div class="field">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" placeholder="Enter your first name">
-          </div>
-
-          <div class="field">
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" placeholder="Enter your last name">
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="joinEmail">Email Address</label>
-          <input type="email" id="joinEmail" placeholder="Enter your email">
-        </div>
-
-        <div class="form-grid">
-          <div class="field">
-            <label for="joinPassword">Password</label>
-            <input type="password" id="joinPassword" placeholder="Create a password">
-          </div>
-
-          <div class="field">
-            <label for="planSelect">Choose Plan</label>
-            <select id="planSelect">
-              <option>Explorer - Free</option>
-              <option>WildAtlas Plus - $9/month</option>
-              <option>WildAtlas Pro - $79/year</option>
-            </select>
-          </div>
-        </div>
-
-        <button type="submit" class="join-submit">Create Membership</button>
-        <div class="join-note">Already have an account? <a href="login.html" style="color:#14532d;font-weight:700;">Log in here</a></div>
-      </form>
     </div>
   </section>
 
@@ -801,7 +717,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>©️ 2026 WildAtlas. All rights reserved. Membership for Deeper Discovery.</p>
+      <p>©️ 2026 WildAtlas. All rights reserved. Preserving Nature Through Media.</p>
     </div>
   </footer>
 
@@ -880,28 +796,28 @@
         keywords: "library documentary documentaries media photography wildlife videos audio archive"
       },
       {
-        title: "Log In",
-        type: "Account",
-        category: "Access",
-        summary: "Sign in to your WildAtlas account to continue your journey.",
-        link: "login.html",
-        keywords: "login sign in member account access"
+        title: "Deep Ocean Worlds",
+        type: "Documentary",
+        category: "Marine Life",
+        summary: "A cinematic dive into abyssal ecosystems and deep-sea species.",
+        link: "library.html",
+        keywords: "deep ocean documentary marine life abyssal sea creatures"
       },
       {
-        title: "Join WildAtlas",
-        type: "Membership",
-        category: "Premium",
-        summary: "Choose a membership plan and unlock premium WildAtlas content.",
-        link: "subscribe.html",
-        keywords: "join wildatlas subscribe membership premium plan"
+        title: "Rainforest Life Collection",
+        type: "Photo Archive",
+        category: "Rainforest",
+        summary: "A premium visual collection of tropical forest species and ecosystems.",
+        link: "library.html",
+        keywords: "rainforest archive photos jungle tropical species canopy"
       },
       {
-        title: "WildAtlas Plus",
-        type: "Membership Plan",
-        category: "Premium",
-        summary: "Monthly premium membership with full access to exclusive media and archives.",
-        link: "subscribe.html",
-        keywords: "plus plan monthly subscription premium documentaries"
+        title: "Coastal Soundscapes",
+        type: "Field Recording",
+        category: "Coasts",
+        summary: "Immersive audio recordings of waves, seabirds, reefs, and shoreline life.",
+        link: "library.html",
+        keywords: "coastal soundscapes audio waves seabirds shoreline field recording"
       }
     ];
 
